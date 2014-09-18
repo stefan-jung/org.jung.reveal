@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="dita2reveal" default="dita2reveal" basedir="." xmlns:dita="http://dita-ot.sourceforge.net">
+    
+    <!-- ================================================== 
+        Properties
+    -->
+
+    <!-- Set the DITA-OT directory. -->
+    <property name="dita.dir" value="${file.separator}home${file.separator}stefan${file.separator}workspace${file.separator}dita-publishing${file.separator}dita-ot${file.separator}DITA-OT1.8.5"/>
+
+    <!-- Output directory of the reveal transformation -->
+    <property name="output.dir" value="${dita.dir}${file.separator}..${file.separator}..${file.separator}out${file.separator}reveal"/>
+    
+    <!-- Download URL of the reveal.js archive. -->
+    <property name="reveal.download.url" value="https://github.com/hakimel/reveal.js/archive/2.6.2.zip"/>
+    
+    <!-- Filename of the reveal.js archive. -->
+    <property name="reveal.archive.name" value="2.6.2.zip"/>
+    
+    <!-- Directory name of reveal.js that is stored in the downloaded archive. -->
+    <property name="reveal.directory.name" value="reveal.js-2.6.2"/>
+
+
+    <!-- ================================================== 
+        Imports
+    -->
+
+    <!-- Import the DITA-OT Ant targets. -->
+    <import file="${dita.dir}${file.separator}build.xml"/>
+
+
+    <!-- ================================================== 
+        Targets
+    -->
+    
+    <!-- The main target -->
+    <target name="dita2reveal" unless="noMap" depends="clean_reveal,dita2xhtml,prepare_reveal,move_and_rename_files" dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>
+    
+    <target name="reveal" unless="noMap" depends="dita2reveal" />
+
+    <!-- Clean the out/reveal directory -->
+    <target name="clean_reveal">
+        <delete dir="${output.dir}" />
+    </target>
+    
+    <!-- Download reveal.js -->
+    <target name="download_reveal">
+        <get verbose="on" src="${reveal.download.url}" dest="${dita.plugin.com.github.xephon2.revealjs.dir}" skipexisting="true"></get>
+    </target>
+    
+    <!-- Extract reveal.js -->
+    <target name="extract_reveal" depends="download_reveal">
+        <unzip src="${dita.plugin.com.github.xephon2.revealjs.dir}${file.separator}${reveal.archive.name}" dest="${dita.plugin.com.github.xephon2.revealjs.dir}"></unzip>
+    </target>
+    
+    <!-- Copy reveal.js to the output directory -->
+    <target name="copy_reveal" depends="extract_reveal">
+        <copy todir="${output.dir}">
+            <fileset dir="${dita.plugin.com.github.xephon2.revealjs.dir}${file.separator}${reveal.directory.name}"/>
+        </copy>        
+    </target>
+    
+    <!-- Meta target for reveal.js processing. -->
+    <target name="prepare_reveal" depends="download_reveal,extract_reveal,copy_reveal"/>
+
+    <!-- Replace the index.html of reveal.js with the generated index.html from the ditamap -->
+    <target name="move_and_rename_files">
+        <delete file="${output.dir}${file.separator}index.html"></delete>
+        <move file="${output.dir}${file.separator}${dita.map.filename.root}.html" tofile="${output.dir}${file.separator}index.html"/>
+    </target>
+    
+</project>
