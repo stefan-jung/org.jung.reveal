@@ -134,7 +134,7 @@
                     Wrap first level topics in a
                     single <section> element.
                 -->
-                <section>First level
+                <section>
                     <xsl:apply-templates/>
                 </section>
             </xsl:when>
