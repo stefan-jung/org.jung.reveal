@@ -34,6 +34,12 @@
     -->
     <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
 
+    <!--
+        Add parameters to the transformation process.
+        Parameters can, for example, switch the CSS stylesheet.
+    -->
+    <feature extension="dita.conductor.xhtml.param" file="insertParameters.xml"/>
+
     <!-- Override the standard XHTML processing with a XSL stylesheet. -->
     <feature extension="dita.xsl.xhtml" file="xsl/reveal.xsl"/>
 </plugin>

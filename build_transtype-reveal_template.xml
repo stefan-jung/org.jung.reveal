@@ -28,6 +28,13 @@
     <!-- Import the DITA-OT Ant targets. -->
     <import file="${dita.dir}${file.separator}build.xml"/>
 
+    
+
+    <!-- ==================================================
+         Extension Points
+    -->
+    <extension-point id="com.github.xephon2.revealjs.param" name="Custom parameters"/>
+
 
     <!-- ================================================== 
         Targets
@@ -68,5 +75,5 @@
         <delete file="${output.dir}${file.separator}index.html"></delete>
         <move file="${output.dir}${file.separator}${dita.map.filename.root}.html" tofile="${output.dir}${file.separator}index.html"/>
     </target>
-    
+
 </project>
