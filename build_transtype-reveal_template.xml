@@ -69,11 +69,15 @@
     
     <!-- Meta target for reveal.js processing. -->
     <target name="prepare_reveal" depends="download_reveal,extract_reveal,copy_reveal"/>
+    
+    <!-- XSLT transformation -->
+    <!--<target name="transform_html">
+        <xslt in="${input}" out="${output.dir}${file.separator}${dita.map.filename.root}.html" style="${dita.plugin.com.sophos.tocjs.dir}/xsl/tocjs.xsl">
+    </target> -->
 
     <!-- Replace the index.html of reveal.js with the generated index.html from the ditamap -->
     <target name="move_and_rename_files">
         <delete file="${output.dir}${file.separator}index.html"></delete>
         <move file="${output.dir}${file.separator}${dita.map.filename.root}.html" tofile="${output.dir}${file.separator}index.html"/>
     </target>
-
 </project>

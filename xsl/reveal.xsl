@@ -333,11 +333,11 @@
         </body>
     </xsl:template>    
     
-    <xsl:template match="//topic | //task | //concept">
+    <xsl:template match="*[contains(@class, ' topic/topic ')]">
         
         <xsl:choose>
             <xsl:when test="
-                not(parent::topic | parent::task | parent::concept)"> 
+                not(parent::*[contains(@class, ' topic/topic ')])"> 
                 <!--
                     Process first level topics.
                 --> 
@@ -348,9 +348,9 @@
             <!--
                 Process a single second level topic without siblings.
             -->
-            <xsl:when test="(count(ancestor::topic | ancestor::task | ancestor::concept) = 1)
-                and (count(preceding-sibling::topic | preceding-sibling::task | preceding-sibling::concept) = 0)
-                and (count(following-sibling::topic | following-sibling::task | following-sibling::concept) = 0)">
+            <xsl:when test="(count(ancestor::*[contains(@class, ' topic/topic ')]) = 1)
+                and (count(preceding-sibling::*[contains(@class, ' topic/topic ')]) = 0)
+                and (count(following-sibling::*[contains(@class, ' topic/topic ')]) = 0)">
                 <xsl:text disable-output-escaping="yes">&lt;/section&gt;
                 </xsl:text>
                 <xsl:text disable-output-escaping="yes">&lt;section&gt;
@@ -362,9 +362,9 @@
             <!--
                 Process the first second level topic.
             -->
-            <xsl:when test="(count(ancestor::topic | ancestor::task | ancestor::concept) = 1)
-                and (count(preceding-sibling::topic | preceding-sibling::task | preceding-sibling::concept) = 0)
-                and (count(following-sibling::topic | following-sibling::task | following-sibling::concept) >= 1)">
+            <xsl:when test="(count(ancestor::*[contains(@class, ' topic/topic ')]) = 1)
+                and (count(preceding-sibling::*[contains(@class, ' topic/topic ')]) = 0)
+                and (count(following-sibling::*[contains(@class, ' topic/topic ')]) >= 1)">
                 <xsl:text disable-output-escaping="yes">&lt;/section&gt;
                 </xsl:text>
                 <xsl:text disable-output-escaping="yes">&lt;section&gt;
@@ -376,9 +376,9 @@
             <!--
                 Process all second level topics, that are neither the first nor the last one.
             -->
-            <xsl:when test="(count(ancestor::topic | ancestor::task | ancestor::concept) = 1)
-                and (count(preceding-sibling::topic | preceding-sibling::task | preceding-sibling::concept) >= 1)
-                and (count(following-sibling::topic | following-sibling::task | following-sibling::concept) >= 1)">
+            <xsl:when test="(count(ancestor::*[contains(@class, ' topic/topic ')]) = 1)
+                and (count(preceding-sibling::*[contains(@class, ' topic/topic ')]) >= 1)
+                and (count(following-sibling::*[contains(@class, ' topic/topic ')]) >= 1)">
                 <xsl:text disable-output-escaping="yes">&lt;/section&gt;
                 </xsl:text>
                 <xsl:apply-templates/>
@@ -388,9 +388,9 @@
             <!--
                 Process the last second level topic.
             -->
-            <xsl:when test="(count(ancestor::topic | ancestor::task | ancestor:: concept) = 1)
-                and (count(preceding-sibling::topic | preceding-sibling::task | preceding-sibling::concept) >= 1)
-                and (count(following-sibling::topic | following-sibling::task | preceding-sibling::concept) = 0)">
+            <xsl:when test="(count(ancestor::*[contains(@class, ' topic/topic ')]) = 1)
+                and (count(preceding-sibling::*[contains(@class, ' topic/topic ')]) >= 1)
+                and (count(following-sibling::*[contains(@class, ' topic/topic ')]) = 0)">
                 <section>
                     <xsl:apply-templates/>
                     <xsl:text disable-output-escaping="yes">&lt;/section&gt;
@@ -402,9 +402,9 @@
             <!--
                 Process a single deeper level topic without siblings.
             -->
-            <xsl:when test="(count(ancestor::topic | ancestor::task | ancestor::concept) >= 2)
-                and (count(preceding-sibling::topic | preceding-sibling::task | preceding-sibling::concept) = 0)
-                and (count(following-sibling::topic | following-sibling::task | following-sibling::concept) = 0)">
+            <xsl:when test="(count(ancestor::*[contains(@class, ' topic/topic ')]) >= 2)
+                and (count(preceding-sibling::*[contains(@class, ' topic/topic ')]) = 0)
+                and (count(following-sibling::*[contains(@class, ' topic/topic ')]) = 0)">
                 <xsl:text disable-output-escaping="yes">&lt;/section&gt;
                 </xsl:text>
                 <xsl:text disable-output-escaping="yes">&lt;section&gt;
@@ -414,9 +414,9 @@
             <!--
                 Process the first deeper level topic.
             -->
-            <xsl:when test="(count(ancestor::topic | ancestor::task | ancestor::concept) >= 2)
-                and (count(preceding-sibling::topic | preceding-sibling::task | preceding-sibling::concept) = 0)
-                and (count(following-sibling::topic | following-sibling::task | following-sibling::concept) >= 1)">
+            <xsl:when test="(count(ancestor::*[contains(@class, ' topic/topic ')]) >= 2)
+                and (count(preceding-sibling::*[contains(@class, ' topic/topic ')]) = 0)
+                and (count(following-sibling::*[contains(@class, ' topic/topic ')]) >= 1)">
                 <xsl:text disable-output-escaping="yes">&lt;/section&gt;
                 </xsl:text>
                 <xsl:text disable-output-escaping="yes">&lt;section&gt;
@@ -426,9 +426,9 @@
             <!--
                 Process all deeper level topics, that are neither the first nor the last one.
             -->
-            <xsl:when test="(count(ancestor::topic | ancestor::task | ancestor::concept) >= 2)
-                and (count(preceding-sibling::topic | preceding-sibling::task | preceding-sibling::concept) >= 1)
-                and (count(following-sibling::topic | following-sibling::task | following-sibling::concept) >= 1)">
+            <xsl:when test="(count(ancestor::*[contains(@class, ' topic/topic ')]) >= 2)
+                and (count(preceding-sibling::*[contains(@class, ' topic/topic ')]) >= 1)
+                and (count(following-sibling::*[contains(@class, ' topic/topic ')]) >= 1)">
                 <xsl:text disable-output-escaping="yes">&lt;/section&gt;
                 </xsl:text>
                 <xsl:text disable-output-escaping="yes">&lt;section&gt;
@@ -438,9 +438,9 @@
             <!--
                 Process the last deeper level topic.
             -->
-            <xsl:when test="(count(ancestor::topic | ancestor::task | ancestor::concept) >= 2)
-                and (count(preceding-sibling::topic | preceding-sibling::task | preceding-sibling::concept) >= 1)
-                and (count(following-sibling::topic | following-sibling::task | following-sibling::concept) = 0)">
+            <xsl:when test="(count(ancestor::*[contains(@class, ' topic/topic ')]) >= 2)
+                and (count(preceding-sibling::*[contains(@class, ' topic/topic ')]) >= 1)
+                and (count(following-sibling::*[contains(@class, ' topic/topic ')]) = 0)">
                 <xsl:text disable-output-escaping="yes">&lt;/section&gt;
                 </xsl:text>
                 <xsl:text disable-output-escaping="yes">&lt;section&gt;
