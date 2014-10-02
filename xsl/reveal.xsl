@@ -333,6 +333,9 @@
         </body>
     </xsl:template>    
     
+    <!--
+        Process topics.
+    -->
     <xsl:template match="*[contains(@class, ' topic/topic ')]">
         
         <xsl:choose>
@@ -379,11 +382,22 @@
             <xsl:when test="(count(ancestor::*[contains(@class, ' topic/topic ')]) = 1)
                 and (count(preceding-sibling::*[contains(@class, ' topic/topic ')]) >= 1)
                 and (count(following-sibling::*[contains(@class, ' topic/topic ')]) >= 1)">
+
                 <xsl:text disable-output-escaping="yes">&lt;/section&gt;
                 </xsl:text>
-                <xsl:apply-templates/>
                 <xsl:text disable-output-escaping="yes">&lt;section&gt;
                 </xsl:text>
+                <section>
+                    <xsl:apply-templates/>
+                </section>
+
+<!--                <xsl:text disable-output-escaping="yes">&lt;/section&gt;
+                </xsl:text>
+                <section><h1>SUMMER</h1>
+                    <xsl:apply-templates/>
+                </section>
+<!-\-                <xsl:text disable-output-escaping="yes">&lt;section&gt;
+                </xsl:text>-\->-->
             </xsl:when>
             <!--
                 Process the last second level topic.

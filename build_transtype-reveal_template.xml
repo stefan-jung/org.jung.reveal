@@ -6,7 +6,7 @@
     -->
 
     <!-- Set the DITA-OT directory. -->
-    <property name="dita.dir" value="${file.separator}home${file.separator}stefan${file.separator}workspace${file.separator}dita-publishing${file.separator}dita-ot${file.separator}DITA-OT1.8.5"/>
+<!--    <property name="dita.dir" value="${file.separator}home${file.separator}stefan${file.separator}workspace${file.separator}dita-publishing${file.separator}dita-ot${file.separator}DITA-OT1.8.5"/>-->
 
     <!-- Output directory of the reveal transformation -->
     <property name="output.dir" value="${dita.dir}${file.separator}..${file.separator}..${file.separator}out${file.separator}reveal"/>
@@ -42,6 +42,7 @@
     
     <!-- The main target -->
     <target name="dita2reveal" unless="noMap" depends="clean_reveal,dita2xhtml,prepare_reveal,move_and_rename_files" dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>
+<!--    <target name="dita2reveal" unless="noMap" depends="clean_reveal,dita2xhtml,prepare_reveal" dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>-->
     
     <target name="reveal" unless="noMap" depends="dita2reveal" />
 
