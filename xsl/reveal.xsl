@@ -4,15 +4,19 @@
     the JavaScript framework 'reveal.js'. -->
 
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <!-- Import the DITA2XHTML stylesheet to use its templates -->
+    <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
     
     <xsl:output omit-xml-declaration="yes" indent="yes"/>
-<!--    <xsl:output method="html" encoding="utf-8" indent="yes"/>-->
+    <!-- <xsl:output method="html" encoding="utf-8" indent="yes"/> -->
     
     <!-- The parameter $newline defines a line break. -->
     <xsl:variable name="newline">
         <xsl:text>
         </xsl:text>
     </xsl:variable>
+
 
 
 
@@ -132,6 +136,10 @@
         **************************************************
     -->
     
+    <xsl:template match="/">
+        <xsl:apply-imports/>
+    </xsl:template>
+    
     <!--
         This template overrides the template 'generateDefaultCopyright' defined in the 'dita2htmlimpl.xsl'.
         It injects multiple <meta> elements, some CSS and some JavaScript.
@@ -223,6 +231,7 @@
     <xsl:template name="chapterBody">
         <xsl:apply-templates select="." mode="chapterBody"/>
     </xsl:template>
+    
     <xsl:template match="*" mode="chapterBody">
         <body onload="removeDisposableSections()"> 
             <xsl:value-of select="$newline"/>
@@ -339,14 +348,27 @@
     <xsl:template match="*[contains(@class, ' topic/topic ')]">
         
         <xsl:choose>
-            <xsl:when test="
-                not(parent::*[contains(@class, ' topic/topic ')])"> 
-                <!--
-                    Process first level topics.
-                --> 
+            <!--
+                Process first level topics without children.
+            -->
+            <xsl:when test="not(parent::*[contains(@class, ' topic/topic ')])
+                and (count(child::*[contains(@class, ' topic/topic ')]) = 0)">
                 <section>
                     <xsl:apply-templates/>
                 </section>
+            </xsl:when>
+            <!--
+                Process first level topics with children.
+            -->
+            <xsl:when test="not(parent::*[contains(@class, ' topic/topic ')])
+                and (count(child::*[contains(@class, ' topic/topic ')]) >= 1)">
+<!--                <section>-->
+                <xsl:text disable-output-escaping="yes">&lt;section&gt;
+                    </xsl:text>
+                <xsl:text disable-output-escaping="yes">&lt;section&gt;
+                    </xsl:text>
+                    <xsl:apply-templates/>
+                <!--</section>-->
             </xsl:when>
             <!--
                 Process a single second level topic without siblings.
@@ -355,12 +377,12 @@
                 and (count(preceding-sibling::*[contains(@class, ' topic/topic ')]) = 0)
                 and (count(following-sibling::*[contains(@class, ' topic/topic ')]) = 0)">
                 <xsl:text disable-output-escaping="yes">&lt;/section&gt;
-                </xsl:text>
-                <xsl:text disable-output-escaping="yes">&lt;section&gt;
-                </xsl:text>
+                    </xsl:text>
                 <section>
                     <xsl:apply-templates/>
                 </section>     
+                <xsl:text disable-output-escaping="yes">&lt;/section&gt;
+                </xsl:text>
             </xsl:when>
             <!--
                 Process the first second level topic.
@@ -368,10 +390,12 @@
             <xsl:when test="(count(ancestor::*[contains(@class, ' topic/topic ')]) = 1)
                 and (count(preceding-sibling::*[contains(@class, ' topic/topic ')]) = 0)
                 and (count(following-sibling::*[contains(@class, ' topic/topic ')]) >= 1)">
+<!--                <xsl:text disable-output-escaping="yes">&lt;/section&gt;
+                </xsl:text>-->
+<!--                <xsl:text disable-output-escaping="yes">&lt;section&gt;-->
+                <!--</xsl:text>-->
                 <xsl:text disable-output-escaping="yes">&lt;/section&gt;
-                </xsl:text>
-                <xsl:text disable-output-escaping="yes">&lt;section&gt;
-                </xsl:text>
+                    </xsl:text>
                 <section>
                     <xsl:apply-templates/>
                 </section>     
@@ -383,21 +407,13 @@
                 and (count(preceding-sibling::*[contains(@class, ' topic/topic ')]) >= 1)
                 and (count(following-sibling::*[contains(@class, ' topic/topic ')]) >= 1)">
 
-                <xsl:text disable-output-escaping="yes">&lt;/section&gt;
+<!--                <xsl:text disable-output-escaping="yes">&lt;/section&gt;
                 </xsl:text>
                 <xsl:text disable-output-escaping="yes">&lt;section&gt;
-                </xsl:text>
+-->                <!--</xsl:text>-->
                 <section>
                     <xsl:apply-templates/>
                 </section>
-
-<!--                <xsl:text disable-output-escaping="yes">&lt;/section&gt;
-                </xsl:text>
-                <section><h1>SUMMER</h1>
-                    <xsl:apply-templates/>
-                </section>
-<!-\-                <xsl:text disable-output-escaping="yes">&lt;section&gt;
-                </xsl:text>-\->-->
             </xsl:when>
             <!--
                 Process the last second level topic.
@@ -407,11 +423,13 @@
                 and (count(following-sibling::*[contains(@class, ' topic/topic ')]) = 0)">
                 <section>
                     <xsl:apply-templates/>
-                    <xsl:text disable-output-escaping="yes">&lt;/section&gt;
+<!--                    <xsl:text disable-output-escaping="yes">&lt;/section&gt;
                     </xsl:text>
                     <xsl:text disable-output-escaping="yes">&lt;section class="disposableSection"&gt;
-                    </xsl:text>
+-->                    <!--</xsl:text>-->
                 </section>
+                <xsl:text disable-output-escaping="yes">&lt;/section&gt;
+                </xsl:text>
             </xsl:when>
             <!--
                 Process a single deeper level topic without siblings.
@@ -466,5 +484,34 @@
                 <xsl:value-of select="."/>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    
+    <!--
+        Process codeblock elements.
+        The attribute @outputclass defines the highlighted language.
+        The highlighting is done by highlight.js.
+        The supported languages of highlight.js can be found here:
+        https://highlightjs.org/static/test.html
+        
+        You have to prefix the value of the @outputclass element with 'language-'.
+        Example:
+        To highlight a Java-codeblock, write:
+        <codeblock outputclass="language-java">
+            public void foo(String bar) {
+                System.out.println("bar");
+            }
+        </codeblock>
+    -->
+    <xsl:template match="//codeblock">
+        <pre>
+            <code>
+                <xsl:if test="@outputclass">
+                    <xsl:attribute name="class">
+                        hljs <xsl:value-of select="substring-after(@outputclass,'language-')" />
+                    </xsl:attribute>
+                </xsl:if>
+                <xsl:apply-templates/>
+            </code>
+        </pre>
     </xsl:template>
 </xsl:stylesheet>

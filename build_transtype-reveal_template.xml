@@ -5,9 +5,6 @@
         Properties
     -->
 
-    <!-- Set the DITA-OT directory. -->
-<!--    <property name="dita.dir" value="${file.separator}home${file.separator}stefan${file.separator}workspace${file.separator}dita-publishing${file.separator}dita-ot${file.separator}DITA-OT1.8.5"/>-->
-
     <!-- Output directory of the reveal transformation -->
     <property name="output.dir" value="${dita.dir}${file.separator}..${file.separator}..${file.separator}out${file.separator}reveal"/>
     
@@ -19,15 +16,6 @@
     
     <!-- Directory name of reveal.js that is stored in the downloaded archive. -->
     <property name="reveal.directory.name" value="reveal.js-2.6.2"/>
-
-
-    <!-- ================================================== 
-        Imports
-    -->
-
-    <!-- Import the DITA-OT Ant targets. -->
-    <import file="${dita.dir}${file.separator}build.xml"/>
-
     
 
     <!-- ==================================================
@@ -41,8 +29,15 @@
     -->
     
     <!-- The main target -->
-    <target name="dita2reveal" unless="noMap" depends="clean_reveal,dita2xhtml,prepare_reveal,move_and_rename_files" dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>
-<!--    <target name="dita2reveal" unless="noMap" depends="clean_reveal,dita2xhtml,prepare_reveal" dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>-->
+    <target name="dita2reveal" unless="noMap" depends="
+        clean_reveal,
+        build-init,
+        preprocess,
+        dita.map.xhtml,
+        copy-css,
+        dita.topics.xhtml.reveal,
+        prepare_reveal
+        " dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>
     
     <target name="reveal" unless="noMap" depends="dita2reveal" />
 
@@ -50,35 +45,140 @@
     <target name="clean_reveal">
         <delete dir="${output.dir}" />
     </target>
-    
-    <!-- Download reveal.js -->
-    <target name="download_reveal">
-        <get verbose="on" src="${reveal.download.url}" dest="${dita.plugin.com.github.xephon2.revealjs.dir}" skipexisting="true"></get>
-    </target>
-    
-    <!-- Extract reveal.js -->
-    <target name="extract_reveal" depends="download_reveal">
-        <unzip src="${dita.plugin.com.github.xephon2.revealjs.dir}${file.separator}${reveal.archive.name}" dest="${dita.plugin.com.github.xephon2.revealjs.dir}"></unzip>
-    </target>
-    
-    <!-- Copy reveal.js to the output directory -->
-    <target name="copy_reveal" depends="extract_reveal">
+        
+    <!-- Meta target for reveal.js processing. -->
+    <target name="prepare_reveal">
+        <get
+            verbose="on"
+            src="${reveal.download.url}"
+            dest="${dita.plugin.com.github.xephon2.revealjs.dir}"
+            skipexisting="true"/>
+        <unzip
+            src="${dita.plugin.com.github.xephon2.revealjs.dir}${file.separator}${reveal.archive.name}"
+            dest="${dita.plugin.com.github.xephon2.revealjs.dir}"/>
         <copy todir="${output.dir}">
             <fileset dir="${dita.plugin.com.github.xephon2.revealjs.dir}${file.separator}${reveal.directory.name}"/>
-        </copy>        
+        </copy>
+        <delete file="${output.dir}${file.separator}index.html"/>
+        <move file="${output.dir}${file.separator}${dita.map.filename.root}.html" tofile="${output.dir}${file.separator}index.html"/>
     </target>
     
-    <!-- Meta target for reveal.js processing. -->
-    <target name="prepare_reveal" depends="download_reveal,extract_reveal,copy_reveal"/>
-    
     <!-- XSLT transformation -->
-    <!--<target name="transform_html">
-        <xslt in="${input}" out="${output.dir}${file.separator}${dita.map.filename.root}.html" style="${dita.plugin.com.sophos.tocjs.dir}/xsl/tocjs.xsl">
-    </target> -->
-
-    <!-- Replace the index.html of reveal.js with the generated index.html from the ditamap -->
-    <target name="move_and_rename_files">
-        <delete file="${output.dir}${file.separator}index.html"></delete>
-        <move file="${output.dir}${file.separator}${dita.map.filename.root}.html" tofile="${output.dir}${file.separator}index.html"/>
+    <target name="transform_html">
+        <xslt
+            extension="dita.xsl.xhtml"
+            in="${args.input}"
+            out="${output.dir}${file.separator}index.html"
+            style="${dita.plugin.com.github.xephon2.revealjs.dir}${file.separator}xsl${file.separator}reveal.xsl"/>
+    </target>
+    
+    <target name="dita.topics.xhtml.reveal" depends="dita.xhtml.init" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">
+        <xslt basedir="${dita.temp.dir}" destdir="${output.dir}" includesfile="${dita.temp.dir}${file.separator}${fullditatopicfile}" reloadstylesheet="${dita.xhtml.reloadstylesheet}" classpathref="dost.class.path" extension="${out.ext}" style="${dita.plugin.com.github.xephon2.revealjs.dir}/xsl/reveal.xsl" filenameparameter="FILENAME" filedirparameter="FILEDIR">
+            <excludesfile name="${dita.temp.dir}${file.separator}${resourceonlyfile}" if="resourceonlyfile"></excludesfile>
+            <includesfile name="${dita.temp.dir}${file.separator}${chunkedtopicfile}" if="chunkedtopicfile"></includesfile>
+            <param name="TRANSTYPE" expression="${transtype}"></param>
+            <param name="DITAEXT" expression="${dita.ext}" if="dita.ext"></param>
+            <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
+            <param name="CSS" expression="${args.css.file}" if="args.css.file"></param>
+            <param name="CSSPATH" expression="${user.csspath}" if="user.csspath"></param>
+            <param name="HDF" expression="${args.hdf}" if="args.hdf"></param>
+            <param name="HDR" expression="${args.hdr}" if="args.hdr"></param>
+            <param name="FTR" expression="${args.ftr}" if="args.ftr"></param>
+            <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
+            <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
+            <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if="args.gen.task.lbl"></param>
+            <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if="args.xhtml.classattr"></param>
+            <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"></param>
+            <param name="include.rellinks" expression="${include.rellinks}"></param>
+            <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
+            <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
+            <param name="genDefMeta" expression="${args.gen.default.meta}" if="args.gen.default.meta"></param>
+            <param name="OUTEXT" expression="${out.ext}" if="out.ext"></param>
+            <param name="BASEDIR" expression="${basedir}"></param>
+            <param name="OUTPUTDIR" expression="${output.dir}"></param>
+            <param name="DBG" expression="${args.debug}" if="args.debug"></param>
+            <param name="DEFAULTLANG" expression="${args.default.language}" if="args.default.language"></param>
+            
+            <!-- Switch the style sheet. -->
+            <param name="reveal.css" expression="${args.reveal.css}" if="args.reveal.css"></param>
+            
+            <!-- Display controls in the bottom right corner. -->
+            <param name="reveal.controls" expression="${args.reveal.controls}" if="args.reveal.controls"></param>
+            
+            <!-- Display a presentation progress bar. -->
+            <param name="reveal.progress" expression="${args.reveal.progress}" if="args.reveal.progress"></param>
+            
+            <!-- Display the page number of the current slide. -->
+            <param name="reveal.slidenumber" expression="${args.reveal.slidenumber}" if="args.reveal.slidenumber"></param>
+            
+            <!-- Push each slide change to the browser history. -->
+            <param name="reveal.history" expression="${args.reveal.history}" if="args.reveal.history"></param>
+            
+            <!-- Enable keyboard shortcuts for navigation. -->
+            <param name="reveal.keyboard" expression="${args.reveal.keyboard}" if="args.reveal.keyboard"></param>
+            
+            <!-- Enable the slide overview mode. -->
+            <param name="reveal.overview" expression="${args.reveal.overview}" if="args.reveal.overview"></param>
+            
+            <!-- Vertical centering of slides. -->
+            <param name="reveal.center" expression="${args.reveal.center}" if="args.reveal.center"></param>
+            
+            <!-- Enables touch navigation on devices with touch input. -->
+            <param name="reveal.touch" expression="${args.reveal.touch}" if="args.reveal.touch"></param>
+            
+            <!-- Loop the presentation. -->
+            <param name="reveal.loop" expression="${args.reveal.loop}" if="args.reveal.loop"></param>
+            
+            <!-- Change the presentation direction to be right-to-left. -->
+            <param name="reveal.rtl" expression="${args.reveal.rtl}" if="args.reveal.rtl"></param>
+            
+            <!-- Turns fragments on and off globally. -->
+            <param name="reveal.fragments" expression="${args.reveal.fragments}" if="args.reveal.fragments"></param>
+            
+            <!--
+                Flags if the presentation is running in an embedded mode,
+                i.e. contained within a limited portion of the screen.
+            -->
+            <param name="reveal.embedded" expression="${args.reveal.embedded}" if="args.reveal.embedded"></param>
+            
+            <!--
+                Number of milliseconds between automatically proceeding to the
+                next slide, disabled when set to 0, this value can be overwritten
+                by using a data-autoslide attribute on your slides
+            -->
+            <param name="reveal.autoslide" expression="${args.reveal.autoslide}" if="args.reveal.autoslide"></param>
+            
+            <!-- Stop auto-sliding after user input. -->
+            <param name="reveal.autoslidestoppable" expression="${args.reveal.autoslidestoppable}" if="args.reveal.autoslidestoppable"></param>
+            
+            <!-- Enable slide navigation via mouse wheel. -->
+            <param name="reveal.mousewheel" expression="${args.reveal.mousewheel}" if="args.reveal.mousewheel"></param>
+            
+            <!-- Hides the address bar on mobile devices. -->
+            <param name="reveal.hideaddressbar" expression="${args.reveal.hideaddressbar}" if="args.reveal.hideaddressbar"></param>
+            
+            <!-- Opens links in an iframe preview overlay. -->
+            <param name="reveal.previewlinks" expression="${args.reveal.previewlinks}" if="args.reveal.previewlinks"></param>
+            
+            <!-- Set the transition style. -->
+            <param name="reveal.transition" expression="${args.reveal.transition}" if="args.reveal.transition"></param>
+            
+            <!-- Set the transition speed. -->
+            <param name="reveal.transitionspeed" expression="${args.reveal.transitionspeed}" if="args.reveal.transitionspeed"></param>
+            
+            <!-- Set the transition style for full page slide backgrounds. -->
+            <param name="reveal.backgroundtransition" expression="${args.reveal.backgroundtransition}" if="args.reveal.backgroundtransition"></param>
+            
+            <!-- Set the number of slides away from the current that are visible. -->
+            <param name="reveal.viewdistance" expression="${args.reveal.viewdistance}" if="args.reveal.viewdistance"></param>
+            
+            <!-- Set the parallax background image. -->
+            <param name="reveal.parallaxbackgroundimage" expression="${args.reveal.parallaxbackgroundimage}" if="args.reveal.parallaxbackgroundimage"></param>
+            
+            <!-- Set the parallax background size. -->
+            <param name="reveal.parallaxbackgroundsize" expression="${args.reveal.parallaxbackgroundsize}" if="args.reveal.parallaxbackgroundsize"></param>
+            
+            <xmlcatalog refid="dita.catalog"/>
+        </xslt>
     </target>
 </project>
