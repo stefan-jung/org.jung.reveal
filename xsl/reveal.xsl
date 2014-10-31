@@ -502,14 +502,13 @@
             }
         </codeblock>
     -->
-    <xsl:template match="//codeblock">
+    
+    <xsl:template match="*[contains(@class,' pr-d/codeblock ')][contains(@outputclass, 'language-')]">
         <pre>
             <code>
-                <xsl:if test="@outputclass">
-                    <xsl:attribute name="class">
-                        hljs <xsl:value-of select="substring-after(@outputclass,'language-')" />
-                    </xsl:attribute>
-                </xsl:if>
+                <xsl:attribute name="class">
+                    hljs <xsl:value-of select="substring-after(@outputclass,'language-')" />
+                </xsl:attribute>
                 <xsl:apply-templates/>
             </code>
         </pre>
