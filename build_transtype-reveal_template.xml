@@ -69,14 +69,6 @@
     </target>
     
     <!-- XSLT transformation -->
-    <target name="transform_html">
-        <xslt
-            extension="dita.xsl.xhtml"
-            in="${args.input}"
-            out="${output.dir}${file.separator}index.html"
-            style="${dita.plugin.com.github.xephon2.revealjs.dir}${file.separator}xsl${file.separator}reveal.xsl"/>
-    </target>
-    
     <target name="dita.topics.xhtml.reveal" depends="dita.xhtml.init" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">
         <xslt basedir="${dita.temp.dir}" destdir="${output.dir}" includesfile="${dita.temp.dir}${file.separator}${fullditatopicfile}" reloadstylesheet="${dita.xhtml.reloadstylesheet}" classpathref="dost.class.path" extension="${out.ext}" style="${dita.plugin.com.github.xephon2.revealjs.dir}/xsl/reveal.xsl" filenameparameter="FILENAME" filedirparameter="FILEDIR">
             <excludesfile name="${dita.temp.dir}${file.separator}${resourceonlyfile}" if="resourceonlyfile"></excludesfile>
