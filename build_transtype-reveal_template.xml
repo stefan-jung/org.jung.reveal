@@ -45,19 +45,24 @@
     <target name="clean_reveal">
         <delete dir="${output.dir}" />
     </target>
-        
+
+    <!--Prefer to have the cache in a place where the user hsa full write access-->
+    <property name="revealCacheDir" value="${user.home}${file.separator}.ditaToRevealJSCache"/>
+    <!-- <property name="revealCacheDir" value="${dita.plugin.com.github.xephon2.revealjs.dir}"/>-->
+
     <!-- Meta target for reveal.js processing. -->
     <target name="prepare_reveal">
+        <mkdir dir="${revealCacheDir}"/>
         <get
             verbose="on"
             src="${reveal.download.url}"
-            dest="${dita.plugin.com.github.xephon2.revealjs.dir}"
+            dest="${revealCacheDir}"
             skipexisting="true"/>
         <unzip
-            src="${dita.plugin.com.github.xephon2.revealjs.dir}${file.separator}${reveal.archive.name}"
-            dest="${dita.plugin.com.github.xephon2.revealjs.dir}"/>
+            src="${revealCacheDir}${file.separator}${reveal.archive.name}"
+            dest="${revealCacheDir}"/>
         <copy todir="${output.dir}">
-            <fileset dir="${dita.plugin.com.github.xephon2.revealjs.dir}${file.separator}${reveal.directory.name}"/>
+            <fileset dir="${revealCacheDir}${file.separator}${reveal.directory.name}"/>
         </copy>
         <delete file="${output.dir}${file.separator}index.html"/>
         <move file="${output.dir}${file.separator}${dita.map.filename.root}.html" tofile="${output.dir}${file.separator}index.html"/>
