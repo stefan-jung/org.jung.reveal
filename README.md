@@ -1,7 +1,7 @@
-com.github.xephon2.revealjs
+org.doctales.reveal
 ===========================
 
-This is a plugin for the Open Toolkit of the Darwin Information Typing Architecture (DITA-OT). The plugin adds an Ant target for transforming DITA maps into reveal.js based web presentations.
+This is a plugin for the DITA-OT. The plugin adds an Ant target for transforming DITA maps into reveal.js based web presentations.
 
 
 Installation
@@ -9,7 +9,7 @@ Installation
 
 1. Move to the `~/plugins` directory of the DITA-OT.
 2. Clone this repository.  
-   `git clone https://github.com/xephon2/com.github.xephon2.revealjs`
+   `git clone https://github.com/doctales/org.doctales.reveal`
 3. Launch the `startcmd.sh` (Linux/Mac OSX) or `startcmd.bat`.  
    `./startcmd.sh`
 4. Call the integrator to install the plugin.  
@@ -19,7 +19,8 @@ Installation
 Using the Plugin
 ================
 
-Create a new target in your Ant build file. The following target shows all currently supported properties of the plugin. You do not have to set the optional properties, if you feel comfortable with the default settin.
+Create a new target in your Ant build file. The following target shows all currently supported properties of the plugin. You do not have to set the optional properties, if you feel 
+comfortable with the default settings.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -144,3 +145,4 @@ Create a new target in your Ant build file. The following target shows all curre
     </ant>
 </target>
 ```
+
