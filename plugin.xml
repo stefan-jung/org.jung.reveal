@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This plugin transforms the XHTML output to a reveal.js based web presentation. -->
-<plugin id="com.github.xephon2.revealjs">
+<plugin id="org.doctales.reveal">
 
     <!-- 
         Declare the XHTML plugin as a prerequisite plugin.

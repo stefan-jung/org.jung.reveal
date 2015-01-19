@@ -21,7 +21,7 @@
     <!-- ==================================================
          Extension Points
     -->
-    <extension-point id="com.github.xephon2.revealjs.param" name="Custom parameters"/>
+    <extension-point id="org.doctales.reveal.param" name="Custom parameters"/>
 
 
     <!-- ================================================== 
@@ -48,7 +48,7 @@
 
     <!--Prefer to have the cache in a place where the user hsa full write access-->
     <property name="revealCacheDir" value="${user.home}${file.separator}.ditaToRevealJSCache"/>
-    <!-- <property name="revealCacheDir" value="${dita.plugin.com.github.xephon2.revealjs.dir}"/>-->
+    <!-- <property name="revealCacheDir" value="${dita.plugin.org.doctales.reveal.dir}"/>-->
 
     <!-- Meta target for reveal.js processing. -->
     <target name="prepare_reveal">
@@ -70,7 +70,7 @@
     
     <!-- XSLT transformation -->
     <target name="dita.topics.xhtml.reveal" depends="dita.xhtml.init" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">
-        <xslt basedir="${dita.temp.dir}" destdir="${output.dir}" includesfile="${dita.temp.dir}${file.separator}${fullditatopicfile}" reloadstylesheet="${dita.xhtml.reloadstylesheet}" classpathref="dost.class.path" extension="${out.ext}" style="${dita.plugin.com.github.xephon2.revealjs.dir}/xsl/reveal.xsl" filenameparameter="FILENAME" filedirparameter="FILEDIR">
+        <xslt basedir="${dita.temp.dir}" destdir="${output.dir}" includesfile="${dita.temp.dir}${file.separator}${fullditatopicfile}" reloadstylesheet="${dita.xhtml.reloadstylesheet}" classpathref="dost.class.path" extension="${out.ext}" style="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl" filenameparameter="FILENAME" filedirparameter="FILEDIR">
             <excludesfile name="${dita.temp.dir}${file.separator}${resourceonlyfile}" if="resourceonlyfile"></excludesfile>
             <includesfile name="${dita.temp.dir}${file.separator}${chunkedtopicfile}" if="chunkedtopicfile"></includesfile>
             <param name="TRANSTYPE" expression="${transtype}"></param>
