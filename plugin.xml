@@ -42,7 +42,7 @@
 
     <!-- Override the standard XHTML processing with a XSL stylesheet. -->
     <!-- <feature extension="dita.xsl.xhtml" file="xsl/reveal.xsl"/> -->
-    <transtype name="reveal" extends="htmlBase" desc="Web Slides (Reveal.js - Experimental)">
+    <transtype name="reveal" extends="base-html" desc="Web Slides (Reveal.js - Experimental)">
         <param name="args.reveal.css" desc="Theme used for the Reveal slides" type="enum">
             <val default="true">default</val>
             <val>sky</val>
