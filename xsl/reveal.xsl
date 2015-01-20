@@ -130,6 +130,9 @@
     -->
     <xsl:param name="reveal.parallaxbackgroundsize" select="''"/>
     
+    <!-- Generate vertical slides -->
+    <xsl:param name="reveal.generate.vertical.slides" select="'true'"/>
+    
     <!--
         **************************************************
         Templates
@@ -257,7 +260,46 @@
                     <xsl:apply-templates select="." mode="addAttributesToBody"/>
                     <xsl:value-of select="$newline"/>
                     <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
-                    <xsl:apply-templates/>
+                    <xsl:variable name="bodyContent">
+                        <xsl:apply-templates/>
+                    </xsl:variable>
+                    <!-- Post-process all the topic container elements and generate proper sections for them -->
+                    <xsl:for-each select="$bodyContent/*">
+                        <xsl:choose>
+                            <xsl:when test="count(.//topicContainer) > 0">
+                                <!-- We need to bring all slides to the top level -->
+                                <xsl:variable name="allSlidesAsFirstLevel">
+                                    <!-- The slide which contains other slides, copied to output but ignoring sub-slides -->
+                                    <section>
+                                        <xsl:apply-templates mode="all-but-topicContainer"/>
+                                    </section>
+                                    <!-- For each sublide, copy to output but ignore sub-slides -->
+                                    <xsl:for-each select=".//topicContainer">
+                                        <section>
+                                            <xsl:apply-templates mode="all-but-topicContainer"/>    
+                                        </section>
+                                    </xsl:for-each>
+                                </xsl:variable>
+                                <xsl:choose>
+                                    <xsl:when test="'true' = $reveal.generate.vertical.slides">
+                                        <!-- Generate vertical slides, so surround in a <section> element -->
+                                        <section>
+                                            <xsl:copy-of select="$allSlidesAsFirstLevel"/>
+                                        </section>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <!-- No vertical slides generation -->
+                                        <xsl:copy-of select="$allSlidesAsFirstLevel"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <section>
+                                    <xsl:apply-templates mode="all-but-topicContainer"/>
+                                </section>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:for-each>
                     <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
                 </div>
             </div>
@@ -346,10 +388,10 @@
         Process topics.
     -->
     <xsl:template match="*[contains(@class, ' topic/topic ')]">
-        <section>
-            <xsl:apply-templates select="*[not(contains(@class, ' topic/topic '))]"/>
-        </section>
-        <xsl:apply-templates select="*[contains(@class, ' topic/topic ')]"></xsl:apply-templates>
+        <!-- Just a placeholder which will be replaced with <section> -->
+        <topicContainer>
+            <xsl:apply-templates/>
+        </topicContainer>
     </xsl:template>
     
     <!--
@@ -378,5 +420,20 @@
                 <xsl:apply-templates/>
             </code>
         </pre>
+    </xsl:template>
+    
+    <!-- Deep copy template -->
+    <xsl:template match="*|text()|@*" mode="all-but-topicContainer">
+        <xsl:choose>
+            <xsl:when test="'topicContainer' = local-name()">
+                <!-- Ignore -->
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy>
+                    <xsl:apply-templates mode="all-but-topicContainer" select="@*"/>
+                    <xsl:apply-templates mode="all-but-topicContainer"/>
+                </xsl:copy>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>
