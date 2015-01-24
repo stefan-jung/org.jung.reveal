@@ -175,6 +175,9 @@
             <!-- Set the parallax background size. -->
             <param name="reveal.parallaxbackgroundsize" expression="${args.reveal.parallaxbackgroundsize}" if="args.reveal.parallaxbackgroundsize"></param>
             
+            <!-- Generate vertical slides. -->
+            <param name="reveal.generate.vertical.slides" expression="${args.reveal.generate.vertical.slides}" if="args.reveal.generate.vertical.slides"></param>
+
             <xmlcatalog refid="dita.catalog"/>
         </xslt>
     </target>

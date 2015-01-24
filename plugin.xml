@@ -53,5 +53,9 @@
             <val>moon</val>
             <val>solarized</val>
         </param>
+        <param name="args.reveal.generate.vertical.slides" desc="Generate vertical slides for level 2 and below references." type="enum">
+            <val default="true">true</val>
+            <val>false</val>
+       </param>
     </transtype>
 </plugin>
