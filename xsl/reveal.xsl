@@ -357,8 +357,6 @@
                 minScale: 0.1,
                 maxScale: 1.0,
                 
-                
-                
                 // Parallax scrolling
                 // parallaxBackgroundImage: <xsl:value-of select="$reveal.parallaxbackgroundimage"/>,
                 // parallaxBackgroundSize: <xsl:value-of select="$reveal.parallaxbackgroundsize"/>,
@@ -410,7 +408,6 @@
             }
         </codeblock>
     -->
-    
     <xsl:template match="*[contains(@class,' pr-d/codeblock ')][contains(@outputclass, 'language-')]">
         <pre>
             <code>

@@ -17,6 +17,13 @@
     <!-- Directory name of reveal.js that is stored in the downloaded archive. -->
     <property name="reveal.directory.name" value="reveal.js-2.6.2"/>
     
+    <!-- HTML version. Property is required by DITA-OT2.x -->
+    <property name="html-version" value="html5"/>
+    
+    <!-- File extension of the output files -->
+    <property name="args.outext" value=".html"/>
+    
+    
 
     <!-- ==================================================
          Extension Points
@@ -46,9 +53,8 @@
         <delete dir="${output.dir}" />
     </target>
 
-    <!--Prefer to have the cache in a place where the user hsa full write access-->
+    <!-- Cache directory for reveal.js files. -->
     <property name="revealCacheDir" value="${user.home}${file.separator}.ditaToRevealJSCache"/>
-    <!-- <property name="revealCacheDir" value="${dita.plugin.org.doctales.reveal.dir}"/>-->
 
     <!-- Meta target for reveal.js processing. -->
     <target name="prepare_reveal">
@@ -65,12 +71,24 @@
             <fileset dir="${revealCacheDir}${file.separator}${reveal.directory.name}"/>
         </copy>
         <delete file="${output.dir}${file.separator}index.html"/>
-        <move file="${output.dir}${file.separator}${dita.map.filename.root}.html" tofile="${output.dir}${file.separator}index.html"/>
+        <move file="${output.dir}${file.separator}${dita.map.filename.root}${args.outext}" tofile="${output.dir}${file.separator}index${args.outext}"/>
+        <delete dir="${output.dir}${file.separator}test"/>
+        
     </target>
     
     <!-- XSLT transformation -->
-    <target name="dita.topics.xhtml.reveal" depends="dita.xhtml.init" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">
-        <xslt basedir="${dita.temp.dir}" destdir="${output.dir}" includesfile="${dita.temp.dir}${file.separator}${fullditatopicfile}" reloadstylesheet="${dita.xhtml.reloadstylesheet}" classpathref="dost.class.path" extension="${out.ext}" style="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl" filenameparameter="FILENAME" filedirparameter="FILEDIR">
+    <!--<target name="dita.topics.xhtml.reveal" depends="dita.xhtml.init" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">-->
+    <target name="dita.topics.xhtml.reveal" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">
+        <xslt basedir="${dita.temp.dir}"
+            destdir="${output.dir}"
+            includesfile="${dita.temp.dir}${file.separator}${fullditatopicfile}"
+            reloadstylesheet="${dita.xhtml.reloadstylesheet}"
+            classpathref="dost.class.path"
+            extension="${args.outext}"
+            style="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl"
+            filenameparameter="FILENAME"
+            filedirparameter="FILEDIR">
+            
             <excludesfile name="${dita.temp.dir}${file.separator}${resourceonlyfile}" if="resourceonlyfile"></excludesfile>
             <includesfile name="${dita.temp.dir}${file.separator}${chunkedtopicfile}" if="chunkedtopicfile"></includesfile>
             <param name="TRANSTYPE" expression="${transtype}"></param>
@@ -90,7 +108,7 @@
             <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
             <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
             <param name="genDefMeta" expression="${args.gen.default.meta}" if="args.gen.default.meta"></param>
-            <param name="OUTEXT" expression="${out.ext}" if="out.ext"></param>
+            <param name="OUTEXT" expression="${args.outext}" if="out.ext"></param>
             <param name="BASEDIR" expression="${basedir}"></param>
             <param name="OUTPUTDIR" expression="${output.dir}"></param>
             <param name="DBG" expression="${args.debug}" if="args.debug"></param>
