@@ -159,6 +159,30 @@
         <link rel="stylesheet" href="lib/css/zenburn.css" />
         
         <style type="text/css">
+            div.body {
+                overflow-y: auto  !important;
+                overflow-x: hidden !important;
+                height: 400px;
+
+            }
+            ::-webkit-scrollbar { 
+                display: none; 
+            }
+            
+            * {
+                margin: 0;
+            }
+            html, body {
+                height: 100%;
+            }
+            div.footer {
+            background-color: green !important;
+            position: relative !important;
+            bottom: 0 !important;
+            height: 100px !important;
+            width: 300px !importants;
+            }
+            
             /*
             section.present {
                 top: -1200px !important;
@@ -272,11 +296,13 @@
                                     <!-- The slide which contains other slides, copied to output but ignoring sub-slides -->
                                     <section>
                                         <xsl:apply-templates mode="all-but-topicContainer"/>
+                                        <div id="footer"><xsl:value-of select="$newline"/></div>
                                     </section>
                                     <!-- For each sublide, copy to output but ignore sub-slides -->
                                     <xsl:for-each select=".//topicContainer">
                                         <section>
-                                            <xsl:apply-templates mode="all-but-topicContainer"/>    
+                                            <xsl:apply-templates mode="all-but-topicContainer"/>
+                                            <div id="footer"><xsl:value-of select="$newline"/></div>
                                         </section>
                                     </xsl:for-each>
                                 </xsl:variable>
@@ -285,6 +311,7 @@
                                         <!-- Generate vertical slides, so surround in a <section> element -->
                                         <section>
                                             <xsl:copy-of select="$allSlidesAsFirstLevel"/>
+                                            <div id="footer"><xsl:value-of select="$newline"/></div>
                                         </section>
                                     </xsl:when>
                                     <xsl:otherwise>
@@ -296,6 +323,7 @@
                             <xsl:otherwise>
                                 <section>
                                     <xsl:apply-templates mode="all-but-topicContainer"/>
+                                    <div id="footer"><xsl:value-of select="$newline"/></div>
                                 </section>
                             </xsl:otherwise>
                         </xsl:choose>

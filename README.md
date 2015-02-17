@@ -41,10 +41,16 @@ comfortable with the default settings.
         
         <!-- OPTIONAL PROPERTIES -->
         
+        <!-- Path to custom template file -->
+        <property name="reveal.css" value="my-template.css"/>
+        
         <!--
             The template. Possible values:
             "default", "sky", "beige", "simple",
             "serif", "night", "moon", "solarized"
+            If you use a custom template, the name
+            of the template is the filename without its
+            extensions, e.g. "my-template"
         -->
         <property name="args.reveal.css" value="default"/>
         

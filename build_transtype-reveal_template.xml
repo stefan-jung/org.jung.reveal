@@ -4,7 +4,7 @@
     <!-- ================================================== 
         Properties
     -->
-
+    
     <!-- Output directory of the reveal transformation -->
     <property name="output.dir" value="${dita.dir}${file.separator}..${file.separator}..${file.separator}out${file.separator}reveal"/>
     
@@ -23,14 +23,16 @@
     <!-- File extension of the output files -->
     <property name="args.outext" value=".html"/>
     
+    <!-- Cache directory for reveal.js files. -->
+    <property name="revealCacheDir" value="${user.home}${file.separator}.ditaToRevealJSCache"/>
     
-
+    
     <!-- ==================================================
          Extension Points
     -->
     <extension-point id="org.doctales.reveal.param" name="Custom parameters"/>
-
-
+    
+    
     <!-- ================================================== 
         Targets
     -->
@@ -41,21 +43,18 @@
         build-init,
         preprocess,
         dita.map.xhtml,
-        copy-css,
         dita.topics.xhtml.reveal,
-        prepare_reveal
+        prepare_reveal,
+        copy-user-css
         " dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>
     
     <target name="reveal" unless="noMap" depends="dita2reveal" />
-
+    
     <!-- Clean the out/reveal directory -->
     <target name="clean_reveal">
         <delete dir="${output.dir}" />
     </target>
-
-    <!-- Cache directory for reveal.js files. -->
-    <property name="revealCacheDir" value="${user.home}${file.separator}.ditaToRevealJSCache"/>
-
+    
     <!-- Meta target for reveal.js processing. -->
     <target name="prepare_reveal">
         <mkdir dir="${revealCacheDir}"/>
@@ -74,6 +73,20 @@
         <move file="${output.dir}${file.separator}${dita.map.filename.root}${args.outext}" tofile="${output.dir}${file.separator}index${args.outext}"/>
         <delete dir="${output.dir}${file.separator}test"/>
         
+    </target>
+    
+    <target name="copy-user-css-condition">
+        <condition property="reveal.css.set" else="false">
+            <isset property="reveal.css"/>
+        </condition>
+    </target>
+    
+    <target name="copy-user-css"
+        description="Execute this target only, when reveal.css is provided by the user."
+        if="reveal.css"
+        depends="copy-user-css-condition">
+        <echo>Custom CSS file set ? ${reveal.css.set}</echo>
+        <copy file="${reveal.css}" todir="${output.dir}${file.separator}css${file.separator}theme"/>
     </target>
     
     <!-- XSLT transformation -->
@@ -195,7 +208,7 @@
             
             <!-- Generate vertical slides. -->
             <param name="reveal.generate.vertical.slides" expression="${args.reveal.generate.vertical.slides}" if="args.reveal.generate.vertical.slides"></param>
-
+            
             <xmlcatalog refid="dita.catalog"/>
         </xslt>
     </target>
