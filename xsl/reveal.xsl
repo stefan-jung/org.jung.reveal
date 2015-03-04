@@ -143,6 +143,8 @@
         <xsl:apply-imports/>
     </xsl:template>
     
+
+
     <!--
         This template overrides the template 'generateDefaultCopyright' defined in the 'dita2htmlimpl.xsl'.
         It injects multiple <meta> elements, some CSS and some JavaScript.

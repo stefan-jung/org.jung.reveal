@@ -34,6 +34,11 @@
     -->
     <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
 
+    <!-- 
+        Automatically set the map-attribute 'chunk' to 'to-content' in the preprocess.
+    -->
+    <feature extension="depend.preprocess.chunk.pre" value="setchunk"/>
+    
     <!--
         Add parameters to the transformation process.
         Parameters can, for example, switch the CSS stylesheet.
