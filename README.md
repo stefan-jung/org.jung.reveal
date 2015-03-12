@@ -1,7 +1,7 @@
 org.doctales.reveal
 ===========================
 
-This is a plugin for the DITA-OT. The plugin adds an Ant target for transforming DITA maps into reveal.js based web presentations.
+This is a plugin for the DITA-OT. The plugin adds a new transtype called `reveal` for transforming DITA maps into reveal.js based web presentations.
 
 
 Installation
