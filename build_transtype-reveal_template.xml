@@ -50,9 +50,15 @@
     
     <target name="reveal" unless="noMap" depends="dita2reveal" />
     
-    <!-- Clean the out/reveal directory -->
+    <!--
+      Clean the out/reveal directory and determine, if the XHTML transformation is a reveal.js transformation.
+      If yes, set chunk="to-content" dynamically on the root map element.
+    -->
     <target name="clean_reveal">
-        <delete dir="${output.dir}" />
+      <delete dir="${output.dir}" />
+      <condition property="isRevealJS">
+        <equals arg1="${transtype}" arg2="reveal"/>
+      </condition>
     </target>
     
     <!-- Meta target for reveal.js processing. -->
@@ -101,10 +107,10 @@
     
     
     <!-- Automatically set "chunk='to-content'" on the temporary input file. -->
-    <target name="setchunk" description="Set @chunk to-content on the temp input bookmap">
-		<replace file="${dita.temp.dir}${file.separator}${dita.input.filename}" token="chunk=.to-content." value="" />	
-		<replace file="${dita.temp.dir}${file.separator}${dita.input.filename}" token="&lt;bookmap " value="&lt;bookmap chunk='to-content' "/>
-		<replace file="${dita.temp.dir}${file.separator}${dita.input.filename}" token="&lt;map " value="&lt;map chunk='to-content' "/>
+    <target name="setchunk" description="Set @chunk to-content on the temp input bookmap" if="isRevealJS">
+      <replace file="${dita.temp.dir}${file.separator}${dita.input.filename}" token="chunk=.to-content." value="" encoding="UTF-8"/>	
+      <replace file="${dita.temp.dir}${file.separator}${dita.input.filename}" token="&lt;bookmap " value="&lt;bookmap chunk='to-content' " encoding="UTF-8"/>
+      <replace file="${dita.temp.dir}${file.separator}${dita.input.filename}" token="&lt;map " value="&lt;map chunk='to-content' " encoding="UTF-8"/>
 	</target>
     
     <!-- XSLT transformation -->
