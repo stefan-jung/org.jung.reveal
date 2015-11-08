@@ -270,24 +270,21 @@
                                 <!-- We need to bring all slides to the top level -->
                                 <xsl:variable name="allSlidesAsFirstLevel">
                                     <!-- The slide which contains other slides, copied to output but ignoring sub-slides -->
-                                    <section>
+                                    <section class="slide">
                                         <xsl:apply-templates mode="all-but-topicContainer"/>
-                                        <!--<div id="footer"><xsl:value-of select="$newline"/></div>-->
                                     </section>
                                     <!-- For each subslide, copy to output but ignore sub-slides -->
                                     <xsl:for-each select=".//topicContainer">
-                                        <section>
+                                        <section class="slide">
                                             <xsl:apply-templates mode="all-but-topicContainer"/>
-                                            <!--<div id="footer"><xsl:value-of select="$newline"/></div>-->
                                         </section>
                                     </xsl:for-each>
                                 </xsl:variable>
                                 <xsl:choose>
                                     <xsl:when test="'true' = $reveal.generate.vertical.slides">
                                         <!-- Generate vertical slides, so wrap in a <section> element -->
-                                        <section>
+                                        <section class="slide">
                                             <xsl:copy-of select="$allSlidesAsFirstLevel"/>
-                                            <!--<div id="footer"><xsl:value-of select="$newline"/></div>-->
                                         </section>
                                     </xsl:when>
                                     <xsl:otherwise>
@@ -297,9 +294,8 @@
                                 </xsl:choose>
                             </xsl:when>
                             <xsl:otherwise>
-                                <section>
+                                <section class="slide">
                                     <xsl:apply-templates mode="all-but-topicContainer"/>
-                                    <!--<div id="footer"><xsl:value-of select="$newline"/></div>-->
                                 </section>
                             </xsl:otherwise>
                         </xsl:choose>
@@ -386,7 +382,12 @@
             } );
             
             $( document ).ready(function() {
-              <!--alert('Hello JQuery');-->
+              alert('Hello JQuery');
+              // Unwrap all sections that are not slide sections
+              // $("section").not(".slide").unwrap();
+              $("section").not(".slide").each(function() {
+                $( this ).children().unwrap();
+              });
             });
         </script>
     </xsl:template>    
