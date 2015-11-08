@@ -6,16 +6,16 @@
     -->
     
     <!-- Output directory of the reveal transformation -->
-    <property name="output.dir" value="${dita.dir}${file.separator}..${file.separator}..${file.separator}out${file.separator}reveal"/>
+    <!--<property name="output.dir" value="${dita.dir}${file.separator}..${file.separator}..${file.separator}out${file.separator}reveal"/>-->
     
     <!-- Download URL of the reveal.js archive. -->
-    <property name="reveal.download.url" value="https://github.com/hakimel/reveal.js/archive/2.6.2.zip"/>
+    <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/3.1.0.zip"/>
     
     <!-- Filename of the reveal.js archive. -->
-    <property name="reveal.archive.name" value="2.6.2.zip"/>
+    <property name="revealArchiveName" value="3.1.0.zip"/>
     
     <!-- Directory name of reveal.js that is stored in the downloaded archive. -->
-    <property name="reveal.directory.name" value="reveal.js-2.6.2"/>
+    <property name="revealDirectoryName" value="reveal.js-3.1.0"/>
     
     <!-- HTML version. Property is required by DITA-OT2.x -->
     <property name="html-version" value="html5"/>
@@ -44,7 +44,8 @@
         preprocess,
         dita.map.xhtml,
         dita.topics.xhtml.reveal,
-        prepare_reveal,
+        prepareRevealJs,
+        prepareJQuery,
         copy-user-css
         " dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>
     
@@ -62,24 +63,27 @@
     </target>
     
     <!-- Meta target for reveal.js processing. -->
-    <target name="prepare_reveal">
+    <target name="prepareRevealJs">
         <mkdir dir="${revealCacheDir}"/>
         <get
             verbose="on"
-            src="${reveal.download.url}"
+            src="${revealDownloadUrl}"
             dest="${revealCacheDir}"
             skipexisting="true"/>
         <unzip
-            src="${revealCacheDir}${file.separator}${reveal.archive.name}"
+            src="${revealCacheDir}${file.separator}${revealArchiveName}"
             dest="${revealCacheDir}"/>
         <copy todir="${output.dir}">
-            <fileset dir="${revealCacheDir}${file.separator}${reveal.directory.name}"/>
+            <fileset dir="${revealCacheDir}${file.separator}${revealDirectoryName}"/>
         </copy>
         <delete file="${output.dir}${file.separator}index.html"/>
         <move file="${output.dir}${file.separator}${dita.map.filename.root}${args.outext}" tofile="${output.dir}${file.separator}index${args.outext}"/>
         <delete dir="${output.dir}${file.separator}test"/>
     </target>
     
+    <target name="prepareJQuery">
+        <copy file="${dita.plugin.org.doctales.reveal.dir}/js/jquery-1.11.3.min.js" todir="${output.dir}${file.separator}js"/>
+    </target>
     
     
     <!-- 
