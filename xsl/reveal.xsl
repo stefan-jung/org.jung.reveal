@@ -196,94 +196,6 @@
         reveal.js
     </xsl:template>
     
-    <!--
-        Override the 'generateCssLinks' template defined
-        in the 'dita2htmlimpl.xsl' to get rid of
-        the default XHTML CSS links.
-    -->
-    <!--<xsl:template name="generateCssLinks"/>-->
-    
-    <!-- Place reveal.js javascript in the footer by overriding placeholder template from dita2htmlImpl.xsl -->
-    <!--<xsl:template match="/|node()|@*" mode="gen-user-footer">
-        <!-\-
-            The $newline is necessary to avoid that the <script> tag
-            will be collapsed to its shortform: <script/>
-            The collapsed <script> tag might not be correctly displayed
-            in the browser.
-        -\->
-        <script src="lib/js/head.min.js" type="text/javascript">
-            <xsl:value-of select="$newline"/>
-        </script>
-        <script src="js/reveal.js" type="text/javascript">
-            <xsl:value-of select="$newline"/>
-        </script>
-        <script type="text/javascript">
-            <!-\- 
-                Full list of configuration options available here:
-                https://github.com/hakimel/reveal.js#configuration
-            -\->
-            Reveal.initialize({
-            controls: <xsl:value-of select="$reveal.controls"/>,
-            progress: <xsl:value-of select="$reveal.progress"/>,
-            slideNumber: <xsl:value-of select="$reveal.slidenumber"/>,
-            history: <xsl:value-of select="$reveal.hideaddressbar"/>,
-            keyboard: <xsl:value-of select="$reveal.keyboard"/>,
-            overview: <xsl:value-of select="$reveal.overview"/>,
-            center: <xsl:value-of select="$reveal.center"/>,
-            touch: <xsl:value-of select="$reveal.touch"/>,
-            loop: <xsl:value-of select="$reveal.loop"/>,
-            rtl: <xsl:value-of select="$reveal.rtl"/>,
-            fragments: <xsl:value-of select="$reveal.fragments"/>,
-            embedded: <xsl:value-of select="$reveal.embedded"/>,
-            autoSlide: <xsl:value-of select="$reveal.autoslide"/>,
-            autoSlideStoppable: <xsl:value-of select="$reveal.autoslidestoppable"/>,
-            mouseWheel: <xsl:value-of select="$reveal.mousewheel"/>,
-            hideAddressBar: <xsl:value-of select="$reveal.hideaddressbar"/>,
-            previewLinks: <xsl:value-of select="$reveal.previewlinks"/>,
-            // transition: <xsl:value-of select="$reveal.transition"/>,
-            // transitionSpeed: <xsl:value-of select="$reveal.transitionspeed"/>,
-            // backgroundTransition: <xsl:value-of select="$reveal.backgroundtransition"/>,
-            viewDistance: <xsl:value-of select="$reveal.viewdistance"/>,
-            
-            
-            
-            // The "normal" size of the presentation, aspect ratio will be preserved
-            // when the presentation is scaled to fit different resolutions. Can be
-            // specified using percentage units.
-            width: 960,
-            height: 700,
-            
-            // Factor of the display size that should remain empty around the content
-            margin: 0.1,
-            
-            // Bounds for smallest/largest possible scale to apply to content
-            minScale: 0.1,
-            maxScale: 1.0,
-            
-            // Parallax scrolling
-            // parallaxBackgroundImage: <xsl:value-of select="$reveal.parallaxbackgroundimage"/>,
-            // parallaxBackgroundSize: <xsl:value-of select="$reveal.parallaxbackgroundsize"/>,
-            
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-            
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-            ]
-            });
-            
-            Reveal.addEventListener( 'slidechanged', function( event ) {
-            zoomSection();
-            } );
-        </script>
-    </xsl:template>-->
-    
     <!-- Add reveal.js scripts by overriding placeholder template from dita2htmlImpl.xsl -->
     <xsl:template match="/|node()|@*" mode="gen-user-scripts">
         <script src="js/jquery-1.11.3.min.js" type="text/javascript">
@@ -298,42 +210,11 @@
             link.href = 'css/print/pdf.css';
             document.getElementsByTagName( 'head' )[0].appendChild( link );
             }
-            
-            <!--
-                Remove empty 'section' elements.
-                These elements are created in the transformation process to
-                pull nested topics to upper DOM levels.
-                This is required for Reveal.js
-            -->
-            <!--
-            function removeDisposableSections() {
-                var sections = document.getElementsByClassName('disposableSection'), i;
-                for (i in sections){
-                    sections[0].parentNode.removeChild(sections[0]);
-                }
-            }
-            -->
-            
+
+            /*            
             function zoomSection() {
-            /*
-            var x = "";
-            x += 'window.screen.availHeight: ' + window.screen.availHeight + '\n';
-            x += 'window.screen.availWidth: ' + window.screen.availWidth + '\n';
-            x += 'screen.width: ' + screen.width + '\n';
-            x += 'screen.height: ' + screen.height + '\n';
-            alert(x);
-            zoom.to({
-            x: 100,
-            y: 200,
-            width: 300,
-            height: 300
-            });
-            */
-            /*
-            zoom.out();
-            zoom.to({element: document.querySelector('div.slides' )});
-            */
             }
+            */
         </script>
         <!-- 
             [if lt IE 9]>
@@ -491,12 +372,12 @@
             
             // Optional libraries used to extend on reveal.js
             dependencies: [
-            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
             ]
             });
             
@@ -520,38 +401,16 @@
         </topicContainer>
     </xsl:template>
     
-    <!--main template for setting up all links after the body - applied to the related-links container-->
+<!--    <!-\- Override template to remove related-links block -\->
     <xsl:template match="*[contains(@class, ' topic/related-links ')]" name="topic.related-links">
-        <xsl:element name="dummy"></xsl:element>
-        <!--<nav role="navigation">
-            <xsl:call-template name="commonattributes"/>
-            <xsl:if test="$include.roles = ('child', 'descendant')">
-                <xsl:call-template name="ul-child-links"/>
-                <!-\-handle child/descendants outside of linklists in collection-type=unordered or choice-\->
-                <xsl:call-template name="ol-child-links"/>
-                <!-\-handle child/descendants outside of linklists in collection-type=ordered/sequence-\->
-            </xsl:if>
-            <xsl:if test="$include.roles = ('next', 'previous', 'parent')">
-                <xsl:call-template name="next-prev-parent-links"/>
-                <!-\-handle next and previous links-\->
-            </xsl:if>
-            <!-\- Group all unordered links (which have not already been handled by prior sections). Skip duplicate links. -\->
-            <!-\- NOTE: The actual grouping code for related-links:group-unordered-links is common between
-             transform types, and is located in ../common/related-links.xsl. Actual code for
-             creating group titles and formatting links is located in XSL files specific to each type. -\->
-            <xsl:variable name="unordered-links" as="element(linklist)*">
-                <xsl:apply-templates select="." mode="related-links:group-unordered-links">
-                    <xsl:with-param name="nodes"
-                        select="descendant::*[contains(@class, ' topic/link ')]
-                        [not(related-links:omit-from-unordered-links(.))]
-                        [generate-id(.) = generate-id(key('hideduplicates', related-links:hideduplicates(.))[1])]"/>
-                </xsl:apply-templates>
-            </xsl:variable>
-            <xsl:apply-templates select="$unordered-links"/>
-            <!-\-linklists - last but not least, create all the linklists and their links, with no sorting or re-ordering-\->
-            <xsl:apply-templates select="*[contains(@class, ' topic/linklist ')]"/>
-        </nav>-->
+        <!-\- Do nothing -\->
     </xsl:template>
+    
+    <!-\- Override template to remove nav titles -\->
+    <xsl:template match="*" mode="get-navtitle">
+        <!-\- Do nothing -\->
+    </xsl:template>-->
+        
     
     <!--
         Process codeblock elements.
@@ -608,32 +467,6 @@
         </div><xsl:value-of select="$newline"/>
     </xsl:template>
     
-    <!-- 
-        Override template from dita2htmlImpl.xsl.
-        Limit <section> nesting level, because reveal.js can only handle 2 levels.
-    -->
-    <!-- child topics get a div wrapper and fall through -->
-<!--    <xsl:template match="*[contains(@class, ' topic/topic ')]" mode="child.topic" name="child.topic">
-        <xsl:param name="nestlevel" as="xs:integer">
-            <xsl:choose>
-                <!-\- Limit depth for historical reasons, could allow any depth. Previously limit was 5. -\->
-                <xsl:when test="count(ancestor::*[contains(@class, ' topic/topic ')]) > 2">2</xsl:when>
-                <xsl:otherwise><xsl:sequence select="count(ancestor::*[contains(@class, ' topic/topic ')])"/></xsl:otherwise>
-            </xsl:choose>
-        </xsl:param>
-        <article class="nested{$nestlevel}">
-            <xsl:attribute name="aria-labelledby">
-                <xsl:apply-templates select="*[contains(@class,' topic/title ')]" mode="return-aria-label-id"/>
-            </xsl:attribute>
-            <xsl:call-template name="gen-topic">
-                <xsl:with-param name="nestlevel" select="$nestlevel"/>
-            </xsl:call-template>
-        </article>
-        <xsl:value-of select="$newline"/>
-    </xsl:template>-->
-    
-    
-    
     <!-- Deep copy template -->
     <xsl:template match="*|text()|@*" mode="all-but-topicContainer">
         <xsl:choose>
@@ -649,5 +482,4 @@
         </xsl:choose>
     </xsl:template>
     
-
 </xsl:stylesheet>

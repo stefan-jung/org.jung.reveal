@@ -5,9 +5,6 @@
         Properties
     -->
     
-    <!-- Output directory of the reveal transformation -->
-    <!--<property name="output.dir" value="${dita.dir}${file.separator}..${file.separator}..${file.separator}out${file.separator}reveal"/>-->
-    
     <!-- Download URL of the reveal.js archive. -->
     <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/3.1.0.zip"/>
     
@@ -25,6 +22,9 @@
     
     <!-- Cache directory for reveal.js files. -->
     <property name="revealCacheDir" value="${user.home}${file.separator}.ditaToRevealJSCache"/>
+    
+    <!-- Do not generate releated links -->
+    <property name="args.rellinks" value="none"/>
     
     
     <!-- ==================================================
