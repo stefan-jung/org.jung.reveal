@@ -382,9 +382,7 @@
             } );
             
             $( document ).ready(function() {
-              alert('Hello JQuery');
               // Unwrap all sections that are not slide sections
-              // $("section").not(".slide").unwrap();
               $("section").not(".slide").each(function() {
                 $( this ).children().unwrap();
               });
