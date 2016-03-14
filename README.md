@@ -7,13 +7,9 @@ This is a plugin for the DITA-OT. The plugin adds a new transtype called `reveal
 Installation
 ============
 
-1. Move to the `~/plugins` directory of the DITA-OT.
-2. Clone this repository.  
-   `git clone https://github.com/doctales/org.doctales.reveal`
-3. Launch the `startcmd.sh` (Linux/Mac OSX) or `startcmd.bat`.  
-   `./startcmd.sh`
-4. Call the integrator to install the plugin.  
-   `ant -f integrator.xml`
+1. Move to the `~/bin` directory of the DITA-OT.
+2. Install the plugin using the `dita` command.  
+   `dita -install https://github.com/doctales/org.doctales.reveal/archive/master.zip`
 
 
 Using the Plugin
