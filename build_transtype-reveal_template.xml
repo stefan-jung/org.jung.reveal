@@ -15,7 +15,7 @@
     <property name="revealDirectoryName" value="reveal.js-3.1.0"/>
     
     <!-- HTML version. Property is required by DITA-OT2.x -->
-    <property name="html-version" value="html5"/>
+    <property name="html-version" value="xhtml"/>
     
     <!-- File extension of the output files -->
     <property name="args.outext" value=".html"/>
