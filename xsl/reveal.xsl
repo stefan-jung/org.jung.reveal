@@ -9,12 +9,9 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-    <!-- Import the DITA2XHTML stylesheet to use its templates -->
     <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
-    <!--<xsl:import href="plugin:org.dita.xhtml:xsl/xslhtml/dita2htmlImpl.xsl"/>-->
     
     <xsl:output omit-xml-declaration="yes" indent="yes"/>
-    <!-- <xsl:output method="html" encoding="utf-8" indent="yes"/> -->
     
     <!-- The parameter $newline defines a line break. -->
     <xsl:variable name="newline">
@@ -22,121 +19,36 @@
         </xsl:text>
     </xsl:variable>
 
-
-
-
-
     <!-- 
         **************************************************
         Parameters
         **************************************************
     -->
     
-    <!--
-        The parameter $reveal.css defines the used theme.
-        Possible values:
-        "black", "beige", "blood", "league",
-        "moon", "night", "serif", "simple",
-        "sky", "solarized", "white"
-    -->
     <xsl:param name="reveal.css" select="'black'"/>
-    
-    <!-- Display controls in the bottom right corner. -->
     <xsl:param name="reveal.controls" select="true()"/>
-    
-    <!-- Display a presentation progress bar. -->
     <xsl:param name="reveal.progress" select="true()"/>
-    
-    <!-- Display the page number of the current slide. -->
     <xsl:param name="reveal.slidenumber" select="false()"/>
-    
-    <!-- Push each slide change to the browser history. -->
     <xsl:param name="reveal.history" select="false()"/>
-    
-    <!-- Enable keyboard shortcuts for navigation. -->
     <xsl:param name="reveal.keyboard" select="true()"/>
-    
-    <!-- Enable the slide overview mode. -->
     <xsl:param name="reveal.overview" select="true()"/>
-    
-    <!-- Enable the vertical centering of slides. -->
     <xsl:param name="reveal.center" select="true()"/>
-    
-    <!-- Enable touch navigation on devices with touch input. -->
     <xsl:param name="reveal.touch" select="true()"/>
-    
-    <!-- Loop the presentation. -->
     <xsl:param name="reveal.loop" select="false()"/>
-    
-    <!-- Change the presentation direction to be right-to-left. -->
     <xsl:param name="reveal.rtl" select="false()"/>
-    
-    <!-- Turn fragments on and off globally. -->
     <xsl:param name="reveal.fragments" select="true()"/>
-    
-    <!--
-        Flags if the presentation is running in an embedded mode,
-        i.e. contained within a limited portion of the screen.
-    -->
     <xsl:param name="reveal.embedded" select="false()"/>
-    
-    <!--
-        Number of milliseconds between automatically proceeding to the
-        next slide, disabled when set to 0, this value can be overwritten
-        by using a data-autoslide attribute on your slides.
-    -->
     <xsl:param name="reveal.autoslide" select="'0'"/>
-    
-    <!-- Stop auto-sliding after user input. -->
     <xsl:param name="reveal.autoslidestoppable" select="true()"/>
-    
-    <!-- Enable slide navigation via mouse wheel. -->
     <xsl:param name="reveal.mousewheel" select="false()"/>
-    
-    <!-- Hide the address bar on mobile devices. -->
     <xsl:param name="reveal.hideaddressbar" select="true()"/>
-    
-    <!-- Open links in an iframe preview overlay. -->
     <xsl:param name="reveal.previewlinks" select="false()"/>
-    
-    <!--
-        Set the transition style. Possible values:
-        "default", "cube", "page", "concave",
-        "zoom", "linear", "fade", "none"
-    -->
     <xsl:param name="reveal.transition" select="'default'"/>
-    
-    <!--
-        Set the transition speed. Possible values:
-        "default", "fast", "slow"
-    -->
     <xsl:param name="reveal.transitionspeed" select="'default'"/>
-    
-    <!--
-        Set the transition style for full page
-        slide backgrounds. Possible values:
-        "default", "none", "slide", "concave", "convex", "zoom"
-    -->
     <xsl:param name="reveal.backgroundtransition" select="'default'"/>
-    
-    <!-- Set the number of slides away from the current that are visible. -->
     <xsl:param name="reveal.viewdistance" select="'3'"/>
-    
-    <!--
-        Set the parallax background image.
-        Example:
-        "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
-    -->
     <xsl:param name="reveal.parallaxbackgroundimage" select="''" />
-    
-    <!--
-        Set the parallax background size.
-        Example:
-        "2100px 900px"
-    -->
     <xsl:param name="reveal.parallaxbackgroundsize" select="''"/>
-    
-    <!-- Generate vertical slides -->
     <xsl:param name="reveal.generate.vertical.slides" select="'true'"/>
     
     <!--

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This plugin transforms the XHTML output to a reveal.js based web presentation. -->
+<?xml-model href="dita-ot/plugin.rnc" type="application/relax-ng-compact-syntax"?>
 <plugin id="org.doctales.reveal">
 
     <!-- 
@@ -7,6 +7,7 @@
         If the required plugin is missing, a warning will
         be thrown during the integration process.
     -->
+    <require plugin="org.dita.base"/>
     <require plugin="org.dita.xhtml"/>
 
     <!-- Name of the author -->
@@ -24,7 +25,27 @@
         @type attribute value of 'txt' indicates that the plugin
         is adding the value of the @value attribute.
     -->
-    <feature extension="dita.conductor.transtype.check" value="reveal" type="txt"/>
+    <feature extension="dita.conductor.transtype.check" value="reveal"/>
+    <transtype name="reveal" extends="html5" desc="Web Slides">
+        <param name="args.reveal.css" desc="Theme used for the Reveal slides" type="enum">
+            <val>beige</val>
+            <val>black</val>
+            <val>blood</val>
+            <val>league</val>
+            <val>moon</val>
+            <val>night</val>
+            <val>serif</val>
+            <val default="true">simple</val>
+            <val>sky</val>
+            <val>solarized</val>
+            <val>white</val>
+        </param>
+        <param name="args.reveal.generate.vertical.slides"
+            desc="Generate vertical slides for level 2 and below references." type="enum">
+            <val default="true">true</val>
+            <val>false</val>
+        </param>
+    </transtype>
 
     <!--
         The contents of the 'build.xml' build file are added to the
@@ -33,35 +54,10 @@
         as a filename. It is also possible to use @file instead of @value.
     -->
     <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
-
-    <!-- 
-        Automatically set the map-attribute 'chunk' to 'to-content' in the preprocess.
-    -->
-    <feature extension="depend.preprocess.chunk.pre" value="setchunk"/>
     
     <!--
         Add parameters to the transformation process.
         Parameters can, for example, switch the CSS stylesheet.
     -->
-    <!--<feature extension="dita.conductor.xhtml.param" file="insertParameters.xml"/>-->
-
-    <!-- Override the standard XHTML processing with a XSL stylesheet. -->
-    <!-- <feature extension="dita.xsl.xhtml" file="xsl/reveal.xsl"/> -->
-    <transtype name="reveal" extends="base-html" desc="Web Slides (Reveal.js - Experimental)">
-        <param name="args.reveal.css" desc="Theme used for the Reveal slides" type="enum">
-            <val default="true">default</val>
-            <val>sky</val>
-            <val>beige</val>
-            <val>simple</val>
-            <val>serif</val>
-            <val>night</val>
-            <val>moon</val>
-            <val>solarized</val>
-        </param>
-        <param name="args.reveal.generate.vertical.slides"
-            desc="Generate vertical slides for level 2 and below references." type="enum">
-            <val default="true">true</val>
-            <val>false</val>
-        </param>
-    </transtype>
+    <feature extension="dita.conductor.xhtml.param" file="insertParameters.xml"/>
 </plugin>

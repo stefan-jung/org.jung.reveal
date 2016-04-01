@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="dita2reveal" default="dita2reveal" basedir="." xmlns:dita="http://dita-ot.sourceforge.net">
+<project xmlns:dita="http://dita-ot.sourceforge.net" name="dita2reveal">
     
     <!-- ================================================== 
         Properties
     -->
     
     <!-- Download URL of the reveal.js archive. -->
-    <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/3.1.0.zip"/>
+    <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/3.2.0.zip"/>
     
     <!-- Filename of the reveal.js archive. -->
-    <property name="revealArchiveName" value="3.1.0.zip"/>
+    <property name="revealArchiveName" value="3.2.0.zip"/>
     
     <!-- Directory name of reveal.js that is stored in the downloaded archive. -->
-    <property name="revealDirectoryName" value="reveal.js-3.1.0"/>
+    <property name="revealDirectoryName" value="reveal.js-3.2.0"/>
     
     <!-- HTML version. Property is required by DITA-OT2.x -->
-    <property name="html-version" value="xhtml"/>
+    <property name="html-version" value="html5"/>
     
     <!-- File extension of the output files -->
     <property name="args.outext" value=".html"/>
@@ -26,6 +26,10 @@
     <!-- Do not generate releated links -->
     <property name="args.rellinks" value="none"/>
     
+    <!-- Do not generate a nav-toc (HTML5) -->
+    <property name="nav-toc" value="none"/>
+    
+    <property name="args.xsl" value="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl"/>
     
     <!-- ==================================================
          Extension Points
@@ -37,33 +41,38 @@
         Targets
     -->
     
-    <!-- The main target -->
-    <target name="dita2reveal" unless="noMap" depends="
-        clean_reveal,
+    <!--<target name="dita2termchecker"
+        depends="terminology.init,
+        html5.init,
         build-init,
         preprocess,
-        dita.map.xhtml,
-        dita.topics.xhtml.reveal,
-        prepareRevealJs,
-        prepareJQuery,
-        copy-user-css
-        " dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>
+        html5.topic,
+        html5.map,
+        html5.css,
+        dita.topics.html.termchecker"/>-->
     
-    <target name="reveal" unless="noMap" depends="dita2reveal" />
+    <!-- The main target -->
+    <target name="dita2reveal" 
+            depends="reveal.init,
+                     html5.init,
+                     build-init,
+                     preprocess,
+                     html5.topic,
+                     html5.map,
+                     html5.css,
+                     dita.topics.html.reveal,
+                     reveal.copy.files"/>
     
-    <!--
-      Clean the out/reveal directory and determine, if the XHTML transformation is a reveal.js transformation.
-      If yes, set chunk="to-content" dynamically on the root map element.
-    -->
-    <target name="clean_reveal">
+    
+    <!--<target name="reveal.init">
       <delete dir="${output.dir}" />
       <condition property="isRevealJS">
         <equals arg1="${transtype}" arg2="reveal"/>
       </condition>
-    </target>
+    </target>-->
     
     <!-- Meta target for reveal.js processing. -->
-    <target name="prepareRevealJs">
+    <!--<target name="prepareRevealJs">
         <mkdir dir="${revealCacheDir}"/>
         <get
             verbose="on"
@@ -79,47 +88,42 @@
         <delete file="${output.dir}${file.separator}index.html"/>
         <move file="${output.dir}${file.separator}${dita.map.filename.root}${args.outext}" tofile="${output.dir}${file.separator}index${args.outext}"/>
         <delete dir="${output.dir}${file.separator}test"/>
-    </target>
+    </target>-->
     
-    <target name="prepareJQuery">
+    <!--<target name="prepareJQuery">
         <copy file="${dita.plugin.org.doctales.reveal.dir}/js/jquery-1.11.3.min.js" todir="${output.dir}${file.separator}js"/>
-    </target>
-    
-    
-    <!-- 
-        Set the 'reveal.css' property, if the user provides a custom CSS file.
-    -->
-    <target name="copy-user-css-condition">
-        <condition property="reveal.css.set" else="false">
-            <isset property="reveal.css"/>
-        </condition>
-    </target>
-    
-    
-    
-    <!-- 
-        Copy user defined CSS files to the output directory.
-    -->
-    <target name="copy-user-css"
-        description="Execute this target only, when reveal.css is provided by the user."
-        if="reveal.css"
-        depends="copy-user-css-condition">
-        <echo>Custom CSS file set ? ${reveal.css.set}</echo>
-        <copy file="${reveal.css}" todir="${output.dir}${file.separator}css${file.separator}theme"/>
-    </target>
-    
+    </target>-->
     
     
     <!-- Automatically set "chunk='to-content'" on the temporary input file. -->
-    <target name="setchunk" description="Set @chunk to-content on the temp input bookmap" if="isRevealJS">
+    <!--<target name="setchunk" description="Set @chunk to-content on the temp input bookmap" if="isRevealJS">
       <replace file="${dita.temp.dir}${file.separator}${dita.input.filename}" token="chunk=.to-content." value="" encoding="UTF-8"/>	
       <replace file="${dita.temp.dir}${file.separator}${dita.input.filename}" token="&lt;bookmap " value="&lt;bookmap chunk='to-content' " encoding="UTF-8"/>
       <replace file="${dita.temp.dir}${file.separator}${dita.input.filename}" token="&lt;map " value="&lt;map chunk='to-content' " encoding="UTF-8"/>
-	</target>
+	</target>-->
+    
+    <target name="reveal.init">
+        
+        <property name="root-chunk-override" value="to-content"/>
+        
+        <echo>Create temporary directory for reveal.js: ${revealCacheDir}</echo>
+        <mkdir dir="${revealCacheDir}"/>
+        
+        <echo>Download reveal.js</echo>
+        <get
+            verbose="on"
+            src="${revealDownloadUrl}"
+            dest="${revealCacheDir}"
+            skipexisting="true"/>
+        <echo>Extract reveal.js</echo>
+        <unzip
+            src="${revealCacheDir}${file.separator}${revealArchiveName}"
+            dest="${revealCacheDir}"/>
+    </target>
     
     <!-- XSLT transformation -->
     <!--<target name="dita.topics.xhtml.reveal" depends="dita.xhtml.init" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">-->
-    <target name="dita.topics.xhtml.reveal" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">
+    <target name="dita.topics.html.reveal" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">
         <xslt basedir="${dita.temp.dir}"
             destdir="${output.dir}"
             includesfile="${dita.temp.dir}${file.separator}${fullditatopicfile}"
@@ -129,9 +133,10 @@
             style="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl"
             filenameparameter="FILENAME"
             filedirparameter="FILEDIR">
-            
             <excludesfile name="${dita.temp.dir}${file.separator}${resourceonlyfile}" if="resourceonlyfile"></excludesfile>
             <includesfile name="${dita.temp.dir}${file.separator}${chunkedtopicfile}" if="chunkedtopicfile"></includesfile>
+            <xmlcatalog refid="dita.catalog"/>
+            
             <param name="TRANSTYPE" expression="${transtype}"></param>
             <param name="DITAEXT" expression="${dita.ext}" if="dita.ext"></param>
             <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
@@ -236,8 +241,23 @@
             
             <!-- Generate vertical slides. -->
             <param name="reveal.generate.vertical.slides" expression="${args.reveal.generate.vertical.slides}" if="args.reveal.generate.vertical.slides"></param>
-            
-            <xmlcatalog refid="dita.catalog"/>
         </xslt>
+    </target>
+    
+    <target name="reveal.copy.files">
+        <echo>Custom CSS file set ? ${reveal.css.set}</echo>
+        <copy file="${reveal.css}" todir="${output.dir}${file.separator}css${file.separator}theme" failonerror="false"/>
+        
+        <echo>Copy reveal.js to output directory</echo>
+        <copy todir="${output.dir}">
+            <fileset dir="${revealCacheDir}${file.separator}${revealDirectoryName}"/>
+        </copy>
+        
+        <echo>Copy jquery to output directory</echo>
+        <copy file="${dita.plugin.org.doctales.reveal.dir}/js/jquery-1.11.3.min.js" todir="${output.dir}${file.separator}js"/>
+        
+        <delete file="${output.dir}${file.separator}index.html"/>
+        <move file="${output.dir}${file.separator}${dita.map.filename.root}${args.outext}" tofile="${output.dir}${file.separator}index${args.outext}"/>
+        <delete dir="${output.dir}${file.separator}test"/>
     </target>
 </project>
