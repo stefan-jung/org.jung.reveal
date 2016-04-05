@@ -50,6 +50,11 @@
     <xsl:param name="reveal.parallaxbackgroundimage" select="''" />
     <xsl:param name="reveal.parallaxbackgroundsize" select="''"/>
     <xsl:param name="reveal.generate.vertical.slides" select="'true'"/>
+    <xsl:param name="reveal.width" select="960"/>
+    <xsl:param name="reveal.height" select="700"/>
+    <xsl:param name="reveal.margin" select="0.1"/>
+    <xsl:param name="reveal.minScale" select="0.2"/>
+    <xsl:param name="reveal.maxScale" select="1.5"/>
     
     <!--
         **************************************************
@@ -90,7 +95,16 @@
                 position: relative !important;
                 bottom: 0 !important;
                 height: 100px !important;
-                width: 300px !importants;
+                width: 300px !important;
+            }
+            /* Override margins to prohibit scrollbars. Remove intrusive border. */
+            /* TODO: Move overrides to theme. */
+            section img {
+                margin: 10px 10px 0px 0px !important;
+                border: none !important;
+            }
+            div.slides {
+                top: 0 !important;
             }
         </style>
         <xsl:value-of select="$newline"/>
@@ -261,15 +275,15 @@
             // The "normal" size of the presentation, aspect ratio will be preserved
             // when the presentation is scaled to fit different resolutions. Can be
             // specified using percentage units.
-            width: 960,
-            height: 700,
+            width: <xsl:value-of select="$reveal.width"/>,
+            height: <xsl:value-of select="$reveal.height"/>,
             
             // Factor of the display size that should remain empty around the content
-            margin: 0.1,
+            margin: <xsl:value-of select="$reveal.margin"/>,
             
             // Bounds for smallest/largest possible scale to apply to content
-            minScale: 0.1,
-            maxScale: 1.0,
+            minScale: <xsl:value-of select="$reveal.minScale"/>,
+            maxScale: <xsl:value-of select="$reveal.maxScale"/>,
             
             // Parallax scrolling
             // parallaxBackgroundImage: <xsl:value-of select="$reveal.parallaxbackgroundimage"/>,

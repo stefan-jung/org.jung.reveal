@@ -95,4 +95,27 @@
     <!-- Set the parallax background size. -->
     <param name="reveal.parallaxbackgroundsize" expression="${args.reveal.parallaxbackgroundsize}"
         if="args.reveal.parallaxbackgroundsize"/>
+    
+    <!-- 
+        The "normal" size of the presentation, aspect ratio will be preserved
+        when the presentation is scaled to fit different resolutions.
+        Can be specified using percentage units.
+    -->
+    <param name="reveal.width" expression="${args.reveal.width}"
+        if="args.reveal.width"/>
+    
+    <param name="reveal.height" expression="${args.reveal.height}"
+        if="args.reveal.height"/>
+    
+    <!-- Factor of the display size that should remain empty around the content -->
+    <param name="reveal.margin" expression="${args.reveal.margin}"
+        if="args.reveal.margin"/>
+    
+    <!-- Bounds for smallest/largest possible scale to apply to content -->
+    <param name="reveal.minScale" expression="${args.reveal.minScale}"
+        if="args.reveal.minScale"/>
+    
+    <param name="reveal.maxScale" expression="${args.reveal.maxScale}"
+        if="args.reveal.maxScale"/>
+    
 </dummy>
