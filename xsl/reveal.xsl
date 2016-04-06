@@ -25,36 +25,36 @@
         **************************************************
     -->
     
-    <xsl:param name="reveal.css" select="'black'"/>
-    <xsl:param name="reveal.controls" select="true()"/>
-    <xsl:param name="reveal.progress" select="true()"/>
-    <xsl:param name="reveal.slidenumber" select="false()"/>
-    <xsl:param name="reveal.history" select="false()"/>
-    <xsl:param name="reveal.keyboard" select="true()"/>
-    <xsl:param name="reveal.overview" select="true()"/>
-    <xsl:param name="reveal.center" select="true()"/>
-    <xsl:param name="reveal.touch" select="true()"/>
-    <xsl:param name="reveal.loop" select="false()"/>
-    <xsl:param name="reveal.rtl" select="false()"/>
-    <xsl:param name="reveal.fragments" select="true()"/>
-    <xsl:param name="reveal.embedded" select="false()"/>
-    <xsl:param name="reveal.autoslide" select="'0'"/>
-    <xsl:param name="reveal.autoslidestoppable" select="true()"/>
-    <xsl:param name="reveal.mousewheel" select="false()"/>
-    <xsl:param name="reveal.hideaddressbar" select="true()"/>
-    <xsl:param name="reveal.previewlinks" select="false()"/>
-    <xsl:param name="reveal.transition" select="'default'"/>
-    <xsl:param name="reveal.transitionspeed" select="'default'"/>
-    <xsl:param name="reveal.backgroundtransition" select="'default'"/>
-    <xsl:param name="reveal.viewdistance" select="'3'"/>
-    <xsl:param name="reveal.parallaxbackgroundimage" select="''" />
-    <xsl:param name="reveal.parallaxbackgroundsize" select="''"/>
-    <xsl:param name="reveal.generate.vertical.slides" select="'true'"/>
-    <xsl:param name="reveal.width" select="960"/>
-    <xsl:param name="reveal.height" select="700"/>
-    <xsl:param name="reveal.margin" select="0.1"/>
-    <xsl:param name="reveal.minScale" select="0.2"/>
-    <xsl:param name="reveal.maxScale" select="1.5"/>
+    <xsl:param name="args.reveal.css"/>
+    <xsl:param name="args.reveal.controls"/>
+    <xsl:param name="args.reveal.progress"/>
+    <xsl:param name="args.reveal.slidenumber"/>
+    <xsl:param name="args.reveal.history"/>
+    <xsl:param name="args.reveal.keyboard"/>
+    <xsl:param name="args.reveal.overview"/>
+    <xsl:param name="args.reveal.center"/>
+    <xsl:param name="args.reveal.touch"/>
+    <xsl:param name="args.reveal.loop"/>
+    <xsl:param name="args.reveal.rtl"/>
+    <xsl:param name="args.reveal.fragments"/>
+    <xsl:param name="args.reveal.embedded"/>
+    <xsl:param name="args.reveal.autoslide"/>
+    <xsl:param name="args.reveal.autoslidestoppable"/>
+    <xsl:param name="args.reveal.mousewheel"/>
+    <xsl:param name="args.reveal.hideaddressbar"/>
+    <xsl:param name="args.reveal.previewlinks"/>
+    <xsl:param name="args.reveal.transition"/>
+    <xsl:param name="args.reveal.transitionspeed"/>
+    <xsl:param name="args.reveal.backgroundtransition"/>
+    <xsl:param name="args.reveal.viewdistance"/>
+    <xsl:param name="args.reveal.parallaxbackgroundimage"/>
+    <xsl:param name="args.reveal.parallaxbackgroundsize"/>
+    <xsl:param name="args.reveal.generate.vertical.slides"/>
+    <xsl:param name="args.reveal.width"/>
+    <xsl:param name="args.reveal.height"/>
+    <xsl:param name="args.reveal.margin"/>
+    <xsl:param name="args.reveal.minScale"/>
+    <xsl:param name="args.reveal.maxScale"/>
     
     <!--
         **************************************************
@@ -68,8 +68,8 @@
     
     <!-- Add reveal.js styles by overriding placeholder template from dita2htmlImpl.xsl -->
     <xsl:template match="/|node()|@*" mode="gen-user-styles">
-        <link href="css/reveal.css" rel="stylesheet" />
-        <link id="theme" href="css/theme/{$reveal.css}.css" rel="stylesheet"/>
+        <link href="css/reveal.css" rel="stylesheet"/>
+        <link id="theme" href="css/theme/{$args.reveal.css}.css" rel="stylesheet"/>
         <!-- For syntax highlighting -->
         <link href="css/theme/zenburn.css" rel="stylesheet"/>
         <!-- For print -->
@@ -103,9 +103,6 @@
                 margin: 10px 10px 0px 0px !important;
                 border: none !important;
             }
-            div.slides {
-                top: 0 !important;
-            }
         </style>
         <xsl:value-of select="$newline"/>
     </xsl:template>
@@ -124,23 +121,16 @@
     
     <!-- Add reveal.js scripts by overriding placeholder template from dita2htmlImpl.xsl -->
     <xsl:template match="/|node()|@*" mode="gen-user-scripts">
-        <script src="js/jquery-1.11.3.min.js" type="text/javascript">
-            <xsl:value-of select="$newline"/>
-        </script>
+        <script src="js/jquery-1.11.3.min.js" type="text/javascript"><xsl:value-of select="$newline"/></script>
         <script type="text/javascript">
             <!-- If the query includes 'print-pdf', include the PDF print sheet -->
             if (window.location.search.match(/print-pdf/gi)) {
-            var link = document.createElement( 'link' );
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = 'css/print/pdf.css';
-            document.getElementsByTagName( 'head' )[0].appendChild( link );
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
             }
-
-            /*            
-            function zoomSection() {
-            }
-            */
         </script>
         <!-- 
             [if lt IE 9]>
@@ -163,10 +153,8 @@
     <xsl:template match="*" mode="chapterBody">
         <!--<body onload="removeDisposableSections()">--> 
         <body> 
-            <xsl:value-of select="$newline"/>
             <div class="reveal">
                 <!-- Any section element inside of this container is displayed as a slide -->
-                <xsl:value-of select="$newline"/>
                 <div class="slides">
                     <!-- Already put xml:lang on <html>; do not copy to body with commonattributes -->
                     <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/@outputclass" mode="add-ditaval-style"/>
@@ -207,7 +195,7 @@
                                     </xsl:for-each>
                                 </xsl:variable>
                                 <xsl:choose>
-                                    <xsl:when test="'true' = $reveal.generate.vertical.slides">
+                                    <xsl:when test="$args.reveal.generate.vertical.slides = 'true'">
                                         <!-- Generate vertical slides, so wrap in a <section> element -->
                                         <section class="slide">
                                             <xsl:copy-of select="$allSlidesAsFirstLevel"/>
@@ -230,77 +218,65 @@
                 </div>
             </div>
         </body>
+        <xsl:value-of select="$newline"/>
+        
         <!--
             The $newline is necessary to avoid that the <script> tag
             will be collapsed to its shortform: <script/>
             The collapsed <script> tag might not be correctly displayed
             in the browser.
         -->
-        <script src="lib/js/head.min.js" type="text/javascript">
-            <xsl:value-of select="$newline"/>
-        </script>
-        <script src="js/reveal.js" type="text/javascript">
-            <xsl:value-of select="$newline"/>
-        </script>
+        <script src="lib/js/head.min.js" type="text/javascript"><xsl:value-of select="$newline"/></script>
+        <script src="js/reveal.js" type="text/javascript"><xsl:value-of select="$newline"/></script>
         <script type="text/javascript">
             <!-- 
                 Full list of configuration options available here:
                 https://github.com/hakimel/reveal.js#configuration
             -->
             Reveal.initialize({
-            controls: <xsl:value-of select="$reveal.controls"/>,
-            progress: <xsl:value-of select="$reveal.progress"/>,
-            slideNumber: <xsl:value-of select="$reveal.slidenumber"/>,
-            history: <xsl:value-of select="$reveal.hideaddressbar"/>,
-            keyboard: <xsl:value-of select="$reveal.keyboard"/>,
-            overview: <xsl:value-of select="$reveal.overview"/>,
-            center: <xsl:value-of select="$reveal.center"/>,
-            touch: <xsl:value-of select="$reveal.touch"/>,
-            loop: <xsl:value-of select="$reveal.loop"/>,
-            rtl: <xsl:value-of select="$reveal.rtl"/>,
-            fragments: <xsl:value-of select="$reveal.fragments"/>,
-            embedded: <xsl:value-of select="$reveal.embedded"/>,
-            autoSlide: <xsl:value-of select="$reveal.autoslide"/>,
-            autoSlideStoppable: <xsl:value-of select="$reveal.autoslidestoppable"/>,
-            mouseWheel: <xsl:value-of select="$reveal.mousewheel"/>,
-            hideAddressBar: <xsl:value-of select="$reveal.hideaddressbar"/>,
-            previewLinks: <xsl:value-of select="$reveal.previewlinks"/>,
-            // transition: <xsl:value-of select="$reveal.transition"/>,
-            // transitionSpeed: <xsl:value-of select="$reveal.transitionspeed"/>,
-            // backgroundTransition: <xsl:value-of select="$reveal.backgroundtransition"/>,
-            viewDistance: <xsl:value-of select="$reveal.viewdistance"/>,
-            
-            
-            
-            // The "normal" size of the presentation, aspect ratio will be preserved
-            // when the presentation is scaled to fit different resolutions. Can be
-            // specified using percentage units.
-            width: <xsl:value-of select="$reveal.width"/>,
-            height: <xsl:value-of select="$reveal.height"/>,
-            
-            // Factor of the display size that should remain empty around the content
-            margin: <xsl:value-of select="$reveal.margin"/>,
-            
-            // Bounds for smallest/largest possible scale to apply to content
-            minScale: <xsl:value-of select="$reveal.minScale"/>,
-            maxScale: <xsl:value-of select="$reveal.maxScale"/>,
-            
-            // Parallax scrolling
-            // parallaxBackgroundImage: <xsl:value-of select="$reveal.parallaxbackgroundimage"/>,
-            // parallaxBackgroundSize: <xsl:value-of select="$reveal.parallaxbackgroundsize"/>,
-            
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-            
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-            ]
+                controls: <xsl:value-of select="$args.reveal.controls"/>,
+                progress: <xsl:value-of select="$args.reveal.progress"/>,
+                slideNumber: <xsl:value-of select="$args.reveal.slidenumber"/>,
+                history: <xsl:value-of select="$args.reveal.hideaddressbar"/>,
+                keyboard: <xsl:value-of select="$args.reveal.keyboard"/>,
+                overview: <xsl:value-of select="$args.reveal.overview"/>,
+                center: <xsl:value-of select="$args.reveal.center"/>,
+                touch: <xsl:value-of select="$args.reveal.touch"/>,
+                loop: <xsl:value-of select="$args.reveal.loop"/>,
+                rtl: <xsl:value-of select="$args.reveal.rtl"/>,
+                fragments: <xsl:value-of select="$args.reveal.fragments"/>,
+                embedded: <xsl:value-of select="$args.reveal.embedded"/>,
+                autoSlide: <xsl:value-of select="$args.reveal.autoslide"/>,
+                autoSlideStoppable: <xsl:value-of select="$args.reveal.autoslidestoppable"/>,
+                mouseWheel: <xsl:value-of select="$args.reveal.mousewheel"/>,
+                hideAddressBar: <xsl:value-of select="$args.reveal.hideaddressbar"/>,
+                previewLinks: <xsl:value-of select="$args.reveal.previewlinks"/>,
+                transition: '<xsl:value-of select="$args.reveal.transition"/>',
+                transitionSpeed: '<xsl:value-of select="$args.reveal.transitionspeed"/>',
+                backgroundTransition: '<xsl:value-of select="$args.reveal.backgroundtransition"/>',
+                viewDistance: <xsl:value-of select="$args.reveal.viewdistance"/>,
+                // parallaxBackgroundImage: '<xsl:value-of select="$args.reveal.parallaxbackgroundimage"/>',
+                // parallaxBackgroundSize: '<xsl:value-of select="$args.reveal.parallaxbackgroundsize"/>',
+                // parallaxBackgroundHorizontal: null,
+                // parallaxBackgroundVertical: null,
+                width: <xsl:value-of select="$args.reveal.width"/>,
+                height: <xsl:value-of select="$args.reveal.height"/>,
+                margin: <xsl:value-of select="$args.reveal.margin"/>,
+                minScale: <xsl:value-of select="$args.reveal.minScale"/>,
+                maxScale: <xsl:value-of select="$args.reveal.maxScale"/>,
+                
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
             });
             
             Reveal.addEventListener( 'slidechanged', function( event ) {
@@ -356,9 +332,7 @@
     <xsl:template match="*[contains(@class,' pr-d/codeblock ')][contains(@outputclass, 'language-')]">
         <pre>
             <code>
-                <xsl:attribute name="class">
-                    hljs <xsl:value-of select="substring-after(@outputclass,'language-')" />
-                </xsl:attribute>
+                <xsl:attribute name="class">hljs <xsl:value-of select="substring-after(@outputclass,'language-')"/></xsl:attribute>
                 <xsl:apply-templates/>
             </code>
         </pre>

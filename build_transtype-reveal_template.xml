@@ -63,48 +63,151 @@
                      dita.topics.html.reveal,
                      reveal.copy.files"/>
     
-    
-    <!--<target name="reveal.init">
-      <delete dir="${output.dir}" />
-      <condition property="isRevealJS">
-        <equals arg1="${transtype}" arg2="reveal"/>
-      </condition>
-    </target>-->
-    
-    <!-- Meta target for reveal.js processing. -->
-    <!--<target name="prepareRevealJs">
-        <mkdir dir="${revealCacheDir}"/>
-        <get
-            verbose="on"
-            src="${revealDownloadUrl}"
-            dest="${revealCacheDir}"
-            skipexisting="true"/>
-        <unzip
-            src="${revealCacheDir}${file.separator}${revealArchiveName}"
-            dest="${revealCacheDir}"/>
-        <copy todir="${output.dir}">
-            <fileset dir="${revealCacheDir}${file.separator}${revealDirectoryName}"/>
-        </copy>
-        <delete file="${output.dir}${file.separator}index.html"/>
-        <move file="${output.dir}${file.separator}${dita.map.filename.root}${args.outext}" tofile="${output.dir}${file.separator}index${args.outext}"/>
-        <delete dir="${output.dir}${file.separator}test"/>
-    </target>-->
-    
-    <!--<target name="prepareJQuery">
-        <copy file="${dita.plugin.org.doctales.reveal.dir}/js/jquery-1.11.3.min.js" todir="${output.dir}${file.separator}js"/>
-    </target>-->
-    
-    
-    <!-- Automatically set "chunk='to-content'" on the temporary input file. -->
-    <!--<target name="setchunk" description="Set @chunk to-content on the temp input bookmap" if="isRevealJS">
-      <replace file="${dita.temp.dir}${file.separator}${dita.input.filename}" token="chunk=.to-content." value="" encoding="UTF-8"/>	
-      <replace file="${dita.temp.dir}${file.separator}${dita.input.filename}" token="&lt;bookmap " value="&lt;bookmap chunk='to-content' " encoding="UTF-8"/>
-      <replace file="${dita.temp.dir}${file.separator}${dita.input.filename}" token="&lt;map " value="&lt;map chunk='to-content' " encoding="UTF-8"/>
-	</target>-->
-    
     <target name="reveal.init">
         
         <property name="root-chunk-override" value="to-content"/>
+        
+        <condition property="args.reveal.css" value="simple">
+            <not>
+                <isset property="args.reveal.css"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.controls" value="true">
+            <not>
+                <isset property="args.reveal.controls"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.progress" value="true">
+            <not>
+                <isset property="args.reveal.progress"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.slidenumber" value="false">
+            <not>
+                <isset property="args.reveal.slidenumber"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.history" value="false">
+            <not>
+                <isset property="args.reveal.history"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.keyboard" value="true">
+            <not>
+                <isset property="args.reveal.keyboard"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.overview" value="true">
+            <not>
+                <isset property="args.reveal.overview"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.center" value="true">
+            <not>
+                <isset property="args.reveal.center"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.touch" value="true">
+            <not>
+                <isset property="args.reveal.touch"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.loop" value="false">
+            <not>
+                <isset property="args.reveal.loop"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.rtl" value="false">
+            <not>
+                <isset property="args.reveal.rtl"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.fragments" value="true">
+            <not>
+                <isset property="args.reveal.fragments"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.embedded" value="false">
+            <not>
+                <isset property="args.reveal.embedded"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.autoslide" value="0">
+            <not>
+                <isset property="args.reveal.autoslide"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.autoslidestoppable" value="true">
+            <not>
+                <isset property="args.reveal.autoslidestoppable"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.mousewheel" value="false">
+            <not>
+                <isset property="args.reveal.mousewheel"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.hideaddressbar" value="true">
+            <not>
+                <isset property="args.reveal.hideaddressbar"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.previewlinks" value="false">
+            <not>
+                <isset property="args.reveal.previewlinks"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.transition" value="default">
+            <not>
+                <isset property="args.reveal.transition"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.transitionspeed" value="default">
+            <not>
+                <isset property="args.reveal.transitionspeed"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.backgroundtransition" value="default">
+            <not>
+                <isset property="args.reveal.backgroundtransition"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.viewdistance" value="3">
+            <not>
+                <isset property="args.reveal.viewdistance"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.width" value="960">
+            <not>
+                <isset property="args.reveal.width"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.height" value="700">
+            <not>
+                <isset property="args.reveal.height"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.margin" value="0.1">
+            <not>
+                <isset property="args.reveal.heimarginght"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.minScale" value="0.2">
+            <not>
+                <isset property="args.reveal.minScale"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.maxScale" value="1.5">
+            <not>
+                <isset property="args.reveal.maxScale"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.generate.vertical.slides" value="true">
+            <not>
+                <isset property="args.reveal.generate.vertical.slides"></isset>
+            </not>
+        </condition>
+        
         
         <echo>Create temporary directory for reveal.js: ${revealCacheDir}</echo>
         <mkdir dir="${revealCacheDir}"/>
@@ -160,87 +263,37 @@
             <param name="DBG" expression="${args.debug}" if="args.debug"></param>
             <param name="DEFAULTLANG" expression="${args.default.language}" if="args.default.language"></param>
             
-            <!-- Switch the style sheet. -->
-            <param name="reveal.css" expression="${args.reveal.css}" if="args.reveal.css"></param>
-            
-            <!-- Display controls in the bottom right corner. -->
-            <param name="reveal.controls" expression="${args.reveal.controls}" if="args.reveal.controls"></param>
-            
-            <!-- Display a presentation progress bar. -->
-            <param name="reveal.progress" expression="${args.reveal.progress}" if="args.reveal.progress"></param>
-            
-            <!-- Display the page number of the current slide. -->
-            <param name="reveal.slidenumber" expression="${args.reveal.slidenumber}" if="args.reveal.slidenumber"></param>
-            
-            <!-- Push each slide change to the browser history. -->
-            <param name="reveal.history" expression="${args.reveal.history}" if="args.reveal.history"></param>
-            
-            <!-- Enable keyboard shortcuts for navigation. -->
-            <param name="reveal.keyboard" expression="${args.reveal.keyboard}" if="args.reveal.keyboard"></param>
-            
-            <!-- Enable the slide overview mode. -->
-            <param name="reveal.overview" expression="${args.reveal.overview}" if="args.reveal.overview"></param>
-            
-            <!-- Vertical centering of slides. -->
-            <param name="reveal.center" expression="${args.reveal.center}" if="args.reveal.center"></param>
-            
-            <!-- Enables touch navigation on devices with touch input. -->
-            <param name="reveal.touch" expression="${args.reveal.touch}" if="args.reveal.touch"></param>
-            
-            <!-- Loop the presentation. -->
-            <param name="reveal.loop" expression="${args.reveal.loop}" if="args.reveal.loop"></param>
-            
-            <!-- Change the presentation direction to be right-to-left. -->
-            <param name="reveal.rtl" expression="${args.reveal.rtl}" if="args.reveal.rtl"></param>
-            
-            <!-- Turns fragments on and off globally. -->
-            <param name="reveal.fragments" expression="${args.reveal.fragments}" if="args.reveal.fragments"></param>
-            
-            <!--
-                Flags if the presentation is running in an embedded mode,
-                i.e. contained within a limited portion of the screen.
-            -->
-            <param name="reveal.embedded" expression="${args.reveal.embedded}" if="args.reveal.embedded"></param>
-            
-            <!--
-                Number of milliseconds between automatically proceeding to the
-                next slide, disabled when set to 0, this value can be overwritten
-                by using a data-autoslide attribute on your slides
-            -->
-            <param name="reveal.autoslide" expression="${args.reveal.autoslide}" if="args.reveal.autoslide"></param>
-            
-            <!-- Stop auto-sliding after user input. -->
-            <param name="reveal.autoslidestoppable" expression="${args.reveal.autoslidestoppable}" if="args.reveal.autoslidestoppable"></param>
-            
-            <!-- Enable slide navigation via mouse wheel. -->
-            <param name="reveal.mousewheel" expression="${args.reveal.mousewheel}" if="args.reveal.mousewheel"></param>
-            
-            <!-- Hides the address bar on mobile devices. -->
-            <param name="reveal.hideaddressbar" expression="${args.reveal.hideaddressbar}" if="args.reveal.hideaddressbar"></param>
-            
-            <!-- Opens links in an iframe preview overlay. -->
-            <param name="reveal.previewlinks" expression="${args.reveal.previewlinks}" if="args.reveal.previewlinks"></param>
-            
-            <!-- Set the transition style. -->
-            <param name="reveal.transition" expression="${args.reveal.transition}" if="args.reveal.transition"></param>
-            
-            <!-- Set the transition speed. -->
-            <param name="reveal.transitionspeed" expression="${args.reveal.transitionspeed}" if="args.reveal.transitionspeed"></param>
-            
-            <!-- Set the transition style for full page slide backgrounds. -->
-            <param name="reveal.backgroundtransition" expression="${args.reveal.backgroundtransition}" if="args.reveal.backgroundtransition"></param>
-            
-            <!-- Set the number of slides away from the current that are visible. -->
-            <param name="reveal.viewdistance" expression="${args.reveal.viewdistance}" if="args.reveal.viewdistance"></param>
-            
-            <!-- Set the parallax background image. -->
-            <param name="reveal.parallaxbackgroundimage" expression="${args.reveal.parallaxbackgroundimage}" if="args.reveal.parallaxbackgroundimage"></param>
-            
-            <!-- Set the parallax background size. -->
-            <param name="reveal.parallaxbackgroundsize" expression="${args.reveal.parallaxbackgroundsize}" if="args.reveal.parallaxbackgroundsize"></param>
-            
-            <!-- Generate vertical slides. -->
-            <param name="reveal.generate.vertical.slides" expression="${args.reveal.generate.vertical.slides}" if="args.reveal.generate.vertical.slides"></param>
+            <!-- reveal.js parameters -->
+            <param name="args.reveal.css" expression="${args.reveal.css}" if="args.reveal.css"/>
+            <param name="args.reveal.controls" expression="${args.reveal.controls}" if="args.reveal.controls"/>
+            <param name="args.reveal.progress" expression="${args.reveal.progress}" if="args.reveal.progress"/>
+            <param name="args.reveal.slidenumber" expression="${args.reveal.slidenumber}" if="args.reveal.slidenumber"/>
+            <param name="args.reveal.history" expression="${args.reveal.history}" if="args.reveal.history"/>
+            <param name="args.reveal.keyboard" expression="${args.reveal.keyboard}" if="args.reveal.keyboard"/>
+            <param name="args.reveal.overview" expression="${args.reveal.overview}" if="args.reveal.overview"/>
+            <param name="args.reveal.center" expression="${args.reveal.center}" if="args.reveal.center"/>
+            <param name="args.reveal.touch" expression="${args.reveal.touch}" if="args.reveal.touch"/>
+            <param name="args.reveal.loop" expression="${args.reveal.loop}" if="args.reveal.loop"/>
+            <param name="args.reveal.rtl" expression="${args.reveal.rtl}" if="args.reveal.rtl"/>
+            <param name="args.reveal.fragments" expression="${args.reveal.fragments}" if="args.reveal.fragments"/>
+            <param name="args.reveal.embedded" expression="${args.reveal.embedded}" if="args.reveal.embedded"/>
+            <param name="args.reveal.autoslide" expression="${args.reveal.autoslide}" if="args.reveal.autoslide"/>
+            <param name="args.reveal.autoslidestoppable" expression="${args.reveal.autoslidestoppable}" if="args.reveal.autoslidestoppable"/>
+            <param name="args.reveal.mousewheel" expression="${args.reveal.mousewheel}" if="args.reveal.mousewheel"/>
+            <param name="args.reveal.hideaddressbar" expression="${args.reveal.hideaddressbar}" if="args.reveal.hideaddressbar"/>
+            <param name="args.reveal.previewlinks" expression="${args.reveal.previewlinks}" if="args.reveal.previewlinks"/>
+            <param name="args.reveal.transition" expression="${args.reveal.transition}" if="args.reveal.transition"/>
+            <param name="args.reveal.transitionspeed" expression="${args.reveal.transitionspeed}" if="args.reveal.transitionspeed"/>
+            <param name="args.reveal.backgroundtransition" expression="${args.reveal.backgroundtransition}" if="args.reveal.backgroundtransition"/>
+            <param name="args.reveal.viewdistance" expression="${args.reveal.viewdistance}" if="args.reveal.viewdistance"/>
+            <param name="args.reveal.parallaxbackgroundimage" expression="${args.reveal.parallaxbackgroundimage}" if="args.reveal.parallaxbackgroundimage"/>
+            <param name="args.reveal.parallaxbackgroundsize" expression="${args.reveal.parallaxbackgroundsize}" if="args.reveal.parallaxbackgroundsize"/>
+            <param name="args.reveal.width" expression="${args.reveal.width}" if="args.reveal.width"/>
+            <param name="args.reveal.height" expression="${args.reveal.height}" if="args.reveal.height"/>
+            <param name="args.reveal.margin" expression="${args.reveal.margin}" if="args.reveal.margin"/>
+            <param name="args.reveal.minScale" expression="${args.reveal.minScale}" if="args.reveal.minScale"/>
+            <param name="args.reveal.maxScale" expression="${args.reveal.maxScale}" if="args.reveal.maxScale"/>
+            <param name="args.reveal.generate.vertical.slides" expression="${args.reveal.generate.vertical.slides}" if="args.reveal.generate.vertical.slides"/>
         </xslt>
     </target>
     

@@ -150,8 +150,7 @@
         </param>
         
         <!-- Custom parameter -->
-        <param name="args.reveal.generate.vertical.slides"
-            desc="Generate vertical slides for level 2 and below references." type="enum">
+        <param name="args.reveal.generate.vertical.slides" desc="Generate vertical slides for level 2 and below references." type="enum">
             <val default="true">true</val>
             <val>false</val>
         </param>

@@ -1,121 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dummy>
-    <!--
-        Any Ant code allowed in xslt task is possible.
-        Common example:
-        <param name="paramNameinXSLT" expression="${antProperty}" if="antProperty"/>
-    -->
-
-    <!-- Switch the style sheet. -->
-    <param name="reveal.css" expression="${args.reveal.css}" if="args.reveal.css"/>
-
-    <!-- Display controls in the bottom right corner. -->
-    <param name="reveal.controls" expression="${args.reveal.controls}" if="args.reveal.controls"/>
-
-    <!-- Display a presentation progress bar. -->
-    <param name="reveal.progress" expression="${args.reveal.progress}" if="args.reveal.progress"/>
-
-    <!-- Display the page number of the current slide. -->
-    <param name="reveal.slidenumber" expression="${args.reveal.slidenumber}"
-        if="args.reveal.slidenumber"/>
-
-    <!-- Push each slide change to the browser history. -->
-    <param name="reveal.history" expression="${args.reveal.history}" if="args.reveal.history"/>
-
-    <!-- Enable keyboard shortcuts for navigation. -->
-    <param name="reveal.keyboard" expression="${args.reveal.keyboard}" if="args.reveal.keyboard"/>
-
-    <!-- Enable the slide overview mode. -->
-    <param name="reveal.overview" expression="${args.reveal.overview}" if="args.reveal.overview"/>
-
-    <!-- Vertical centering of slides. -->
-    <param name="reveal.center" expression="${args.reveal.center}" if="args.reveal.center"/>
-
-    <!-- Enables touch navigation on devices with touch input. -->
-    <param name="reveal.touch" expression="${args.reveal.touch}" if="args.reveal.touch"/>
-
-    <!-- Loop the presentation. -->
-    <param name="reveal.loop" expression="${args.reveal.loop}" if="args.reveal.loop"/>
-
-    <!-- Change the presentation direction to be right-to-left. -->
-    <param name="reveal.rtl" expression="${args.reveal.rtl}" if="args.reveal.rtl"/>
-
-    <!-- Turns fragments on and off globally. -->
-    <param name="reveal.fragments" expression="${args.reveal.fragments}" if="args.reveal.fragments"/>
-
-    <!--
-        Flags if the presentation is running in an embedded mode,
-        i.e. contained within a limited portion of the screen.
-    -->
-    <param name="reveal.embedded" expression="${args.reveal.embedded}" if="args.reveal.embedded"/>
-
-    <!--
-       Number of milliseconds between automatically proceeding to the
-       next slide, disabled when set to 0, this value can be overwritten
-       by using a data-autoslide attribute on your slides
-    -->
-    <param name="reveal.autoslide" expression="${args.reveal.autoslide}" if="args.reveal.autoslide"/>
-
-    <!-- Stop auto-sliding after user input. -->
-    <param name="reveal.autoslidestoppable" expression="${args.reveal.autoslidestoppable}"
-        if="args.reveal.autoslidestoppable"/>
-
-    <!-- Enable slide navigation via mouse wheel. -->
-    <param name="reveal.mousewheel" expression="${args.reveal.mousewheel}"
-        if="args.reveal.mousewheel"/>
-
-    <!-- Hides the address bar on mobile devices. -->
-    <param name="reveal.hideaddressbar" expression="${args.reveal.hideaddressbar}"
-        if="args.reveal.hideaddressbar"/>
-
-    <!-- Opens links in an iframe preview overlay. -->
-    <param name="reveal.previewlinks" expression="${args.reveal.previewlinks}"
-        if="args.reveal.previewlinks"/>
-
-    <!-- Set the transition style. -->
-    <param name="reveal.transition" expression="${args.reveal.transition}"
-        if="args.reveal.transition"/>
-
-    <!-- Set the transition speed. -->
-    <param name="reveal.transitionspeed" expression="${args.reveal.transitionspeed}"
-        if="args.reveal.transitionspeed"/>
-
-    <!-- Set the transition style for full page slide backgrounds. -->
-    <param name="reveal.backgroundtransition" expression="${args.reveal.backgroundtransition}"
-        if="args.reveal.backgroundtransition"/>
-
-    <!-- Set the number of slides away from the current that are visible. -->
-    <param name="reveal.viewdistance" expression="${args.reveal.viewdistance}"
-        if="args.reveal.viewdistance"/>
-
-    <!-- Set the parallax background image. -->
-    <param name="reveal.parallaxbackgroundimage" expression="${args.reveal.parallaxbackgroundimage}"
-        if="args.reveal.parallaxbackgroundimage"/>
-
-    <!-- Set the parallax background size. -->
-    <param name="reveal.parallaxbackgroundsize" expression="${args.reveal.parallaxbackgroundsize}"
-        if="args.reveal.parallaxbackgroundsize"/>
-    
-    <!-- 
-        The "normal" size of the presentation, aspect ratio will be preserved
-        when the presentation is scaled to fit different resolutions.
-        Can be specified using percentage units.
-    -->
-    <param name="reveal.width" expression="${args.reveal.width}"
-        if="args.reveal.width"/>
-    
-    <param name="reveal.height" expression="${args.reveal.height}"
-        if="args.reveal.height"/>
-    
-    <!-- Factor of the display size that should remain empty around the content -->
-    <param name="reveal.margin" expression="${args.reveal.margin}"
-        if="args.reveal.margin"/>
-    
-    <!-- Bounds for smallest/largest possible scale to apply to content -->
-    <param name="reveal.minScale" expression="${args.reveal.minScale}"
-        if="args.reveal.minScale"/>
-    
-    <param name="reveal.maxScale" expression="${args.reveal.maxScale}"
-        if="args.reveal.maxScale"/>
-    
+    <param name="args.reveal.css" expression="${args.reveal.css}" if="args.reveal.css"/>
+    <param name="args.reveal.controls" expression="${args.reveal.controls}" if="args.reveal.controls"/>
+    <param name="args.reveal.progress" expression="${args.reveal.progress}" if="args.reveal.progress"/>
+    <param name="args.reveal.slidenumber" expression="${args.reveal.slidenumber}" if="args.reveal.slidenumber"/>
+    <param name="args.reveal.history" expression="${args.reveal.history}" if="args.reveal.history"/>
+    <param name="args.reveal.keyboard" expression="${args.reveal.keyboard}" if="args.reveal.keyboard"/>
+    <param name="args.reveal.overview" expression="${args.reveal.overview}" if="args.reveal.overview"/>
+    <param name="args.reveal.center" expression="${args.reveal.center}" if="args.reveal.center"/>
+    <param name="args.reveal.touch" expression="${args.reveal.touch}" if="args.reveal.touch"/>
+    <param name="args.reveal.loop" expression="${args.reveal.loop}" if="args.reveal.loop"/>
+    <param name="args.reveal.rtl" expression="${args.reveal.rtl}" if="args.reveal.rtl"/>
+    <param name="args.reveal.fragments" expression="${args.reveal.fragments}" if="args.reveal.fragments"/>
+    <param name="args.reveal.embedded" expression="${args.reveal.embedded}" if="args.reveal.embedded"/>
+    <param name="args.reveal.autoslide" expression="${args.reveal.autoslide}" if="args.reveal.autoslide"/>
+    <param name="args.reveal.autoslidestoppable" expression="${args.reveal.autoslidestoppable}" if="args.reveal.autoslidestoppable"/>
+    <param name="args.reveal.mousewheel" expression="${args.reveal.mousewheel}" if="args.reveal.mousewheel"/>
+    <param name="args.reveal.hideaddressbar" expression="${args.reveal.hideaddressbar}" if="args.reveal.hideaddressbar"/>
+    <param name="args.reveal.previewlinks" expression="${args.reveal.previewlinks}" if="args.reveal.previewlinks"/>
+    <param name="args.reveal.transition" expression="${args.reveal.transition}" if="args.reveal.transition"/>
+    <param name="args.reveal.transitionspeed" expression="${args.reveal.transitionspeed}" if="args.reveal.transitionspeed"/>
+    <param name="args.reveal.backgroundtransition" expression="${args.reveal.backgroundtransition}" if="args.reveal.backgroundtransition"/>
+    <param name="args.reveal.viewdistance" expression="${args.reveal.viewdistance}" if="args.reveal.viewdistance"/>
+    <param name="args.reveal.parallaxbackgroundimage" expression="${args.reveal.parallaxbackgroundimage}" if="args.reveal.parallaxbackgroundimage"/>
+    <param name="args.reveal.parallaxbackgroundsize" expression="${args.reveal.parallaxbackgroundsize}" if="args.reveal.parallaxbackgroundsize"/>
+    <param name="args.reveal.width" expression="${args.reveal.width}" if="args.reveal.width"/>
+    <param name="args.reveal.height" expression="${args.reveal.height}" if="args.reveal.height"/>
+    <param name="args.reveal.margin" expression="${args.reveal.margin}" if="args.reveal.margin"/>
+    <param name="args.reveal.minScale" expression="${args.reveal.minScale}" if="args.reveal.minScale"/>
+    <param name="args.reveal.maxScale" expression="${args.reveal.maxScale}" if="args.reveal.maxScale"/>
+    <param name="args.reveal.generate.vertical.slides" expression="${args.reveal.generate.vertical.slides}" if="args.reveal.generate.vertical.slides"/>
 </dummy>
