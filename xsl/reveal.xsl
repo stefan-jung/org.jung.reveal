@@ -115,9 +115,7 @@
     </xsl:template>
     
     <!-- Add title by overriding placeholder template from dita2htmlImpl.xsl -->
-    <xsl:template match="/|node()|@*" mode="gen-user-panel-title-pfx">
-        reveal.js
-    </xsl:template>
+    <xsl:template match="/|node()|@*" mode="gen-user-panel-title-pfx"></xsl:template>
     
     <!-- Add reveal.js scripts by overriding placeholder template from dita2htmlImpl.xsl -->
     <xsl:template match="/|node()|@*" mode="gen-user-scripts">
