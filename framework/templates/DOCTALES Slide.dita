@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE slide PUBLIC "-//DOCTALES//DTD DITA DOCTALES Slide//EN" "slide.dtd">
+<slide id="ui_${id}">
+ <title>Slide</title>
+ <body/>
+ <slide>
+  <title>Nested slide</title>
+  <body>
+   <ul>
+    <li>item 1</li>
+    <li>item 2</li>
+   </ul>
+  </body>
+ </slide>
+</slide>
