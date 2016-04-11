@@ -19,6 +19,8 @@
     <!-- Version of the plugin -->
     <feature extension="package.version" value="0.1"/>
 
+    <feature extension="dita.specialization.catalog.relative" type="file" value="catalog-dita.xml" />
+
     <!-- 
         The feature element is adding the value 'reveal' to the
         extension point 'dita.conductor.transtype.check'. The

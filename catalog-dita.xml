@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <public publicId="-//DOCTALES//DTD DITA DOCTALES Slide//EN" uri="dtd/slide.dtd"/>
+  <public publicId="-//DOCTALES//DTD DITA DOCTALES 1.x Slide//EN" uri="dtd/slide.dtd"/>
+  <public publicId="-//DOCTALES//DTD DITA DOCTALES 1.2 Slide//EN" uri="dtd/slide.dtd"/>
+  <public publicId="-//DOCTALES//DTD DITA DOCTALES 1.3 Slide//EN" uri="dtd/slide.dtd"/>
+  <public publicId="-//DOCTALES//ELEMENTS DITA DOCTALES Slide//EN" uri="dtd/slide.mod"/>
+  <public publicId="-//DOCTALES//ELEMENTS DITA 1.x DOCTALES Slide//EN" uri="dtd/slide.mod"/>
+  <public publicId="-//DOCTALES//ELEMENTS DITA 1.2 DOCTALES Slide//EN" uri="dtd/slide.mod"/>
+  <public publicId="-//DOCTALES//ELEMENTS DITA 1.3 DOCTALES Slide//EN" uri="dtd/slide.mod"/>
+  <public publicId="-//DOCTALES//ENTITIES DITA DOCTALES Slide//EN" uri="dtd/slide.ent"/>
+  <public publicId="-//DOCTALES//ENTITIES DITA 1.x DOCTALES Slide//EN" uri="dtd/slide.ent"/>
+  <public publicId="-//DOCTALES//ENTITIES DITA 1.2 DOCTALES Slide//EN" uri="dtd/slide.ent"/>
+  <public publicId="-//DOCTALES//ENTITIES DITA 1.3 DOCTALES Slide//EN" uri="dtd/slide.ent"/>
+</catalog>
