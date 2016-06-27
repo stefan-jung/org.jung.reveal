@@ -21,6 +21,8 @@ PUBLIC "-//DOCTALES//ELEMENTS DITA DOCTALES Slide//EN"
 <!-- ================================================================================ -->
 
 <!ENTITY % slide                 "slide"                                                >
+<!ENTITY % slide-settings        "slide-settings"                                       >
+<!ENTITY % background            "background"                                           >
 
 
 
@@ -45,6 +47,7 @@ PUBLIC "-//DOCTALES//ELEMENTS DITA DOCTALES Slide//EN"
 <!--                                 LONG NAME: Slide                                 -->
 
 <!ENTITY % slide.content            "((%title;),
+                                      (%slide-settings;)?,
                                       (%body;)?,
                                       (%slide-info-types;)*)
                                     ">
@@ -71,11 +74,37 @@ Category: Slide elements-->
                                      domains CDATA "&included-domains;">
 
 
+<!--                                 LONG NAME: Slide Settings                        -->
+
+<!ENTITY % slide-settings.content  "((%background;)?)
+                                    ">
+<!--doc:The <slide-settings> element is a container for various slide specific settings.
+Category: Slide elements-->
+<!ELEMENT slide-settings             %slide-settings.content;>
+<!ATTLIST slide-settings             %prolog.attributes;>
+
+
+<!--                                 LONG NAME: Background                            -->
+
+<!ENTITY % background.content       "EMPTY
+                                    ">
+<!ENTITY % background.attributes    "color   CDATA   #IMPLIED
+                                     transition-in   (none|fade|slide|convex|concave|zoom)   'none'
+                                     transition-out   (none|fade|slide|convex|concave|zoom)   'none'
+                                     %data-element-atts;">
+
+<!--doc:The <slide> element is the root element of a slide topic. A slide represents a slide of a presentation.
+Category: Slide elements-->
+<!ELEMENT  background %background.content;>
+<!ATTLIST  background %background.attributes;>
+
 
 <!-- ================================================================================ -->
 <!--                      SPECIALIZATION ATTRIBUTE DECLARATIONS                       -->
 <!-- ================================================================================ -->
 
-<!ATTLIST slide   %global-atts;   class CDATA "- topic/topic slide/slide ">
+<!ATTLIST slide          %global-atts; class CDATA "- topic/topic slide/slide ">
+<!ATTLIST slide-settings %global-atts; class CDATA "- topic/prolog slide/slide-settings ">
+<!ATTLIST background     %global-atts; class CDATA "- topic/data slide/background ">
 
 <!-- ================================= End of file ================================== -->
