@@ -11,7 +11,7 @@
 
     <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
     
-    <xsl:output omit-xml-declaration="yes" indent="yes"/>
+    <xsl:output method="html" encoding="UTF-8" indent="no" doctype-system="about:legacy-compat" omit-xml-declaration="yes"/>
     
     <!-- The parameter $newline defines a line break. -->
     <xsl:variable name="newline">
