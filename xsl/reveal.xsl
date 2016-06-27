@@ -182,12 +182,12 @@
                                 <!-- We need to bring all slides to the top level -->
                                 <xsl:variable name="allSlidesAsFirstLevel">
                                     <!-- The slide which contains other slides, copied to output but ignoring sub-slides -->
-                                    <section class="slide">
+                                    <section>
                                         <xsl:apply-templates mode="all-but-topicContainer"/>
                                     </section>
                                     <!-- For each subslide, copy to output but ignore sub-slides -->
                                     <xsl:for-each select=".//topicContainer">
-                                        <section class="slide">
+                                        <section>
                                             <xsl:apply-templates mode="all-but-topicContainer"/>
                                         </section>
                                     </xsl:for-each>
@@ -195,7 +195,7 @@
                                 <xsl:choose>
                                     <xsl:when test="$args.reveal.generate.vertical.slides = 'true'">
                                         <!-- Generate vertical slides, so wrap in a <section> element -->
-                                        <section class="slide">
+                                        <section>
                                             <xsl:copy-of select="$allSlidesAsFirstLevel"/>
                                         </section>
                                     </xsl:when>
@@ -206,7 +206,7 @@
                                 </xsl:choose>
                             </xsl:when>
                             <xsl:otherwise>
-                                <section class="slide">
+                                <section>
                                     <xsl:apply-templates mode="all-but-topicContainer"/>
                                 </section>
                             </xsl:otherwise>
