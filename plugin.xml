@@ -167,8 +167,7 @@
     <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
     
     <!--
-        Add parameters to the transformation process.
-        Parameters can, for example, switch the CSS stylesheet.
+        Pass parameters to the XSL stylesheets.
     -->
-    <feature extension="dita.conductor.xhtml.param" file="insertParameters.xml"/>
+    <feature extension="dita.conductor.html5.param" value="insertParameters.xml" type="file"/>
 </plugin>
