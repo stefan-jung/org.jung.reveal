@@ -67,61 +67,48 @@
     
     <!-- Add reveal.js styles by overriding placeholder template from dita2htmlImpl.xsl -->
     <xsl:template match="/|node()|@*" mode="gen-user-styles">
-        <link href="css/reveal.css" rel="stylesheet"/>
-        <link id="theme" href="css/theme/{$args.reveal.css}.css" rel="stylesheet"/>
-        <!-- For syntax highlighting -->
-        <!-- FIXME: Does not exist anymore. Any alternative imports needed? -->
-        <!--<link href="css/theme/zenburn.css" rel="stylesheet"/>-->
+        
+        <meta name="apple-mobile-web-app-capable" content="yes"><!----></meta>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!----></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"><!----></meta>
+        
+        <link rel="stylesheet" href="css/reveal.css"><!----></link>
+        <link rel="stylesheet" href="css/theme/{$args.reveal.css}.css" id="theme"><!----></link>
+
+        <!-- Code syntax highlighting -->
+        <link href="lib/css/zenburn.css" rel="stylesheet"/>
+
         <!-- For print -->
-        <link href="css/print/paper.css" rel="stylesheet"/>
-        <xsl:value-of select="$newline"/>
-        <style type="text/css">
-            div.body {
-                overflow-y: auto  !important;
-                overflow-x: hidden !important;
-                height: 400px;
-            }
-            ::-webkit-scrollbar { 
-                display: none; 
-            }
-            * {
-                margin: 0;
-            }
-            html, body {
-                height: 100%;
-            }
-            div.footer {
-                background-color: green !important;
-                position: relative !important;
-                bottom: 0 !important;
-                height: 100px !important;
-                width: 300px !important;
-            }
-            /* Override margins to prohibit scrollbars. Remove intrusive border. */
-            /* TODO: Move overrides to theme. */
-            section img {
-                margin: 10px 10px 0px 0px !important;
-                border: none !important;
-            }
-        </style>
-        <xsl:value-of select="$newline"/>
+        
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+        
+        <!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
     </xsl:template>
     
     <!-- Add reveal.js metadata by overriding placeholder template from dita2htmlImpl.xsl -->
-    <xsl:template name="generateDefaultCopyright">
+<!--    <xsl:template name="generateDefaultCopyright">
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    </xsl:template>
+    </xsl:template>-->
     
     <!-- Add title by overriding placeholder template from dita2htmlImpl.xsl -->
     <xsl:template match="/|node()|@*" mode="gen-user-panel-title-pfx"></xsl:template>
     
     <!-- Add reveal.js scripts by overriding placeholder template from dita2htmlImpl.xsl -->
-    <xsl:template match="/|node()|@*" mode="gen-user-scripts">
+    <!--<xsl:template match="/|node()|@*" mode="gen-user-scripts">
         <script src="js/jquery-1.11.3.min.js" type="text/javascript"><xsl:value-of select="$newline"/></script>
         <script type="text/javascript">
-            <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+            <!-\- If the query includes 'print-pdf', include the PDF print sheet -\->
             if (window.location.search.match(/print-pdf/gi)) {
                 var link = document.createElement( 'link' );
                 link.rel = 'stylesheet';
@@ -130,15 +117,15 @@
                 document.getElementsByTagName( 'head' )[0].appendChild( link );
             }
         </script>
-        <!-- 
+        <!-\- 
             [if lt IE 9]>
             <xsl:value-of select="$newline"/>
             <script src="lib/js/html5shiv.js"></script>
             <xsl:value-of select="$newline"/>
             <![endif]
-        -->
+        -\->
         <xsl:value-of select="$newline"/>
-    </xsl:template>
+    </xsl:template>-->
     
     <!--
         This template overrides the template 'chapterBody' defined in the 'dita2htmlimpl.xsl'.
@@ -216,12 +203,6 @@
                 </div>
             </div>
             
-            <!--
-                The $newline is necessary to avoid that the <script> tag
-                will be collapsed to its shortform: <script/>
-                The collapsed <script> tag might not be correctly displayed
-                in the browser.
-            -->
             <script src="lib/js/head.min.js" type="text/javascript"><xsl:value-of select="$newline"/></script>
             <script src="js/reveal.js" type="text/javascript"><xsl:value-of select="$newline"/></script>
             <script type="text/javascript">
