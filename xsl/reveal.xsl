@@ -280,7 +280,7 @@
                 
                 $( document ).ready(function() {
                   // Unwrap all sections that are not slide sections
-                  $("section").not(".slide").each(function() {
+                  $("section").each(function() {
                     $( this ).children().unwrap();
                   });
                 });
