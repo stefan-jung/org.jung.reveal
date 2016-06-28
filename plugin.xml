@@ -8,7 +8,7 @@
         be thrown during the integration process.
     -->
     <require plugin="org.dita.base"/>
-    <require plugin="org.dita.xhtml"/>
+    <require plugin="org.dita.html5"/>
 
     <!-- Name of the author -->
     <feature extension="package.support.name" value="Stefan Eike"/>
