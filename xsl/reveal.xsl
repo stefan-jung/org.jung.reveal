@@ -70,7 +70,8 @@
         <link href="css/reveal.css" rel="stylesheet"/>
         <link id="theme" href="css/theme/{$args.reveal.css}.css" rel="stylesheet"/>
         <!-- For syntax highlighting -->
-        <link href="css/theme/zenburn.css" rel="stylesheet"/>
+        <!-- FIXME: Does not exist anymore. Any alternative imports needed? -->
+        <!--<link href="css/theme/zenburn.css" rel="stylesheet"/>-->
         <!-- For print -->
         <link href="css/print/paper.css" rel="stylesheet"/>
         <xsl:value-of select="$newline"/>
