@@ -42,7 +42,8 @@
     -->
     
     <target name="dita2reveal" 
-            depends="reveal.init,
+            depends="reveal.download.reveal.js,
+                     reveal.init,
                      html5.init,
                      build-init,
                      preprocess,
@@ -50,15 +51,35 @@
                      html5.map,
                      html5.css,
                      dita.topics.html.reveal,
-                     reveal.copy.files"/>
+                     reveal.copy.css,
+                     reveal.copy.reveal.js,
+                     reveal.copy.jquery,
+                     reveal.organize.files"/>
+    
+    <target name="reveal.download.reveal.js">
+        <mkdir dir="${revealCacheDir}"/>
+        <get
+            verbose="on"
+            src="${revealDownloadUrl}"
+            dest="${revealCacheDir}"
+            skipexisting="true"/>
+        <unzip
+            src="${revealCacheDir}${file.separator}${revealArchiveName}"
+            dest="${revealCacheDir}"/>
+    </target>
     
     <target name="reveal.init">
         
         <property name="root-chunk-override" value="to-content"/>
         
-        <condition property="args.reveal.css" value="simple">
+        <condition property="args.reveal.css" value="null">
             <not>
                 <isset property="args.reveal.css"></isset>
+            </not>
+        </condition>
+        <condition property="args.reveal.theme" value="simple">
+            <not>
+                <isset property="args.reveal.theme"></isset>
             </not>
         </condition>
         <condition property="args.reveal.controls" value="true">
@@ -197,20 +218,21 @@
             </not>
         </condition>
         
+        <basename property="css.filename" file="${args.reveal.css}" suffix=".css"/>
+
+        <fail message="Property &quot;args.reveal.theme&quot; does not match &quot;args.reveal.css&quot;">
+            <condition>
+                <and>
+                    <not>
+                        <equals arg1="${args.reveal.css}" arg2="null"/>
+                    </not>
+                    <not>
+                        <equals arg1="${args.reveal.theme}" arg2="${css.filename}"/>
+                    </not>
+                </and>
+            </condition>
+        </fail>
         
-        <echo>Create temporary directory for reveal.js: ${revealCacheDir}</echo>
-        <mkdir dir="${revealCacheDir}"/>
-        
-        <echo>Download reveal.js</echo>
-        <get
-            verbose="on"
-            src="${revealDownloadUrl}"
-            dest="${revealCacheDir}"
-            skipexisting="true"/>
-        <echo>Extract reveal.js</echo>
-        <unzip
-            src="${revealCacheDir}${file.separator}${revealArchiveName}"
-            dest="${revealCacheDir}"/>
     </target>
     
     <!-- XSLT transformation -->
@@ -254,6 +276,7 @@
             
             <!-- reveal.js parameters -->
             <param name="args.reveal.css" expression="${args.reveal.css}" if="args.reveal.css"/>
+            <param name="args.reveal.theme" expression="${args.reveal.theme}" if="args.reveal.theme"/>
             <param name="args.reveal.controls" expression="${args.reveal.controls}" if="args.reveal.controls"/>
             <param name="args.reveal.progress" expression="${args.reveal.progress}" if="args.reveal.progress"/>
             <param name="args.reveal.slidenumber" expression="${args.reveal.slidenumber}" if="args.reveal.slidenumber"/>
@@ -286,20 +309,25 @@
         </xslt>
     </target>
     
-    <target name="reveal.copy.files">
-        <echo>Custom CSS file set ? ${reveal.css.set}</echo>
-        <copy file="${reveal.css}" todir="${output.dir}${file.separator}css${file.separator}theme" failonerror="false"/>
-        
-        <echo>Copy reveal.js to output directory</echo>
-        <copy todir="${output.dir}">
+    <target name="reveal.copy.css" if="args.reveal.css">
+        <echo message="args.reveal.css=${args.reveal.css}"></echo>
+        <copy file="${args.reveal.css}" todir="${output.dir}${file.separator}css${file.separator}theme" failonerror="false"/>
+    </target>
+    
+    <target name="reveal.copy.reveal.js">
+        <copy todir="${output.dir}" failonerror="true">
             <fileset dir="${revealCacheDir}${file.separator}${revealDirectoryName}"/>
         </copy>
-        
-        <echo>Copy jquery to output directory</echo>
-        <copy file="${dita.plugin.org.doctales.reveal.dir}/js/jquery-1.11.3.min.js" todir="${output.dir}${file.separator}js"/>
-        
+    </target>
+    
+    <target name="reveal.copy.jquery">
+        <copy file="${dita.plugin.org.doctales.reveal.dir}/js/jquery-1.11.3.min.js" todir="${output.dir}${file.separator}js" failonerror="true"/>
+    </target>
+    
+    <target name="reveal.organize.files">
         <delete file="${output.dir}${file.separator}index.html"/>
         <move file="${output.dir}${file.separator}${dita.map.filename.root}${args.outext}" tofile="${output.dir}${file.separator}index${args.outext}"/>
         <delete dir="${output.dir}${file.separator}test"/>
     </target>
+
 </project>

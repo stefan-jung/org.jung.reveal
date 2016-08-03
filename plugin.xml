@@ -29,7 +29,8 @@
     -->
     <feature extension="dita.conductor.transtype.check" value="reveal"/>
     <transtype name="reveal" extends="html5" desc="Web Slides">
-        <param name="args.reveal.css" desc="Theme used for the Reveal slides" type="string">
+        <!-- To be able to set a value that is not defined in the list, this must be 'string'. -->
+        <param name="args.reveal.theme" desc="Theme used for the Reveal slides" type="string">
             <val>beige</val>
             <val>black</val>
             <val>blood</val>
@@ -42,7 +43,7 @@
             <val>solarized</val>
             <val>white</val>
         </param>
-        <param name="reveal.css" desc="Path to custom reveal.js stylesheet" type="file"/>
+        <param name="args.reveal.css" desc="Path to custom reveal.js CSS" type="file"/>
         <param name="args.reveal.controls" desc="Display controls in the bottom right corner." type="enum">
             <val default="true">true</val>
             <val>false</val>
@@ -170,5 +171,5 @@
     <!--
         Pass parameters to the XSL stylesheets.
     -->
-    <feature extension="dita.conductor.html.param" value="insertParameters.xml" type="file"/>
+    <feature extension="dita.conductor.html5.param" value="insertParameters.xml" type="file"/>
 </plugin>

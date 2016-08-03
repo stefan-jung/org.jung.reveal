@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dummy>
     <param name="args.reveal.css" expression="${args.reveal.css}" if="args.reveal.css"/>
+    <param name="args.reveal.theme" expression="${args.reveal.theme}" if="args.reveal.theme"/>
     <param name="args.reveal.controls" expression="${args.reveal.controls}" if="args.reveal.controls"/>
     <param name="args.reveal.progress" expression="${args.reveal.progress}" if="args.reveal.progress"/>
     <param name="args.reveal.slidenumber" expression="${args.reveal.slidenumber}" if="args.reveal.slidenumber"/>

@@ -25,6 +25,7 @@
     -->
     
     <xsl:param name="args.reveal.css"/>
+    <xsl:param name="args.reveal.theme"/>
     <xsl:param name="args.reveal.controls"/>
     <xsl:param name="args.reveal.progress"/>
     <xsl:param name="args.reveal.slidenumber"/>
@@ -73,7 +74,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"><!----></meta>
         
         <link rel="stylesheet" href="css/reveal.css"><!----></link>
-        <link rel="stylesheet" href="css/theme/{$args.reveal.css}.css" id="theme"><!----></link>
+        <xsl:if test="not(contains($args.reveal.theme, 'null'))">
+            <link rel="stylesheet" href="css/theme/{$args.reveal.theme}.css" id="theme"><!----></link>
+        </xsl:if>
 
         <!-- Code syntax highlighting -->
         <link href="lib/css/zenburn.css" rel="stylesheet"/>
