@@ -97,38 +97,8 @@
 		<![endif]-->
     </xsl:template>
     
-    <!-- Add reveal.js metadata by overriding placeholder template from dita2htmlImpl.xsl -->
-<!--    <xsl:template name="generateDefaultCopyright">
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    </xsl:template>-->
-    
     <!-- Add title by overriding placeholder template from dita2htmlImpl.xsl -->
     <xsl:template match="/|node()|@*" mode="gen-user-panel-title-pfx"></xsl:template>
-    
-    <!-- Add reveal.js scripts by overriding placeholder template from dita2htmlImpl.xsl -->
-    <!--<xsl:template match="/|node()|@*" mode="gen-user-scripts">
-        <script src="js/jquery-1.11.3.min.js" type="text/javascript"><xsl:value-of select="$newline"/></script>
-        <script type="text/javascript">
-            <!-\- If the query includes 'print-pdf', include the PDF print sheet -\->
-            if (window.location.search.match(/print-pdf/gi)) {
-                var link = document.createElement( 'link' );
-                link.rel = 'stylesheet';
-                link.type = 'text/css';
-                link.href = 'css/print/pdf.css';
-                document.getElementsByTagName( 'head' )[0].appendChild( link );
-            }
-        </script>
-        <!-\- 
-            [if lt IE 9]>
-            <xsl:value-of select="$newline"/>
-            <script src="lib/js/html5shiv.js"></script>
-            <xsl:value-of select="$newline"/>
-            <![endif]
-        -\->
-        <xsl:value-of select="$newline"/>
-    </xsl:template>-->
     
     <!--
         This template overrides the template 'chapterBody' defined in the 'dita2htmlimpl.xsl'.
@@ -206,8 +176,9 @@
                 </div>
             </div>
             
-            <script src="lib/js/head.min.js" type="text/javascript"><xsl:value-of select="$newline"/></script>
-            <script src="js/reveal.js" type="text/javascript"><xsl:value-of select="$newline"/></script>
+            <script src="lib/js/head.min.js" type="text/javascript"><!----></script><xsl:value-of select="$newline"/>
+            <script src="js/reveal.js" type="text/javascript"><!----></script><xsl:value-of select="$newline"/>
+            <script src="js/jquery-1.11.3.min.js" type="text/javascript"><!----></script><xsl:value-of select="$newline"/>
             <script type="text/javascript">
                 <!-- 
                     Full list of configuration options available here:
@@ -264,10 +235,6 @@
                 } );
                 
                 $( document ).ready(function() {
-                  // Unwrap all sections that are not slide sections
-                  $("section").each(function() {
-                    $( this ).children().unwrap();
-                  });
                 });
             </script>
         </body>
