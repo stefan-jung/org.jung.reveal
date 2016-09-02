@@ -23,7 +23,6 @@ comfortable with the default settings.
 
 
 <target name="reveal" description="Generate a reveal.js based web presentation.">
-    <antcall target="integrate"/>
     <ant antfile="${dita.dir}\build.xml">
         <!-- The input DITA map. -->
         <property name="args.input" value="[YOURMAP].ditamap"/>
