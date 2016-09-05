@@ -4,23 +4,108 @@ org.doctales.reveal
 This is a plugin for the DITA-OT. The plugin adds a new transtype called `reveal` for transforming DITA maps into reveal.js based web presentations.
 
 
-Installation
-============
+## Installation
 
 1. Move to the `~/bin` directory of the DITA-OT.
 2. Install the plugin using the `dita` command.  
    `dita -install https://github.com/doctales/org.doctales.reveal/archive/master.zip`
 
 
-Using the Plugin
-================
+## Publishing a presentation
 
-Create a new target in your Ant build file. The following target shows all currently supported properties of the plugin. You do not have to set the optional properties, if you feel 
-comfortable with the default settings.
+Before creating your first presentation, you should publish the sample presentation, that is being shipped with the plugin. From the plugin directory, call the `dita` command and pass the parameter `args.reveal.css` and point it to the DOCTALES CSS and set the parameter `args.reveal.theme` to `doctales` to activate the stylesheet.
+
+![Sample Presentation](![framework](https://raw.githubusercontent.com/doctales/doctales.github.io/master//home/stefan/workspace/doctales.github.io/media/animations/reveal-sample-presentation.gif)
+
+```bash
+dita -i samples/doctales.ditamap -f reveal -Dargs.reveal.css="css/doctales.css" -Dargs.reveal.theme="doctales"
+```
+
+Now the presentation should be published to the `~/out` directory.
+
+
+## Create a presentation
+
+Creating a presentation is easy. A DITA topic represents a single slide. The DITA Map holds all topics/slides together. Take a look at the `~/samples/doctales.ditamap`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>DOCTALES</title>
+ <topicref href="topics/01_title.dita"/>
+ <topicref href="topics/02_DOCTALES.dita"/>
+</map>
+```
 
+The map contains references two to topics, each representing a top-level slide. The first topic contains the title and the logo.
+
+**01_title.dita**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="title">
+  <title>DOCTALES</title>
+  <body>
+    <fig>
+      <image placement="break" href="https://doctales.github.io/images/doctales-logo.svg">
+        <alt>DOCTALES Logo</alt>
+      </image>
+    </fig>
+  </body>
+</topic>
+```
+
+The second slide contains a title and nested topics, that are rendered as horizontal slides.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="doctales">
+  <title>DOCTALES</title>
+  <!-- First horizontal slide -->
+  <topic id="who-are-we">
+    <title>Who are we</title>
+    <body>
+      <p>We are a small team of technical writers with the vision of making DITA easier to use for small teams.</p>
+      <ul>
+        <li>Stefan Eike</li>
+        <li>Sasche Nothofer</li>
+      </ul>
+    </body>
+  </topic>
+  <!-- Second horizontal slide -->
+  <topic id="plugins">
+    <title>What we are doing</title>
+    <body>
+      <ul>
+        <li>We are developing <xref href="https://doctales.github.io/plugins/Plugins.html" format="html" scope="external">plugins</xref> for the DITA-OT for various use cases.</li>
+      </ul>
+    </body>
+  </topic>
+  <!-- Third horizontal slide -->
+  <topic id="support">
+    <title>Support</title>
+    <body>
+      <ul>
+        <li>If you want to join and support us, write an e-mail to <xref href="mailto:stefan.eike@mailbox.org" format="html" scope="external">stefan.eike@mailbox.org</xref>.</li>
+        <li>If you need help with one of our plugins, write <xref href="http://stackoverflow.com/" format="html" scope="external">Stackoverflow topic</xref> and label it with <i>DITA</i> and <i>DOCTALES</i>.</li>
+        <li>If you have found a bug, please raise an issue on <xref href="http://github.com/doctales/" format="html" scope="external">Github</xref>.</li>
+      </ul>
+    </body>
+  </topic>
+</topic>
+```
+
+
+## Parameters
+
+The following Ant target shows all curre
+Create a new target in your Ant build file. The following target shows all currently supported parameters of the plugin. You do not have to set the optional parameters, if you feel comfortable with the default settings.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
 
 <target name="reveal" description="Generate a reveal.js based web presentation.">
     <ant antfile="${dita.dir}\build.xml">
