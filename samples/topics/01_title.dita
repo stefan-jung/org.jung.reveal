@@ -4,10 +4,7 @@
   <title>DOCTALES</title>
   <body>
     <fig>
-      <!--<image placement="break" href="https://doctales.github.io/images/doctales-logo.svg">
-        <alt>DOCTALES Logo</alt>
-      </image>-->
-      <image placement="break" href="/home/stefan/Schreibtisch/doctales-logo-without-subtitle.svg">
+      <image placement="break" href="https://doctales.github.io/images/doctales-logo.svg">
         <alt>DOCTALES Logo</alt>
       </image>
     </fig>
