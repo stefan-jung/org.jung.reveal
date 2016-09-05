@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="title">
+  <title>DOCTALES</title>
+  <body>
+    <fig>
+      <!--<image placement="break" href="https://doctales.github.io/images/doctales-logo.svg">
+        <alt>DOCTALES Logo</alt>
+      </image>-->
+      <image placement="break" href="/home/stefan/Schreibtisch/doctales-logo-without-subtitle.svg">
+        <alt>DOCTALES Logo</alt>
+      </image>
+    </fig>
+  </body>
+</topic>

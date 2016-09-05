@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="doctales">
+  <title>DOCTALES</title>
+  <topic id="who-are-we">
+    <title>Who are we</title>
+    <body>
+      <p>We are a small team of technical writers with the vision of making DITA easier to use for small teams.</p>
+      <ul>
+        <li>Stefan Eike</li>
+        <li>Sasche Nothofer</li>
+      </ul>
+    </body>
+  </topic>
+  <topic id="plugins">
+    <title>What we are doing</title>
+    <body>
+      <ul>
+        <li>We are developing <xref href="https://doctales.github.io/plugins/Plugins.html" format="html" scope="external">plugins</xref> for the DITA-OT for various use cases.</li>
+      </ul>
+    </body>
+  </topic>
+  <topic id="support">
+    <title>Support</title>
+    <body>
+      <ul>
+        <li>If you want to join and support us, write an e-mail to <xref href="mailto:stefan.eike@mailbox.org" format="html" scope="external">stefan.eike@mailbox.org</xref>.</li>
+        <li>If you need help with one of our plugins, write <xref href="http://stackoverflow.com/" format="html" scope="external">Stackoverflow topic</xref> and label it with <i>DITA</i> and <i>DOCTALES</i>.</li>
+        <li>If you have found a bug, please raise an issue on <xref href="http://github.com/doctales/" format="html" scope="external">Github</xref>.</li>
+      </ul>
+    </body>
+  </topic>
+</topic>
