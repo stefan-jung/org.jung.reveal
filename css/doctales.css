@@ -226,8 +226,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+  border: none; }
 
 .reveal section img.plain {
   border: 0;
@@ -285,3 +284,13 @@ body {
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+/*********************************************
+ * SCROLLBAR
+ *********************************************/
+section {
+    height: 100%; }
+section.present {
+    overflow-y: scroll;}
+section.present::-webkit-scrollbar { 
+    display: none; }
