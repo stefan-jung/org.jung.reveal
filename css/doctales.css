@@ -16,7 +16,7 @@ body {
 
 .reveal {
   font-family: "Lato", sans-serif;
-  font-size: 36px;
+  font-size: 24px;
   font-weight: normal;
   color: #004455; }
 
@@ -42,7 +42,7 @@ body {
   margin: 0 0 20px 0;
   color: #004455;
   font-family: "News Cycle", Impact, sans-serif;
-  font-weight: normal;
+  font-weight: bolder;
   line-height: 1.2;
   letter-spacing: normal;
   text-transform: none;
@@ -294,3 +294,15 @@ section.present {
     overflow-y: scroll;}
 section.present::-webkit-scrollbar { 
     display: none; }
+
+/*********************************************
+ * INLINE IMAGE
+ *********************************************/
+ .inline {
+     margin: 0 !important; }
+
+/*********************************************
+ * XML ELEMENT
+ *********************************************/
+.xmlelement {
+    color: #5fbcd3; }
