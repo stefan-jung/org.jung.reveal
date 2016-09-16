@@ -3,7 +3,7 @@
 <plugin id="org.doctales.reveal">
 
     <!-- 
-        Declare the XHTML plugin as a prerequisite plugin.
+        The HTML5 plugin as is required.
         If the required plugin is missing, a warning will
         be thrown during the integration process.
     -->
