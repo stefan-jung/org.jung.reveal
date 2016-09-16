@@ -172,4 +172,6 @@
         Pass parameters to the XSL stylesheets.
     -->
     <feature extension="dita.conductor.html5.param" value="insertParameters.xml" type="file"/>
+    
+    <feature extension="dita.xsl.html5" file="xsl/reveal.xsl"/>
 </plugin>

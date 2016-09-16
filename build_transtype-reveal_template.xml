@@ -14,22 +14,9 @@
     <!-- Directory name of reveal.js that is stored in the downloaded archive. -->
     <property name="revealDirectoryName" value="reveal.js-3.2.0"/>
     
-    <!-- HTML version. Property is required by DITA-OT2.x -->
-    <property name="html-version" value="html5"/>
-    
-    <!-- File extension of the output files -->
-    <property name="args.outext" value=".html"/>
-    
     <!-- Cache directory for reveal.js files. -->
     <property name="revealCacheDir" value="${user.home}${file.separator}.ditaToRevealJSCache"/>
     
-    <!-- Do not generate releated links -->
-    <property name="args.rellinks" value="none"/>
-    
-    <!-- Do not generate a nav-toc (HTML5) -->
-    <property name="nav-toc" value="none"/>
-    
-    <property name="args.xsl" value="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl"/>
     
     <!-- ==================================================
          Extension Points
@@ -243,7 +230,7 @@
             includesfile="${dita.temp.dir}${file.separator}${fullditatopicfile}"
             reloadstylesheet="${dita.xhtml.reloadstylesheet}"
             classpathref="dost.class.path"
-            extension="${args.outext}"
+            extension=".html"
             style="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl"
             filenameparameter="FILENAME"
             filedirparameter="FILEDIR">
@@ -268,7 +255,7 @@
             <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
             <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
             <param name="genDefMeta" expression="${args.gen.default.meta}" if="args.gen.default.meta"></param>
-            <param name="OUTEXT" expression="${args.outext}" if="out.ext"></param>
+            <param name="OUTEXT" expression=".html" if="out.ext"></param>
             <param name="BASEDIR" expression="${basedir}"></param>
             <param name="OUTPUTDIR" expression="${output.dir}"></param>
             <param name="DBG" expression="${args.debug}" if="args.debug"></param>
@@ -326,7 +313,7 @@
     
     <target name="reveal.organize.files">
         <delete file="${output.dir}${file.separator}index.html"/>
-        <move file="${output.dir}${file.separator}${dita.map.filename.root}${args.outext}" tofile="${output.dir}${file.separator}index${args.outext}"/>
+        <move file="${output.dir}${file.separator}${dita.map.filename.root}.html" tofile="${output.dir}${file.separator}index.html"/>
         <delete dir="${output.dir}${file.separator}test"/>
     </target>
 
