@@ -300,7 +300,7 @@
     </target>
     
     <target name="reveal.copy.css" if="args.reveal.css">
-        <echo message="args.reveal.css=${args.reveal.css}"></echo>
+        <echo level="info">Copy ${args.reveal.css} to ${output.dir}${file.separator}css${file.separator}theme</echo>
         <copy file="${args.reveal.css}" todir="${output.dir}${file.separator}css${file.separator}theme" failonerror="false"/>
     </target>
     
