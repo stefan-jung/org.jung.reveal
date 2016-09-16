@@ -15,11 +15,11 @@ This is a plugin for the DITA-OT. The plugin adds a new transtype called `reveal
 
 Before creating your first presentation, you should publish the sample presentation, that is being shipped with the plugin. From the plugin directory, call the `dita` command and pass the parameter `args.reveal.css` and point it to the DOCTALES CSS and set the parameter `args.reveal.theme` to `doctales` to activate the stylesheet.
 
-![Sample Presentation](https://raw.githubusercontent.com/doctales/doctales.github.io/master/media/animations/reveal-sample-presentation.gif)
-
 ```bash
 dita -i samples/doctales.ditamap -f reveal -Dargs.reveal.css="css/doctales.css" -Dargs.reveal.theme="doctales"
 ```
+
+![Sample Presentation](https://raw.githubusercontent.com/doctales/doctales.github.io/master/media/animations/reveal-sample-presentation.gif)
 
 Now the presentation should be published to the `~/out` directory.
 
@@ -71,7 +71,7 @@ The second slide contains a title and nested topics, that are rendered as horizo
       <p>We are a small team of technical writers with the vision of making DITA easier to use for small teams.</p>
       <ul>
         <li>Stefan Eike</li>
-        <li>Sasche Nothofer</li>
+        <li>Sascha Nothofer</li>
       </ul>
     </body>
   </topic>
