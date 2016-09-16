@@ -41,7 +41,7 @@
                      reveal.copy.css,
                      reveal.copy.reveal.js,
                      reveal.copy.jquery,
-                     reveal.organize.files"/>
+                     reveal.replace.index.html"/>
     
     <target name="reveal.download.reveal.js">
         <mkdir dir="${revealCacheDir}"/>
@@ -314,7 +314,7 @@
         <copy file="${dita.plugin.org.doctales.reveal.dir}/js/jquery-1.11.3.min.js" todir="${output.dir}${file.separator}js" failonerror="true"/>
     </target>
     
-    <target name="reveal.organize.files">
+    <target name="reveal.replace.index.html">
         <delete file="${output.dir}${file.separator}index.html"/>
         <move file="${output.dir}${file.separator}${dita.map.filename.root}.html" tofile="${output.dir}${file.separator}index.html"/>
         <delete dir="${output.dir}${file.separator}test"/>
