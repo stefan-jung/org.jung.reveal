@@ -56,14 +56,7 @@
     </target>
     
     <target name="reveal.init">
-        
         <property name="root-chunk-override" value="to-content"/>
-        
-        <condition property="args.reveal.css" value="null">
-            <not>
-                <isset property="args.reveal.css"></isset>
-            </not>
-        </condition>
         <condition property="args.reveal.theme" value="simple">
             <not>
                 <isset property="args.reveal.theme"></isset>
@@ -205,8 +198,19 @@
             </not>
         </condition>
         
-        <basename property="css.filename" file="${args.reveal.css}" suffix=".css"/>
+        <condition property="reveal.css-and-theme-used">
+            <and>
+                <isset property="args.reveal.css"/>
+                <isset property="args.reveal.theme"/>
+            </and>
+        </condition>
+        
+        <antcall target="reveal.theme-match.css"/>
+        
+    </target>
 
+    <target name="reveal.theme-match.css" if="reveal.css-and-theme-used">
+        <basename property="reveal.css.filename" file="${args.reveal.css}" suffix=".css" />
         <fail message="Property &quot;args.reveal.theme&quot; does not match &quot;args.reveal.css&quot;">
             <condition>
                 <and>
@@ -214,12 +218,11 @@
                         <equals arg1="${args.reveal.css}" arg2="null"/>
                     </not>
                     <not>
-                        <equals arg1="${args.reveal.theme}" arg2="${css.filename}"/>
+                        <equals arg1="${args.reveal.theme}" arg2="${reveal.css.filename}"/>
                     </not>
                 </and>
             </condition>
         </fail>
-        
     </target>
     
     <!-- XSLT transformation -->
