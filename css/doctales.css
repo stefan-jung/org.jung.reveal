@@ -42,7 +42,6 @@ body {
   margin: 0 0 20px 0;
   color: #004455;
   font-family: "News Cycle", Impact, sans-serif;
-  font-weight: bolder;
   line-height: 1.2;
   letter-spacing: normal;
   text-transform: none;
@@ -306,3 +305,23 @@ section.present::-webkit-scrollbar {
  *********************************************/
 .xmlelement {
     color: #5fbcd3; }
+
+/*********************************************
+ * USER INPUT
+ *********************************************/
+kbd.ph.userinput {
+    background-color: #004455;
+    border-radius: 5pt;
+    padding: 3pt 5pt 2pt 5pt !important;
+    color: white;
+    font-family: monospace !important;
+    font-size: 0.8em !important;
+    font-weight: bold !important; }
+
+/*********************************************
+ * UICONTROL
+ *********************************************/
+span.ph.uicontrol {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 0.9em; }
