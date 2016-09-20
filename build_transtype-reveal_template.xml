@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:dita="http://dita-ot.sourceforge.net" name="dita2reveal">
     
-    <!-- ================================================== 
-        Properties
-    -->
-    
-    <!-- Download URL of the reveal.js archive. -->
-    <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/3.2.0.zip"/>
-    
-    <!-- Filename of the reveal.js archive. -->
-    <property name="revealArchiveName" value="3.2.0.zip"/>
-    
-    <!-- Directory name of reveal.js that is stored in the downloaded archive. -->
-    <property name="revealDirectoryName" value="reveal.js-3.2.0"/>
-    
-    <!-- Cache directory for reveal.js files. -->
-    <property name="revealCacheDir" value="${user.home}${file.separator}.ditaToRevealJSCache"/>
-    
     
     <!-- ==================================================
          Extension Points
@@ -29,8 +13,8 @@
     -->
     
     <target name="dita2reveal" 
-            depends="reveal.download.reveal.js,
-                     reveal.init,
+            depends="reveal.init,
+                     reveal.download.reveal.js,
                      html5.init,
                      build-init,
                      preprocess,
@@ -56,145 +40,179 @@
     </target>
     
     <target name="reveal.init">
+        <!-- Download URL of the reveal.js archive. -->
+        <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/3.2.0.zip"/>
+        
+        <!-- Filename of the reveal.js archive. -->
+        <property name="revealArchiveName" value="3.2.0.zip"/>
+        
+        <!-- Directory name of reveal.js that is stored in the downloaded archive. -->
+        <property name="revealDirectoryName" value="reveal.js-3.2.0"/>
+        
+        <!-- HTML version. Property is required by DITA-OT2.x -->
+        <property name="html-version" value="html5"/>
+        
+        <!-- File extension of the output files -->
+        <property name="args.outext" value="html"/>
+        
+        <!-- Cache directory for reveal.js files. -->
+        <condition property="revealCacheDir" value="${user.home}/AppData/Local/DITA/org.doctales.reveal">
+            <os family="windows"/>
+        </condition>
+        <condition property="revealCacheDir" value="/tmp/DITA/org.doctales.reveal">
+            <os family="unix"/>
+        </condition>
+        
+        <!--<property name="revealCacheDir" value="${user.home}${file.separator}.ditaToRevealJSCache"/>-->
+        
+        <!-- Do not generate releated links -->
+        <property name="args.rellinks" value="none"/>
+        
+        <!-- Do not generate a nav-toc (HTML5) -->
+        <property name="nav-toc" value="none"/>
+        <property name="args.xsl" value="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl"/>
+        
+        <property name="root-chunk-override" value="to-content"/> 
+        
         <property name="root-chunk-override" value="to-content"/>
         <condition property="args.reveal.theme" value="simple">
             <not>
-                <isset property="args.reveal.theme"></isset>
+                <isset property="args.reveal.theme"/>
             </not>
         </condition>
         <condition property="args.reveal.controls" value="true">
             <not>
-                <isset property="args.reveal.controls"></isset>
+                <isset property="args.reveal.controls"/>
             </not>
         </condition>
         <condition property="args.reveal.progress" value="true">
             <not>
-                <isset property="args.reveal.progress"></isset>
+                <isset property="args.reveal.progress"/>
             </not>
         </condition>
         <condition property="args.reveal.slidenumber" value="false">
             <not>
-                <isset property="args.reveal.slidenumber"></isset>
+                <isset property="args.reveal.slidenumber"/>
             </not>
         </condition>
         <condition property="args.reveal.history" value="false">
             <not>
-                <isset property="args.reveal.history"></isset>
+                <isset property="args.reveal.history"/>
             </not>
         </condition>
         <condition property="args.reveal.keyboard" value="true">
             <not>
-                <isset property="args.reveal.keyboard"></isset>
+                <isset property="args.reveal.keyboard"/>
             </not>
         </condition>
         <condition property="args.reveal.overview" value="true">
             <not>
-                <isset property="args.reveal.overview"></isset>
+                <isset property="args.reveal.overview"/>
             </not>
         </condition>
         <condition property="args.reveal.center" value="true">
             <not>
-                <isset property="args.reveal.center"></isset>
+                <isset property="args.reveal.center"/>
             </not>
         </condition>
         <condition property="args.reveal.touch" value="true">
             <not>
-                <isset property="args.reveal.touch"></isset>
+                <isset property="args.reveal.touch"/>
             </not>
         </condition>
         <condition property="args.reveal.loop" value="false">
             <not>
-                <isset property="args.reveal.loop"></isset>
+                <isset property="args.reveal.loop"/>
             </not>
         </condition>
         <condition property="args.reveal.rtl" value="false">
             <not>
-                <isset property="args.reveal.rtl"></isset>
+                <isset property="args.reveal.rtl"/>
             </not>
         </condition>
         <condition property="args.reveal.fragments" value="true">
             <not>
-                <isset property="args.reveal.fragments"></isset>
+                <isset property="args.reveal.fragments"/>
             </not>
         </condition>
         <condition property="args.reveal.embedded" value="false">
             <not>
-                <isset property="args.reveal.embedded"></isset>
+                <isset property="args.reveal.embedded"/>
             </not>
         </condition>
         <condition property="args.reveal.autoslide" value="0">
             <not>
-                <isset property="args.reveal.autoslide"></isset>
+                <isset property="args.reveal.autoslide"/>
             </not>
         </condition>
         <condition property="args.reveal.autoslidestoppable" value="true">
             <not>
-                <isset property="args.reveal.autoslidestoppable"></isset>
+                <isset property="args.reveal.autoslidestoppable"/>
             </not>
         </condition>
         <condition property="args.reveal.mousewheel" value="false">
             <not>
-                <isset property="args.reveal.mousewheel"></isset>
+                <isset property="args.reveal.mousewheel"/>
             </not>
         </condition>
         <condition property="args.reveal.hideaddressbar" value="true">
             <not>
-                <isset property="args.reveal.hideaddressbar"></isset>
+                <isset property="args.reveal.hideaddressbar"/>
             </not>
         </condition>
         <condition property="args.reveal.previewlinks" value="false">
             <not>
-                <isset property="args.reveal.previewlinks"></isset>
+                <isset property="args.reveal.previewlinks"/>
             </not>
         </condition>
         <condition property="args.reveal.transition" value="default">
             <not>
-                <isset property="args.reveal.transition"></isset>
+                <isset property="args.reveal.transition"/>
             </not>
         </condition>
         <condition property="args.reveal.transitionspeed" value="default">
             <not>
-                <isset property="args.reveal.transitionspeed"></isset>
+                <isset property="args.reveal.transitionspeed"/>
             </not>
         </condition>
         <condition property="args.reveal.backgroundtransition" value="default">
             <not>
-                <isset property="args.reveal.backgroundtransition"></isset>
+                <isset property="args.reveal.backgroundtransition"/>
             </not>
         </condition>
         <condition property="args.reveal.viewdistance" value="3">
             <not>
-                <isset property="args.reveal.viewdistance"></isset>
+                <isset property="args.reveal.viewdistance"/>
             </not>
         </condition>
         <condition property="args.reveal.width" value="960">
             <not>
-                <isset property="args.reveal.width"></isset>
+                <isset property="args.reveal.width"/>
             </not>
         </condition>
         <condition property="args.reveal.height" value="700">
             <not>
-                <isset property="args.reveal.height"></isset>
+                <isset property="args.reveal.height"/>
             </not>
         </condition>
         <condition property="args.reveal.margin" value="0.1">
             <not>
-                <isset property="args.reveal.heimarginght"></isset>
+                <isset property="args.reveal.heimarginght"/>
             </not>
         </condition>
         <condition property="args.reveal.minScale" value="0.2">
             <not>
-                <isset property="args.reveal.minScale"></isset>
+                <isset property="args.reveal.minScale"/>
             </not>
         </condition>
         <condition property="args.reveal.maxScale" value="1.5">
             <not>
-                <isset property="args.reveal.maxScale"></isset>
+                <isset property="args.reveal.maxScale"/>
             </not>
         </condition>
         <condition property="args.reveal.generate.vertical.slides" value="true">
             <not>
-                <isset property="args.reveal.generate.vertical.slides"></isset>
+                <isset property="args.reveal.generate.vertical.slides"/>
             </not>
         </condition>
         
@@ -237,32 +255,32 @@
             style="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl"
             filenameparameter="FILENAME"
             filedirparameter="FILEDIR">
-            <excludesfile name="${dita.temp.dir}${file.separator}${resourceonlyfile}" if="resourceonlyfile"></excludesfile>
-            <includesfile name="${dita.temp.dir}${file.separator}${chunkedtopicfile}" if="chunkedtopicfile"></includesfile>
+            <excludesfile name="${dita.temp.dir}${file.separator}${resourceonlyfile}" if="resourceonlyfile"/>
+            <includesfile name="${dita.temp.dir}${file.separator}${chunkedtopicfile}" if="chunkedtopicfile"/>
             <xmlcatalog refid="dita.catalog"/>
             
-            <param name="TRANSTYPE" expression="${transtype}"></param>
-            <param name="DITAEXT" expression="${dita.ext}" if="dita.ext"></param>
-            <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
-            <param name="CSS" expression="${args.css.file}" if="args.css.file"></param>
-            <param name="CSSPATH" expression="${user.csspath}" if="user.csspath"></param>
-            <param name="HDF" expression="${args.hdf}" if="args.hdf"></param>
-            <param name="HDR" expression="${args.hdr}" if="args.hdr"></param>
-            <param name="FTR" expression="${args.ftr}" if="args.ftr"></param>
-            <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
-            <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
-            <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if="args.gen.task.lbl"></param>
-            <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if="args.xhtml.classattr"></param>
-            <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"></param>
-            <param name="include.rellinks" expression="${include.rellinks}"></param>
-            <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
-            <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
-            <param name="genDefMeta" expression="${args.gen.default.meta}" if="args.gen.default.meta"></param>
-            <param name="OUTEXT" expression=".html" if="out.ext"></param>
-            <param name="BASEDIR" expression="${basedir}"></param>
-            <param name="OUTPUTDIR" expression="${output.dir}"></param>
-            <param name="DBG" expression="${args.debug}" if="args.debug"></param>
-            <param name="DEFAULTLANG" expression="${args.default.language}" if="args.default.language"></param>
+            <param name="TRANSTYPE" expression="${transtype}"/>
+            <param name="DITAEXT" expression="${dita.ext}" if="dita.ext"/>
+            <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"/>
+            <param name="CSS" expression="${args.css.file}" if="args.css.file"/>
+            <param name="CSSPATH" expression="${user.csspath}" if="user.csspath"/>
+            <param name="HDF" expression="${args.hdf}" if="args.hdf"/>
+            <param name="HDR" expression="${args.hdr}" if="args.hdr"/>
+            <param name="FTR" expression="${args.ftr}" if="args.ftr"/>
+            <param name="DRAFT" expression="${args.draft}" if="args.draft"/>
+            <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"/>
+            <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if="args.gen.task.lbl"/>
+            <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if="args.xhtml.classattr"/>
+            <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"/>
+            <param name="include.rellinks" expression="${include.rellinks}"/>
+            <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"/>
+            <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"/>
+            <param name="genDefMeta" expression="${args.gen.default.meta}" if="args.gen.default.meta"/>
+            <param name="OUTEXT" expression=".${args.outext}" if="out.ext"/>
+            <param name="BASEDIR" expression="${basedir}"/>
+            <param name="OUTPUTDIR" expression="${output.dir}"/>
+            <param name="DBG" expression="${args.debug}" if="args.debug"/>
+            <param name="DEFAULTLANG" expression="${args.default.language}" if="args.default.language"/>
             
             <!-- reveal.js parameters -->
             <param name="args.reveal.css" expression="${args.reveal.css}" if="args.reveal.css"/>
