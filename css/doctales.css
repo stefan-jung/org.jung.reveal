@@ -325,3 +325,18 @@ span.ph.uicontrol {
     font-family: monospace;
     font-weight: bold;
     font-size: 0.9em; }
+
+/*********************************************
+ * HIGHLIGHT JS
+ *********************************************/
+.hljs {
+    color: black !important; 
+    background-color: white !important;}
+.hljs-pi, .hljs-doctype {
+    color: #8b26c9 !important; }
+.hljs-tag, .hljs-title {
+    color: #000096 !important; }
+.hljs-attribute {
+    color: #f5844c !important; }   
+.hljs-value {
+    color: #993300 !important; }
