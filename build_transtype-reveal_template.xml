@@ -72,8 +72,6 @@
         <property name="nav-toc" value="none"/>
         <property name="args.xsl" value="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl"/>
         
-        <property name="root-chunk-override" value="to-content"/> 
-        
         <property name="root-chunk-override" value="to-content"/>
         <condition property="args.reveal.theme" value="simple">
             <not>
