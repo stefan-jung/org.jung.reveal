@@ -340,5 +340,5 @@ span.ph.uicontrol {
     color: #f5844c !important; }   
 .hljs-value {
     color: #993300 !important; }
-.hljs-keyword, .hljs-type {
+.hljs-keyword, .hljs-type, .hljs-number, .hljs-built_in, .hljs-literal, .hljs-string, .hljs-symbol {
     color: #000000 !important; }
