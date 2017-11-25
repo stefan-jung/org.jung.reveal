@@ -22,7 +22,7 @@ This is a plugin for the DITA-OT. The plugin adds a new transtype called `reveal
 
 ## Using the Plugin
 
-Please refer to the [documentation](https://doctales.atlassian.net/wiki/display/reveal/org.doctales.reveal).
+Please refer to the [documentation](https://doctales.atlassian.net/wiki/x/LIAy).
 
 
 
