@@ -196,6 +196,7 @@
                     backgroundTransition: '<xsl:value-of select="$args.reveal.backgroundtransition"/>',
                     center: <xsl:value-of select="$args.reveal.center"/>,
                     controls: <xsl:value-of select="$args.reveal.controls"/>,
+                    controlsLayout: '<xsl:value-of select="$args.reveal.controlsLayout"/>',
                     embedded: <xsl:value-of select="$args.reveal.embedded"/>,
                     fragments: <xsl:value-of select="$args.reveal.fragments"/>,
                     height: <xsl:value-of select="$args.reveal.height"/>,
