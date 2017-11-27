@@ -317,25 +317,5 @@
         </xslt>
     </target>
     
-    <target name="reveal.copy.css" if="args.reveal.css">
-        <echo level="info">Copy ${args.reveal.css} to ${output.dir}${file.separator}css${file.separator}theme</echo>
-        <copy file="${args.reveal.css}" todir="${output.dir}${file.separator}css${file.separator}theme" failonerror="false"/>
-    </target>
-    
-    <target name="reveal.copy.reveal.js">
-        <copy todir="${output.dir}" failonerror="true">
-            <fileset dir="${revealCacheDir}${file.separator}${revealDirectoryName}"/>
-        </copy>
-    </target>
-    
-    <target name="reveal.copy.jquery">
-        <copy file="${dita.plugin.org.doctales.reveal.dir}/js/jquery-1.11.3.min.js" todir="${output.dir}${file.separator}js" failonerror="true"/>
-    </target>
-    
-    <target name="reveal.replace.index.html">
-        <delete file="${output.dir}${file.separator}index.html"/>
-        <move file="${output.dir}${file.separator}${dita.map.filename.root}.html" tofile="${output.dir}${file.separator}index.html"/>
-        <delete dir="${output.dir}${file.separator}test"/>
-    </target>
 
 </project>
