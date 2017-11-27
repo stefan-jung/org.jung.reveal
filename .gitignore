@@ -2,7 +2,7 @@
 reveal.js-2.6.2/
 *~
 *.xpr
-build_deploy.xml
+build_install.xml
 .gradle
 out/
 temp/

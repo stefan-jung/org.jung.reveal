@@ -5,4 +5,4 @@ script: bash travis.sh
 notifications:
   slack:
     rooms:
-      - doctales:aauBZMfrbD04vfiHdZ3GLXgF#reveal
+      - doctales:BkI4k7awSFS5X5aT04Y3vHQ9#reveal

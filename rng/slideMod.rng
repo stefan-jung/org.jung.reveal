@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>DITA Slide</moduleTitle>
+    <headerComment xml:space="preserve">
+========================================================================================================================
+                                                         HEADER
+========================================================================================================================
+          MODULE:   DITA Slide
+          VERSION:  1.3
+          DATE:     January 2017
+
+========================================================================================================================
+          PUBLIC DOCUMENT TYPE DEFINITION TYPICAL INVOCATION
+
+          Refer to this file by the following public identifier or an appropriate system identifier
+          PUBLIC "-//DOCTALES//ELEMENTS DITA Slide//EN"
+
+          Delivered as file "slideMod.rng"
+
+========================================================================================================================
+
+          SYSTEM:   Darwin Information Typing Architecture (DITA)
+
+          PURPOSE:  Define elements and specialization atttributes for Termentries
+
+          ORIGINAL CREATION DATE:
+                    March 2017
+
+                    (C) Copyright DOCTALES 2015, 2016, 2017.
+                    All Rights Reserved.
+                                                   
+          UPDATES:
+                    2017-01-11 SE: Initial Relax NG release
+
+========================================================================================================================
+    </headerComment>
+    <moduleMetadata>
+      <moduleType>topic</moduleType>
+      <moduleShortName>slide</moduleShortName>
+      <modulePublicIds>
+        <dtdMod>-//DOCTALES//ELEMENTS DITA<var presep=" " name="ditaver"/> Slide//EN</dtdMod>
+        <dtdEnt>-//DOCTALES//ENTITIES DITA<var presep=" " name="ditaver"/> Slide//EN</dtdEnt>
+        <xsdMod>urn:doctales:dita:xsd:slideMod.xsd<var presep=":" name="ditaver"/></xsdMod>
+        <xsdGrp>urn:doctales:dita:xsd:slideGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
+        <rncMod>urn:doctales:dita:rnc:slideMod.rnc<var presep=":" name="ditaver"/></rncMod>
+        <rngMod>urn:doctales:dita:rng:slideMod.rng<var presep=":" name="ditaver"/></rngMod>
+      </modulePublicIds>
+      <domainsContribution>(topic concept slide)</domainsContribution>
+    </moduleMetadata>
+  </moduleDesc>
+  
+  <div>
+    <a:documentation>TOPIC NESTING OVERRIDES</a:documentation>
+    <define name="slide-info-types">
+      <ref name="info-types"/>
+    </define>
+  </div>
+  
+  <div>
+    <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+    <define name="slide">
+      <ref name="slide.element"/>
+    </define>
+    <define name="slideBody">
+      <ref name="slideBody.element"/>
+    </define>
+  </div>
+  
+  <div>
+    <a:documentation>COMMON ATTRIBUTE SETS</a:documentation>
+    <define name="term-atts">
+      <!-- Does not work -->
+      <!--<optional>
+        <attribute name="base"/>
+        <attribute name="outputclass"/>
+        <attribute name="termdomain"/>
+      </optional>-->
+      <attribute name="usage" a:defaultValue="preferred">
+        <a:documentation>Should the term be used or not?</a:documentation>
+        <choice>
+          <value>admitted</value>
+          <a:documentation>The term may be used.</a:documentation>
+          <value>notRecommended</value>
+          <a:documentation>The term must not be used.</a:documentation>
+          <value>obsolete</value>
+          <a:documentation>The term is obsolete.</a:documentation>
+          <value>preferred</value>
+          <a:documentation>The term is preferred.</a:documentation>
+        </choice>
+      </attribute>
+    </define>
+    <define name="languageSelection-atts">
+      <attribute name="language" a:defaultValue="en-GB">
+        <a:documentation>The language of the term</a:documentation>
+        <choice>
+          <value>ar-AE</value> 
+          <value>ar-BH</value> 
+          <value>ar-DZ</value> 
+          <value>ar-EG</value> 
+          <value>ar-IQ</value> 
+          <value>ar-JO</value> 
+          <value>ar-KW</value> 
+          <value>ar-LB</value> 
+          <value>ar-LY</value> 
+          <value>ar-MA</value> 
+          <value>ar-OM</value> 
+          <value>ar-QA</value> 
+          <value>ar-SA</value> 
+          <value>ar-SY</value> 
+          <value>ar-TN</value> 
+          <value>ar-YE</value> 
+          <value>be</value>
+          <value>bg</value>
+          <value>ca</value>
+          <value>cs</value>
+          <value>cs-CZ</value> 
+          <value>da</value>
+          <value>da-DK</value> 
+          <value>de</value>
+          <value>de-AT</value> 
+          <value>de-CH</value>
+          <value>de-DE</value>
+          <a:documentation>German - Germany</a:documentation>
+          <value>de-LI</value> 
+          <value>de-LU</value> 
+          <value>el</value>
+          <value>en</value>
+          <value>en-AU</value> 
+          <value>en-BZ</value> 
+          <value>en-CA</value> 
+          <value>en-GB</value>
+          <a:documentation>English - Great Britain</a:documentation>
+          <value>en-IE</value> 
+          <value>en-JM</value> 
+          <value>en-NZ</value> 
+          <value>en-TT</value> 
+          <value>en-US</value> 
+          <value>en-ZA</value> 
+          <value>es</value>
+          <value>es-AR</value> 
+          <value>es-BO</value> 
+          <value>es-CL</value> 
+          <value>es-CO</value> 
+          <value>es-CR</value> 
+          <value>es-DO</value> 
+          <value>es-EC</value> 
+          <value>es-GT</value> 
+          <value>es-HN</value> 
+          <value>es-MX</value> 
+          <value>es-NI</value> 
+          <value>es-PA</value> 
+          <value>es-PE</value> 
+          <value>es-PR</value> 
+          <value>es-PY</value> 
+          <value>es-SV</value> 
+          <value>es-UY</value> 
+          <value>es-VE</value> 
+          <value>et</value>
+          <value>eu</value>
+          <value>fa</value>
+          <value>fi</value>
+          <value>fo</value>
+          <value>fr</value>
+          <value>fr-BE</value> 
+          <value>fr-CA</value> 
+          <value>fr-CH</value> 
+          <value>fr-LU</value> 
+          <value>ga</value>
+          <value>gd</value>
+          <value>he</value>
+          <value>hi</value>
+          <value>hr</value>
+          <value>hu</value>
+          <value>id</value>
+          <value>is</value>
+          <value>it</value>
+          <value>it-CH</value> 
+          <value>ja</value>
+          <value>ji</value>
+          <value>ko</value>
+          <value>lt</value>
+          <value>lv</value>
+          <value>mk</value>
+          <value>ms</value>
+          <value>mt</value>
+          <value>nl</value>
+          <value>nl-BE</value> 
+          <value>no</value>
+          <value>pl</value>
+          <value>pl-PL</value> 
+          <value>pt</value>
+          <value>pt-BR</value> 
+          <value>rm</value>
+          <value>ro</value>
+          <value>ro-MO</value> 
+          <value>ru</value>
+          <value>ru-MO</value> 
+          <value>sb</value>
+          <value>sk</value>
+          <value>sl</value>
+          <value>sq</value>
+          <value>sr</value>
+          <value>sv</value>
+          <value>sv-FI</value> 
+          <value>sx</value>
+          <value>sz</value>
+          <value>th</value>
+          <value>tn</value>
+          <value>tr</value>
+          <value>ts</value>
+          <value>uk</value>
+          <value>ur</value>
+          <value>ve</value>
+          <value>vi</value>
+          <value>xh</value>
+          <value>zh-CN</value> 
+          <value>zh-HK</value> 
+          <value>zh-SG</value> 
+          <value>zh-TW</value> 
+          <value>zu</value>
+        </choice>
+      </attribute>
+    </define>
+    <define name="genderSelection-atts">
+      <optional>
+        <attribute name="gender">
+          <choice>
+            <value>neuter</value>
+            <value>masculine</value>
+            <value>feminine</value>
+          </choice>
+        </attribute>
+      </optional>
+    </define>
+    <define name="caseSelection-atts">
+      <attribute name="case" a:defaultValue="nominative">
+        <choice>
+          <value>nominative</value>
+          <value>accusative</value>
+          <value>dative</value>
+          <value>genitive</value>
+        </choice>
+      </attribute>
+    </define>
+    <define name="numberSelection-atts">
+      <attribute name="number" a:defaultValue="singular">
+        <choice>
+          <value>singular</value>
+          <value>plural</value>
+        </choice>
+      </attribute>
+    </define>
+    <define name="partOfSpeech-atts">
+      <attribute name="value" a:defaultValue="noun">
+        <a:documentation>The part of speech of the term.</a:documentation>
+        <choice>
+          <value>noun</value>
+          <a:documentation>Noun</a:documentation>
+          <value>pronoun</value>
+          <a:documentation>pronoun</a:documentation>
+          <value>adjective</value>
+          <a:documentation>Adjective</a:documentation>
+          <value>verb</value>
+          <a:documentation>Verb</a:documentation>
+          <value>adverb</value>
+          <a:documentation>Adverb</a:documentation>
+          <value>preposition</value>
+          <a:documentation>Preposition</a:documentation>
+          <value>conjunction</value>
+          <a:documentation>Conjunction</a:documentation>
+          <value>interjection</value>
+          <a:documentation>Interjection</a:documentation>
+          <value>article</value>
+          <a:documentation>Article</a:documentation>
+        </choice>
+      </attribute>
+    </define>
+    <define name="termLink-atts">
+      <optional>
+        <attribute name="href"/>
+      </optional>
+      <attribute name="keyref"/>
+      <optional>
+        <attribute name="type"/>
+      </optional>
+      <optional>
+        <attribute name="query"/>
+      </optional>
+      <optional>
+        <attribute name="cascade"/>
+      </optional>
+      <optional>
+        <attribute name="format"/>
+      </optional>
+      <optional>
+        <attribute name="scope">
+          <choice>
+            <value>external</value>
+            <value>local</value>
+            <value>peer</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="role">
+          <choice>
+            <value>ancestor</value>
+            <value>child</value>
+            <value>cousin</value>
+            <value>descendant</value>
+            <value>external</value>
+            <value>friend</value>
+            <value>next</value>
+            <value>other</value>
+            <value>parent</value>
+            <value>previous</value>
+            <value>sample</value>
+            <value>sibling</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="otherrole"/>
+      </optional>
+    </define>
+    <define name="termLinkGroup-atts">
+      <optional>
+        <attribute name="collection-type">
+          <choice>
+            <value>choice</value>
+            <value>family</value>
+            <value>sequence</value>
+            <value>unordered</value>
+            <value>-dita-use-conref-target</value>
+            <value>tree</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="duplicated">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="mapkeyref"/>
+      </optional>
+      <optional>
+        <attribute name="cascade"/>
+      </optional>
+      <optional>
+        <attribute name="format"/>
+      </optional>
+      <optional>
+        <attribute name="scope">
+          <choice>
+            <value>external</value>
+            <value>local</value>
+            <value>peer</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="role">
+          <choice>
+            <value>ancestor</value>
+            <value>child</value>
+            <value>cousin</value>
+            <value>descendant</value>
+            <value>external</value>
+            <value>friend</value>
+            <value>next</value>
+            <value>other</value>
+            <value>parent</value>
+            <value>previous</value>
+            <value>sample</value>
+            <value>sibling</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="otherrole"/>
+      </optional>
+      <optional>
+        <attribute name="spectitle"/>
+      </optional>
+    </define>
+  </div>
+  
+  <div>
+    <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
+
+    <div>
+      <a:documentation> LONG NAME: Slide </a:documentation>
+      <define name="slide.content">
+        <ref name="title"/>
+        <optional>
+          <ref name="slideBody"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="slide-info-types"/>
+        </zeroOrMore>
+      </define>
+      <define name="slide.attributes">
+        <attribute name="id">
+          <data type="ID"/>
+        </attribute>
+        <optional>
+          <attribute name="data-autoslide">
+            <data type="integer"/>
+          </attribute>
+        </optional>
+        <ref name="conref-atts"/>
+        <ref name="select-atts"/>
+        <ref name="localization-atts"/>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+      </define>
+      <define name="slide.element">
+        <element name="slide" dita:longName="Slide">
+          <a:documentation>The &lt;slide> element is the root element of a slide topic. A term entry represents a terminology concept and includes one or multiple term words and defines their usage.
+            Category: Slide elements</a:documentation>
+          <ref name="slide.attlist"/>
+          <ref name="slide.content"/>
+        </element>
+      </define>
+      <define name="slide.attlist" combine="interleave">
+        <ref name="slide.attributes"/>
+        <ref name="arch-atts"/>
+        <ref name="domains-att"/>
+      </define>
+      <define name="idElements" combine="choice">
+        <ref name="slide.element"/>
+      </define>
+    </div>
+    <div>
+      <a:documentation> LONG NAME: Slide Body </a:documentation>
+      <define name="slideBody.content">
+        <zeroOrMore>
+          <ref name="body.cnt"/>
+        </zeroOrMore>
+      </define>
+      <define name="slideBody.attributes">
+        <ref name="id-atts"/>
+        <ref name="localization-atts"/>
+        <optional>
+          <attribute name="base"/>
+        </optional>
+        <ref name="base-attribute-extensions"/>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+      </define>
+      <define name="slideBody.element">
+        <element name="slideBody" dita:longName="Slide Body">
+          <a:documentation>The &lt;slideBody> element contains the body of a term.
+            Category: Slide elements</a:documentation>
+          <ref name="slideBody.attlist"/>
+          <ref name="slideBody.content"/>
+        </element>
+      </define>
+      <define name="slideBody.attlist" combine="interleave">
+        <ref name="slideBody.attributes"/>
+      </define>
+    </div>
+  </div>
+
+  <div>
+    <a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
+
+    <define name="slideBody.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- topic/body concept/conbody slide/slideBody "/>
+      </optional>
+    </define>
+    <define name="slide.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- topic/topic concept/concept slide/slide "/>
+      </optional>
+    </define>
+
+  </div>
+</grammar>
