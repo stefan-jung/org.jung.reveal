@@ -24,37 +24,38 @@
         **************************************************
     -->
     
-    <xsl:param name="args.reveal.css"/>
-    <xsl:param name="args.reveal.theme"/>
-    <xsl:param name="args.reveal.controls"/>
-    <xsl:param name="args.reveal.progress"/>
-    <xsl:param name="args.reveal.slidenumber"/>
-    <xsl:param name="args.reveal.history"/>
-    <xsl:param name="args.reveal.keyboard"/>
-    <xsl:param name="args.reveal.overview"/>
-    <xsl:param name="args.reveal.center"/>
-    <xsl:param name="args.reveal.touch"/>
-    <xsl:param name="args.reveal.loop"/>
-    <xsl:param name="args.reveal.rtl"/>
-    <xsl:param name="args.reveal.fragments"/>
-    <xsl:param name="args.reveal.embedded"/>
     <xsl:param name="args.reveal.autoslide"/>
     <xsl:param name="args.reveal.autoslidestoppable"/>
-    <xsl:param name="args.reveal.mousewheel"/>
-    <xsl:param name="args.reveal.hideaddressbar"/>
-    <xsl:param name="args.reveal.previewlinks"/>
-    <xsl:param name="args.reveal.transition"/>
-    <xsl:param name="args.reveal.transitionspeed"/>
     <xsl:param name="args.reveal.backgroundtransition"/>
-    <xsl:param name="args.reveal.viewdistance"/>
+    <xsl:param name="args.reveal.center"/>
+    <xsl:param name="args.reveal.controls"/>
+    <xsl:param name="args.reveal.controlsLayout" as="xs:string"/>
+    <xsl:param name="args.reveal.css"/>
+    <xsl:param name="args.reveal.embedded"/>
+    <xsl:param name="args.reveal.fragments"/>
+    <xsl:param name="args.reveal.generate.vertical.slides"/>
+    <xsl:param name="args.reveal.height"/>
+    <xsl:param name="args.reveal.hideaddressbar"/>
+    <xsl:param name="args.reveal.history"/>
+    <xsl:param name="args.reveal.keyboard"/>
+    <xsl:param name="args.reveal.loop"/>
+    <xsl:param name="args.reveal.margin"/>
+    <xsl:param name="args.reveal.maxScale"/>
+    <xsl:param name="args.reveal.minScale"/>
+    <xsl:param name="args.reveal.mousewheel"/>
+    <xsl:param name="args.reveal.overview"/>
     <xsl:param name="args.reveal.parallaxbackgroundimage"/>
     <xsl:param name="args.reveal.parallaxbackgroundsize"/>
-    <xsl:param name="args.reveal.generate.vertical.slides"/>
+    <xsl:param name="args.reveal.previewlinks"/>
+    <xsl:param name="args.reveal.progress"/>
+    <xsl:param name="args.reveal.rtl"/>
+    <xsl:param name="args.reveal.slidenumber"/>
+    <xsl:param name="args.reveal.theme"/>
+    <xsl:param name="args.reveal.touch"/>
+    <xsl:param name="args.reveal.transition"/>
+    <xsl:param name="args.reveal.transitionspeed"/>
+    <xsl:param name="args.reveal.viewdistance"/>
     <xsl:param name="args.reveal.width"/>
-    <xsl:param name="args.reveal.height"/>
-    <xsl:param name="args.reveal.margin"/>
-    <xsl:param name="args.reveal.minScale"/>
-    <xsl:param name="args.reveal.maxScale"/>
     
     <!--
         **************************************************
@@ -185,39 +186,39 @@
                     https://github.com/hakimel/reveal.js#configuration
                 -->
                 Reveal.initialize({
-                    controls: <xsl:value-of select="$args.reveal.controls"/>,
-                    progress: <xsl:value-of select="$args.reveal.progress"/>,
-                    slideNumber: <xsl:value-of select="$args.reveal.slidenumber"/>,
-                    history: <xsl:value-of select="$args.reveal.hideaddressbar"/>,
-                    keyboard: <xsl:value-of select="$args.reveal.keyboard"/>,
-                    overview: <xsl:value-of select="$args.reveal.overview"/>,
-                    center: <xsl:value-of select="$args.reveal.center"/>,
-                    touch: <xsl:value-of select="$args.reveal.touch"/>,
-                    loop: <xsl:value-of select="$args.reveal.loop"/>,
-                    rtl: <xsl:value-of select="$args.reveal.rtl"/>,
-                    fragments: <xsl:value-of select="$args.reveal.fragments"/>,
-                    embedded: <xsl:value-of select="$args.reveal.embedded"/>,
-                    autoSlide: <xsl:value-of select="$args.reveal.autoslide"/>,
-                    autoSlideStoppable: <xsl:value-of select="$args.reveal.autoslidestoppable"/>,
-                    mouseWheel: <xsl:value-of select="$args.reveal.mousewheel"/>,
-                    hideAddressBar: <xsl:value-of select="$args.reveal.hideaddressbar"/>,
-                    previewLinks: <xsl:value-of select="$args.reveal.previewlinks"/>,
-                    transition: '<xsl:value-of select="$args.reveal.transition"/>',
-                    transitionSpeed: '<xsl:value-of select="$args.reveal.transitionspeed"/>',
-                    backgroundTransition: '<xsl:value-of select="$args.reveal.backgroundtransition"/>',
-                    viewDistance: <xsl:value-of select="$args.reveal.viewdistance"/>,
+                
+                    // parallaxBackgroundHorizontal: null,
                     // parallaxBackgroundImage: '<xsl:value-of select="$args.reveal.parallaxbackgroundimage"/>',
                     // parallaxBackgroundSize: '<xsl:value-of select="$args.reveal.parallaxbackgroundsize"/>',
-                    // parallaxBackgroundHorizontal: null,
                     // parallaxBackgroundVertical: null,
-                    width: <xsl:value-of select="$args.reveal.width"/>,
+                    autoSlide: <xsl:value-of select="$args.reveal.autoslide"/>,
+                    autoSlideStoppable: <xsl:value-of select="$args.reveal.autoslidestoppable"/>,
+                    backgroundTransition: '<xsl:value-of select="$args.reveal.backgroundtransition"/>',
+                    center: <xsl:value-of select="$args.reveal.center"/>,
+                    controls: <xsl:value-of select="$args.reveal.controls"/>,
+                    embedded: <xsl:value-of select="$args.reveal.embedded"/>,
+                    fragments: <xsl:value-of select="$args.reveal.fragments"/>,
                     height: <xsl:value-of select="$args.reveal.height"/>,
+                    hideAddressBar: <xsl:value-of select="$args.reveal.hideaddressbar"/>,
+                    history: <xsl:value-of select="$args.reveal.hideaddressbar"/>,
+                    keyboard: <xsl:value-of select="$args.reveal.keyboard"/>,
+                    loop: <xsl:value-of select="$args.reveal.loop"/>,
                     margin: <xsl:value-of select="$args.reveal.margin"/>,
-                    minScale: <xsl:value-of select="$args.reveal.minScale"/>,
                     maxScale: <xsl:value-of select="$args.reveal.maxScale"/>,
-                    
+                    minScale: <xsl:value-of select="$args.reveal.minScale"/>,
+                    mouseWheel: <xsl:value-of select="$args.reveal.mousewheel"/>,
+                    overview: <xsl:value-of select="$args.reveal.overview"/>,
+                    previewLinks: <xsl:value-of select="$args.reveal.previewlinks"/>,
+                    progress: <xsl:value-of select="$args.reveal.progress"/>,
+                    rtl: <xsl:value-of select="$args.reveal.rtl"/>,
+                    slideNumber: <xsl:value-of select="$args.reveal.slidenumber"/>,
                     theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                    touch: <xsl:value-of select="$args.reveal.touch"/>,
+                    transition: '<xsl:value-of select="$args.reveal.transition"/>',
                     transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                    transitionSpeed: '<xsl:value-of select="$args.reveal.transitionspeed"/>',
+                    viewDistance: <xsl:value-of select="$args.reveal.viewdistance"/>,
+                    width: <xsl:value-of select="$args.reveal.width"/>,
                     
                     // Optional libraries used to extend on reveal.js
                     dependencies: [
@@ -231,11 +232,10 @@
                 });
                 
                 Reveal.addEventListener( 'slidechanged', function( event ) {
-                zoomSection();
+                    zoomSection();
                 } );
                 
-                $( document ).ready(function() {
-                });
+                $( document ).ready(function() {});
             </script>
         </body>
     </xsl:template>    

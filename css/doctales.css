@@ -1,12 +1,11 @@
 /**
- * A simple theme for reveal.js presentations, similar
- * to the default theme. The accent color is darkblue.
- *
- * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * DOCTALES theme for reveal.js presentations.
+ * 
  * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
 @import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -288,55 +287,157 @@ body {
  * SCROLLBAR
  *********************************************/
 section {
-    height: 100%; }
+  height: 100%; }
+
 section.present {
-    overflow-y: scroll;}
-section.present::-webkit-scrollbar { 
-    display: none; }
+  overflow-y: scroll; }
+
+section.present::-webkit-scrollbar {
+  display: none; }
 
 /*********************************************
  * INLINE IMAGE
  *********************************************/
- .inline {
-     margin: 0 !important; }
+.inline {
+  margin: 0 !important; }
 
 /*********************************************
- * XML ELEMENT
+ * HIGHLIGHTING DOMAIN
  *********************************************/
+.b {
+  font-weight: bold; }
+
+.u {
+  text-decoration: underline; }
+
+.i {
+  font-style: italic; }
+
+.line-through {
+  text-decoration: line-through; }
+
+.overline {
+  text-decoration: overline; }
+
+.tt {
+  font-family: monospace; }
+
+.sup {}
+.sub {}
+
+/*********************************************
+ * SOFTWARE DOMAIN
+ *********************************************/
+.msgph {}
+.msgblock {}
+.msgnum {}
+.cmdname {}
+.varname {}
+.filepath {
+  font-family: monospace !important; }
+
+.userinput {
+  background-color: #004455;
+  border-radius: 5pt;
+  padding: 3pt 5pt 2pt 5pt !important;
+  color: white;
+  font-family: monospace !important;
+  font-size: 0.8em !important;
+  font-weight: bold !important; }
+
+.systemoutput {}
+
+/*********************************************
+ * TROUBLESHOOTING DOMAIN
+ *********************************************/
+.troubleshooting {}
+.troublebody {}
+.cause {}
+.condition {}
+.remedy {}
+.responsibleParty {}
+.troubleSolution {}
+
+/*********************************************
+ * USER INTERFACE DOMAIN
+ *********************************************/
+.uicontrol {
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 0.9em; }
+
+.wintitle {}
+.menucascade {}
+.shortcut {}
+.screen {}
+
+/*********************************************
+ * XML DOMAIN
+ *********************************************/
+.numcharref {}
+.parameterentity {}
+.textentity {}
+.xmlatt {
+  color: #f5844c; }
+
 .xmlelement {
-    color: #5fbcd3; }
+  color: #000096; }
+
+.xmlnsname {}
+.xmlpi {}
 
 /*********************************************
- * USER INPUT
- *********************************************/
-kbd.ph.userinput {
-    background-color: #004455;
-    border-radius: 5pt;
-    padding: 3pt 5pt 2pt 5pt !important;
-    color: white;
-    font-family: monospace !important;
-    font-size: 0.8em !important;
-    font-weight: bold !important; }
-
-/*********************************************
- * UICONTROL
- *********************************************/
-span.ph.uicontrol {
-    font-family: monospace;
-    font-weight: bold;
-    font-size: 0.9em; }
-
-/*********************************************
- * HIGHLIGHT JS
+ * HIGHLIGHT.JS
  *********************************************/
 .hljs {
-    color: black !important; 
-    background-color: white !important;}
-.hljs-pi, .hljs-doctype {
-    color: #8b26c9 !important; }
-.hljs-tag, .hljs-title {
-    color: #000096 !important; }
-.hljs-attribute {
-    color: #f5844c !important; }   
+  background: #ffffff !important;
+  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace !important; 
+  color: #000000 !important; }
+
+.hljs-doctype {
+  color: #b87bde !important; }
+
+.hljs-pi {
+  color: #b87bde !important; }
+
+.hljs-tag {
+  color: #000096 !important; }
+
+.hljs-keyword {
+  color: #000000 !important; }
+
+.hljs-built_in {
+  color: #000000 !important; }
+
+.hljs-meta {
+  color: #8B26C9 !important; }
+
+.hljs-name {
+  color: #000096 !important; }
+
+.hljs-number {
+  color: #000000 !important; }
+
+.hljs-title {
+  color: #000000 !important; }
+
+.hljs-string {
+  color: #993300 !important; }
+
+.hljs-symbol {
+  color: #993300 !important; }
+
+.hljs-attr {
+  color: #f5844c !important; }   
+
 .hljs-value {
-    color: #993300 !important; }
+  color: #993300 !important; }
+
+.hljs-comment {
+  color: #006400 !important; }
+
+.hljs.xml {
+  color: #000000 !important; }
+
+.hljs-literal {
+  color: #000096 !important; }

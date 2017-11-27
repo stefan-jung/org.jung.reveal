@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:doctales:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:doctales:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<slide id="title" data-autoslide="1000">
-  <title>DOCTALES</title>
+<slide id="ui_${id}">
+  <title>Term</title>
   <slideBody>
-    <fig>
-      <image placement="break" href="https://doctales.github.io/images/doctales-logo.svg">
-        <alt>DOCTALES Logo</alt>
-      </image>
-    </fig>
   </slideBody>
 </slide>

@@ -1,34 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dummy>
-    <param name="args.reveal.css" expression="${args.reveal.css}" if="args.reveal.css"/>
-    <param name="args.reveal.theme" expression="${args.reveal.theme}" if="args.reveal.theme"/>
-    <param name="args.reveal.controls" expression="${args.reveal.controls}" if="args.reveal.controls"/>
-    <param name="args.reveal.progress" expression="${args.reveal.progress}" if="args.reveal.progress"/>
-    <param name="args.reveal.slidenumber" expression="${args.reveal.slidenumber}" if="args.reveal.slidenumber"/>
-    <param name="args.reveal.history" expression="${args.reveal.history}" if="args.reveal.history"/>
-    <param name="args.reveal.keyboard" expression="${args.reveal.keyboard}" if="args.reveal.keyboard"/>
-    <param name="args.reveal.overview" expression="${args.reveal.overview}" if="args.reveal.overview"/>
-    <param name="args.reveal.center" expression="${args.reveal.center}" if="args.reveal.center"/>
-    <param name="args.reveal.touch" expression="${args.reveal.touch}" if="args.reveal.touch"/>
-    <param name="args.reveal.loop" expression="${args.reveal.loop}" if="args.reveal.loop"/>
-    <param name="args.reveal.rtl" expression="${args.reveal.rtl}" if="args.reveal.rtl"/>
-    <param name="args.reveal.fragments" expression="${args.reveal.fragments}" if="args.reveal.fragments"/>
-    <param name="args.reveal.embedded" expression="${args.reveal.embedded}" if="args.reveal.embedded"/>
     <param name="args.reveal.autoslide" expression="${args.reveal.autoslide}" if="args.reveal.autoslide"/>
     <param name="args.reveal.autoslidestoppable" expression="${args.reveal.autoslidestoppable}" if="args.reveal.autoslidestoppable"/>
-    <param name="args.reveal.mousewheel" expression="${args.reveal.mousewheel}" if="args.reveal.mousewheel"/>
-    <param name="args.reveal.hideaddressbar" expression="${args.reveal.hideaddressbar}" if="args.reveal.hideaddressbar"/>
-    <param name="args.reveal.previewlinks" expression="${args.reveal.previewlinks}" if="args.reveal.previewlinks"/>
-    <param name="args.reveal.transition" expression="${args.reveal.transition}" if="args.reveal.transition"/>
-    <param name="args.reveal.transitionspeed" expression="${args.reveal.transitionspeed}" if="args.reveal.transitionspeed"/>
     <param name="args.reveal.backgroundtransition" expression="${args.reveal.backgroundtransition}" if="args.reveal.backgroundtransition"/>
-    <param name="args.reveal.viewdistance" expression="${args.reveal.viewdistance}" if="args.reveal.viewdistance"/>
+    <param name="args.reveal.center" expression="${args.reveal.center}" if="args.reveal.center"/>
+    <param name="args.reveal.controls" expression="${args.reveal.controls}" if="args.reveal.controls"/>
+    <param name="args.reveal.controlsLayout" expression="${args.reveal.controlsLayout}" if="args.reveal.controlsLayout"/>
+    <param name="args.reveal.css" expression="${args.reveal.css}" if="args.reveal.css"/>
+    <param name="args.reveal.embedded" expression="${args.reveal.embedded}" if="args.reveal.embedded"/>
+    <param name="args.reveal.fragments" expression="${args.reveal.fragments}" if="args.reveal.fragments"/>
+    <param name="args.reveal.generate.vertical.slides" expression="${args.reveal.generate.vertical.slides}" if="args.reveal.generate.vertical.slides"/>
+    <param name="args.reveal.height" expression="${args.reveal.height}" if="args.reveal.height"/>
+    <param name="args.reveal.hideaddressbar" expression="${args.reveal.hideaddressbar}" if="args.reveal.hideaddressbar"/>
+    <param name="args.reveal.history" expression="${args.reveal.history}" if="args.reveal.history"/>
+    <param name="args.reveal.keyboard" expression="${args.reveal.keyboard}" if="args.reveal.keyboard"/>
+    <param name="args.reveal.loop" expression="${args.reveal.loop}" if="args.reveal.loop"/>
+    <param name="args.reveal.margin" expression="${args.reveal.margin}" if="args.reveal.margin"/>
+    <param name="args.reveal.maxScale" expression="${args.reveal.maxScale}" if="args.reveal.maxScale"/>
+    <param name="args.reveal.minScale" expression="${args.reveal.minScale}" if="args.reveal.minScale"/>
+    <param name="args.reveal.mousewheel" expression="${args.reveal.mousewheel}" if="args.reveal.mousewheel"/>
+    <param name="args.reveal.overview" expression="${args.reveal.overview}" if="args.reveal.overview"/>
     <param name="args.reveal.parallaxbackgroundimage" expression="${args.reveal.parallaxbackgroundimage}" if="args.reveal.parallaxbackgroundimage"/>
     <param name="args.reveal.parallaxbackgroundsize" expression="${args.reveal.parallaxbackgroundsize}" if="args.reveal.parallaxbackgroundsize"/>
+    <param name="args.reveal.previewlinks" expression="${args.reveal.previewlinks}" if="args.reveal.previewlinks"/>
+    <param name="args.reveal.progress" expression="${args.reveal.progress}" if="args.reveal.progress"/>
+    <param name="args.reveal.rtl" expression="${args.reveal.rtl}" if="args.reveal.rtl"/>
+    <param name="args.reveal.slidenumber" expression="${args.reveal.slidenumber}" if="args.reveal.slidenumber"/>
+    <param name="args.reveal.theme" expression="${args.reveal.theme}" if="args.reveal.theme"/>
+    <param name="args.reveal.touch" expression="${args.reveal.touch}" if="args.reveal.touch"/>
+    <param name="args.reveal.transition" expression="${args.reveal.transition}" if="args.reveal.transition"/>
+    <param name="args.reveal.transitionspeed" expression="${args.reveal.transitionspeed}" if="args.reveal.transitionspeed"/>
+    <param name="args.reveal.viewdistance" expression="${args.reveal.viewdistance}" if="args.reveal.viewdistance"/>
     <param name="args.reveal.width" expression="${args.reveal.width}" if="args.reveal.width"/>
-    <param name="args.reveal.height" expression="${args.reveal.height}" if="args.reveal.height"/>
-    <param name="args.reveal.margin" expression="${args.reveal.margin}" if="args.reveal.margin"/>
-    <param name="args.reveal.minScale" expression="${args.reveal.minScale}" if="args.reveal.minScale"/>
-    <param name="args.reveal.maxScale" expression="${args.reveal.maxScale}" if="args.reveal.maxScale"/>
-    <param name="args.reveal.generate.vertical.slides" expression="${args.reveal.generate.vertical.slides}" if="args.reveal.generate.vertical.slides"/>
 </dummy>
