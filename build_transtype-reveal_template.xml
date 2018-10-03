@@ -40,14 +40,17 @@
     </target>
     
     <target name="reveal.init">
+        <!-- reveal.js version -->
+        <property name="reveal-version" value="3.7.0"/>
+        
         <!-- Download URL of the reveal.js archive. -->
-        <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/3.6.0.zip"/>
+        <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/${reveal-version}.zip"/>
         
         <!-- Filename of the reveal.js archive. -->
-        <property name="revealArchiveName" value="3.6.0.zip"/>
+        <property name="revealArchiveName" value="${reveal-version}.zip"/>
         
         <!-- Directory name of reveal.js that is stored in the downloaded archive. -->
-        <property name="revealDirectoryName" value="reveal.js-3.6.0"/>
+        <property name="revealDirectoryName" value="reveal.js-${reveal-version}"/>
         
         <!-- HTML version. Property is required by DITA-OT2.x -->
         <property name="html-version" value="html5"/>
@@ -333,7 +336,11 @@
     </target>
     
     <target name="reveal.copy.jquery">
-        <copy file="${dita.plugin.org.doctales.reveal.dir}/js/jquery-1.11.3.min.js" todir="${output.dir}${file.separator}js" failonerror="true"/>
+        <copy todir="${output.dir}${file.separator}js" failonerror="true">
+            <fileset dir="${dita.plugin.org.doctales.reveal.dir}/js">
+                <include name="jquery-*.min.js"/>
+            </fileset>
+        </copy>
     </target>
     
     <target name="reveal.replace.index.html">

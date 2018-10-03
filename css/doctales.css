@@ -244,6 +244,9 @@ body {
   border-color: #5fbcd3;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
 }
+.inline {
+  margin: 0 !important;
+}
 
 /*********************************************
  * NAVIGATION CONTROLS
