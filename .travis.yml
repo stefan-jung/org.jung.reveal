@@ -19,7 +19,7 @@ before_script:
   - BASEDIR=$(dirname "$0")
 
 script:
-  - dita-ot-$DITAOT/bin/dita -i samples/sample.ditamap -f pdf2 -v -Dschematron.topic.validation.files=../rules/topic-validation.sch,../rules/topic-terminology.sch -Dschematron.fail=false -Dschematron.failon.fatal=true -Dschematron.failon.error=true -Dschematron.failon.warning=false -Dschematron.failon.info=false
+  - dita-ot-$DITAOT/bin/dita -i samples/doctales.ditamap -f reveal -v -Dargs.reveal.css="plugins/org.doctales.reveal/css/doctales.css" -Dargs.reveal.theme="doctales"
 
 notifications:
   slack:
