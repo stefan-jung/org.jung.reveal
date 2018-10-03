@@ -6,3 +6,5 @@ build_install.xml
 .gradle
 out/
 temp/
+.classpath
+.project
