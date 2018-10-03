@@ -247,8 +247,8 @@
     </target>
     
     <!-- XSLT transformation -->
-    <!--<target name="dita.topics.xhtml.reveal" depends="dita.xhtml.init" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">-->
-    <target name="dita.topics.html.reveal" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">
+    <target name="dita.topics.html.reveal">
+        <description>Build XHTML output from dita inner and outer topics, which will adjust the directory.</description>
         <xslt basedir="${dita.temp.dir}"
             destdir="${output.dir}"
             includesfile="${dita.temp.dir}${file.separator}${fullditatopicfile}"
@@ -338,7 +338,8 @@
     
     <target name="reveal.replace.index.html">
         <delete file="${output.dir}${file.separator}index.html"/>
-        <move file="${output.dir}${file.separator}${dita.map.filename.root}.html" tofile="${output.dir}${file.separator}index.html"/>
+        <basename property="dita.input.filename" file="${args.input}" suffix=".ditamap"/>
+        <move file="${output.dir}${file.separator}${dita.input.filename}.html" tofile="${output.dir}${file.separator}index.html"/>
         <delete dir="${output.dir}${file.separator}test"/>
     </target>
 
