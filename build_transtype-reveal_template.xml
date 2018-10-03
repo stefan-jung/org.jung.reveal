@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:dita="http://dita-ot.sourceforge.net" name="dita2reveal">
+<project xmlns:dita="http://dita-ot.sourceforge.net" name="dita2reveal" xmlns:if="ant:if" xmlns:unless="ant:unless">
     
     
     <!-- ==================================================
@@ -14,30 +14,13 @@
     
     <target name="dita2reveal" 
             depends="reveal.init,
-                     reveal.download.reveal.js,
                      html5.init,
                      build-init,
                      preprocess,
                      html5.topic,
                      html5.map,
                      html5.css,
-                     dita.topics.html.reveal,
-                     reveal.copy.css,
-                     reveal.copy.reveal.js,
-                     reveal.copy.jquery,
-                     reveal.replace.index.html"/>
-    
-    <target name="reveal.download.reveal.js">
-        <mkdir dir="${revealCacheDir}"/>
-        <get
-            verbose="on"
-            src="${revealDownloadUrl}"
-            dest="${revealCacheDir}"
-            skipexisting="true"/>
-        <unzip
-            src="${revealCacheDir}${file.separator}${revealArchiveName}"
-            dest="${revealCacheDir}"/>
-    </target>
+                     reveal"/>
     
     <target name="reveal.init">
         <!-- reveal.js version -->
@@ -229,13 +212,8 @@
             </and>
         </condition>
         
-        <antcall target="reveal.theme-match.css"/>
-        
-    </target>
-
-    <target name="reveal.theme-match.css" if="reveal.css-and-theme-used">
-        <basename property="reveal.css.filename" file="${args.reveal.css}" suffix=".css" />
-        <fail message="Property &quot;args.reveal.theme&quot; does not match &quot;args.reveal.css&quot;">
+        <basename if:set="args.reveal.css" property="reveal.css.filename" file="${args.reveal.css}" suffix=".css" />
+        <fail if:set="reveal.css-and-theme-used" message="Property &quot;args.reveal.theme&quot; does not match &quot;args.reveal.css&quot;">
             <condition>
                 <and>
                     <not>
@@ -247,10 +225,21 @@
                 </and>
             </condition>
         </fail>
+        
+        <!-- Get reveal.js -->
+        <mkdir dir="${revealCacheDir}"/>
+        <get
+            verbose="on"
+            src="${revealDownloadUrl}"
+            dest="${revealCacheDir}"
+            skipexisting="true"/>
+        <unzip
+            src="${revealCacheDir}${file.separator}${revealArchiveName}"
+            dest="${revealCacheDir}"/>
     </target>
-    
+
     <!-- XSLT transformation -->
-    <target name="dita.topics.html.reveal">
+    <target name="reveal">
         <description>Build XHTML output from dita inner and outer topics, which will adjust the directory.</description>
         <xslt basedir="${dita.temp.dir}"
             destdir="${output.dir}"
@@ -322,32 +311,28 @@
             <param name="args.reveal.viewdistance" expression="${args.reveal.viewdistance}" if="args.reveal.viewdistance"/>
             <param name="args.reveal.width" expression="${args.reveal.width}" if="args.reveal.width"/>
         </xslt>
-    </target>
-    
-    <target name="reveal.copy.css" if="args.reveal.css">
-        <echo level="info">Copy ${args.reveal.css} to ${output.dir}${file.separator}css${file.separator}theme</echo>
-        <copy file="${args.reveal.css}" todir="${output.dir}${file.separator}css${file.separator}theme" failonerror="false"/>
-    </target>
-    
-    <target name="reveal.copy.reveal.js">
+        
+        <echo if:set="args.reveal.css" level="info">Copy ${args.reveal.css} to ${output.dir}${file.separator}css${file.separator}theme</echo>
+        <copy if:set="args.reveal.css" file="${args.reveal.css}" todir="${output.dir}${file.separator}css${file.separator}theme" failonerror="false"/>
+        
+        <!-- Copy reveal.js -->
         <copy todir="${output.dir}" failonerror="true">
             <fileset dir="${revealCacheDir}${file.separator}${revealDirectoryName}"/>
         </copy>
-    </target>
-    
-    <target name="reveal.copy.jquery">
+        
+        <!-- Copy JQuery -->
         <copy todir="${output.dir}${file.separator}js" failonerror="true">
             <fileset dir="${dita.plugin.org.doctales.reveal.dir}/js">
                 <include name="jquery-*.min.js"/>
             </fileset>
         </copy>
-    </target>
-    
-    <target name="reveal.replace.index.html">
+        
+        <!-- Replace index.html -->
         <delete file="${output.dir}${file.separator}index.html"/>
         <basename property="dita.input.filename" file="${args.input}" suffix=".ditamap"/>
+        <echo level="info">Move "${output.dir}${file.separator}${dita.input.filename}.html" to "${output.dir}${file.separator}index.html"</echo>
         <move file="${output.dir}${file.separator}${dita.input.filename}.html" tofile="${output.dir}${file.separator}index.html"/>
         <delete dir="${output.dir}${file.separator}test"/>
     </target>
-
+    
 </project>
