@@ -330,9 +330,12 @@
         <!-- Replace index.html -->
         <delete file="${output.dir}${file.separator}index.html"/>
         <basename property="dita.input.filename" file="${args.input}" suffix="ditamap"/>
-        <echo level="info">Move "${output.dir}${file.separator}${dita.input.filename}.html" to "${output.dir}${file.separator}index.html"</echo>
-        <move file="${output.dir}${file.separator}${dita.input.filename}.html" tofile="${output.dir}${file.separator}index.html"/>
-        <delete dir="${output.dir}${file.separator}test"/>
+        <condition property="presentation-html-available" value="true">
+            <available file="${output.dir}${file.separator}${dita.input.filename}.html"/>
+        </condition>
+        <echo if:set="presentation-html-available" level="info">Move "${output.dir}${file.separator}${dita.input.filename}.html" to "${output.dir}${file.separator}index.html"</echo>
+        <move if:set="presentation-html-available" file="${output.dir}${file.separator}${dita.input.filename}.html" tofile="${output.dir}${file.separator}index.html"/>
+        <delete if:set="presentation-html-available" dir="${output.dir}${file.separator}test"/>
     </target>
     
 </project>
