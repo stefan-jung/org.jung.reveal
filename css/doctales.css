@@ -297,43 +297,49 @@ body {
  * SCROLLBAR
  *********************************************/
 section {
-  height: 100%; }
-
+  height: 100%;
+}
 section.present {
-  overflow-y: scroll; }
-
+  overflow-y: scroll;
+}
 section.present::-webkit-scrollbar {
-  display: none; }
+  display: none;
+}
 
 /*********************************************
  * INLINE IMAGE
  *********************************************/
 .inline {
-  margin: 0 !important; }
+  margin: 0 !important;
+}
 
 /*********************************************
  * HIGHLIGHTING DOMAIN
  *********************************************/
 .b {
-  font-weight: bold; }
-
+  font-weight: bold;
+}
 .u {
-  text-decoration: underline; }
-
+  text-decoration: underline;
+}
 .i {
-  font-style: italic; }
-
+  font-style: italic;
+}
 .line-through {
-  text-decoration: line-through; }
-
+  text-decoration: line-through;
+}
 .overline {
-  text-decoration: overline; }
-
+  text-decoration: overline;
+}
 .tt {
-  font-family: monospace; }
-
-.sup {}
-.sub {}
+  font-family: monospace;
+}
+sup.sup {
+    font-size: 0.6em;
+}
+sub.sub {
+    font-size: 0.6em;
+}
 
 /*********************************************
  * SOFTWARE DOMAIN
@@ -344,8 +350,8 @@ section.present::-webkit-scrollbar {
 .cmdname {}
 .varname {}
 .filepath {
-  font-family: monospace !important; }
-
+  font-family: monospace !important;
+}
 .userinput {
   background-color: #004455;
   border-radius: 5pt;
@@ -353,8 +359,8 @@ section.present::-webkit-scrollbar {
   color: white;
   font-family: monospace !important;
   font-size: 0.8em !important;
-  font-weight: bold !important; }
-
+  font-weight: bold !important;
+}
 .systemoutput {}
 
 /*********************************************
@@ -374,8 +380,8 @@ section.present::-webkit-scrollbar {
 .uicontrol {
   font-family: monospace;
   font-weight: bold;
-  font-size: 0.9em; }
-
+  font-size: 0.9em;
+}
 .wintitle {}
 .menucascade {}
 .shortcut {}
@@ -388,11 +394,12 @@ section.present::-webkit-scrollbar {
 .parameterentity {}
 .textentity {}
 .xmlatt {
-  color: #f5844c; }
+  color: #f5844c;
+}
 
 .xmlelement {
-  color: #000096; }
-
+  color: #000096;
+}
 .xmlnsname {}
 .xmlpi {}
 
@@ -402,52 +409,53 @@ section.present::-webkit-scrollbar {
 .hljs {
   background: #ffffff !important;
   font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace !important; 
-  color: #000000 !important; }
-
+  color: #000000 !important;
+}
 .hljs-doctype {
-  color: #b87bde !important; }
-
+  color: #b87bde !important;
+}
 .hljs-pi {
-  color: #b87bde !important; }
-
+  color: #b87bde !important;
+}
 .hljs-tag {
-  color: #000096 !important; }
-
+  color: #000096 !important;
+}
 .hljs-keyword {
-  color: #000000 !important; }
-
+  color: #000000 !important;
+}
 .hljs-built_in {
-  color: #000000 !important; }
-
+  color: #000000 !important;
+}
 .hljs-meta {
-  color: #8B26C9 !important; }
-
+  color: #8B26C9 !important;
+}
 .hljs-name {
-  color: #000096 !important; }
-
+  color: #000096 !important;
+}
 .hljs-number {
-  color: #000000 !important; }
-
+  color: #000000 !important;
+}
 .hljs-title {
-  color: #000000 !important; }
-
+  color: #000000 !important;
+}
 .hljs-string {
-  color: #993300 !important; }
-
+  color: #993300 !important;
+}
 .hljs-symbol {
-  color: #993300 !important; }
-
+  color: #993300 !important;
+}
 .hljs-attr {
-  color: #f5844c !important; }   
-
+  color: #f5844c !important;
+}
 .hljs-value {
-  color: #993300 !important; }
-
+  color: #993300 !important;
+}
 .hljs-comment {
-  color: #006400 !important; }
-
+  color: #006400 !important;
+}
 .hljs.xml {
-  color: #000000 !important; }
-
+  color: #000000 !important;
+}
 .hljs-literal {
-  color: #000096 !important; }
+  color: #000096 !important;
+}
