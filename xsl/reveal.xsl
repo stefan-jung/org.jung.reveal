@@ -244,7 +244,7 @@
     <!--
         Process topics.
     -->
-    <xsl:template match="*[contains(@class, ' topic/topic ')]">
+    <xsl:template match="*[contains(@class, ' topic/topic ')]|*[contains(@class, ' slide/slide ')]">
         <!-- Just a placeholder which will be replaced with <section> -->
         <topicContainer>
             <xsl:apply-templates/>
@@ -331,7 +331,7 @@
     </xsl:template>
     
     <!-- Speaker notes -->
-    <xsl:template match="*[contains(@class, ' topic/div ')][contains(@outputclass, 'notes')]">
+    <xsl:template match="*[contains(@class, ' topic/div ')][contains(@outputclass, 'notes')]|*[contains(@class, ' slide/speakernotes ')]">
         <aside class="notes">
             <xsl:apply-templates/>
         </aside>
