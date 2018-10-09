@@ -330,4 +330,11 @@
         </xsl:choose>
     </xsl:template>
     
+    <!-- Speaker notes -->
+    <xsl:template match="*[contains(@class, ' topic/div ')][contains(@outputclass, 'notes')]">
+        <aside class="notes">
+            <xsl:apply-templates/>
+        </aside>
+    </xsl:template>
+    
 </xsl:stylesheet>
