@@ -16,7 +16,8 @@ This is a plugin for the DITA-OT. The plugin adds a new transtype called `reveal
 1. Move to the `~/bin` directory of the DITA-OT.
 2. Install the plugin using the `dita` command.  
    `dita --install https://github.com/doctales/org.doctales.reveal/archive/master.zip`
-
+   
+Note: For the plugin to work in some environments, such as oXygenXML, you may need to add  `org.doctales.reveal\framework` as an additional frameworks directory. In oXygenXML, Options > Preferences > Document Type Association > Locations. This provides the schemas to create the `Slide` topic type and for proper transformation from within oXygenXML. 
 
 ## Using the Plugin
 
