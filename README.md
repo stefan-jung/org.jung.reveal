@@ -10,6 +10,8 @@ This is a plugin for the DITA-OT. The plugin adds a new transtype called `reveal
 
 ![Sample Presentation](https://raw.githubusercontent.com/doctales/doctales.github.io/master/media/animations/reveal-sample-presentation.gif)
 
+## Prerequisites
+This plugin requires that [dita-relaxng-defaults][1] be installed into your DITA-OT `plugins` directory.
 
 ## Installation
 
@@ -22,3 +24,5 @@ Note: For the plugin to work in some environments, such as oXygenXML, you may ne
 ## Using the Plugin
 
 Please refer to the [documentation](https://doctales.atlassian.net/wiki/x/LIAy).
+
+[1]:https://github.com/oxygenxml/dita-relaxng-defaults 
