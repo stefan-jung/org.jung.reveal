@@ -228,7 +228,25 @@
         
         <!-- Get reveal.js -->
         <mkdir dir="${revealCacheDir}"/>
+        <condition property="reveal.archive.available">
+            <available file="${revealCacheDir}${file.separator}${revealArchiveName}"/>
+        </condition>
+        <condition property="reveal-host-available">
+            <http url="${revealDownloadUrl}"/>
+        </condition>
+        <condition property="cannot-get-revealjs">
+            <and>
+                <not>
+                    <isset property="reveal.archive.available"/>
+                </not>
+                <not>
+                    <isset property="reveal-host-available"/>
+                </not>
+            </and>
+        </condition>
+        <fail if="cannot-get-revealjs">Cannot reach host '${revealDownloadUrl}' to download reveal-js</fail>
         <get
+            unless:set="reveal.archive.available"
             verbose="on"
             src="${revealDownloadUrl}"
             dest="${revealCacheDir}"

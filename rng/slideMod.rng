@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Slide</moduleTitle>
     <headerComment xml:space="preserve">
@@ -72,6 +76,39 @@
   </div>
   
   <div>
+    <a:documentation>COMMON ELEMENT SETS</a:documentation>
+    <define name="slidebody.cnt">
+      <choice>
+        <ref name="slide.block"/>
+        <ref name="data.elements.incl"/>
+        <ref name="draft-comment"/>
+        <ref name="foreign.unknown.incl"/>
+        <ref name="required-cleanup"/>
+      </choice>
+    </define>
+    <define name="slide.block">
+      <a:documentation>Elements common to slide body-like contexts</a:documentation>
+      <choice>
+        <ref name="dl"/>
+        <ref name="div"/>
+        <ref name="fig"/>
+        <ref name="image"/>
+        <ref name="lines"/>
+        <ref name="lq"/>
+        <ref name="note"/>
+        <ref name="object"/>
+        <ref name="ol"/>
+        <ref name="p"/>
+        <ref name="pre"/>
+        <ref name="simpletable"/>
+        <ref name="sl"/>
+        <ref name="table"/>
+        <ref name="ul"/>
+      </choice>
+    </define>
+  </div>
+  
+  <div>
     <a:documentation>COMMON ATTRIBUTE SETS</a:documentation>
   </div>
   
@@ -109,6 +146,11 @@
         <element name="slide" dita:longName="Slide">
           <a:documentation>The &lt;slide> element is the root element of a slide topic. A term entry represents a terminology concept and includes one or multiple term words and defines their usage.
             Category: Slide elements</a:documentation>
+          <sch:pattern id="fragment">
+            <sch:rule context="*[@data-fragment-index]">
+              <sch:assert test="@fragment" role="warning"> If @data-fragment-index is set, @fragment also has to be set! </sch:assert>
+            </sch:rule>
+          </sch:pattern>
           <ref name="slide.attlist"/>
           <ref name="slide.content"/>
         </element>
@@ -126,7 +168,7 @@
       <a:documentation> LONG NAME: Slide Body </a:documentation>
       <define name="slideBody.content">
         <zeroOrMore>
-          <ref name="body.cnt"/>
+          <ref name="slidebody.cnt"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="speakernotes"/>
@@ -183,7 +225,6 @@
 
   <div>
     <a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
-
     <define name="slideBody.attlist" combine="interleave">
       <ref name="global-atts"/>
       <optional>
@@ -202,6 +243,6 @@
         <attribute name="class" a:defaultValue="- topic/div slide/speakernotes "/>
       </optional>
     </define>
-
   </div>
+
 </grammar>
