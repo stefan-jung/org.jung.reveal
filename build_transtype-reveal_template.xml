@@ -23,17 +23,17 @@
                      reveal"/>
     
     <target name="reveal.init">
-        <!-- reveal.js version -->
-        <property name="reveal-version" value="3.7.0"/>
+        <!-- Fallback to version 3.8.0 if not defined. -->
+        <property unless:set="args.reveal.version" name="args.reveal.version" value="3.8.0"/>
         
         <!-- Download URL of the reveal.js archive. -->
-        <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/${reveal-version}.zip"/>
+        <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/${args.reveal.version}.zip"/>
         
         <!-- Filename of the reveal.js archive. -->
-        <property name="revealArchiveName" value="${reveal-version}.zip"/>
+        <property name="revealArchiveName" value="${args.reveal.version}.zip"/>
         
         <!-- Directory name of reveal.js that is stored in the downloaded archive. -->
-        <property name="revealDirectoryName" value="reveal.js-${reveal-version}"/>
+        <property name="revealDirectoryName" value="reveal.js-${args.reveal.version}"/>
         
         <!-- HTML version. Property is required by DITA-OT2.x -->
         <property name="html-version" value="html5"/>
@@ -48,8 +48,6 @@
         <condition property="revealCacheDir" value="/tmp/DITA/org.doctales.reveal">
             <os family="unix"/>
         </condition>
-        
-        <!--<property name="revealCacheDir" value="${user.home}${file.separator}.ditaToRevealJSCache"/>-->
         
         <!-- Do not generate releated links -->
         <property name="args.rellinks" value="none"/>
