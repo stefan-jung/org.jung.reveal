@@ -1,7 +1,26 @@
-language: java
+language:
+  - java 
+
 jdk:
-  - oraclejdk8
-script: bash travis.sh
+  - oraclejdk9
+
+env:
+  global:
+    - DITAOT="3.3.4"
+    - URL="https://github.com/dita-ot/dita-ot/releases/download/$DITAOT/dita-ot-$DITAOT.zip"
+
+before_script:
+  - zip -qr org.doctales.reveal.zip . -x *.zip* *.git/* *temp/* *out/*
+  - curl -LO $URL
+  - unzip -q dita-ot-$DITAOT.zip
+  - chmod +x dita-ot-$DITAOT/bin/dita
+  - chmod +x dita-ot-$DITAOT/bin/ant
+  - dita-ot-$DITAOT/bin/dita --install org.doctales.reveal.zip
+  - BASEDIR=$(dirname "$0")
+
+script:
+  - dita-ot-$DITAOT/bin/dita -i samples/doctales.ditamap -f reveal -v -Dargs.reveal.css="plugins/org.doctales.reveal/css/doctales.css" -Dargs.reveal.theme="doctales"
+
 notifications:
   slack:
     rooms:

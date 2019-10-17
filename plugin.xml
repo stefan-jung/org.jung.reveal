@@ -17,7 +17,7 @@
     <feature extension="package.support.email" value="stefan.eike@mailbox.org"/>
 
     <!-- Version of the plugin -->
-    <feature extension="package.version" value="0.1"/>
+    <feature extension="package.version" value="1.4"/>
 
     <feature extension="dita.specialization.catalog.relative" type="file" value="catalog-dita.xml"/>
 
@@ -154,6 +154,9 @@
             <val default="true">default</val>
             <val>fast</val>
             <val>slow</val>
+        </param>
+        <param name="args.reveal.version" desc="Set the reveal.js version." type="string">
+            <val default="true">3.8.0</val>
         </param>
         <param name="args.reveal.viewdistance" desc="Set the number of slides away from the current that are visible." type="string">
             <val default="true">3</val>

@@ -30,6 +30,7 @@
     <param name="args.reveal.touch" expression="${args.reveal.touch}" if="args.reveal.touch"/>
     <param name="args.reveal.transition" expression="${args.reveal.transition}" if="args.reveal.transition"/>
     <param name="args.reveal.transitionspeed" expression="${args.reveal.transitionspeed}" if="args.reveal.transitionspeed"/>
+    <param name="args.reveal.version" expression="${args.reveal.version}" if="args.reveal.version"/>
     <param name="args.reveal.viewdistance" expression="${args.reveal.viewdistance}" if="args.reveal.viewdistance"/>
     <param name="args.reveal.width" expression="${args.reveal.width}" if="args.reveal.width"/>
 </dummy>

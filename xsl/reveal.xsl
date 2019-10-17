@@ -6,6 +6,7 @@
 -->
 
 <xsl:stylesheet version="2.0" 
+    xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -244,7 +245,7 @@
     <!--
         Process topics.
     -->
-    <xsl:template match="*[contains(@class, ' topic/topic ')]">
+    <xsl:template match="*[contains(@class, ' topic/topic ')]|*[contains(@class, ' slide/slide ')]">
         <!-- Just a placeholder which will be replaced with <section> -->
         <topicContainer>
             <xsl:apply-templates/>
@@ -326,6 +327,47 @@
                     <xsl:apply-templates mode="all-but-topicContainer" select="@*"/>
                     <xsl:apply-templates mode="all-but-topicContainer"/>
                 </xsl:copy>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <!-- Speaker notes -->
+    <xsl:template match="*[contains(@class, ' topic/div ')][contains(@outputclass, 'notes')]|*[contains(@class, ' slide/speakernotes ')]">
+        <aside class="notes">
+            <xsl:apply-templates/>
+        </aside>
+    </xsl:template>
+    
+    <!-- reveal.js fragment elements -->
+    <xsl:template match="*[contains(@class, ' topic/p ')]" name="topic.p">
+        <xsl:choose>
+            <xsl:when test="descendant::*[dita-ot:is-block(.)]">
+                <div class="p">
+                    <xsl:call-template name="commonattributes"/>
+                    <xsl:call-template name="setid"/>
+                    <xsl:apply-templates/>
+                </div>
+            </xsl:when>
+            <xsl:otherwise>
+                <p>
+                    <xsl:if test="@type">
+                        <xsl:attribute name="class">
+                            <xsl:value-of select="@class"/>
+                            <xsl:value-of select="@outputclass"/>
+                            <xsl:value-of select="'fragment '"/>
+                            <xsl:value-of select="@type"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:if test="@data-fragment-index">
+                        <xsl:attribute name="data-fragment-index" select="@data-fragment-index"/>
+                    </xsl:if>
+                    <xsl:call-template name="commonattributes"/>
+                    <xsl:call-template name="setid"/>
+                    
+                    TEST2
+                    
+                    <xsl:apply-templates/>
+                </p>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>

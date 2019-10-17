@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:dita="http://dita-ot.sourceforge.net" name="dita2reveal">
+<project xmlns:dita="http://dita-ot.sourceforge.net" name="dita2reveal" xmlns:if="ant:if" xmlns:unless="ant:unless">
     
     
     <!-- ==================================================
@@ -14,40 +14,26 @@
     
     <target name="dita2reveal" 
             depends="reveal.init,
-                     reveal.download.reveal.js,
                      html5.init,
                      build-init,
                      preprocess,
                      html5.topic,
                      html5.map,
                      html5.css,
-                     dita.topics.html.reveal,
-                     reveal.copy.css,
-                     reveal.copy.reveal.js,
-                     reveal.copy.jquery,
-                     reveal.replace.index.html"/>
-    
-    <target name="reveal.download.reveal.js">
-        <mkdir dir="${revealCacheDir}"/>
-        <get
-            verbose="on"
-            src="${revealDownloadUrl}"
-            dest="${revealCacheDir}"
-            skipexisting="true"/>
-        <unzip
-            src="${revealCacheDir}${file.separator}${revealArchiveName}"
-            dest="${revealCacheDir}"/>
-    </target>
+                     reveal"/>
     
     <target name="reveal.init">
+        <!-- Fallback to version 3.8.0 if not defined. -->
+        <property unless:set="args.reveal.version" name="args.reveal.version" value="3.8.0"/>
+        
         <!-- Download URL of the reveal.js archive. -->
-        <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/3.6.0.zip"/>
+        <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/${args.reveal.version}.zip"/>
         
         <!-- Filename of the reveal.js archive. -->
-        <property name="revealArchiveName" value="3.6.0.zip"/>
+        <property name="revealArchiveName" value="${args.reveal.version}.zip"/>
         
         <!-- Directory name of reveal.js that is stored in the downloaded archive. -->
-        <property name="revealDirectoryName" value="reveal.js-3.6.0"/>
+        <property name="revealDirectoryName" value="reveal.js-${args.reveal.version}"/>
         
         <!-- HTML version. Property is required by DITA-OT2.x -->
         <property name="html-version" value="html5"/>
@@ -62,8 +48,6 @@
         <condition property="revealCacheDir" value="/tmp/DITA/org.doctales.reveal">
             <os family="unix"/>
         </condition>
-        
-        <!--<property name="revealCacheDir" value="${user.home}${file.separator}.ditaToRevealJSCache"/>-->
         
         <!-- Do not generate releated links -->
         <property name="args.rellinks" value="none"/>
@@ -226,13 +210,8 @@
             </and>
         </condition>
         
-        <antcall target="reveal.theme-match.css"/>
-        
-    </target>
-
-    <target name="reveal.theme-match.css" if="reveal.css-and-theme-used">
-        <basename property="reveal.css.filename" file="${args.reveal.css}" suffix=".css" />
-        <fail message="Property &quot;args.reveal.theme&quot; does not match &quot;args.reveal.css&quot;">
+        <basename if:set="args.reveal.css" property="reveal.css.filename" file="${args.reveal.css}" suffix=".css" />
+        <fail if:set="reveal.css-and-theme-used" message="Property &quot;args.reveal.theme&quot; does not match &quot;args.reveal.css&quot;">
             <condition>
                 <and>
                     <not>
@@ -244,11 +223,40 @@
                 </and>
             </condition>
         </fail>
+        
+        <!-- Get reveal.js -->
+        <mkdir dir="${revealCacheDir}"/>
+        <condition property="reveal.archive.available">
+            <available file="${revealCacheDir}${file.separator}${revealArchiveName}"/>
+        </condition>
+        <condition property="reveal-host-available">
+            <http url="${revealDownloadUrl}"/>
+        </condition>
+        <condition property="cannot-get-revealjs">
+            <and>
+                <not>
+                    <isset property="reveal.archive.available"/>
+                </not>
+                <not>
+                    <isset property="reveal-host-available"/>
+                </not>
+            </and>
+        </condition>
+        <fail if="cannot-get-revealjs">Cannot reach host '${revealDownloadUrl}' to download reveal-js</fail>
+        <get
+            unless:set="reveal.archive.available"
+            verbose="on"
+            src="${revealDownloadUrl}"
+            dest="${revealCacheDir}"
+            skipexisting="true"/>
+        <unzip
+            src="${revealCacheDir}${file.separator}${revealArchiveName}"
+            dest="${revealCacheDir}"/>
     </target>
-    
+
     <!-- XSLT transformation -->
-    <!--<target name="dita.topics.xhtml.reveal" depends="dita.xhtml.init" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">-->
-    <target name="dita.topics.html.reveal" description="Build XHTML output from dita inner and outer topics,which will adjust the directory.">
+    <target name="reveal">
+        <description>Build XHTML output from dita inner and outer topics, which will adjust the directory.</description>
         <xslt basedir="${dita.temp.dir}"
             destdir="${output.dir}"
             includesfile="${dita.temp.dir}${file.separator}${fullditatopicfile}"
@@ -319,27 +327,31 @@
             <param name="args.reveal.viewdistance" expression="${args.reveal.viewdistance}" if="args.reveal.viewdistance"/>
             <param name="args.reveal.width" expression="${args.reveal.width}" if="args.reveal.width"/>
         </xslt>
-    </target>
-    
-    <target name="reveal.copy.css" if="args.reveal.css">
-        <echo level="info">Copy ${args.reveal.css} to ${output.dir}${file.separator}css${file.separator}theme</echo>
-        <copy file="${args.reveal.css}" todir="${output.dir}${file.separator}css${file.separator}theme" failonerror="false"/>
-    </target>
-    
-    <target name="reveal.copy.reveal.js">
+        
+        <echo if:set="args.reveal.css" level="info">Copy ${args.reveal.css} to ${output.dir}${file.separator}css${file.separator}theme</echo>
+        <copy if:set="args.reveal.css" file="${args.reveal.css}" todir="${output.dir}${file.separator}css${file.separator}theme" failonerror="false"/>
+        
+        <!-- Copy reveal.js -->
         <copy todir="${output.dir}" failonerror="true">
             <fileset dir="${revealCacheDir}${file.separator}${revealDirectoryName}"/>
         </copy>
-    </target>
-    
-    <target name="reveal.copy.jquery">
-        <copy file="${dita.plugin.org.doctales.reveal.dir}/js/jquery-1.11.3.min.js" todir="${output.dir}${file.separator}js" failonerror="true"/>
-    </target>
-    
-    <target name="reveal.replace.index.html">
+        
+        <!-- Copy JQuery -->
+        <copy todir="${output.dir}${file.separator}js" failonerror="true">
+            <fileset dir="${dita.plugin.org.doctales.reveal.dir}/js">
+                <include name="jquery-*.min.js"/>
+            </fileset>
+        </copy>
+        
+        <!-- Replace index.html -->
         <delete file="${output.dir}${file.separator}index.html"/>
-        <move file="${output.dir}${file.separator}${dita.map.filename.root}.html" tofile="${output.dir}${file.separator}index.html"/>
-        <delete dir="${output.dir}${file.separator}test"/>
+        <basename property="dita.input.filename" file="${args.input}" suffix="ditamap"/>
+        <condition property="presentation-html-available" value="true">
+            <available file="${output.dir}${file.separator}${dita.input.filename}.html"/>
+        </condition>
+        <echo if:set="presentation-html-available" level="info">Move "${output.dir}${file.separator}${dita.input.filename}.html" to "${output.dir}${file.separator}index.html"</echo>
+        <move if:set="presentation-html-available" file="${output.dir}${file.separator}${dita.input.filename}.html" tofile="${output.dir}${file.separator}index.html"/>
+        <delete if:set="presentation-html-available" dir="${output.dir}${file.separator}test"/>
     </target>
-
+    
 </project>

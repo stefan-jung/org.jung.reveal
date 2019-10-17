@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Slide</moduleTitle>
     <headerComment xml:space="preserve">
@@ -66,334 +70,46 @@
     <define name="slideBody">
       <ref name="slideBody.element"/>
     </define>
+    <define name="speakernotes">
+      <ref name="speakernotes.element"/>
+    </define>
+  </div>
+  
+  <div>
+    <a:documentation>COMMON ELEMENT SETS</a:documentation>
+    <define name="slidebody.cnt">
+      <choice>
+        <ref name="slide.block"/>
+        <ref name="data.elements.incl"/>
+        <ref name="draft-comment"/>
+        <ref name="foreign.unknown.incl"/>
+        <ref name="required-cleanup"/>
+      </choice>
+    </define>
+    <define name="slide.block">
+      <a:documentation>Elements common to slide body-like contexts</a:documentation>
+      <choice>
+        <ref name="dl"/>
+        <ref name="div"/>
+        <ref name="fig"/>
+        <ref name="image"/>
+        <ref name="lines"/>
+        <ref name="lq"/>
+        <ref name="note"/>
+        <ref name="object"/>
+        <ref name="ol"/>
+        <ref name="p"/>
+        <ref name="pre"/>
+        <ref name="simpletable"/>
+        <ref name="sl"/>
+        <ref name="table"/>
+        <ref name="ul"/>
+      </choice>
+    </define>
   </div>
   
   <div>
     <a:documentation>COMMON ATTRIBUTE SETS</a:documentation>
-    <define name="term-atts">
-      <!-- Does not work -->
-      <!--<optional>
-        <attribute name="base"/>
-        <attribute name="outputclass"/>
-        <attribute name="termdomain"/>
-      </optional>-->
-      <attribute name="usage" a:defaultValue="preferred">
-        <a:documentation>Should the term be used or not?</a:documentation>
-        <choice>
-          <value>admitted</value>
-          <a:documentation>The term may be used.</a:documentation>
-          <value>notRecommended</value>
-          <a:documentation>The term must not be used.</a:documentation>
-          <value>obsolete</value>
-          <a:documentation>The term is obsolete.</a:documentation>
-          <value>preferred</value>
-          <a:documentation>The term is preferred.</a:documentation>
-        </choice>
-      </attribute>
-    </define>
-    <define name="languageSelection-atts">
-      <attribute name="language" a:defaultValue="en-GB">
-        <a:documentation>The language of the term</a:documentation>
-        <choice>
-          <value>ar-AE</value> 
-          <value>ar-BH</value> 
-          <value>ar-DZ</value> 
-          <value>ar-EG</value> 
-          <value>ar-IQ</value> 
-          <value>ar-JO</value> 
-          <value>ar-KW</value> 
-          <value>ar-LB</value> 
-          <value>ar-LY</value> 
-          <value>ar-MA</value> 
-          <value>ar-OM</value> 
-          <value>ar-QA</value> 
-          <value>ar-SA</value> 
-          <value>ar-SY</value> 
-          <value>ar-TN</value> 
-          <value>ar-YE</value> 
-          <value>be</value>
-          <value>bg</value>
-          <value>ca</value>
-          <value>cs</value>
-          <value>cs-CZ</value> 
-          <value>da</value>
-          <value>da-DK</value> 
-          <value>de</value>
-          <value>de-AT</value> 
-          <value>de-CH</value>
-          <value>de-DE</value>
-          <a:documentation>German - Germany</a:documentation>
-          <value>de-LI</value> 
-          <value>de-LU</value> 
-          <value>el</value>
-          <value>en</value>
-          <value>en-AU</value> 
-          <value>en-BZ</value> 
-          <value>en-CA</value> 
-          <value>en-GB</value>
-          <a:documentation>English - Great Britain</a:documentation>
-          <value>en-IE</value> 
-          <value>en-JM</value> 
-          <value>en-NZ</value> 
-          <value>en-TT</value> 
-          <value>en-US</value> 
-          <value>en-ZA</value> 
-          <value>es</value>
-          <value>es-AR</value> 
-          <value>es-BO</value> 
-          <value>es-CL</value> 
-          <value>es-CO</value> 
-          <value>es-CR</value> 
-          <value>es-DO</value> 
-          <value>es-EC</value> 
-          <value>es-GT</value> 
-          <value>es-HN</value> 
-          <value>es-MX</value> 
-          <value>es-NI</value> 
-          <value>es-PA</value> 
-          <value>es-PE</value> 
-          <value>es-PR</value> 
-          <value>es-PY</value> 
-          <value>es-SV</value> 
-          <value>es-UY</value> 
-          <value>es-VE</value> 
-          <value>et</value>
-          <value>eu</value>
-          <value>fa</value>
-          <value>fi</value>
-          <value>fo</value>
-          <value>fr</value>
-          <value>fr-BE</value> 
-          <value>fr-CA</value> 
-          <value>fr-CH</value> 
-          <value>fr-LU</value> 
-          <value>ga</value>
-          <value>gd</value>
-          <value>he</value>
-          <value>hi</value>
-          <value>hr</value>
-          <value>hu</value>
-          <value>id</value>
-          <value>is</value>
-          <value>it</value>
-          <value>it-CH</value> 
-          <value>ja</value>
-          <value>ji</value>
-          <value>ko</value>
-          <value>lt</value>
-          <value>lv</value>
-          <value>mk</value>
-          <value>ms</value>
-          <value>mt</value>
-          <value>nl</value>
-          <value>nl-BE</value> 
-          <value>no</value>
-          <value>pl</value>
-          <value>pl-PL</value> 
-          <value>pt</value>
-          <value>pt-BR</value> 
-          <value>rm</value>
-          <value>ro</value>
-          <value>ro-MO</value> 
-          <value>ru</value>
-          <value>ru-MO</value> 
-          <value>sb</value>
-          <value>sk</value>
-          <value>sl</value>
-          <value>sq</value>
-          <value>sr</value>
-          <value>sv</value>
-          <value>sv-FI</value> 
-          <value>sx</value>
-          <value>sz</value>
-          <value>th</value>
-          <value>tn</value>
-          <value>tr</value>
-          <value>ts</value>
-          <value>uk</value>
-          <value>ur</value>
-          <value>ve</value>
-          <value>vi</value>
-          <value>xh</value>
-          <value>zh-CN</value> 
-          <value>zh-HK</value> 
-          <value>zh-SG</value> 
-          <value>zh-TW</value> 
-          <value>zu</value>
-        </choice>
-      </attribute>
-    </define>
-    <define name="genderSelection-atts">
-      <optional>
-        <attribute name="gender">
-          <choice>
-            <value>neuter</value>
-            <value>masculine</value>
-            <value>feminine</value>
-          </choice>
-        </attribute>
-      </optional>
-    </define>
-    <define name="caseSelection-atts">
-      <attribute name="case" a:defaultValue="nominative">
-        <choice>
-          <value>nominative</value>
-          <value>accusative</value>
-          <value>dative</value>
-          <value>genitive</value>
-        </choice>
-      </attribute>
-    </define>
-    <define name="numberSelection-atts">
-      <attribute name="number" a:defaultValue="singular">
-        <choice>
-          <value>singular</value>
-          <value>plural</value>
-        </choice>
-      </attribute>
-    </define>
-    <define name="partOfSpeech-atts">
-      <attribute name="value" a:defaultValue="noun">
-        <a:documentation>The part of speech of the term.</a:documentation>
-        <choice>
-          <value>noun</value>
-          <a:documentation>Noun</a:documentation>
-          <value>pronoun</value>
-          <a:documentation>pronoun</a:documentation>
-          <value>adjective</value>
-          <a:documentation>Adjective</a:documentation>
-          <value>verb</value>
-          <a:documentation>Verb</a:documentation>
-          <value>adverb</value>
-          <a:documentation>Adverb</a:documentation>
-          <value>preposition</value>
-          <a:documentation>Preposition</a:documentation>
-          <value>conjunction</value>
-          <a:documentation>Conjunction</a:documentation>
-          <value>interjection</value>
-          <a:documentation>Interjection</a:documentation>
-          <value>article</value>
-          <a:documentation>Article</a:documentation>
-        </choice>
-      </attribute>
-    </define>
-    <define name="termLink-atts">
-      <optional>
-        <attribute name="href"/>
-      </optional>
-      <attribute name="keyref"/>
-      <optional>
-        <attribute name="type"/>
-      </optional>
-      <optional>
-        <attribute name="query"/>
-      </optional>
-      <optional>
-        <attribute name="cascade"/>
-      </optional>
-      <optional>
-        <attribute name="format"/>
-      </optional>
-      <optional>
-        <attribute name="scope">
-          <choice>
-            <value>external</value>
-            <value>local</value>
-            <value>peer</value>
-            <value>-dita-use-conref-target</value>
-          </choice>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="role">
-          <choice>
-            <value>ancestor</value>
-            <value>child</value>
-            <value>cousin</value>
-            <value>descendant</value>
-            <value>external</value>
-            <value>friend</value>
-            <value>next</value>
-            <value>other</value>
-            <value>parent</value>
-            <value>previous</value>
-            <value>sample</value>
-            <value>sibling</value>
-            <value>-dita-use-conref-target</value>
-          </choice>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="otherrole"/>
-      </optional>
-    </define>
-    <define name="termLinkGroup-atts">
-      <optional>
-        <attribute name="collection-type">
-          <choice>
-            <value>choice</value>
-            <value>family</value>
-            <value>sequence</value>
-            <value>unordered</value>
-            <value>-dita-use-conref-target</value>
-            <value>tree</value>
-          </choice>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="duplicated">
-          <choice>
-            <value>no</value>
-            <value>yes</value>
-            <value>-dita-use-conref-target</value>
-          </choice>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="mapkeyref"/>
-      </optional>
-      <optional>
-        <attribute name="cascade"/>
-      </optional>
-      <optional>
-        <attribute name="format"/>
-      </optional>
-      <optional>
-        <attribute name="scope">
-          <choice>
-            <value>external</value>
-            <value>local</value>
-            <value>peer</value>
-            <value>-dita-use-conref-target</value>
-          </choice>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="role">
-          <choice>
-            <value>ancestor</value>
-            <value>child</value>
-            <value>cousin</value>
-            <value>descendant</value>
-            <value>external</value>
-            <value>friend</value>
-            <value>next</value>
-            <value>other</value>
-            <value>parent</value>
-            <value>previous</value>
-            <value>sample</value>
-            <value>sibling</value>
-            <value>-dita-use-conref-target</value>
-          </choice>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="otherrole"/>
-      </optional>
-      <optional>
-        <attribute name="spectitle"/>
-      </optional>
-    </define>
   </div>
   
   <div>
@@ -430,6 +146,11 @@
         <element name="slide" dita:longName="Slide">
           <a:documentation>The &lt;slide> element is the root element of a slide topic. A term entry represents a terminology concept and includes one or multiple term words and defines their usage.
             Category: Slide elements</a:documentation>
+          <sch:pattern id="fragment">
+            <sch:rule context="*[@data-fragment-index]">
+              <sch:assert test="@fragment" role="warning"> If @data-fragment-index is set, @fragment also has to be set! </sch:assert>
+            </sch:rule>
+          </sch:pattern>
           <ref name="slide.attlist"/>
           <ref name="slide.content"/>
         </element>
@@ -447,7 +168,10 @@
       <a:documentation> LONG NAME: Slide Body </a:documentation>
       <define name="slideBody.content">
         <zeroOrMore>
-          <ref name="body.cnt"/>
+          <ref name="slidebody.cnt"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="speakernotes"/>
         </zeroOrMore>
       </define>
       <define name="slideBody.attributes">
@@ -473,11 +197,34 @@
         <ref name="slideBody.attributes"/>
       </define>
     </div>
+    <div>
+      <a:documentation>LONG NAME: Speaker Notes</a:documentation>
+      <define name="speakernotes.content">
+        <zeroOrMore>
+          <ref name="div.cnt"/>
+        </zeroOrMore>
+      </define>
+      <define name="speakernotes.attributes">
+        <ref name="univ-atts"/>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+      </define>
+      <define name="speakernotes.element">
+        <element name="speakernotes" dita:longName="Speaker Notes">
+          <a:documentation> Category: Slide elements</a:documentation>
+          <ref name="speakernotes.attlist"/>
+          <ref name="speakernotes.content"/>
+        </element>
+      </define>
+      <define name="speakernotes.attlist" combine="interleave">
+        <ref name="speakernotes.attributes"/>
+      </define>
+    </div>
   </div>
 
   <div>
     <a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
-
     <define name="slideBody.attlist" combine="interleave">
       <ref name="global-atts"/>
       <optional>
@@ -490,6 +237,12 @@
         <attribute name="class" a:defaultValue="- topic/topic concept/concept slide/slide "/>
       </optional>
     </define>
-
+    <define name="speakernotes.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- topic/div slide/speakernotes "/>
+      </optional>
+    </define>
   </div>
+
 </grammar>

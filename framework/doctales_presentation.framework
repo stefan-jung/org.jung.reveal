@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="19.1" xml:space="preserve">
+<serialized version="20.1" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -21,6 +21,40 @@
 										</field>
 										<field name="patchHandling">
 											<String>set</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>templatesLocations</String>
+										</field>
+										<field name="index">
+											<Integer>7</Integer>
+										</field>
+										<field name="value">
+											<null/>
+										</field>
+										<field name="patchHandling">
+											<String>removeIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>templatesLocations</String>
+										</field>
+										<field name="index">
+											<Integer>6</Integer>
+										</field>
+										<field name="value">
+											<null/>
+										</field>
+										<field name="patchHandling">
+											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
 											<null/>
@@ -114,6 +148,40 @@
 									<poPatch>
 										<field name="fieldPath">
 											<String>templatesLocations</String>
+										</field>
+										<field name="index">
+											<Integer>0</Integer>
+										</field>
+										<field name="value">
+											<null/>
+										</field>
+										<field name="patchHandling">
+											<String>removeIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>templatesLocations</String>
+										</field>
+										<field name="index">
+											<Integer>0</Integer>
+										</field>
+										<field name="value">
+											<String>${frameworkDir}/templates</String>
+										</field>
+										<field name="patchHandling">
+											<String>addIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>xmlCatalogs</String>
 										</field>
 										<field name="index">
 											<Integer>0</Integer>
@@ -176,7 +244,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map InDesign</String>
+											<String>DITA Map WebHelp Classic (deprecated)</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -193,7 +261,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map Kindle</String>
+											<String>DITA Map WebHelp Classic with Feedback (deprecated)</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -210,7 +278,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map Eclipse Help</String>
+											<String>DITA Map InDesign</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -227,7 +295,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map RTF</String>
+											<String>DITA Map Kindle</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -244,7 +312,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map ODF</String>
+											<String>DITA Map Eclipse Help</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -261,7 +329,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>Run DITA-OT Integrator</String>
+											<String>DITA Map RTF</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -278,7 +346,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map MS Office Word</String>
+											<String>DITA Map ODF</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -295,7 +363,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map CHM</String>
+											<String>Run DITA-OT Integrator</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -312,7 +380,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map EPUB</String>
+											<String>DITA Map MS Office Word</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -329,7 +397,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map HTML5</String>
+											<String>DITA Map CHM</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -346,7 +414,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map XHTML</String>
+											<String>DITA Map EPUB</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -363,7 +431,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map WebHelp Classic with Feedback</String>
+											<String>DITA Map XHTML</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -380,7 +448,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map WebHelp Classic Mobile (Deprecated)</String>
+											<String>DITA Map HTML5</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -397,7 +465,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map WebHelp Classic</String>
+											<String>DITA Map PDF - based on DITA &amp; CSS (WYSIWYG)</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -414,7 +482,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map WebHelp Responsive with Feedback</String>
+											<String>DITA Map PDF - based on XSL-FO</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -431,7 +499,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map WebHelp Responsive</String>
+											<String>DITA Map PDF - based on HTML5 &amp; CSS</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -448,7 +516,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map PDF - WYSIWYG</String>
+											<String>DITA Map WebHelp Responsive with Feedback</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -465,7 +533,7 @@
 											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
-											<String>DITA Map PDF</String>
+											<String>DITA Map WebHelp Responsive</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -524,6 +592,9 @@
 													<null/>
 												</field>
 												<field name="webhelpResponsiveTemplate">
+													<null/>
+												</field>
+												<field name="publishingTemplateDataPO">
 													<null/>
 												</field>
 												<field name="additionalAntArgs">
@@ -903,7 +974,7 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/edit/alternate-map-print-preview-layout.css</String>
+											<String>${framework}/css/edit/alternate-map-print-preview-layout-force-media-print.css</String>
 										</field>
 										<field name="title">
 											<String>+ Print ready</String>
@@ -965,6 +1036,17 @@
 										</field>
 										<field name="alternate">
 											<Boolean>true</Boolean>
+										</field>
+									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/css/webauthor/profiling.css</String>
+										</field>
+										<field name="title">
+											<String></String>
+										</field>
+										<field name="alternate">
+											<Boolean>false</Boolean>
 										</field>
 									</cssFile>
 								</cssFile-array>
@@ -2955,6 +3037,7 @@ self::*[contains(@class," map/reltable ")]][1]
 						<String-array>
 							<String>${frameworkDir}/templates/map</String>
 							<String>${frameworkDir}/templates/map-xsd</String>
+							<String>${frameworkDir}/templates/map-rng</String>
 							<String>${configured.ditaot.dir}/org.dita-ng.doctypes_oxygen_templates/map-rng</String>
 							<String>${configured.ditaot.dir}/plugins/org.oasis-open.dita.v1_3/oxygen_templates/DITA 1.3/map-rng</String>
 							<String>${configured.ditaot.dir}/plugins/org.oasis-open.dita.v1_3/oxygen_templates/DITA 1.3/map</String>
@@ -3144,416 +3227,6 @@ self::*[contains(@class," map/reltable ")]][1]
 									<String>${cfd}</String>
 								</field>
 								<field name="outputDir">
-									<String>${cfd}/out/pdf</String>
-								</field>
-								<field name="tempDir">
-									<String>${cfd}/temp/pdf</String>
-								</field>
-								<field name="transtype">
-									<String>pdf2</String>
-								</field>
-								<field name="filters">
-									<ditavalFilters>
-										<field name="useDitavalFilePath">
-											<Boolean>false</Boolean>
-										</field>
-										<field name="useAppliedConditionSet">
-											<Boolean>true</Boolean>
-										</field>
-										<field name="appliedConditionSet">
-											<null/>
-										</field>
-										<field name="ditavalFilePath">
-											<String></String>
-										</field>
-										<field name="simpleFiltersList">
-											<list/>
-										</field>
-									</ditavalFilters>
-								</field>
-								<field name="addOxygenJars">
-									<Boolean>true</Boolean>
-								</field>
-								<field name="skinCssFile">
-									<null/>
-								</field>
-								<field name="lastCustomSkinCssPath">
-									<null/>
-								</field>
-								<field name="webhelpResponsiveTemplate">
-									<null/>
-								</field>
-								<field name="additionalAntArgs">
-									<String></String>
-								</field>
-								<field name="buildTarget">
-									<String></String>
-								</field>
-								<field name="buildFilePath">
-									<String></String>
-								</field>
-								<field name="ditaParams">
-									<list>
-										<ditaParameter>
-											<field name="name">
-												<String>dita.dir</String>
-											</field>
-											<field name="description">
-												<null/>
-											</field>
-											<field name="value">
-												<String>${configured.ditaot.dir}</String>
-											</field>
-											<field name="defaultValue">
-												<null/>
-											</field>
-											<field name="type">
-												<Integer>3</Integer>
-											</field>
-											<field name="possibleValues">
-												<null/>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<null/>
-											</field>
-										</ditaParameter>
-										<ditaParameter>
-											<field name="name">
-												<String>xep.failOnError</String>
-											</field>
-											<field name="description">
-												<null/>
-											</field>
-											<field name="value">
-												<String>true</String>
-											</field>
-											<field name="defaultValue">
-												<null/>
-											</field>
-											<field name="type">
-												<Integer>4</Integer>
-											</field>
-											<field name="possibleValues">
-												<String-array>
-													<null/>
-													<String>true</String>
-												</String-array>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<null/>
-											</field>
-										</ditaParameter>
-									</list>
-								</field>
-								<field name="jvmArgs">
-									<String>-Xmx384m</String>
-								</field>
-								<field name="useCustomJavaHome">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="customJavaHomeDir">
-									<String></String>
-								</field>
-								<field name="useCustomANTHome">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="customANTHomeDir">
-									<String></String>
-								</field>
-								<field name="workingDir">
-									<null/>
-								</field>
-								<field name="showConsoleAlways">
-									<Boolean>true</Boolean>
-								</field>
-								<field name="advancedOptionsMap">
-									<null/>
-								</field>
-								<field name="name">
-									<String>DITA Map PDF</String>
-								</field>
-								<field name="baseURL">
-									<null/>
-								</field>
-								<field name="footerURL">
-									<null/>
-								</field>
-								<field name="fOPMethod">
-									<null/>
-								</field>
-								<field name="fOProcessorName">
-									<null/>
-								</field>
-								<field name="headerURL">
-									<null/>
-								</field>
-								<field name="inputXSLURL">
-									<null/>
-								</field>
-								<field name="inputXMLURL">
-									<null/>
-								</field>
-								<field name="defaultScenario">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="isFOPPerforming">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="type">
-									<String>DITAMAP</String>
-								</field>
-								<field name="saveAs">
-									<Boolean>true</Boolean>
-								</field>
-								<field name="openInBrowser">
-									<Boolean>true</Boolean>
-								</field>
-								<field name="outputFile">
-									<null/>
-								</field>
-								<field name="outputResource">
-									<null/>
-								</field>
-								<field name="openOtherLocationInBrowser">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="locationToOpenInBrowserURL">
-									<String></String>
-								</field>
-								<field name="openInEditor">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="showInHTMLPane">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="showInXMLPane">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="showInSVGPane">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="showInResultSetPane">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="useXSLTInput">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="xsltParams">
-									<list/>
-								</field>
-								<field name="cascadingStylesheets">
-									<String-array/>
-								</field>
-								<field name="xslTransformer">
-									<String>DITA-OT</String>
-								</field>
-								<field name="extensionURLs">
-									<String-array/>
-								</field>
-							</ditaScenario>
-							<ditaScenario>
-								<field name="useXEP">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="useAntennaHouse">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="baseDir">
-									<String>${cfd}</String>
-								</field>
-								<field name="outputDir">
-									<String>${cfd}/out/pdf-css</String>
-								</field>
-								<field name="tempDir">
-									<String>${cfd}/temp/pdf-css</String>
-								</field>
-								<field name="transtype">
-									<String>pdf-css</String>
-								</field>
-								<field name="filters">
-									<ditavalFilters>
-										<field name="useDitavalFilePath">
-											<Boolean>false</Boolean>
-										</field>
-										<field name="useAppliedConditionSet">
-											<Boolean>true</Boolean>
-										</field>
-										<field name="appliedConditionSet">
-											<null/>
-										</field>
-										<field name="ditavalFilePath">
-											<null/>
-										</field>
-										<field name="simpleFiltersList">
-											<list/>
-										</field>
-									</ditavalFilters>
-								</field>
-								<field name="addOxygenJars">
-									<Boolean>true</Boolean>
-								</field>
-								<field name="skinCssFile">
-									<null/>
-								</field>
-								<field name="lastCustomSkinCssPath">
-									<null/>
-								</field>
-								<field name="webhelpResponsiveTemplate">
-									<null/>
-								</field>
-								<field name="additionalAntArgs">
-									<String></String>
-								</field>
-								<field name="buildTarget">
-									<String></String>
-								</field>
-								<field name="buildFilePath">
-									<String></String>
-								</field>
-								<field name="ditaParams">
-									<list>
-										<ditaParameter>
-											<field name="name">
-												<String>css.processor.type</String>
-											</field>
-											<field name="description">
-												<null/>
-											</field>
-											<field name="value">
-												<String>chemistry</String>
-											</field>
-											<field name="defaultValue">
-												<null/>
-											</field>
-											<field name="type">
-												<Integer>0</Integer>
-											</field>
-											<field name="possibleValues">
-												<null/>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<null/>
-											</field>
-										</ditaParameter>
-									</list>
-								</field>
-								<field name="jvmArgs">
-									<String>-Xmx384m</String>
-								</field>
-								<field name="useCustomJavaHome">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="customJavaHomeDir">
-									<String></String>
-								</field>
-								<field name="useCustomANTHome">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="customANTHomeDir">
-									<String></String>
-								</field>
-								<field name="workingDir">
-									<null/>
-								</field>
-								<field name="showConsoleAlways">
-									<Boolean>true</Boolean>
-								</field>
-								<field name="advancedOptionsMap">
-									<null/>
-								</field>
-								<field name="name">
-									<String>DITA Map PDF - WYSIWYG</String>
-								</field>
-								<field name="baseURL">
-									<null/>
-								</field>
-								<field name="footerURL">
-									<null/>
-								</field>
-								<field name="fOPMethod">
-									<null/>
-								</field>
-								<field name="fOProcessorName">
-									<null/>
-								</field>
-								<field name="headerURL">
-									<null/>
-								</field>
-								<field name="inputXSLURL">
-									<null/>
-								</field>
-								<field name="inputXMLURL">
-									<null/>
-								</field>
-								<field name="defaultScenario">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="isFOPPerforming">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="type">
-									<String>DITAMAP</String>
-								</field>
-								<field name="saveAs">
-									<Boolean>true</Boolean>
-								</field>
-								<field name="openInBrowser">
-									<Boolean>true</Boolean>
-								</field>
-								<field name="outputFile">
-									<null/>
-								</field>
-								<field name="outputResource">
-									<null/>
-								</field>
-								<field name="openOtherLocationInBrowser">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="locationToOpenInBrowserURL">
-									<String></String>
-								</field>
-								<field name="openInEditor">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="showInHTMLPane">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="showInXMLPane">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="showInSVGPane">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="showInResultSetPane">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="useXSLTInput">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="xsltParams">
-									<list/>
-								</field>
-								<field name="cascadingStylesheets">
-									<String-array/>
-								</field>
-								<field name="xslTransformer">
-									<String>DITA-OT</String>
-								</field>
-								<field name="extensionURLs">
-									<String-array/>
-								</field>
-							</ditaScenario>
-							<ditaScenario>
-								<field name="useXEP">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="useAntennaHouse">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="baseDir">
-									<String>${cfd}</String>
-								</field>
-								<field name="outputDir">
 									<String>${cfd}/out/webhelp-responsive</String>
 								</field>
 								<field name="tempDir">
@@ -3591,20 +3264,20 @@ self::*[contains(@class," map/reltable ")]][1]
 									<null/>
 								</field>
 								<field name="webhelpResponsiveTemplate">
-									<webhelpTemplate>
-										<field name="templateName">
-											<String>bootstrap</String>
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
+									<publishingTemplate>
+										<field name="templateRoot">
+											<String>${configured.ditaot.dir}/plugins/com.oxygenxml.webhelp.responsive/templates/oxygen</String>
 										</field>
-										<field name="variantName">
-											<String>tiles</String>
+										<field name="descriptorRelativePath">
+											<String>oxygen-tiles.opt</String>
 										</field>
-										<field name="skinName">
-											<String>oxygen</String>
+										<field name="isCustomTemplate">
+											<Boolean>false</Boolean>
 										</field>
-										<field name="customSkinPath">
-											<null/>
-										</field>
-									</webhelpTemplate>
+									</publishingTemplate>
 								</field>
 								<field name="additionalAntArgs">
 									<String></String>
@@ -3867,20 +3540,20 @@ self::*[contains(@class," map/reltable ")]][1]
 									<null/>
 								</field>
 								<field name="webhelpResponsiveTemplate">
-									<webhelpTemplate>
-										<field name="templateName">
-											<String>bootstrap</String>
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
+									<publishingTemplate>
+										<field name="templateRoot">
+											<String>${configured.ditaot.dir}/plugins/com.oxygenxml.webhelp.responsive/templates/oxygen</String>
 										</field>
-										<field name="variantName">
-											<String>tiles</String>
+										<field name="descriptorRelativePath">
+											<String>oxygen-tiles.opt</String>
 										</field>
-										<field name="skinName">
-											<String>oxygen</String>
+										<field name="isCustomTemplate">
+											<Boolean>false</Boolean>
 										</field>
-										<field name="customSkinPath">
-											<null/>
-										</field>
-									</webhelpTemplate>
+									</publishingTemplate>
 								</field>
 								<field name="additionalAntArgs">
 									<String></String>
@@ -4152,13 +3825,13 @@ self::*[contains(@class," map/reltable ")]][1]
 									<String>${cfd}</String>
 								</field>
 								<field name="outputDir">
-									<String>${cfd}/out/webhelp</String>
+									<String>${cfd}/out/pdf-css-html5</String>
 								</field>
 								<field name="tempDir">
-									<String>${cfd}/temp/webhelp</String>
+									<String>${cfd}/temp/pdf-css-html5</String>
 								</field>
 								<field name="transtype">
-									<String>webhelp</String>
+									<String>pdf-css-html5</String>
 								</field>
 								<field name="filters">
 									<ditavalFilters>
@@ -4183,12 +3856,15 @@ self::*[contains(@class," map/reltable ")]][1]
 									<Boolean>true</Boolean>
 								</field>
 								<field name="skinCssFile">
-									<String>${configured.ditaot.dir}/plugins/com.oxygenxml.webhelp.classic/predefined-skins/dita/oxygen/skin.css</String>
+									<null/>
 								</field>
 								<field name="lastCustomSkinCssPath">
 									<null/>
 								</field>
 								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
 									<null/>
 								</field>
 								<field name="additionalAntArgs">
@@ -4204,126 +3880,25 @@ self::*[contains(@class," map/reltable ")]][1]
 									<list>
 										<ditaParameter>
 											<field name="name">
-												<String>args.figurelink.style</String>
+												<String>css.processor.type</String>
 											</field>
 											<field name="description">
 												<null/>
 											</field>
 											<field name="value">
-												<String>TITLE</String>
+												<String>chemistry</String>
 											</field>
 											<field name="defaultValue">
 												<null/>
 											</field>
 											<field name="type">
-												<Integer>4</Integer>
+												<Integer>0</Integer>
 											</field>
 											<field name="possibleValues">
-												<String-array>
-													<String>NUMBER</String>
-													<String>TITLE</String>
-													<String>NUMTITLE</String>
-													<null/>
-												</String-array>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<String-array>
-													<String></String>
-													<String></String>
-													<String></String>
-												</String-array>
-											</field>
-										</ditaParameter>
-										<ditaParameter>
-											<field name="name">
-												<String>args.tablelink.style</String>
-											</field>
-											<field name="description">
 												<null/>
 											</field>
-											<field name="value">
-												<String>TITLE</String>
-											</field>
-											<field name="defaultValue">
-												<null/>
-											</field>
-											<field name="type">
-												<Integer>4</Integer>
-											</field>
-											<field name="possibleValues">
-												<String-array>
-													<String>NUMBER</String>
-													<String>TITLE</String>
-													<String>NUMTITLE</String>
-													<null/>
-												</String-array>
-											</field>
 											<field name="possibleValuesDescriptions">
-												<String-array>
-													<String></String>
-													<String></String>
-													<String></String>
-												</String-array>
-											</field>
-										</ditaParameter>
-										<ditaParameter>
-											<field name="name">
-												<String>args.xhtml.classattr</String>
-											</field>
-											<field name="description">
 												<null/>
-											</field>
-											<field name="value">
-												<String>yes</String>
-											</field>
-											<field name="defaultValue">
-												<String>yes</String>
-											</field>
-											<field name="type">
-												<Integer>4</Integer>
-											</field>
-											<field name="possibleValues">
-												<String-array>
-													<String>yes</String>
-													<String>no</String>
-													<null/>
-												</String-array>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<String-array>
-													<String></String>
-													<String></String>
-												</String-array>
-											</field>
-										</ditaParameter>
-										<ditaParameter>
-											<field name="name">
-												<String>force-unique</String>
-											</field>
-											<field name="description">
-												<null/>
-											</field>
-											<field name="value">
-												<String>true</String>
-											</field>
-											<field name="defaultValue">
-												<String>false</String>
-											</field>
-											<field name="type">
-												<Integer>4</Integer>
-											</field>
-											<field name="possibleValues">
-												<String-array>
-													<String>true</String>
-													<String>false</String>
-													<null/>
-												</String-array>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<String-array>
-													<String></String>
-													<String></String>
-												</String-array>
 											</field>
 										</ditaParameter>
 									</list>
@@ -4353,7 +3928,7 @@ self::*[contains(@class," map/reltable ")]][1]
 									<null/>
 								</field>
 								<field name="name">
-									<String>DITA Map WebHelp Classic</String>
+									<String>DITA Map PDF - based on HTML5 &amp; CSS</String>
 								</field>
 								<field name="baseURL">
 									<null/>
@@ -4445,13 +4020,13 @@ self::*[contains(@class," map/reltable ")]][1]
 									<String>${cfd}</String>
 								</field>
 								<field name="outputDir">
-									<String>${cfd}/out/webhelp-mobile</String>
+									<String>${cfd}/out/pdf</String>
 								</field>
 								<field name="tempDir">
-									<String>${cfd}/temp/webhelp-mobile</String>
+									<String>${cfd}/temp/pdf</String>
 								</field>
 								<field name="transtype">
-									<String>webhelp-mobile</String>
+									<String>pdf2</String>
 								</field>
 								<field name="filters">
 									<ditavalFilters>
@@ -4476,12 +4051,15 @@ self::*[contains(@class," map/reltable ")]][1]
 									<Boolean>true</Boolean>
 								</field>
 								<field name="skinCssFile">
-									<String>${configured.ditaot.dir}/plugins/com.oxygenxml.webhelp.classic/predefined-skins/dita/oxygen/skin.css</String>
+									<null/>
 								</field>
 								<field name="lastCustomSkinCssPath">
 									<null/>
 								</field>
 								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
 									<null/>
 								</field>
 								<field name="additionalAntArgs">
@@ -4497,37 +4075,7 @@ self::*[contains(@class," map/reltable ")]][1]
 									<list>
 										<ditaParameter>
 											<field name="name">
-												<String>args.xhtml.classattr</String>
-											</field>
-											<field name="description">
-												<null/>
-											</field>
-											<field name="value">
-												<String>yes</String>
-											</field>
-											<field name="defaultValue">
-												<String>yes</String>
-											</field>
-											<field name="type">
-												<Integer>4</Integer>
-											</field>
-											<field name="possibleValues">
-												<String-array>
-													<String>yes</String>
-													<String>no</String>
-													<null/>
-												</String-array>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<String-array>
-													<String></String>
-													<String></String>
-												</String-array>
-											</field>
-										</ditaParameter>
-										<ditaParameter>
-											<field name="name">
-												<String>force-unique</String>
+												<String>xep.failOnError</String>
 											</field>
 											<field name="description">
 												<null/>
@@ -4536,23 +4084,19 @@ self::*[contains(@class," map/reltable ")]][1]
 												<String>true</String>
 											</field>
 											<field name="defaultValue">
-												<String>false</String>
+												<null/>
 											</field>
 											<field name="type">
 												<Integer>4</Integer>
 											</field>
 											<field name="possibleValues">
 												<String-array>
-													<String>true</String>
-													<String>false</String>
 													<null/>
+													<String>true</String>
 												</String-array>
 											</field>
 											<field name="possibleValuesDescriptions">
-												<String-array>
-													<String></String>
-													<String></String>
-												</String-array>
+												<null/>
 											</field>
 										</ditaParameter>
 									</list>
@@ -4582,7 +4126,7 @@ self::*[contains(@class," map/reltable ")]][1]
 									<null/>
 								</field>
 								<field name="name">
-									<String>DITA Map WebHelp Classic Mobile (Deprecated)</String>
+									<String>DITA Map PDF - based on XSL-FO</String>
 								</field>
 								<field name="baseURL">
 									<null/>
@@ -4674,13 +4218,13 @@ self::*[contains(@class," map/reltable ")]][1]
 									<String>${cfd}</String>
 								</field>
 								<field name="outputDir">
-									<String>${cfd}/out/webhelp-feedback</String>
+									<String>${cfd}/out/pdf-css</String>
 								</field>
 								<field name="tempDir">
-									<String>${cfd}/temp/webhelp-feedback</String>
+									<String>${cfd}/temp/pdf-css</String>
 								</field>
 								<field name="transtype">
-									<String>webhelp-feedback</String>
+									<String>pdf-css</String>
 								</field>
 								<field name="filters">
 									<ditavalFilters>
@@ -4705,12 +4249,15 @@ self::*[contains(@class," map/reltable ")]][1]
 									<Boolean>true</Boolean>
 								</field>
 								<field name="skinCssFile">
-									<String>${configured.ditaot.dir}/plugins/com.oxygenxml.webhelp.classic/predefined-skins/dita/oxygen/skin.css</String>
+									<null/>
 								</field>
 								<field name="lastCustomSkinCssPath">
 									<null/>
 								</field>
 								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
 									<null/>
 								</field>
 								<field name="additionalAntArgs">
@@ -4726,126 +4273,25 @@ self::*[contains(@class," map/reltable ")]][1]
 									<list>
 										<ditaParameter>
 											<field name="name">
-												<String>args.figurelink.style</String>
+												<String>css.processor.type</String>
 											</field>
 											<field name="description">
 												<null/>
 											</field>
 											<field name="value">
-												<String>TITLE</String>
+												<String>chemistry</String>
 											</field>
 											<field name="defaultValue">
 												<null/>
 											</field>
 											<field name="type">
-												<Integer>4</Integer>
+												<Integer>0</Integer>
 											</field>
 											<field name="possibleValues">
-												<String-array>
-													<String>NUMBER</String>
-													<String>TITLE</String>
-													<String>NUMTITLE</String>
-													<null/>
-												</String-array>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<String-array>
-													<String></String>
-													<String></String>
-													<String></String>
-												</String-array>
-											</field>
-										</ditaParameter>
-										<ditaParameter>
-											<field name="name">
-												<String>args.tablelink.style</String>
-											</field>
-											<field name="description">
 												<null/>
 											</field>
-											<field name="value">
-												<String>TITLE</String>
-											</field>
-											<field name="defaultValue">
-												<null/>
-											</field>
-											<field name="type">
-												<Integer>4</Integer>
-											</field>
-											<field name="possibleValues">
-												<String-array>
-													<String>NUMBER</String>
-													<String>TITLE</String>
-													<String>NUMTITLE</String>
-													<null/>
-												</String-array>
-											</field>
 											<field name="possibleValuesDescriptions">
-												<String-array>
-													<String></String>
-													<String></String>
-													<String></String>
-												</String-array>
-											</field>
-										</ditaParameter>
-										<ditaParameter>
-											<field name="name">
-												<String>args.xhtml.classattr</String>
-											</field>
-											<field name="description">
 												<null/>
-											</field>
-											<field name="value">
-												<String>yes</String>
-											</field>
-											<field name="defaultValue">
-												<String>yes</String>
-											</field>
-											<field name="type">
-												<Integer>4</Integer>
-											</field>
-											<field name="possibleValues">
-												<String-array>
-													<String>yes</String>
-													<String>no</String>
-													<null/>
-												</String-array>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<String-array>
-													<String></String>
-													<String></String>
-												</String-array>
-											</field>
-										</ditaParameter>
-										<ditaParameter>
-											<field name="name">
-												<String>force-unique</String>
-											</field>
-											<field name="description">
-												<null/>
-											</field>
-											<field name="value">
-												<String>true</String>
-											</field>
-											<field name="defaultValue">
-												<String>false</String>
-											</field>
-											<field name="type">
-												<Integer>4</Integer>
-											</field>
-											<field name="possibleValues">
-												<String-array>
-													<String>true</String>
-													<String>false</String>
-													<null/>
-												</String-array>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<String-array>
-													<String></String>
-													<String></String>
-												</String-array>
 											</field>
 										</ditaParameter>
 									</list>
@@ -4875,7 +4321,7 @@ self::*[contains(@class," map/reltable ")]][1]
 									<null/>
 								</field>
 								<field name="name">
-									<String>DITA Map WebHelp Classic with Feedback</String>
+									<String>DITA Map PDF - based on DITA &amp; CSS (WYSIWYG)</String>
 								</field>
 								<field name="baseURL">
 									<null/>
@@ -4920,10 +4366,181 @@ self::*[contains(@class," map/reltable ")]][1]
 									<null/>
 								</field>
 								<field name="openOtherLocationInBrowser">
-									<Boolean>true</Boolean>
+									<Boolean>false</Boolean>
 								</field>
 								<field name="locationToOpenInBrowserURL">
-									<String>${cfd}/out/webhelp-feedback/oxygen-webhelp/feedback/resources/installation.html</String>
+									<String></String>
+								</field>
+								<field name="openInEditor">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInHTMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInXMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInSVGPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInResultSetPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="useXSLTInput">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="xsltParams">
+									<list/>
+								</field>
+								<field name="cascadingStylesheets">
+									<String-array/>
+								</field>
+								<field name="xslTransformer">
+									<String>DITA-OT</String>
+								</field>
+								<field name="extensionURLs">
+									<String-array/>
+								</field>
+							</ditaScenario>
+							<ditaScenario>
+								<field name="useXEP">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="useAntennaHouse">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="baseDir">
+									<String>${cfd}</String>
+								</field>
+								<field name="outputDir">
+									<String>${cfd}/out/html5</String>
+								</field>
+								<field name="tempDir">
+									<String>${cfd}/temp/html5</String>
+								</field>
+								<field name="transtype">
+									<String>html5</String>
+								</field>
+								<field name="filters">
+									<ditavalFilters>
+										<field name="useDitavalFilePath">
+											<Boolean>false</Boolean>
+										</field>
+										<field name="useAppliedConditionSet">
+											<Boolean>true</Boolean>
+										</field>
+										<field name="appliedConditionSet">
+											<null/>
+										</field>
+										<field name="ditavalFilePath">
+											<null/>
+										</field>
+										<field name="simpleFiltersList">
+											<list/>
+										</field>
+									</ditavalFilters>
+								</field>
+								<field name="addOxygenJars">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="skinCssFile">
+									<null/>
+								</field>
+								<field name="lastCustomSkinCssPath">
+									<null/>
+								</field>
+								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
+									<null/>
+								</field>
+								<field name="additionalAntArgs">
+									<String></String>
+								</field>
+								<field name="buildTarget">
+									<String></String>
+								</field>
+								<field name="buildFilePath">
+									<String></String>
+								</field>
+								<field name="ditaParams">
+									<list/>
+								</field>
+								<field name="jvmArgs">
+									<String>-Xmx384m</String>
+								</field>
+								<field name="useCustomJavaHome">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="customJavaHomeDir">
+									<String></String>
+								</field>
+								<field name="useCustomANTHome">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="customANTHomeDir">
+									<String></String>
+								</field>
+								<field name="workingDir">
+									<null/>
+								</field>
+								<field name="showConsoleAlways">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="advancedOptionsMap">
+									<null/>
+								</field>
+								<field name="name">
+									<String>DITA Map HTML5</String>
+								</field>
+								<field name="baseURL">
+									<null/>
+								</field>
+								<field name="footerURL">
+									<null/>
+								</field>
+								<field name="fOPMethod">
+									<null/>
+								</field>
+								<field name="fOProcessorName">
+									<null/>
+								</field>
+								<field name="headerURL">
+									<null/>
+								</field>
+								<field name="inputXSLURL">
+									<null/>
+								</field>
+								<field name="inputXMLURL">
+									<null/>
+								</field>
+								<field name="defaultScenario">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="isFOPPerforming">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="type">
+									<String>DITAMAP</String>
+								</field>
+								<field name="saveAs">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="openInBrowser">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="outputFile">
+									<null/>
+								</field>
+								<field name="outputResource">
+									<null/>
+								</field>
+								<field name="openOtherLocationInBrowser">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="locationToOpenInBrowserURL">
+									<String></String>
 								</field>
 								<field name="openInEditor">
 									<Boolean>false</Boolean>
@@ -5004,6 +4621,9 @@ self::*[contains(@class," map/reltable ")]][1]
 									<null/>
 								</field>
 								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
 									<null/>
 								</field>
 								<field name="additionalAntArgs">
@@ -5159,174 +4779,6 @@ self::*[contains(@class," map/reltable ")]][1]
 									<String>${cfd}</String>
 								</field>
 								<field name="outputDir">
-									<String>${cfd}/out/html5</String>
-								</field>
-								<field name="tempDir">
-									<String>${cfd}/temp/html5</String>
-								</field>
-								<field name="transtype">
-									<String>html5</String>
-								</field>
-								<field name="filters">
-									<ditavalFilters>
-										<field name="useDitavalFilePath">
-											<Boolean>false</Boolean>
-										</field>
-										<field name="useAppliedConditionSet">
-											<Boolean>true</Boolean>
-										</field>
-										<field name="appliedConditionSet">
-											<null/>
-										</field>
-										<field name="ditavalFilePath">
-											<null/>
-										</field>
-										<field name="simpleFiltersList">
-											<list/>
-										</field>
-									</ditavalFilters>
-								</field>
-								<field name="addOxygenJars">
-									<Boolean>true</Boolean>
-								</field>
-								<field name="skinCssFile">
-									<null/>
-								</field>
-								<field name="lastCustomSkinCssPath">
-									<null/>
-								</field>
-								<field name="webhelpResponsiveTemplate">
-									<null/>
-								</field>
-								<field name="additionalAntArgs">
-									<String></String>
-								</field>
-								<field name="buildTarget">
-									<String></String>
-								</field>
-								<field name="buildFilePath">
-									<String></String>
-								</field>
-								<field name="ditaParams">
-									<list/>
-								</field>
-								<field name="jvmArgs">
-									<String>-Xmx384m</String>
-								</field>
-								<field name="useCustomJavaHome">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="customJavaHomeDir">
-									<String></String>
-								</field>
-								<field name="useCustomANTHome">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="customANTHomeDir">
-									<String></String>
-								</field>
-								<field name="workingDir">
-									<null/>
-								</field>
-								<field name="showConsoleAlways">
-									<Boolean>true</Boolean>
-								</field>
-								<field name="advancedOptionsMap">
-									<null/>
-								</field>
-								<field name="name">
-									<String>DITA Map HTML5</String>
-								</field>
-								<field name="baseURL">
-									<null/>
-								</field>
-								<field name="footerURL">
-									<null/>
-								</field>
-								<field name="fOPMethod">
-									<null/>
-								</field>
-								<field name="fOProcessorName">
-									<null/>
-								</field>
-								<field name="headerURL">
-									<null/>
-								</field>
-								<field name="inputXSLURL">
-									<null/>
-								</field>
-								<field name="inputXMLURL">
-									<null/>
-								</field>
-								<field name="defaultScenario">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="isFOPPerforming">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="type">
-									<String>DITAMAP</String>
-								</field>
-								<field name="saveAs">
-									<Boolean>true</Boolean>
-								</field>
-								<field name="openInBrowser">
-									<Boolean>true</Boolean>
-								</field>
-								<field name="outputFile">
-									<null/>
-								</field>
-								<field name="outputResource">
-									<null/>
-								</field>
-								<field name="openOtherLocationInBrowser">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="locationToOpenInBrowserURL">
-									<String></String>
-								</field>
-								<field name="openInEditor">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="showInHTMLPane">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="showInXMLPane">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="showInSVGPane">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="showInResultSetPane">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="useXSLTInput">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="xsltParams">
-									<list/>
-								</field>
-								<field name="cascadingStylesheets">
-									<String-array/>
-								</field>
-								<field name="xslTransformer">
-									<String>DITA-OT</String>
-								</field>
-								<field name="extensionURLs">
-									<String-array/>
-								</field>
-							</ditaScenario>
-							<ditaScenario>
-								<field name="useXEP">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="useAntennaHouse">
-									<Boolean>false</Boolean>
-								</field>
-								<field name="baseDir">
-									<String>${cfd}</String>
-								</field>
-								<field name="outputDir">
 									<String>${cfd}/out/epub</String>
 								</field>
 								<field name="tempDir">
@@ -5364,6 +4816,9 @@ self::*[contains(@class," map/reltable ")]][1]
 									<null/>
 								</field>
 								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
 									<null/>
 								</field>
 								<field name="additionalAntArgs">
@@ -5622,6 +5077,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="webhelpResponsiveTemplate">
 									<null/>
 								</field>
+								<field name="publishingTemplateDataPO">
+									<null/>
+								</field>
 								<field name="additionalAntArgs">
 									<String></String>
 								</field>
@@ -5812,6 +5270,9 @@ self::*[contains(@class," map/reltable ")]][1]
 									<null/>
 								</field>
 								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
 									<null/>
 								</field>
 								<field name="additionalAntArgs">
@@ -6097,6 +5558,7 @@ self::*[contains(@class," map/reltable ")]][1]
 								</field>
 								<field name="extensionURLs">
 									<String-array>
+										<String>${configured.ditaot.dir.url}/config/</String>
 										<String>${oxygenHome}/classes/</String>
 										<String>${oxygenHome}/lib/oxygen.jar</String>
 										<String>${oxygenHome}/lib/oxygenAuthor.jar</String>
@@ -6104,6 +5566,7 @@ self::*[contains(@class," map/reltable ")]][1]
 										<String>${oxygenHome}/lib/oxygenEclipse.jar</String>
 										<String>${oxygenHome}/lib/oxygenAuthorEclipse.jar</String>
 										<String>${oxygenHome}/lib/oxygenDeveloperEclipse.jar</String>
+										<String>${oxygenHome}/lib/oxygen-basic-utilities.jar</String>
 										<String>${oxygenHome}/lib/resolver.jar</String>
 										<String>${oxygenHome}/lib/xml-apis.jar</String>
 										<String>${oxygenHome}/lib/xercesImpl.jar</String>
@@ -6161,6 +5624,9 @@ self::*[contains(@class," map/reltable ")]][1]
 									<null/>
 								</field>
 								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
 									<null/>
 								</field>
 								<field name="additionalAntArgs">
@@ -6382,6 +5848,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="webhelpResponsiveTemplate">
 									<null/>
 								</field>
+								<field name="publishingTemplateDataPO">
+									<null/>
+								</field>
 								<field name="additionalAntArgs">
 									<String></String>
 								</field>
@@ -6572,6 +6041,9 @@ self::*[contains(@class," map/reltable ")]][1]
 									<null/>
 								</field>
 								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
 									<null/>
 								</field>
 								<field name="additionalAntArgs">
@@ -6766,6 +6238,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="webhelpResponsiveTemplate">
 									<null/>
 								</field>
+								<field name="publishingTemplateDataPO">
+									<null/>
+								</field>
 								<field name="additionalAntArgs">
 									<String></String>
 								</field>
@@ -6934,6 +6409,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="webhelpResponsiveTemplate">
 									<null/>
 								</field>
+								<field name="publishingTemplateDataPO">
+									<null/>
+								</field>
 								<field name="additionalAntArgs">
 									<String></String>
 								</field>
@@ -7063,6 +6541,598 @@ self::*[contains(@class," map/reltable ")]][1]
 									<String>${cfd}</String>
 								</field>
 								<field name="outputDir">
+									<String>${cfd}/out/webhelp-feedback</String>
+								</field>
+								<field name="tempDir">
+									<String>${cfd}/temp/webhelp-feedback</String>
+								</field>
+								<field name="transtype">
+									<String>webhelp-feedback</String>
+								</field>
+								<field name="filters">
+									<ditavalFilters>
+										<field name="useDitavalFilePath">
+											<Boolean>false</Boolean>
+										</field>
+										<field name="useAppliedConditionSet">
+											<Boolean>true</Boolean>
+										</field>
+										<field name="appliedConditionSet">
+											<null/>
+										</field>
+										<field name="ditavalFilePath">
+											<null/>
+										</field>
+										<field name="simpleFiltersList">
+											<list/>
+										</field>
+									</ditavalFilters>
+								</field>
+								<field name="addOxygenJars">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="skinCssFile">
+									<String>${configured.ditaot.dir}/plugins/com.oxygenxml.webhelp.classic/predefined-skins/dita/oxygen/skin.css</String>
+								</field>
+								<field name="lastCustomSkinCssPath">
+									<null/>
+								</field>
+								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
+									<null/>
+								</field>
+								<field name="additionalAntArgs">
+									<String></String>
+								</field>
+								<field name="buildTarget">
+									<String></String>
+								</field>
+								<field name="buildFilePath">
+									<String></String>
+								</field>
+								<field name="ditaParams">
+									<list>
+										<ditaParameter>
+											<field name="name">
+												<String>args.figurelink.style</String>
+											</field>
+											<field name="description">
+												<null/>
+											</field>
+											<field name="value">
+												<String>TITLE</String>
+											</field>
+											<field name="defaultValue">
+												<null/>
+											</field>
+											<field name="type">
+												<Integer>4</Integer>
+											</field>
+											<field name="possibleValues">
+												<String-array>
+													<String>NUMBER</String>
+													<String>TITLE</String>
+													<String>NUMTITLE</String>
+													<null/>
+												</String-array>
+											</field>
+											<field name="possibleValuesDescriptions">
+												<String-array>
+													<String></String>
+													<String></String>
+													<String></String>
+												</String-array>
+											</field>
+										</ditaParameter>
+										<ditaParameter>
+											<field name="name">
+												<String>args.tablelink.style</String>
+											</field>
+											<field name="description">
+												<null/>
+											</field>
+											<field name="value">
+												<String>TITLE</String>
+											</field>
+											<field name="defaultValue">
+												<null/>
+											</field>
+											<field name="type">
+												<Integer>4</Integer>
+											</field>
+											<field name="possibleValues">
+												<String-array>
+													<String>NUMBER</String>
+													<String>TITLE</String>
+													<String>NUMTITLE</String>
+													<null/>
+												</String-array>
+											</field>
+											<field name="possibleValuesDescriptions">
+												<String-array>
+													<String></String>
+													<String></String>
+													<String></String>
+												</String-array>
+											</field>
+										</ditaParameter>
+										<ditaParameter>
+											<field name="name">
+												<String>args.xhtml.classattr</String>
+											</field>
+											<field name="description">
+												<null/>
+											</field>
+											<field name="value">
+												<String>yes</String>
+											</field>
+											<field name="defaultValue">
+												<String>yes</String>
+											</field>
+											<field name="type">
+												<Integer>4</Integer>
+											</field>
+											<field name="possibleValues">
+												<String-array>
+													<String>yes</String>
+													<String>no</String>
+													<null/>
+												</String-array>
+											</field>
+											<field name="possibleValuesDescriptions">
+												<String-array>
+													<String></String>
+													<String></String>
+												</String-array>
+											</field>
+										</ditaParameter>
+										<ditaParameter>
+											<field name="name">
+												<String>force-unique</String>
+											</field>
+											<field name="description">
+												<null/>
+											</field>
+											<field name="value">
+												<String>true</String>
+											</field>
+											<field name="defaultValue">
+												<String>false</String>
+											</field>
+											<field name="type">
+												<Integer>4</Integer>
+											</field>
+											<field name="possibleValues">
+												<String-array>
+													<String>true</String>
+													<String>false</String>
+													<null/>
+												</String-array>
+											</field>
+											<field name="possibleValuesDescriptions">
+												<String-array>
+													<String></String>
+													<String></String>
+												</String-array>
+											</field>
+										</ditaParameter>
+									</list>
+								</field>
+								<field name="jvmArgs">
+									<String>-Xmx384m</String>
+								</field>
+								<field name="useCustomJavaHome">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="customJavaHomeDir">
+									<String></String>
+								</field>
+								<field name="useCustomANTHome">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="customANTHomeDir">
+									<String></String>
+								</field>
+								<field name="workingDir">
+									<null/>
+								</field>
+								<field name="showConsoleAlways">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="advancedOptionsMap">
+									<null/>
+								</field>
+								<field name="name">
+									<String>DITA Map WebHelp Classic with Feedback (deprecated)</String>
+								</field>
+								<field name="baseURL">
+									<null/>
+								</field>
+								<field name="footerURL">
+									<null/>
+								</field>
+								<field name="fOPMethod">
+									<null/>
+								</field>
+								<field name="fOProcessorName">
+									<null/>
+								</field>
+								<field name="headerURL">
+									<null/>
+								</field>
+								<field name="inputXSLURL">
+									<null/>
+								</field>
+								<field name="inputXMLURL">
+									<null/>
+								</field>
+								<field name="defaultScenario">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="isFOPPerforming">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="type">
+									<String>DITAMAP</String>
+								</field>
+								<field name="saveAs">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="openInBrowser">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="outputFile">
+									<null/>
+								</field>
+								<field name="outputResource">
+									<null/>
+								</field>
+								<field name="openOtherLocationInBrowser">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="locationToOpenInBrowserURL">
+									<String>${cfd}/out/webhelp-feedback/oxygen-webhelp/feedback/resources/installation.html</String>
+								</field>
+								<field name="openInEditor">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInHTMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInXMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInSVGPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInResultSetPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="useXSLTInput">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="xsltParams">
+									<list/>
+								</field>
+								<field name="cascadingStylesheets">
+									<String-array/>
+								</field>
+								<field name="xslTransformer">
+									<String>DITA-OT</String>
+								</field>
+								<field name="extensionURLs">
+									<String-array/>
+								</field>
+							</ditaScenario>
+							<ditaScenario>
+								<field name="useXEP">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="useAntennaHouse">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="baseDir">
+									<String>${cfd}</String>
+								</field>
+								<field name="outputDir">
+									<String>${cfd}/out/webhelp</String>
+								</field>
+								<field name="tempDir">
+									<String>${cfd}/temp/webhelp</String>
+								</field>
+								<field name="transtype">
+									<String>webhelp</String>
+								</field>
+								<field name="filters">
+									<ditavalFilters>
+										<field name="useDitavalFilePath">
+											<Boolean>false</Boolean>
+										</field>
+										<field name="useAppliedConditionSet">
+											<Boolean>true</Boolean>
+										</field>
+										<field name="appliedConditionSet">
+											<null/>
+										</field>
+										<field name="ditavalFilePath">
+											<null/>
+										</field>
+										<field name="simpleFiltersList">
+											<list/>
+										</field>
+									</ditavalFilters>
+								</field>
+								<field name="addOxygenJars">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="skinCssFile">
+									<String>${configured.ditaot.dir}/plugins/com.oxygenxml.webhelp.classic/predefined-skins/dita/oxygen/skin.css</String>
+								</field>
+								<field name="lastCustomSkinCssPath">
+									<null/>
+								</field>
+								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
+									<null/>
+								</field>
+								<field name="additionalAntArgs">
+									<String></String>
+								</field>
+								<field name="buildTarget">
+									<String></String>
+								</field>
+								<field name="buildFilePath">
+									<String></String>
+								</field>
+								<field name="ditaParams">
+									<list>
+										<ditaParameter>
+											<field name="name">
+												<String>args.figurelink.style</String>
+											</field>
+											<field name="description">
+												<null/>
+											</field>
+											<field name="value">
+												<String>TITLE</String>
+											</field>
+											<field name="defaultValue">
+												<null/>
+											</field>
+											<field name="type">
+												<Integer>4</Integer>
+											</field>
+											<field name="possibleValues">
+												<String-array>
+													<String>NUMBER</String>
+													<String>TITLE</String>
+													<String>NUMTITLE</String>
+													<null/>
+												</String-array>
+											</field>
+											<field name="possibleValuesDescriptions">
+												<String-array>
+													<String></String>
+													<String></String>
+													<String></String>
+												</String-array>
+											</field>
+										</ditaParameter>
+										<ditaParameter>
+											<field name="name">
+												<String>args.tablelink.style</String>
+											</field>
+											<field name="description">
+												<null/>
+											</field>
+											<field name="value">
+												<String>TITLE</String>
+											</field>
+											<field name="defaultValue">
+												<null/>
+											</field>
+											<field name="type">
+												<Integer>4</Integer>
+											</field>
+											<field name="possibleValues">
+												<String-array>
+													<String>NUMBER</String>
+													<String>TITLE</String>
+													<String>NUMTITLE</String>
+													<null/>
+												</String-array>
+											</field>
+											<field name="possibleValuesDescriptions">
+												<String-array>
+													<String></String>
+													<String></String>
+													<String></String>
+												</String-array>
+											</field>
+										</ditaParameter>
+										<ditaParameter>
+											<field name="name">
+												<String>args.xhtml.classattr</String>
+											</field>
+											<field name="description">
+												<null/>
+											</field>
+											<field name="value">
+												<String>yes</String>
+											</field>
+											<field name="defaultValue">
+												<String>yes</String>
+											</field>
+											<field name="type">
+												<Integer>4</Integer>
+											</field>
+											<field name="possibleValues">
+												<String-array>
+													<String>yes</String>
+													<String>no</String>
+													<null/>
+												</String-array>
+											</field>
+											<field name="possibleValuesDescriptions">
+												<String-array>
+													<String></String>
+													<String></String>
+												</String-array>
+											</field>
+										</ditaParameter>
+										<ditaParameter>
+											<field name="name">
+												<String>force-unique</String>
+											</field>
+											<field name="description">
+												<null/>
+											</field>
+											<field name="value">
+												<String>true</String>
+											</field>
+											<field name="defaultValue">
+												<String>false</String>
+											</field>
+											<field name="type">
+												<Integer>4</Integer>
+											</field>
+											<field name="possibleValues">
+												<String-array>
+													<String>true</String>
+													<String>false</String>
+													<null/>
+												</String-array>
+											</field>
+											<field name="possibleValuesDescriptions">
+												<String-array>
+													<String></String>
+													<String></String>
+												</String-array>
+											</field>
+										</ditaParameter>
+									</list>
+								</field>
+								<field name="jvmArgs">
+									<String>-Xmx384m</String>
+								</field>
+								<field name="useCustomJavaHome">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="customJavaHomeDir">
+									<String></String>
+								</field>
+								<field name="useCustomANTHome">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="customANTHomeDir">
+									<String></String>
+								</field>
+								<field name="workingDir">
+									<null/>
+								</field>
+								<field name="showConsoleAlways">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="advancedOptionsMap">
+									<null/>
+								</field>
+								<field name="name">
+									<String>DITA Map WebHelp Classic (deprecated)</String>
+								</field>
+								<field name="baseURL">
+									<null/>
+								</field>
+								<field name="footerURL">
+									<null/>
+								</field>
+								<field name="fOPMethod">
+									<null/>
+								</field>
+								<field name="fOProcessorName">
+									<null/>
+								</field>
+								<field name="headerURL">
+									<null/>
+								</field>
+								<field name="inputXSLURL">
+									<null/>
+								</field>
+								<field name="inputXMLURL">
+									<null/>
+								</field>
+								<field name="defaultScenario">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="isFOPPerforming">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="type">
+									<String>DITAMAP</String>
+								</field>
+								<field name="saveAs">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="openInBrowser">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="outputFile">
+									<null/>
+								</field>
+								<field name="outputResource">
+									<null/>
+								</field>
+								<field name="openOtherLocationInBrowser">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="locationToOpenInBrowserURL">
+									<String></String>
+								</field>
+								<field name="openInEditor">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInHTMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInXMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInSVGPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInResultSetPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="useXSLTInput">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="xsltParams">
+									<list/>
+								</field>
+								<field name="cascadingStylesheets">
+									<String-array/>
+								</field>
+								<field name="xslTransformer">
+									<String>DITA-OT</String>
+								</field>
+								<field name="extensionURLs">
+									<String-array/>
+								</field>
+							</ditaScenario>
+							<ditaScenario>
+								<field name="useXEP">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="useAntennaHouse">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="baseDir">
+									<String>${cfd}</String>
+								</field>
+								<field name="outputDir">
 									<String>${cfd}/out/metrics-report</String>
 								</field>
 								<field name="tempDir">
@@ -7100,6 +7170,9 @@ self::*[contains(@class," map/reltable ")]][1]
 									<null/>
 								</field>
 								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
 									<null/>
 								</field>
 								<field name="additionalAntArgs">
