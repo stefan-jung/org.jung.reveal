@@ -459,3 +459,6 @@ sub.sub {
 .hljs-literal {
   color: #000096 !important;
 }
+.hljs-selector-class {
+    color: #000000 !important;
+}
