@@ -289,7 +289,7 @@
     
     <!-- Process slides - Override template from dita2xhtml-util.xsl -->
     
-    <xsl:template match="nav | section | figure | article" mode="add-xhtml-ns" priority="20">
+    <xsl:template match="nav | section | fig | article" mode="add-xhtml-ns" priority="20">
         <xsl:element name="section" namespace="http://www.w3.org/1999/xhtml">
             <xsl:apply-templates select="@* except @role | node()" mode="add-xhtml-ns"/>
         </xsl:element>
