@@ -2,11 +2,11 @@ language:
   - java 
 
 jdk:
-  - oraclejdk8
+  - oraclejdk9
 
 env:
   global:
-    - DITAOT="3.1.2"
+    - DITAOT="3.4"
     - URL="https://github.com/dita-ot/dita-ot/releases/download/$DITAOT/dita-ot-$DITAOT.zip"
 
 before_script:
