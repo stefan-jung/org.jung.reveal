@@ -75,28 +75,31 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!----></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"><!----></meta>
         
-        <link rel="stylesheet" href="css/reveal.css"><!----></link>
-        <xsl:if test="not(contains($args.reveal.theme, 'null'))">
-            <link rel="stylesheet" href="css/theme/{$args.reveal.theme}.css" id="theme"><!----></link>
-        </xsl:if>
-
-        <!-- Code syntax highlighting -->
-        <link href="lib/css/zenburn.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="dist/reset.css"><!----></link>
+        <link rel="stylesheet" href="dist/reveal.css"><!----></link>
+        <xsl:choose>
+            <xsl:when test="not(contains($args.reveal.theme, 'null'))">
+                <link rel="stylesheet" href="css/theme/{$args.reveal.theme}.css" id="theme"><!----></link>    
+            </xsl:when>
+            <xsl:otherwise>
+                <link rel="stylesheet" href="dist/reveal.css" id="theme"><!----></link>
+            </xsl:otherwise>
+        </xsl:choose>
+                    
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme"><!----></link>
 
         <!-- For print -->
         
         <!-- Printing and PDF exports -->
-        <script>
+        <!--<script>
             var link = document.createElement( 'link' );
             link.rel = 'stylesheet';
             link.type = 'text/css';
             link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
             document.getElementsByTagName( 'head' )[0].appendChild( link );
-        </script>
+        </script>-->
         
-        <!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
     </xsl:template>
     
     <!-- Add title by overriding placeholder template from dita2htmlImpl.xsl -->
@@ -178,14 +181,20 @@
                 </div>
             </div>
             
-            <script src="lib/js/head.min.js" type="text/javascript"><!----></script><xsl:value-of select="$newline"/>
-            <script src="js/reveal.js" type="text/javascript"><!----></script><xsl:value-of select="$newline"/>
-            <script src="js/jquery-1.11.3.min.js" type="text/javascript"><!----></script><xsl:value-of select="$newline"/>
+            <script src="dist/reveal.js"><!----></script>
+            <script src="plugin/notes/notes.js"><!----></script>
+            <script src="plugin/markdown/markdown.js"><!----></script>
+            <script src="plugin/highlight/highlight.js"><!----></script>
+            
             <script type="text/javascript">
                 <!-- 
                     Full list of configuration options available here:
                     https://github.com/hakimel/reveal.js#configuration
                 -->
+               
+                // More info about initialization and config:
+                // - https://revealjs.com/initialization/
+                // - https://revealjs.com/config/
                 Reveal.initialize({
                 
                     // parallaxBackgroundHorizontal: null,
@@ -200,6 +209,7 @@
                     controlsLayout: '<xsl:value-of select="$args.reveal.controlsLayout"/>',
                     embedded: <xsl:value-of select="$args.reveal.embedded"/>,
                     fragments: <xsl:value-of select="$args.reveal.fragments"/>,
+                    hash: true,
                     height: <xsl:value-of select="$args.reveal.height"/>,
                     hideAddressBar: <xsl:value-of select="$args.reveal.hideaddressbar"/>,
                     history: <xsl:value-of select="$args.reveal.hideaddressbar"/>,
@@ -210,27 +220,16 @@
                     minScale: <xsl:value-of select="$args.reveal.minScale"/>,
                     mouseWheel: <xsl:value-of select="$args.reveal.mousewheel"/>,
                     overview: <xsl:value-of select="$args.reveal.overview"/>,
+                    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
                     previewLinks: <xsl:value-of select="$args.reveal.previewlinks"/>,
                     progress: <xsl:value-of select="$args.reveal.progress"/>,
                     rtl: <xsl:value-of select="$args.reveal.rtl"/>,
                     slideNumber: <xsl:value-of select="$args.reveal.slidenumber"/>,
-                    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
                     touch: <xsl:value-of select="$args.reveal.touch"/>,
                     transition: '<xsl:value-of select="$args.reveal.transition"/>',
-                    transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
                     transitionSpeed: '<xsl:value-of select="$args.reveal.transitionspeed"/>',
                     viewDistance: <xsl:value-of select="$args.reveal.viewdistance"/>,
-                    width: <xsl:value-of select="$args.reveal.width"/>,
-                    
-                    // Optional libraries used to extend on reveal.js
-                    dependencies: [
-                        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-                    ]
+                    width: <xsl:value-of select="$args.reveal.width"/>
                 });
                 
                 Reveal.addEventListener( 'slidechanged', function( event ) {
@@ -289,7 +288,6 @@
     </xsl:template>
     
     <!-- Process slides - Override template from dita2xhtml-util.xsl -->
-    
     <xsl:template match="nav | section | figure | article" mode="add-xhtml-ns" priority="20">
         <xsl:element name="section" namespace="http://www.w3.org/1999/xhtml">
             <xsl:apply-templates select="@* except @role | node()" mode="add-xhtml-ns"/>
@@ -363,9 +361,6 @@
                     </xsl:if>
                     <xsl:call-template name="commonattributes"/>
                     <xsl:call-template name="setid"/>
-                    
-                    TEST2
-                    
                     <xsl:apply-templates/>
                 </p>
             </xsl:otherwise>

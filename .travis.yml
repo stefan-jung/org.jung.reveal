@@ -6,7 +6,7 @@ jdk:
 
 env:
   global:
-    - DITAOT="3.3.4"
+    - DITAOT="3.5"
     - URL="https://github.com/dita-ot/dita-ot/releases/download/$DITAOT/dita-ot-$DITAOT.zip"
 
 before_script:

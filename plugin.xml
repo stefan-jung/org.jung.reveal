@@ -156,7 +156,7 @@
             <val>slow</val>
         </param>
         <param name="args.reveal.version" desc="Set the reveal.js version." type="string">
-            <val default="true">3.8.0</val>
+            <val default="true">4.0.1</val>
         </param>
         <param name="args.reveal.viewdistance" desc="Set the number of slides away from the current that are visible." type="string">
             <val default="true">3</val>
