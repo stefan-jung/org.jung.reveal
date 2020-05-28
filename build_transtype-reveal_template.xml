@@ -23,8 +23,8 @@
                      reveal"/>
     
     <target name="reveal.init">
-        <!-- Fallback to version 3.8.0 if not defined. -->
-        <property unless:set="args.reveal.version" name="args.reveal.version" value="3.8.0"/>
+        <!-- Fallback to version 4.0.1 if not defined. -->
+        <property unless:set="args.reveal.version" name="args.reveal.version" value="4.0.1"/>
         
         <!-- Download URL of the reveal.js archive. -->
         <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/${args.reveal.version}.zip"/>
@@ -242,7 +242,7 @@
                 </not>
             </and>
         </condition>
-        <fail if="cannot-get-revealjs">Cannot reach host '${revealDownloadUrl}' to download reveal-js</fail>
+        <fail if:set="cannot-get-revealjs">Cannot reach host '${revealDownloadUrl}' to download reveal-js</fail>
         <get
             unless:set="reveal.archive.available"
             verbose="on"
@@ -266,66 +266,66 @@
             style="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl"
             filenameparameter="FILENAME"
             filedirparameter="FILEDIR">
-            <excludesfile name="${dita.temp.dir}${file.separator}${resourceonlyfile}" if="resourceonlyfile"/>
-            <includesfile name="${dita.temp.dir}${file.separator}${chunkedtopicfile}" if="chunkedtopicfile"/>
+            <excludesfile name="${dita.temp.dir}${file.separator}${resourceonlyfile}" if:set="resourceonlyfile"/>
+            <includesfile name="${dita.temp.dir}${file.separator}${chunkedtopicfile}" if:set="chunkedtopicfile"/>
             <xmlcatalog refid="dita.catalog"/>
             
             <param name="TRANSTYPE" expression="${transtype}"/>
-            <param name="DITAEXT" expression="${dita.ext}" if="dita.ext"/>
-            <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"/>
-            <param name="CSS" expression="${args.css.file}" if="args.css.file"/>
-            <param name="CSSPATH" expression="${user.csspath}" if="user.csspath"/>
-            <param name="HDF" expression="${args.hdf}" if="args.hdf"/>
-            <param name="HDR" expression="${args.hdr}" if="args.hdr"/>
-            <param name="FTR" expression="${args.ftr}" if="args.ftr"/>
-            <param name="DRAFT" expression="${args.draft}" if="args.draft"/>
-            <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"/>
-            <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if="args.gen.task.lbl"/>
-            <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if="args.xhtml.classattr"/>
-            <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"/>
+            <param name="DITAEXT" expression="${dita.ext}" if:set="dita.ext"/>
+            <param name="FILTERFILE" expression="${dita.input.valfile.url}" if:set="dita.input.valfile"/>
+            <param name="CSS" expression="${args.css.file}" if:set="args.css.file"/>
+            <param name="CSSPATH" expression="${user.csspath}" if:set="user.csspath"/>
+            <param name="HDF" expression="${args.hdf}" if:set="args.hdf"/>
+            <param name="HDR" expression="${args.hdr}" if:set="args.hdr"/>
+            <param name="FTR" expression="${args.ftr}" if:set="args.ftr"/>
+            <param name="DRAFT" expression="${args.draft}" if:set="args.draft"/>
+            <param name="ARTLBL" expression="${args.artlbl}" if:set="args.artlbl"/>
+            <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if:set="args.gen.task.lbl"/>
+            <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if:set="args.xhtml.classattr"/>
+            <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if:set="args.hide.parent.link"/>
             <param name="include.rellinks" expression="${include.rellinks}"/>
-            <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"/>
-            <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"/>
-            <param name="genDefMeta" expression="${args.gen.default.meta}" if="args.gen.default.meta"/>
-            <param name="OUTEXT" expression=".${args.outext}" if="out.ext"/>
+            <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if:set="args.breadcrumbs"/>
+            <param name="INDEXSHOW" expression="${args.indexshow}" if:set="args.indexshow"/>
+            <param name="genDefMeta" expression="${args.gen.default.meta}" if:set="args.gen.default.meta"/>
+            <param name="OUTEXT" expression=".${args.outext}" if:set="out.ext"/>
             <param name="BASEDIR" expression="${basedir}"/>
             <param name="OUTPUTDIR" expression="${output.dir}"/>
-            <param name="DBG" expression="${args.debug}" if="args.debug"/>
-            <param name="DEFAULTLANG" expression="${args.default.language}" if="args.default.language"/>
+            <param name="DBG" expression="${args.debug}" if:set="args.debug"/>
+            <param name="DEFAULTLANG" expression="${args.default.language}" if:set="args.default.language"/>
             
             <!-- reveal.js parameters -->
-            <param name="args.reveal.autoslide" expression="${args.reveal.autoslide}" if="args.reveal.autoslide"/>
-            <param name="args.reveal.autoslidestoppable" expression="${args.reveal.autoslidestoppable}" if="args.reveal.autoslidestoppable"/>
-            <param name="args.reveal.backgroundtransition" expression="${args.reveal.backgroundtransition}" if="args.reveal.backgroundtransition"/>
-            <param name="args.reveal.center" expression="${args.reveal.center}" if="args.reveal.center"/>
-            <param name="args.reveal.controls" expression="${args.reveal.controls}" if="args.reveal.controls"/>
-            <param name="args.reveal.controlsLayout" expression="${args.reveal.controlsLayout}" if="args.reveal.controlsLayout"/>
-            <param name="args.reveal.css" expression="${args.reveal.css}" if="args.reveal.css"/>
-            <param name="args.reveal.embedded" expression="${args.reveal.embedded}" if="args.reveal.embedded"/>
-            <param name="args.reveal.fragments" expression="${args.reveal.fragments}" if="args.reveal.fragments"/>
-            <param name="args.reveal.generate.vertical.slides" expression="${args.reveal.generate.vertical.slides}" if="args.reveal.generate.vertical.slides"/>
-            <param name="args.reveal.height" expression="${args.reveal.height}" if="args.reveal.height"/>
-            <param name="args.reveal.hideaddressbar" expression="${args.reveal.hideaddressbar}" if="args.reveal.hideaddressbar"/>
-            <param name="args.reveal.history" expression="${args.reveal.history}" if="args.reveal.history"/>
-            <param name="args.reveal.keyboard" expression="${args.reveal.keyboard}" if="args.reveal.keyboard"/>
-            <param name="args.reveal.loop" expression="${args.reveal.loop}" if="args.reveal.loop"/>
-            <param name="args.reveal.margin" expression="${args.reveal.margin}" if="args.reveal.margin"/>
-            <param name="args.reveal.maxScale" expression="${args.reveal.maxScale}" if="args.reveal.maxScale"/>
-            <param name="args.reveal.minScale" expression="${args.reveal.minScale}" if="args.reveal.minScale"/>
-            <param name="args.reveal.mousewheel" expression="${args.reveal.mousewheel}" if="args.reveal.mousewheel"/>
-            <param name="args.reveal.overview" expression="${args.reveal.overview}" if="args.reveal.overview"/>
-            <param name="args.reveal.parallaxbackgroundimage" expression="${args.reveal.parallaxbackgroundimage}" if="args.reveal.parallaxbackgroundimage"/>
-            <param name="args.reveal.parallaxbackgroundsize" expression="${args.reveal.parallaxbackgroundsize}" if="args.reveal.parallaxbackgroundsize"/>
-            <param name="args.reveal.previewlinks" expression="${args.reveal.previewlinks}" if="args.reveal.previewlinks"/>
-            <param name="args.reveal.progress" expression="${args.reveal.progress}" if="args.reveal.progress"/>
-            <param name="args.reveal.rtl" expression="${args.reveal.rtl}" if="args.reveal.rtl"/>
-            <param name="args.reveal.slidenumber" expression="${args.reveal.slidenumber}" if="args.reveal.slidenumber"/>
-            <param name="args.reveal.theme" expression="${args.reveal.theme}" if="args.reveal.theme"/>
-            <param name="args.reveal.touch" expression="${args.reveal.touch}" if="args.reveal.touch"/>
-            <param name="args.reveal.transition" expression="${args.reveal.transition}" if="args.reveal.transition"/>
-            <param name="args.reveal.transitionspeed" expression="${args.reveal.transitionspeed}" if="args.reveal.transitionspeed"/>
-            <param name="args.reveal.viewdistance" expression="${args.reveal.viewdistance}" if="args.reveal.viewdistance"/>
-            <param name="args.reveal.width" expression="${args.reveal.width}" if="args.reveal.width"/>
+            <param name="args.reveal.autoslide" expression="${args.reveal.autoslide}" if:set="args.reveal.autoslide"/>
+            <param name="args.reveal.autoslidestoppable" expression="${args.reveal.autoslidestoppable}" if:set="args.reveal.autoslidestoppable"/>
+            <param name="args.reveal.backgroundtransition" expression="${args.reveal.backgroundtransition}" if:set="args.reveal.backgroundtransition"/>
+            <param name="args.reveal.center" expression="${args.reveal.center}" if:set="args.reveal.center"/>
+            <param name="args.reveal.controls" expression="${args.reveal.controls}" if:set="args.reveal.controls"/>
+            <param name="args.reveal.controlsLayout" expression="${args.reveal.controlsLayout}" if:set="args.reveal.controlsLayout"/>
+            <param name="args.reveal.css" expression="${args.reveal.css}" if:set="args.reveal.css"/>
+            <param name="args.reveal.embedded" expression="${args.reveal.embedded}" if:set="args.reveal.embedded"/>
+            <param name="args.reveal.fragments" expression="${args.reveal.fragments}" if:set="args.reveal.fragments"/>
+            <param name="args.reveal.generate.vertical.slides" expression="${args.reveal.generate.vertical.slides}" if:set="args.reveal.generate.vertical.slides"/>
+            <param name="args.reveal.height" expression="${args.reveal.height}" if:set="args.reveal.height"/>
+            <param name="args.reveal.hideaddressbar" expression="${args.reveal.hideaddressbar}" if:set="args.reveal.hideaddressbar"/>
+            <param name="args.reveal.history" expression="${args.reveal.history}" if:set="args.reveal.history"/>
+            <param name="args.reveal.keyboard" expression="${args.reveal.keyboard}" if:set="args.reveal.keyboard"/>
+            <param name="args.reveal.loop" expression="${args.reveal.loop}" if:set="args.reveal.loop"/>
+            <param name="args.reveal.margin" expression="${args.reveal.margin}" if:set="args.reveal.margin"/>
+            <param name="args.reveal.maxScale" expression="${args.reveal.maxScale}" if:set="args.reveal.maxScale"/>
+            <param name="args.reveal.minScale" expression="${args.reveal.minScale}" if:set="args.reveal.minScale"/>
+            <param name="args.reveal.mousewheel" expression="${args.reveal.mousewheel}" if:set="args.reveal.mousewheel"/>
+            <param name="args.reveal.overview" expression="${args.reveal.overview}" if:set="args.reveal.overview"/>
+            <param name="args.reveal.parallaxbackgroundimage" expression="${args.reveal.parallaxbackgroundimage}" if:set="args.reveal.parallaxbackgroundimage"/>
+            <param name="args.reveal.parallaxbackgroundsize" expression="${args.reveal.parallaxbackgroundsize}" if:set="args.reveal.parallaxbackgroundsize"/>
+            <param name="args.reveal.previewlinks" expression="${args.reveal.previewlinks}" if:set="args.reveal.previewlinks"/>
+            <param name="args.reveal.progress" expression="${args.reveal.progress}" if:set="args.reveal.progress"/>
+            <param name="args.reveal.rtl" expression="${args.reveal.rtl}" if:set="args.reveal.rtl"/>
+            <param name="args.reveal.slidenumber" expression="${args.reveal.slidenumber}" if:set="args.reveal.slidenumber"/>
+            <param name="args.reveal.theme" expression="${args.reveal.theme}" if:set="args.reveal.theme"/>
+            <param name="args.reveal.touch" expression="${args.reveal.touch}" if:set="args.reveal.touch"/>
+            <param name="args.reveal.transition" expression="${args.reveal.transition}" if:set="args.reveal.transition"/>
+            <param name="args.reveal.transitionspeed" expression="${args.reveal.transitionspeed}" if:set="args.reveal.transitionspeed"/>
+            <param name="args.reveal.viewdistance" expression="${args.reveal.viewdistance}" if:set="args.reveal.viewdistance"/>
+            <param name="args.reveal.width" expression="${args.reveal.width}" if:set="args.reveal.width"/>
         </xslt>
         
         <echo if:set="args.reveal.css" level="info">Copy ${args.reveal.css} to ${output.dir}${file.separator}css${file.separator}theme</echo>
@@ -336,12 +336,13 @@
             <fileset dir="${revealCacheDir}${file.separator}${revealDirectoryName}"/>
         </copy>
         
+        <!-- Obsolete -->
         <!-- Copy JQuery -->
-        <copy todir="${output.dir}${file.separator}js" failonerror="true">
+        <!--<copy todir="${output.dir}${file.separator}js" failonerror="true">
             <fileset dir="${dita.plugin.org.doctales.reveal.dir}/js">
                 <include name="jquery-*.min.js"/>
             </fileset>
-        </copy>
+        </copy>-->
         
         <!-- Replace index.html -->
         <delete file="${output.dir}${file.separator}index.html"/>
