@@ -3,6 +3,7 @@ org.doctales.reveal
 
 ![DOCTALES Logo](https://doctales.github.io/images/doctales-logo-without-subtitle.svg)
 
+[![DITA-OT 3.7](https://img.shields.io/badge/DITA--OT-3.7-blue.svg)](http://www.dita-ot.org/3.7)  
 [![Build Status](https://travis-ci.org/doctales/org.doctales.reveal.svg?branch=master)](https://travis-ci.org/doctales/org.doctales.reveal)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
