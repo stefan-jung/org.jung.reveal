@@ -396,8 +396,8 @@
             </xslt>
         </pipeline>
         
-        <echo if:set="args.reveal.css" level="info">Copy ${args.reveal.css} to ${output.dir}${file.separator}css${file.separator}theme</echo>
-        <copy if:set="args.reveal.css" file="${args.reveal.css}" todir="${output.dir}${file.separator}css${file.separator}theme" failonerror="false"/>
+        <echo if:set="args.reveal.css" level="info">Copy ${args.reveal.css} to ${output.dir}${file.separator}dist${file.separator}theme</echo>
+        <copy if:set="args.reveal.css" file="${args.reveal.css}" todir="${output.dir}${file.separator}dist${file.separator}theme" failonerror="false"/>
         
         <!-- Copy reveal.js -->
         <copy todir="${output.dir}" failonerror="true">
