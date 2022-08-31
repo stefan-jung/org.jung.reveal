@@ -79,7 +79,7 @@
         <link rel="stylesheet" href="dist/reveal.css"><!----></link>
         <xsl:choose>
             <xsl:when test="not(contains($args.reveal.theme, 'null'))">
-                <link rel="stylesheet" href="css/theme/{$args.reveal.theme}.css" id="theme"><!----></link>    
+                <link rel="stylesheet" href="dist/theme/{$args.reveal.theme}.css" id="theme"><!----></link>    
             </xsl:when>
             <xsl:otherwise>
                 <link rel="stylesheet" href="dist/reveal.css" id="theme"><!----></link>

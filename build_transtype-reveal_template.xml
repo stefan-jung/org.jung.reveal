@@ -24,7 +24,7 @@
     
     <target name="reveal.init">
         <echo level="info">*****************************************************************</echo>
-        <!-- Fallback to version 4.0.1 if not defined. -->
+        <!-- Fallback to version 4.3.1 if not defined. -->
         <property unless:set="args.reveal.version" name="args.reveal.version" value="4.3.1"/>
         <echo level="info">* args.reveal.version = ${args.reveal.version}</echo>
         
