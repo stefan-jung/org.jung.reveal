@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
- <title>Doctales</title>
+ <title>Sample</title>
  <topicref href="topics/01_title.dita"/>
- <topicref href="topics/02_DOCTALES.dita"/>
+ <topicref href="topics/02_slide.dita"/>
 </map>

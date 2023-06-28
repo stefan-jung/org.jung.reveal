@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- 
-    This file is part of the DITA Open Toolkit plugin 'org.doctales.reveal'.
+    This file is part of the DITA Open Toolkit plugin 'org.jung.reveal'.
     The plugin is hosted on Github.com. The plugin is based on
     the JavaScript framework 'reveal.js'. 
 -->

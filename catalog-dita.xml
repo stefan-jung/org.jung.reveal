@@ -2,36 +2,36 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
 
   <group id="rng-public-id">
-    <public publicId="urn:doctales:dita:rng:slide.rng:1.3" uri="rng/slide.rng"/>
-    <public publicId="urn:doctales:dita:rng:slide.rng" uri="rng/slide.rng"/>
-    <public publicId="urn:doctales:dita:rng:slideMod.rng:1.3" uri="rng/slideMod.rng"/>
-    <public publicId="urn:doctales:dita:rng:slideMod.rng" uri="rng/slideMod.rng"/>
-    <public publicId="urn:doctales:dita:rng:dataFragmentIndexAttDomain.rng:1.3" uri="rng/dataFragmentIndexAttDomain.rng"/>
-    <public publicId="urn:doctales:dita:rng:dataFragmentIndexAttDomain.rng" uri="rng/dataFragmentIndexAttDomain.rng"/>
-    <public publicId="urn:doctales:dita:rng:fragmentAttDomain.rng:1.3" uri="rng/fragmentAttDomain.rng"/>
-    <public publicId="urn:doctales:dita:rng:fragmentAttDomain.rng" uri="rng/fragmentAttDomain.rng"/>
+    <public publicId="urn:jung:dita:rng:slide.rng:1.3" uri="rng/slide.rng"/>
+    <public publicId="urn:jung:dita:rng:slide.rng" uri="rng/slide.rng"/>
+    <public publicId="urn:jung:dita:rng:slideMod.rng:1.3" uri="rng/slideMod.rng"/>
+    <public publicId="urn:jung:dita:rng:slideMod.rng" uri="rng/slideMod.rng"/>
+    <public publicId="urn:jung:dita:rng:dataFragmentIndexAttDomain.rng:1.3" uri="rng/dataFragmentIndexAttDomain.rng"/>
+    <public publicId="urn:jung:dita:rng:dataFragmentIndexAttDomain.rng" uri="rng/dataFragmentIndexAttDomain.rng"/>
+    <public publicId="urn:jung:dita:rng:fragmentAttDomain.rng:1.3" uri="rng/fragmentAttDomain.rng"/>
+    <public publicId="urn:jung:dita:rng:fragmentAttDomain.rng" uri="rng/fragmentAttDomain.rng"/>
   </group>
   
   <group id="rng-system-id">
-    <system systemId="urn:doctales:dita:rng:slide.rng:1.3" uri="rng/slide.rng"/>
-    <system systemId="urn:doctales:dita:rng:slide.rng" uri="rng/slide.rng"/>
-    <system systemId="urn:doctales:dita:rng:slideMod.rng:1.3" uri="rng/slideMod.rng"/>
-    <system systemId="urn:doctales:dita:rng:slideMod.rng" uri="rng/slideMod.rng"/>
-    <system systemId="urn:doctales:dita:rng:dataFragmentIndexAttDomain.rng:1.3" uri="rng/dataFragmentIndexAttDomain.rng"/>
-    <system systemId="urn:doctales:dita:rng:dataFragmentIndexAttDomain.rng" uri="rng/dataFragmentIndexAttDomain.rng"/>
-    <system systemId="urn:doctales:dita:rng:fragmentAttDomain.rng:1.3" uri="rng/fragmentAttDomain.rng"/>
-    <system systemId="urn:doctales:dita:rng:fragmentAttDomain.rng" uri="rng/fragmentAttDomain.rng"/>
+    <system systemId="urn:jung:dita:rng:slide.rng:1.3" uri="rng/slide.rng"/>
+    <system systemId="urn:jung:dita:rng:slide.rng" uri="rng/slide.rng"/>
+    <system systemId="urn:jung:dita:rng:slideMod.rng:1.3" uri="rng/slideMod.rng"/>
+    <system systemId="urn:jung:dita:rng:slideMod.rng" uri="rng/slideMod.rng"/>
+    <system systemId="urn:jung:dita:rng:dataFragmentIndexAttDomain.rng:1.3" uri="rng/dataFragmentIndexAttDomain.rng"/>
+    <system systemId="urn:jung:dita:rng:dataFragmentIndexAttDomain.rng" uri="rng/dataFragmentIndexAttDomain.rng"/>
+    <system systemId="urn:jung:dita:rng:fragmentAttDomain.rng:1.3" uri="rng/fragmentAttDomain.rng"/>
+    <system systemId="urn:jung:dita:rng:fragmentAttDomain.rng" uri="rng/fragmentAttDomain.rng"/>
   </group>
   
   <group id="rng-uri">
-    <uri name="urn:doctales:dita:rng:slide.rng:1.3" uri="rng/slide.rng"/>
-    <uri name="urn:doctales:dita:rng:slide.rng" uri="rng/slide.rng"/>
-    <uri name="urn:doctales:dita:rng:slideMod.rng:1.3" uri="rng/slideMod.rng"/>
-    <uri name="urn:doctales:dita:rng:slideMod.rng" uri="rng/slideMod.rng"/>
-    <uri name="urn:doctales:dita:rng:dataFragmentIndexAttDomain.rng:1.3" uri="rng/dataFragmentIndexAttDomain.rng"/>
-    <uri name="urn:doctales:dita:rng:dataFragmentIndexAttDomain.rng" uri="rng/dataFragmentIndexAttDomain.rng"/>
-    <uri name="urn:doctales:dita:rng:fragmentAttDomain.rng:1.3" uri="rng/fragmentAttDomain.rng"/>
-    <uri name="urn:doctales:dita:rng:fragmentAttDomain.rng" uri="rng/fragmentAttDomain.rng"/>
+    <uri name="urn:jung:dita:rng:slide.rng:1.3" uri="rng/slide.rng"/>
+    <uri name="urn:jung:dita:rng:slide.rng" uri="rng/slide.rng"/>
+    <uri name="urn:jung:dita:rng:slideMod.rng:1.3" uri="rng/slideMod.rng"/>
+    <uri name="urn:jung:dita:rng:slideMod.rng" uri="rng/slideMod.rng"/>
+    <uri name="urn:jung:dita:rng:dataFragmentIndexAttDomain.rng:1.3" uri="rng/dataFragmentIndexAttDomain.rng"/>
+    <uri name="urn:jung:dita:rng:dataFragmentIndexAttDomain.rng" uri="rng/dataFragmentIndexAttDomain.rng"/>
+    <uri name="urn:jung:dita:rng:fragmentAttDomain.rng:1.3" uri="rng/fragmentAttDomain.rng"/>
+    <uri name="urn:jung:dita:rng:fragmentAttDomain.rng" uri="rng/fragmentAttDomain.rng"/>
   </group>
 
 </catalog>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="slide">
+  <title>Slide</title>
+  <body>
+    <p>This is a normal slide.</p>
+  </body>
+  <topic id="slide-nested">
+    <title>Nested slide</title>
+    <body>
+      <p>This is a nested slide.</p>
+    </body>
+  </topic>
+</topic>

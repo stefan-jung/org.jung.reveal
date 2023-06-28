@@ -17,7 +17,7 @@
 											<Integer>-1</Integer>
 										</field>
 										<field name="value">
-											<String>DOCTALES Presentation</String>
+											<String>reveal.js presentation</String>
 										</field>
 										<field name="patchHandling">
 											<String>set</String>
@@ -517,7 +517,7 @@
 																<null/>
 															</field>
 															<field name="value">
-																<String>${frameworksDir}/css/doctales.css</String>
+																<String>${frameworksDir}/css/jung.css</String>
 															</field>
 															<field name="defaultValue">
 																<null/>
@@ -540,7 +540,7 @@
 																<null/>
 															</field>
 															<field name="value">
-																<String>doctales</String>
+																<String>jung</String>
 															</field>
 															<field name="defaultValue">
 																<String>simple</String>
@@ -606,7 +606,7 @@
 													<null/>
 												</field>
 												<field name="name">
-													<String>DOCTALES Presentation (Web Slides)</String>
+													<String>reveal.js presentation (Web Slides)</String>
 												</field>
 												<field name="baseURL">
 													<null/>

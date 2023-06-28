@@ -5,7 +5,7 @@
     <!-- ==================================================
          Extension Points
     -->
-    <extension-point id="org.doctales.reveal.param" name="Custom parameters"/>
+    <extension-point id="org.jung.reveal.param" name="Custom parameters"/>
     
     
     <!-- ================================================== 
@@ -44,10 +44,10 @@
         <property name="args.outext" value="html"/>
         
         <!-- Cache directory for reveal.js files. -->
-        <condition property="revealCacheDir" value="${user.home}/AppData/Local/DITA/org.doctales.reveal">
+        <condition property="revealCacheDir" value="${user.home}/AppData/Local/DITA/org.jung.reveal">
             <os family="windows"/>
         </condition>
-        <condition property="revealCacheDir" value="/tmp/DITA/org.doctales.reveal">
+        <condition property="revealCacheDir" value="/tmp/DITA/org.jung.reveal">
             <os family="unix"/>
         </condition>
         
@@ -56,7 +56,7 @@
         
         <!-- Do not generate a nav-toc (HTML5) -->
         <property name="nav-toc" value="none"/>
-        <property name="args.xsl" value="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl"/>
+        <property name="args.xsl" value="${dita.plugin.org.jung.reveal.dir}/xsl/reveal.xsl"/>
         <property name="root-chunk-override" value="to-content"/>
         
         <condition property="args.reveal.controlsLayout" value="edges">
@@ -261,8 +261,8 @@
                 <isset property="args.reveal.theme"/>
             </and>
         </condition>
-        <property name="args.reveal.css" value="${dita.plugin.org.doctales.reveal.dir}/css/doctales.css"/>
-        <property name="args.reveal.theme" value="doctales"/>
+        <property name="args.reveal.css" value="${dita.plugin.org.jung.reveal.dir}/css/jung.css"/>
+        <property name="args.reveal.theme" value="jung"/>
         <echo level="info">* args.reveal.css = ${args.reveal.css}</echo>
         <echo level="info">* args.reveal.theme = ${args.reveal.theme}</echo>
         
@@ -316,7 +316,7 @@
 
         
         <pipeline message="Convert DITA topics to reveal.js slides" taskname="xslt">
-            <xslt destdir="${dita.output.dir}" reloadstylesheet="${dita.html5.reloadstylesheet}" extension=".html" style="${dita.plugin.org.doctales.reveal.dir}/xsl/reveal.xsl" filenameparameter="FILENAME" filedirparameter="FILEDIR" parallel="${parallel}">
+            <xslt destdir="${dita.output.dir}" reloadstylesheet="${dita.html5.reloadstylesheet}" extension=".html" style="${dita.plugin.org.jung.reveal.dir}/xsl/reveal.xsl" filenameparameter="FILENAME" filedirparameter="FILEDIR" parallel="${parallel}">
                 <ditafileset format="dita" processingRole="normal"/>
                 <!--<param name="FILTERFILE" expression="${dita.input.valfile.url}" if:set="dita.input.valfile"/>
                 <param name="CSS" expression="${args.css.file}" if:set="args.css.file"/>
@@ -407,7 +407,7 @@
         <!-- Obsolete -->
         <!-- Copy JQuery -->
         <!--<copy todir="${output.dir}${file.separator}js" failonerror="true">
-            <fileset dir="${dita.plugin.org.doctales.reveal.dir}/js">
+            <fileset dir="${dita.plugin.org.jung.reveal.dir}/js">
                 <include name="jquery-*.min.js"/>
             </fileset>
         </copy>-->

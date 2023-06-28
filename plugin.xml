@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="dita-ot/plugin.rnc" type="application/relax-ng-compact-syntax"?>
-<plugin id="org.doctales.reveal">
+<plugin id="org.jung.reveal">
 
     <!-- 
         The HTML5 plugin as is required.

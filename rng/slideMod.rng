@@ -19,7 +19,7 @@
           PUBLIC DOCUMENT TYPE DEFINITION TYPICAL INVOCATION
 
           Refer to this file by the following public identifier or an appropriate system identifier
-          PUBLIC "-//DOCTALES//ELEMENTS DITA Slide//EN"
+          PUBLIC "-//Stefan Jung//ELEMENTS DITA Slide//EN"
 
           Delivered as file "slideMod.rng"
 
@@ -32,11 +32,8 @@
           ORIGINAL CREATION DATE:
                     March 2017
 
-                    (C) Copyright DOCTALES 2015, 2016, 2017.
+                    (C) Copyright Stefan Jung 2023
                     All Rights Reserved.
-                                                   
-          UPDATES:
-                    2017-01-11 SE: Initial Relax NG release
 
 ========================================================================================================================
     </headerComment>
@@ -44,12 +41,12 @@
       <moduleType>topic</moduleType>
       <moduleShortName>slide</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//DOCTALES//ELEMENTS DITA<var presep=" " name="ditaver"/> Slide//EN</dtdMod>
-        <dtdEnt>-//DOCTALES//ENTITIES DITA<var presep=" " name="ditaver"/> Slide//EN</dtdEnt>
-        <xsdMod>urn:doctales:dita:xsd:slideMod.xsd<var presep=":" name="ditaver"/></xsdMod>
-        <xsdGrp>urn:doctales:dita:xsd:slideGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
-        <rncMod>urn:doctales:dita:rnc:slideMod.rnc<var presep=":" name="ditaver"/></rncMod>
-        <rngMod>urn:doctales:dita:rng:slideMod.rng<var presep=":" name="ditaver"/></rngMod>
+        <dtdMod>-//Stefan Jung//ELEMENTS DITA<var presep=" " name="ditaver"/> Slide//EN</dtdMod>
+        <dtdEnt>-//Stefan Jung//ENTITIES DITA<var presep=" " name="ditaver"/> Slide//EN</dtdEnt>
+        <xsdMod>urn:jung:dita:xsd:slideMod.xsd<var presep=":" name="ditaver"/></xsdMod>
+        <xsdGrp>urn:jung:dita:xsd:slideGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
+        <rncMod>urn:jung:dita:rnc:slideMod.rnc<var presep=":" name="ditaver"/></rncMod>
+        <rngMod>urn:jung:dita:rng:slideMod.rng<var presep=":" name="ditaver"/></rngMod>
       </modulePublicIds>
       <domainsContribution>(topic concept slide)</domainsContribution>
     </moduleMetadata>

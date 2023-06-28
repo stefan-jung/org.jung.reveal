@@ -3,16 +3,15 @@
 <?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
-        <moduleTitle>DOCTALES Slide Shell</moduleTitle>
+        <moduleTitle>Slide Shell</moduleTitle>
         <headerComment xml:space="preserve">
 ========================================================================================================================
                                                          HEADER
 ========================================================================================================================
           Darwin Information Typing Architecture (DITA) Version 1.3
-          DOCTALES Specialization
-          11.01.2017
-          Copyright (c) DOCTALES 2017. All rights reserved.
-          Source: https://doctales.atlassian.net/wiki
+          Stefan Jung Specialization
+
+          Copyright (c) Stefan Jung 2023. All rights reserved.
 
 ========================================================================================================================
           MODULE:   DITA Slide Shell
@@ -24,12 +23,12 @@
 
           Refer to this file by the following public identifier or an appropriate system identifier
 
-          PUBLIC "-//DOCTALES//DTD DITA Slide//EN"
+          PUBLIC "-//Stefan Jung//DTD DITA Slide//EN"
           
           The public ID above refers to the latest version of this DTD.
           To refer to this specific version, you may use this value:
 
-          PUBLIC "-//DOCTALES//DTD DITA 1.3 Slide//EN"
+          PUBLIC "-//Stefan Jung//DTD DITA 1.3 Slide//EN"
 
 ========================================================================================================================
 
@@ -40,11 +39,8 @@
           ORIGINAL CREATION DATE:
                     January 2017                                       
 
-                    (C) Copyright DOCTALES 2015, 2016, 2017.
+                    (C) Copyright Stefan Jung 2023
                     All Rights Reserved.
-                                                   
-          UPDATES:
-                    2017-01-11 SE: Initial Relax NG release
 
 ========================================================================================================================
   </headerComment>
@@ -52,10 +48,10 @@
             <moduleType>topicshell</moduleType>
             <moduleShortName>slide</moduleShortName>
             <shellPublicIds>
-                <dtdShell>-//DOCTALES//DTD DITA<var presep=" " name="ditaver"/> Slide//EN</dtdShell>
-                <rncShell>urn:doctales:dita:rnc:slide.rnc<var presep=":" name="ditaver"/></rncShell>
-                <rngShell>urn:doctales:dita:rng:slide.rng<var presep=":" name="ditaver"/></rngShell>
-                <xsdShell>urn:doctales:dita:xsd:slide.xsd<var presep=":" name="ditaver"/></xsdShell>
+                <dtdShell>-//Stefan Jung//DTD DITA<var presep=" " name="ditaver"/> Slide//EN</dtdShell>
+                <rncShell>urn:jung:dita:rnc:slide.rnc<var presep=":" name="ditaver"/></rncShell>
+                <rngShell>urn:jung:dita:rng:slide.rng<var presep=":" name="ditaver"/></rngShell>
+                <xsdShell>urn:jung:dita:xsd:slide.xsd<var presep=":" name="ditaver"/></xsdShell>
             </shellPublicIds>
         </moduleMetadata>
     </moduleDesc>
@@ -118,8 +114,8 @@
         <include href="urn:oasis:names:tc:dita:rng:uiDomain.rng"/>
         <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
         <include href="urn:oasis:names:tc:dita:rng:xmlDomain.rng"/>
-        <include href="urn:doctales:dita:rng:dataFragmentIndexAttDomain.rng"/>
-        <include href="urn:doctales:dita:rng:fragmentAttDomain.rng"/>
+        <include href="urn:jung:dita:rng:dataFragmentIndexAttDomain.rng"/>
+        <include href="urn:jung:dita:rng:fragmentAttDomain.rng"/>
     </div>
     
     <div>

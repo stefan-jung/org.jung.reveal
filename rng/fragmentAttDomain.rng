@@ -19,7 +19,7 @@
           PUBLIC DOCUMENT TYPE DEFINITION TYPICAL INVOCATION
 
           Refer to this file by the following public identifier or an appropriate system identifier
-          PUBLIC "-//DOCTALES//ENTITIES DITA Fragment Domain//EN"
+          PUBLIC "-//Stefan Jung//ENTITIES DITA Fragment Domain//EN"
 
           Delivered as file "fragmentAttDomain.rng"
 
@@ -33,11 +33,8 @@
           ORIGINAL CREATION DATE:
                     October 2018
 
-                    (C) Copyright DOCTALES 2015, 2016, 2017, 2018.
+                    (C) Copyright Stefan Jung 2023
                     All Rights Reserved.
-                                                   
-          UPDATES:
-                    2018-10-16 SE: Initial Relax NG release
 
 ========================================================================================================================
     </headerComment>
@@ -45,10 +42,10 @@
       <moduleType>attributedomain</moduleType>
       <moduleShortName>fragmentAtt-d</moduleShortName>
       <modulePublicIds>
-        <dtdEnt>-//DOCTALES//ENTITIES DITA<var presep=" " name="ditaver"/> Fragment Domain//EN</dtdEnt>
-        <xsdMod>urn:doctales:dita:xsd:fragmentAttDomain.xsd<var presep=":" name="ditaver"/></xsdMod>
-        <rncMod>urn:doctales:dita:rnc:fragmentAttDomain.rnc<var presep=":" name="ditaver"/></rncMod>
-        <rngMod>urn:doctales:dita:rng:fragmentAttDomain.rng<var presep=":" name="ditaver"/></rngMod>
+        <dtdEnt>-//Stefan Jung//ENTITIES DITA<var presep=" " name="ditaver"/> Fragment Domain//EN</dtdEnt>
+        <xsdMod>urn:jung:dita:xsd:fragmentAttDomain.xsd<var presep=":" name="ditaver"/></xsdMod>
+        <rncMod>urn:jung:dita:rnc:fragmentAttDomain.rnc<var presep=":" name="ditaver"/></rncMod>
+        <rngMod>urn:jung:dita:rng:fragmentAttDomain.rng<var presep=":" name="ditaver"/></rngMod>
       </modulePublicIds>
       <domainsContribution>a(base fragment)</domainsContribution>
     </moduleMetadata>

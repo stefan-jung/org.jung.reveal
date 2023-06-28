@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="urn:doctales:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="urn:doctales:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide id="ui_${id}">
   <title>Title of slide</title>
   <slideBody>
