@@ -1,7 +1,8 @@
 org.jung.reveal
 ===============
 
-[![DITA-OT 3.7](https://img.shields.io/badge/DITA--OT-3.7-blue.svg)](http://www.dita-ot.org/3.7)  
+[![DITA-OT 3.x](https://img.shields.io/badge/DITA--OT-3.x-green.svg)](http://www.dita-ot.org) 
+[![DITA-OT 4.x](https://img.shields.io/badge/DITA--OT-4.x-green.svg)](http://www.dita-ot.org)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 This is a plugin for the DITA-OT. The plugin adds a new transtype called `reveal` for transforming DITA maps into [reveal.js](https://revealjs.com/#/) based web presentations.
