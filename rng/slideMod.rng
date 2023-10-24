@@ -132,6 +132,64 @@
             <data type="integer"/>
           </attribute>
         </optional>
+        <optional>
+          <attribute name="data-transition">
+            <choice>
+              <value>none</value><a:documentation>Switch backgrounds instantly</a:documentation>
+              <value>fade</value><a:documentation>Cross fade — default for background transitions</a:documentation>
+              <value>slide</value><a:documentation>Slide between backgrounds — default for slide transitions</a:documentation>
+              <value>convex</value><a:documentation>Slide at a convex angle</a:documentation>
+              <value>concave</value><a:documentation>Slide at a concave angle</a:documentation>
+              <value>zoom</value><a:documentation>Scale the incoming slide up so it grows in from the center of the screen</a:documentation>
+            </choice>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-background-color">
+            <data type="string"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-background-gradient">
+            <data type="string"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-background-image">
+            <data type="string"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-background-size">
+            <data type="string"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-background-position">
+            <data type="string"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-background-repeat">
+            <data type="string"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-background-opacity">
+            <data type="string"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-background-video">
+            <data type="anyURI"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-background-video-loop"/>
+        </optional>
+        <optional>
+          <attribute name="data-background-video-muted"/>
+        </optional>
         <ref name="conref-atts"/>
         <ref name="select-atts"/>
         <ref name="localization-atts"/>

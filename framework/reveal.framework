@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="22.0" xml:space="preserve">
+<serialized xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
 			<documentTypeDescriptor-array>
 				<documentTypeDescriptor>
+					<field name="webResources">
+						<null/>
+					</field>
 					<field name="extensionPatch">
 						<documentTypeDescriptorPatch>
 							<field name="patchList">
@@ -21,23 +24,6 @@
 										</field>
 										<field name="patchHandling">
 											<String>set</String>
-										</field>
-										<field name="anchor">
-											<null/>
-										</field>
-									</poPatch>
-									<poPatch>
-										<field name="fieldPath">
-											<String>templatesLocations</String>
-										</field>
-										<field name="index">
-											<Integer>7</Integer>
-										</field>
-										<field name="value">
-											<null/>
-										</field>
-										<field name="patchHandling">
-											<String>removeIndex</String>
 										</field>
 										<field name="anchor">
 											<null/>
@@ -215,10 +201,112 @@
 									</poPatch>
 									<poPatch>
 										<field name="fieldPath">
+											<String>doctypeRules</String>
+										</field>
+										<field name="index">
+											<Integer>5</Integer>
+										</field>
+										<field name="value">
+											<null/>
+										</field>
+										<field name="patchHandling">
+											<String>removeIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>doctypeRules</String>
+										</field>
+										<field name="index">
+											<Integer>4</Integer>
+										</field>
+										<field name="value">
+											<null/>
+										</field>
+										<field name="patchHandling">
+											<String>removeIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>doctypeRules</String>
+										</field>
+										<field name="index">
+											<Integer>3</Integer>
+										</field>
+										<field name="value">
+											<null/>
+										</field>
+										<field name="patchHandling">
+											<String>removeIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>doctypeRules</String>
+										</field>
+										<field name="index">
+											<Integer>2</Integer>
+										</field>
+										<field name="value">
+											<null/>
+										</field>
+										<field name="patchHandling">
+											<String>removeIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>doctypeRules</String>
+										</field>
+										<field name="index">
+											<Integer>1</Integer>
+										</field>
+										<field name="value">
+											<null/>
+										</field>
+										<field name="patchHandling">
+											<String>removeIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>doctypeRules</String>
+										</field>
+										<field name="index">
+											<Integer>0</Integer>
+										</field>
+										<field name="value">
+											<null/>
+										</field>
+										<field name="patchHandling">
+											<String>removeIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
 											<String>scenarios</String>
 										</field>
 										<field name="index">
-											<Integer>12</Integer>
+											<Integer>13</Integer>
 										</field>
 										<field name="value">
 											<null/>
@@ -235,7 +323,7 @@
 											<String>scenarios</String>
 										</field>
 										<field name="index">
-											<Integer>11</Integer>
+											<Integer>12</Integer>
 										</field>
 										<field name="value">
 											<null/>
@@ -252,7 +340,7 @@
 											<String>scenarios</String>
 										</field>
 										<field name="index">
-											<Integer>10</Integer>
+											<Integer>11</Integer>
 										</field>
 										<field name="value">
 											<null/>
@@ -269,7 +357,7 @@
 											<String>scenarios</String>
 										</field>
 										<field name="index">
-											<Integer>9</Integer>
+											<Integer>10</Integer>
 										</field>
 										<field name="value">
 											<null/>
@@ -286,7 +374,7 @@
 											<String>scenarios</String>
 										</field>
 										<field name="index">
-											<Integer>8</Integer>
+											<Integer>9</Integer>
 										</field>
 										<field name="value">
 											<null/>
@@ -303,7 +391,7 @@
 											<String>scenarios</String>
 										</field>
 										<field name="index">
-											<Integer>7</Integer>
+											<Integer>8</Integer>
 										</field>
 										<field name="value">
 											<null/>
@@ -320,7 +408,7 @@
 											<String>scenarios</String>
 										</field>
 										<field name="index">
-											<Integer>6</Integer>
+											<Integer>7</Integer>
 										</field>
 										<field name="value">
 											<null/>
@@ -337,7 +425,7 @@
 											<String>scenarios</String>
 										</field>
 										<field name="index">
-											<Integer>5</Integer>
+											<Integer>6</Integer>
 										</field>
 										<field name="value">
 											<null/>
@@ -354,7 +442,7 @@
 											<String>scenarios</String>
 										</field>
 										<field name="index">
-											<Integer>4</Integer>
+											<Integer>5</Integer>
 										</field>
 										<field name="value">
 											<null/>
@@ -364,6 +452,23 @@
 										</field>
 										<field name="anchor">
 											<String>DITA Map EPUB</String>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>scenarios</String>
+										</field>
+										<field name="index">
+											<Integer>4</Integer>
+										</field>
+										<field name="value">
+											<null/>
+										</field>
+										<field name="patchHandling">
+											<String>removeIndex</String>
+										</field>
+										<field name="anchor">
+											<String>DITA Map Markdown</String>
 										</field>
 									</poPatch>
 									<poPatch>
@@ -447,6 +552,9 @@
 													<Boolean>false</Boolean>
 												</field>
 												<field name="useAntennaHouse">
+													<Boolean>false</Boolean>
+												</field>
+												<field name="useDITAScript">
 													<Boolean>false</Boolean>
 												</field>
 												<field name="baseDir">
@@ -762,6 +870,8 @@
 							<String>${framework}/resources/</String>
 							<String>${framework}/i18n/</String>
 							<String>${framework}/styleguide/</String>
+							<String>${framework}/map_refactoring/</String>
+							<String>${framework}/web-author-additional-classpath/</String>
 						</String-array>
 					</field>
 					<field name="parentClassLoaderID">
@@ -788,72 +898,6 @@
 										</field>
 										<field name="title">
 											<String>Pure</String>
-										</field>
-										<field name="alternate">
-											<Boolean>false</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
-											<String>${framework}/css/edit/style-cursive.css</String>
-										</field>
-										<field name="title">
-											<String>Cursive</String>
-										</field>
-										<field name="alternate">
-											<Boolean>false</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
-											<String>${framework}/css/edit/style-century.css</String>
-										</field>
-										<field name="title">
-											<String>Century</String>
-										</field>
-										<field name="alternate">
-											<Boolean>false</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
-											<String>${framework}/css/edit/style-facet-design.css</String>
-										</field>
-										<field name="title">
-											<String>Facet Design</String>
-										</field>
-										<field name="alternate">
-											<Boolean>false</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
-											<String>${framework}/css/edit/style-roboto.css</String>
-										</field>
-										<field name="title">
-											<String>Roboto</String>
-										</field>
-										<field name="alternate">
-											<Boolean>false</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
-											<String>${framework}/css/edit/style-journal.css</String>
-										</field>
-										<field name="title">
-											<String>Trip Journal</String>
-										</field>
-										<field name="alternate">
-											<Boolean>false</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
-											<String>${framework}/css/edit/style-papyrus.css</String>
-										</field>
-										<field name="title">
-											<String>Papyrus</String>
 										</field>
 										<field name="alternate">
 											<Boolean>false</Boolean>
@@ -938,7 +982,29 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
+											<String>${framework}/css/webauthor/map-inline-insertion-actions.css</String>
+										</field>
+										<field name="title">
+											<String>+ Inline insertion actions</String>
+										</field>
+										<field name="alternate">
+											<Boolean>true</Boolean>
+										</field>
+									</cssFile>
+									<cssFile>
+										<field name="href">
 											<String>${framework}/css/webauthor/profiling.css</String>
+										</field>
+										<field name="title">
+											<String></String>
+										</field>
+										<field name="alternate">
+											<Boolean>false</Boolean>
+										</field>
+									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/css/webauthor/folding.css</String>
 										</field>
 										<field name="title">
 											<String></String>
@@ -1241,47 +1307,6 @@ or oxy:current-selected-element()[self::*[contains(@class," map/relrow ") or con
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.dita.conref.InsertConrefOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
-										</field>
-									</action>
-									<action>
-										<field name="id">
-											<String>insert.topicref</String>
-										</field>
-										<field name="name">
-											<String>${i18n(insert.topicref2)}</String>
-										</field>
-										<field name="description">
-											<String>${i18n(insert.topicref_description2)}</String>
-										</field>
-										<field name="largeIconPath">
-											<String>/images/Topicref24.png</String>
-										</field>
-										<field name="smallIconPath">
-											<String>/images/Topicref16.png</String>
-										</field>
-										<field name="accessKey">
-											<String>R</String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>self::*[contains(@class, " map/map ") or contains(@class, " map/topicref ") or contains(@class, " map/relcell ") or contains(@class, " map/relcolspec ")]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap/>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.dita.map.topicref.InsertTopicrefOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -1607,47 +1632,6 @@ self::*[contains(@class," map/reltable ")]][1]
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.dita.map.table.RelTableShowPropertiesOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
-										</field>
-									</action>
-									<action>
-										<field name="id">
-											<String>insert.new.dita.resource</String>
-										</field>
-										<field name="name">
-											<String>${i18n(insert.new.dita.resource)}</String>
-										</field>
-										<field name="description">
-											<String>${i18n(insert.new.dita.resource_description)}</String>
-										</field>
-										<field name="largeIconPath">
-											<String>/images/NewTopic24.png</String>
-										</field>
-										<field name="smallIconPath">
-											<String>/images/NewTopic16.png</String>
-										</field>
-										<field name="accessKey">
-											<String>N</String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>self::*[contains(@class, " map/map ") or contains(@class, " map/topicref ") or contains(@class, " map/relcell ") or contains(@class, " map/relcolspec ")]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap/>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.dita.map.topicref.InsertNewTopicOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -2924,16 +2908,16 @@ self::*[contains(@class," map/reltable ")]][1]
 													</list>
 												</field>
 												<field name="actionID">
-													<String>insert.table</String>
+													<String>insert.new.dita.resource</String>
 												</field>
 												<field name="alias">
-													<String>${i18n(reltable.wizard)}</String>
+													<String>topicref (new topic)</String>
 												</field>
 												<field name="replacementFor">
 													<null/>
 												</field>
 												<field name="replacedElementNs">
-													<null/>
+													<String></String>
 												</field>
 												<field name="displayOnlyWhenElementAllowed">
 													<Boolean>false</Boolean>
@@ -2949,16 +2933,41 @@ self::*[contains(@class," map/reltable ")]][1]
 													</list>
 												</field>
 												<field name="actionID">
-													<String>insert.topicref.wizard</String>
+													<String>insert.table</String>
+												</field>
+												<field name="alias">
+													<String>${i18n(reltable.wizard)}</String>
+												</field>
+												<field name="replacementFor">
+													<String>reltable</String>
+												</field>
+												<field name="replacedElementNs">
+													<String></String>
+												</field>
+												<field name="displayOnlyWhenElementAllowed">
+													<Boolean>false</Boolean>
+												</field>
+												<field name="useReplaceElementName">
+													<Boolean>false</Boolean>
+												</field>
+											</contextItem>
+											<contextItem>
+												<field name="targets">
+													<list>
+														<Integer>0</Integer>
+													</list>
+												</field>
+												<field name="actionID">
+													<String>insert.topicref</String>
 												</field>
 												<field name="alias">
 													<String>${i18n(topicref.wizard)}</String>
 												</field>
 												<field name="replacementFor">
-													<null/>
+													<String>topicref</String>
 												</field>
 												<field name="replacedElementNs">
-													<null/>
+													<String></String>
 												</field>
 												<field name="displayOnlyWhenElementAllowed">
 													<Boolean>false</Boolean>
@@ -2970,7 +2979,18 @@ self::*[contains(@class," map/reltable ")]][1]
 										</contextItem-array>
 									</field>
 									<field name="removeItems">
-										<null/>
+										<contextRemoveItem-array>
+											<contextRemoveItem>
+												<field name="targets">
+													<list>
+														<Integer>0</Integer>
+													</list>
+												</field>
+												<field name="renderName">
+													<String>&lt;SPLIT> topicref</String>
+												</field>
+											</contextRemoveItem>
+										</contextRemoveItem-array>
 									</field>
 								</contextProvider>
 							</field>
@@ -3012,13 +3032,11 @@ self::*[contains(@class," map/reltable ")]][1]
 							<String>${configured.ditaot.dir}/plugins/org.oasis-open.dita.v1_3/oxygen_templates/DITA 1.3/map-rng</String>
 							<String>${configured.ditaot.dir}/plugins/org.oasis-open.dita.v1_3/oxygen_templates/DITA 1.3/map</String>
 							<String>${configured.ditaot.dir}/plugins/net.sourceforge.dita4publishers.doctypes/oxygen_templates/map (Dita 4 Publishers)</String>
-							<String>${configured.ditaot.dir}/plugins/org.oasis.xdita/oxygen_templates/LW (Lightweight) DITA/map-lw</String>
 						</String-array>
 					</field>
 					<field name="xmlCatalogs">
 						<String-array>
 							<String>${framework}/catalog.xml</String>
-							<String>${configured.ditaot.dir.url}/plugins/org.dita.base/catalog-dita.xml</String>
 							<String>${configured.ditaot.dir.url}/catalog-dita.xml</String>
 						</String-array>
 					</field>
@@ -3194,6 +3212,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="useAntennaHouse">
 									<Boolean>false</Boolean>
 								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
+								</field>
 								<field name="baseDir">
 									<String>${cfd}</String>
 								</field>
@@ -3361,7 +3382,7 @@ self::*[contains(@class," map/reltable ")]][1]
 									</list>
 								</field>
 								<field name="jvmArgs">
-									<String>-Xmx384m</String>
+									<String></String>
 								</field>
 								<field name="useCustomJavaHome">
 									<Boolean>false</Boolean>
@@ -3470,6 +3491,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="useAntennaHouse">
 									<Boolean>false</Boolean>
 								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
+								</field>
 								<field name="baseDir">
 									<String>${cfd}</String>
 								</field>
@@ -3539,34 +3563,10 @@ self::*[contains(@class," map/reltable ")]][1]
 									<String></String>
 								</field>
 								<field name="ditaParams">
-									<list>
-										<ditaParameter>
-											<field name="name">
-												<String>css.processor.type</String>
-											</field>
-											<field name="description">
-												<null/>
-											</field>
-											<field name="value">
-												<String>chemistry</String>
-											</field>
-											<field name="defaultValue">
-												<null/>
-											</field>
-											<field name="type">
-												<Integer>0</Integer>
-											</field>
-											<field name="possibleValues">
-												<null/>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<null/>
-											</field>
-										</ditaParameter>
-									</list>
+									<list/>
 								</field>
 								<field name="jvmArgs">
-									<String>-Xmx384m</String>
+									<String></String>
 								</field>
 								<field name="useCustomJavaHome">
 									<Boolean>false</Boolean>
@@ -3675,6 +3675,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="useAntennaHouse">
 									<Boolean>false</Boolean>
 								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
+								</field>
 								<field name="baseDir">
 									<String>${cfd}</String>
 								</field>
@@ -3737,7 +3740,7 @@ self::*[contains(@class," map/reltable ")]][1]
 									<list/>
 								</field>
 								<field name="jvmArgs">
-									<String>-Xmx384m</String>
+									<String></String>
 								</field>
 								<field name="useCustomJavaHome">
 									<Boolean>false</Boolean>
@@ -3846,6 +3849,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="useAntennaHouse">
 									<Boolean>false</Boolean>
 								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
+								</field>
 								<field name="baseDir">
 									<String>${cfd}</String>
 								</field>
@@ -3870,7 +3876,7 @@ self::*[contains(@class," map/reltable ")]][1]
 											<null/>
 										</field>
 										<field name="ditavalFilePath">
-											<String></String>
+											<null/>
 										</field>
 										<field name="simpleFiltersList">
 											<list/>
@@ -3905,34 +3911,10 @@ self::*[contains(@class," map/reltable ")]][1]
 									<String></String>
 								</field>
 								<field name="ditaParams">
-									<list>
-										<ditaParameter>
-											<field name="name">
-												<String>dita.dir</String>
-											</field>
-											<field name="description">
-												<null/>
-											</field>
-											<field name="value">
-												<String>${configured.ditaot.dir}</String>
-											</field>
-											<field name="defaultValue">
-												<null/>
-											</field>
-											<field name="type">
-												<Integer>3</Integer>
-											</field>
-											<field name="possibleValues">
-												<null/>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<null/>
-											</field>
-										</ditaParameter>
-									</list>
+									<list/>
 								</field>
 								<field name="jvmArgs">
-									<String>-Xmx384m</String>
+									<String></String>
 								</field>
 								<field name="useCustomJavaHome">
 									<Boolean>false</Boolean>
@@ -4041,6 +4023,183 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="useAntennaHouse">
 									<Boolean>false</Boolean>
 								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="baseDir">
+									<String>${cfd}</String>
+								</field>
+								<field name="outputDir">
+									<String>${cfd}/out/markdown</String>
+								</field>
+								<field name="tempDir">
+									<String>${cfd}/temp/markdown</String>
+								</field>
+								<field name="transtype">
+									<String>markdown</String>
+								</field>
+								<field name="filters">
+									<ditavalFilters>
+										<field name="useDitavalFilePath">
+											<Boolean>false</Boolean>
+										</field>
+										<field name="useAppliedConditionSet">
+											<Boolean>true</Boolean>
+										</field>
+										<field name="appliedConditionSet">
+											<null/>
+										</field>
+										<field name="ditavalFilePath">
+											<null/>
+										</field>
+										<field name="simpleFiltersList">
+											<list/>
+										</field>
+									</ditavalFilters>
+								</field>
+								<field name="addOxygenJars">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="skinCssFile">
+									<null/>
+								</field>
+								<field name="lastCustomSkinCssPath">
+									<null/>
+								</field>
+								<field name="webhelpResponsiveTemplate">
+									<null/>
+								</field>
+								<field name="publishingTemplateDataPO">
+									<null/>
+								</field>
+								<field name="oxygenFeedbackPO">
+									<null/>
+								</field>
+								<field name="additionalAntArgs">
+									<String></String>
+								</field>
+								<field name="buildTarget">
+									<String></String>
+								</field>
+								<field name="buildFilePath">
+									<String></String>
+								</field>
+								<field name="ditaParams">
+									<list/>
+								</field>
+								<field name="jvmArgs">
+									<String></String>
+								</field>
+								<field name="useCustomJavaHome">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="customJavaHomeDir">
+									<String></String>
+								</field>
+								<field name="useCustomANTHome">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="customANTHomeDir">
+									<String></String>
+								</field>
+								<field name="workingDir">
+									<null/>
+								</field>
+								<field name="showConsoleAlways">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="advancedOptionsMap">
+									<null/>
+								</field>
+								<field name="name">
+									<String>DITA Map Markdown</String>
+								</field>
+								<field name="baseURL">
+									<null/>
+								</field>
+								<field name="footerURL">
+									<null/>
+								</field>
+								<field name="fOPMethod">
+									<null/>
+								</field>
+								<field name="fOProcessorName">
+									<null/>
+								</field>
+								<field name="headerURL">
+									<null/>
+								</field>
+								<field name="inputXSLURL">
+									<null/>
+								</field>
+								<field name="inputXMLURL">
+									<null/>
+								</field>
+								<field name="defaultScenario">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="isFOPPerforming">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="type">
+									<String>DITAMAP</String>
+								</field>
+								<field name="saveAs">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="openInBrowser">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="outputResource">
+									<null/>
+								</field>
+								<field name="openOtherLocationInBrowser">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="locationToOpenInBrowserURL">
+									<String></String>
+								</field>
+								<field name="openInEditor">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInHTMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInXMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInSVGPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInResultSetPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="useXSLTInput">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="xsltParams">
+									<list/>
+								</field>
+								<field name="cascadingStylesheets">
+									<String-array/>
+								</field>
+								<field name="xslTransformer">
+									<String>DITA-OT</String>
+								</field>
+								<field name="extensionURLs">
+									<String-array/>
+								</field>
+							</ditaScenario>
+							<ditaScenario>
+								<field name="useXEP">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="useAntennaHouse">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
+								</field>
 								<field name="baseDir">
 									<String>${cfd}</String>
 								</field>
@@ -4065,7 +4224,7 @@ self::*[contains(@class," map/reltable ")]][1]
 											<null/>
 										</field>
 										<field name="ditavalFilePath">
-											<String></String>
+											<null/>
 										</field>
 										<field name="simpleFiltersList">
 											<list/>
@@ -4191,7 +4350,7 @@ self::*[contains(@class," map/reltable ")]][1]
 									</list>
 								</field>
 								<field name="jvmArgs">
-									<String>-Xmx384m</String>
+									<String></String>
 								</field>
 								<field name="useCustomJavaHome">
 									<Boolean>false</Boolean>
@@ -4300,6 +4459,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="useAntennaHouse">
 									<Boolean>false</Boolean>
 								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
+								</field>
 								<field name="baseDir">
 									<String>${cfd}</String>
 								</field>
@@ -4324,7 +4486,7 @@ self::*[contains(@class," map/reltable ")]][1]
 											<null/>
 										</field>
 										<field name="ditavalFilePath">
-											<String></String>
+											<null/>
 										</field>
 										<field name="simpleFiltersList">
 											<list/>
@@ -4359,34 +4521,10 @@ self::*[contains(@class," map/reltable ")]][1]
 									<String></String>
 								</field>
 								<field name="ditaParams">
-									<list>
-										<ditaParameter>
-											<field name="name">
-												<String>dita.dir</String>
-											</field>
-											<field name="description">
-												<null/>
-											</field>
-											<field name="value">
-												<String>${configured.ditaot.dir}</String>
-											</field>
-											<field name="defaultValue">
-												<null/>
-											</field>
-											<field name="type">
-												<Integer>3</Integer>
-											</field>
-											<field name="possibleValues">
-												<null/>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<null/>
-											</field>
-										</ditaParameter>
-									</list>
+									<list/>
 								</field>
 								<field name="jvmArgs">
-									<String>-Xmx384m</String>
+									<String></String>
 								</field>
 								<field name="useCustomJavaHome">
 									<Boolean>false</Boolean>
@@ -4495,6 +4633,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="useAntennaHouse">
 									<Boolean>false</Boolean>
 								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
+								</field>
 								<field name="baseDir">
 									<String>${cfd}</String>
 								</field>
@@ -4557,7 +4698,7 @@ self::*[contains(@class," map/reltable ")]][1]
 									<list/>
 								</field>
 								<field name="jvmArgs">
-									<String>-Xmx384m</String>
+									<String></String>
 								</field>
 								<field name="useCustomJavaHome">
 									<Boolean>false</Boolean>
@@ -4798,23 +4939,8 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="extensionURLs">
 									<String-array>
 										<String>${configured.ditaot.dir.url}/config/</String>
-										<String>${oxygenHome}/classes/</String>
-										<String>${oxygenHome}/lib/oxygenCommons.jar</String>
-										<String>${oxygenHome}/lib/oxygen.jar</String>
-										<String>${oxygenHome}/lib/oxygenAuthor.jar</String>
-										<String>${oxygenHome}/lib/oxygenDeveloper.jar</String>
-										<String>${oxygenHome}/lib/oxygenEclipse.jar</String>
-										<String>${oxygenHome}/lib/oxygenAuthorEclipse.jar</String>
-										<String>${oxygenHome}/lib/oxygenDeveloperEclipse.jar</String>
-										<String>${oxygenHome}/lib/oxygen-basic-utilities.jar</String>
-										<String>${oxygenHome}/lib/oxygen-sandbox.jar</String>
-										<String>${oxygenHome}/lib/oxygen-editor-variables-parser.jar</String>
-										<String>${oxygenHome}/lib/*resolver*.jar</String>
-										<String>${oxygenHome}/lib/xml-apis.jar</String>
-										<String>${oxygenHome}/lib/*xerces*.jar</String>
-										<String>${oxygenHome}/lib/*saxon*9*.jar</String>
-										<String>${oxygenHome}/lib/*log4j*.jar</String>
 										<String>${configured.ditaot.dir.url}/plugins/com.oxygenxml.dost.patches/lib/*.jar</String>
+										<String>${configured.ditaot.dir.url}/lib/saxon/*.jar</String>
 										<String>${configured.ditaot.dir.url}/lib/*.jar</String>
 									</String-array>
 								</field>
@@ -4825,6 +4951,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								</field>
 								<field name="useAntennaHouse">
 									<Boolean>false</Boolean>
+								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
 								</field>
 								<field name="baseDir">
 									<String>${cfd}</String>
@@ -4850,7 +4979,7 @@ self::*[contains(@class," map/reltable ")]][1]
 											<null/>
 										</field>
 										<field name="ditavalFilePath">
-											<String></String>
+											<null/>
 										</field>
 										<field name="simpleFiltersList">
 											<list/>
@@ -4885,34 +5014,10 @@ self::*[contains(@class," map/reltable ")]][1]
 									<String></String>
 								</field>
 								<field name="ditaParams">
-									<list>
-										<ditaParameter>
-											<field name="name">
-												<String>dita.dir</String>
-											</field>
-											<field name="description">
-												<null/>
-											</field>
-											<field name="value">
-												<String>${configured.ditaot.dir}</String>
-											</field>
-											<field name="defaultValue">
-												<null/>
-											</field>
-											<field name="type">
-												<Integer>3</Integer>
-											</field>
-											<field name="possibleValues">
-												<null/>
-											</field>
-											<field name="possibleValuesDescriptions">
-												<null/>
-											</field>
-										</ditaParameter>
-									</list>
+									<list/>
 								</field>
 								<field name="jvmArgs">
-									<String>-Xmx384m</String>
+									<String></String>
 								</field>
 								<field name="useCustomJavaHome">
 									<Boolean>false</Boolean>
@@ -5021,6 +5126,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="useAntennaHouse">
 									<Boolean>false</Boolean>
 								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
+								</field>
 								<field name="baseDir">
 									<String>${cfd}</String>
 								</field>
@@ -5045,7 +5153,7 @@ self::*[contains(@class," map/reltable ")]][1]
 											<null/>
 										</field>
 										<field name="ditavalFilePath">
-											<String></String>
+											<null/>
 										</field>
 										<field name="simpleFiltersList">
 											<list/>
@@ -5083,7 +5191,7 @@ self::*[contains(@class," map/reltable ")]][1]
 									<list/>
 								</field>
 								<field name="jvmArgs">
-									<String>-Xmx384m</String>
+									<String></String>
 								</field>
 								<field name="useCustomJavaHome">
 									<Boolean>false</Boolean>
@@ -5192,6 +5300,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="useAntennaHouse">
 									<Boolean>false</Boolean>
 								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
+								</field>
 								<field name="baseDir">
 									<String>${cfd}</String>
 								</field>
@@ -5254,7 +5365,7 @@ self::*[contains(@class," map/reltable ")]][1]
 									<list/>
 								</field>
 								<field name="jvmArgs">
-									<String>-Xmx384m</String>
+									<String></String>
 								</field>
 								<field name="useCustomJavaHome">
 									<Boolean>false</Boolean>
@@ -5363,6 +5474,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="useAntennaHouse">
 									<Boolean>false</Boolean>
 								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
+								</field>
 								<field name="baseDir">
 									<String>${cfd}</String>
 								</field>
@@ -5431,7 +5545,7 @@ self::*[contains(@class," map/reltable ")]][1]
 												<null/>
 											</field>
 											<field name="value">
-												<String>${frameworksDir}/dita/DITA-OT3.x</String>
+												<String>${frameworksDir}/dita/DITA-OT</String>
 											</field>
 											<field name="defaultValue">
 												<null/>
@@ -5449,7 +5563,7 @@ self::*[contains(@class," map/reltable ")]][1]
 									</list>
 								</field>
 								<field name="jvmArgs">
-									<String>-Xmx384m</String>
+									<String></String>
 								</field>
 								<field name="useCustomJavaHome">
 									<Boolean>false</Boolean>
@@ -5558,6 +5672,9 @@ self::*[contains(@class," map/reltable ")]][1]
 								<field name="useAntennaHouse">
 									<Boolean>false</Boolean>
 								</field>
+								<field name="useDITAScript">
+									<Boolean>true</Boolean>
+								</field>
 								<field name="baseDir">
 									<String>${cfd}</String>
 								</field>
@@ -5647,7 +5764,7 @@ self::*[contains(@class," map/reltable ")]][1]
 									</list>
 								</field>
 								<field name="jvmArgs">
-									<String>-Xmx384m</String>
+									<String></String>
 								</field>
 								<field name="useCustomJavaHome">
 									<Boolean>false</Boolean>
@@ -5786,6 +5903,9 @@ self::*[contains(@class," map/reltable ")]][1]
 											<field name="validationSchema">
 												<null/>
 											</field>
+											<field name="validationAdvancedSettings">
+												<null/>
+											</field>
 										</validationUnit>
 										<validationUnit>
 											<field name="validationType">
@@ -5817,6 +5937,9 @@ self::*[contains(@class," map/reltable ")]][1]
 											<field name="validationSchema">
 												<null/>
 											</field>
+											<field name="validationAdvancedSettings">
+												<null/>
+											</field>
 										</validationUnit>
 									</list>
 								</field>
@@ -5825,6 +5948,120 @@ self::*[contains(@class," map/reltable ")]][1]
 								</field>
 								<field name="name">
 									<String>DITA Map</String>
+								</field>
+							</validationScenario>
+							<validationScenario>
+								<field name="pairs">
+									<list>
+										<validationUnit>
+											<field name="validationType">
+												<validationUnitType>
+													<field name="validationInputType">
+														<String>text/xml</String>
+													</field>
+												</validationUnitType>
+											</field>
+											<field name="url">
+												<String>${currentFileURL}</String>
+											</field>
+											<field name="validationEngine">
+												<validationEngine>
+													<field name="engineType">
+														<String>DITA Validation</String>
+													</field>
+													<field name="allowsAutomaticValidation">
+														<Boolean>true</Boolean>
+													</field>
+												</validationEngine>
+											</field>
+											<field name="allowAutomaticValidation">
+												<Boolean>true</Boolean>
+											</field>
+											<field name="extensions">
+												<null/>
+											</field>
+											<field name="validationSchema">
+												<null/>
+											</field>
+											<field name="validationAdvancedSettings">
+												<null/>
+											</field>
+										</validationUnit>
+										<validationUnit>
+											<field name="validationType">
+												<validationUnitType>
+													<field name="validationInputType">
+														<String>text/any</String>
+													</field>
+												</validationUnitType>
+											</field>
+											<field name="url">
+												<String>${currentFileURL}</String>
+											</field>
+											<field name="validationEngine">
+												<validationEngine>
+													<field name="engineType">
+														<String>&lt;Default engine></String>
+													</field>
+													<field name="allowsAutomaticValidation">
+														<Boolean>true</Boolean>
+													</field>
+												</validationEngine>
+											</field>
+											<field name="allowAutomaticValidation">
+												<Boolean>true</Boolean>
+											</field>
+											<field name="extensions">
+												<null/>
+											</field>
+											<field name="validationSchema">
+												<null/>
+											</field>
+											<field name="validationAdvancedSettings">
+												<null/>
+											</field>
+										</validationUnit>
+										<validationUnit>
+											<field name="validationType">
+												<validationUnitType>
+													<field name="validationInputType">
+														<String>text/xml</String>
+													</field>
+												</validationUnitType>
+											</field>
+											<field name="url">
+												<String>${currentFileURL}</String>
+											</field>
+											<field name="validationEngine">
+												<validationEngine>
+													<field name="engineType">
+														<String>DITA Map Validation and Completeness Check</String>
+													</field>
+													<field name="allowsAutomaticValidation">
+														<Boolean>false</Boolean>
+													</field>
+												</validationEngine>
+											</field>
+											<field name="allowAutomaticValidation">
+												<Boolean>false</Boolean>
+											</field>
+											<field name="extensions">
+												<null/>
+											</field>
+											<field name="validationSchema">
+												<null/>
+											</field>
+											<field name="validationAdvancedSettings">
+												<null/>
+											</field>
+										</validationUnit>
+									</list>
+								</field>
+								<field name="type">
+									<String>Validation_scenario</String>
+								</field>
+								<field name="name">
+									<String>DITA Map Validation and Completeness Check</String>
 								</field>
 							</validationScenario>
 						</validationScenario-array>

@@ -5,19 +5,16 @@
     the JavaScript framework 'reveal.js'. 
 -->
 
-<xsl:stylesheet version="2.0" 
+<xsl:stylesheet version="3.0" 
     xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-    <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
     
-    <xsl:output method="html" encoding="UTF-8" indent="no" doctype-system="about:legacy-compat" omit-xml-declaration="yes"/>
+    <xsl:import href="plugin:org.dita.html5:xsl/dita2html5Impl.xsl"/>
+
+    <xsl:output method="html" encoding="UTF-8" indent="no" omit-xml-declaration="yes"/>
     <!-- The parameter $newline defines a line break. -->
-    <xsl:variable name="newline">
-        <xsl:text>
-        </xsl:text>
-    </xsl:variable>
+    <xsl:variable name="newline" select="'&#xA;'"/>
 
     <!-- 
         **************************************************
@@ -58,22 +55,31 @@
     <xsl:param name="args.reveal.viewdistance"/>
     <xsl:param name="args.reveal.width"/>
     
+    
+    <!--
+        **************************************************
+        Modes
+        **************************************************
+    -->
+    <xsl:mode name="reveal-slide-attributes" on-no-match="shallow-skip"/>
+    
+    
     <!--
         **************************************************
         Templates
         **************************************************
     -->
     
-    <xsl:template match="/">
+    <!--<xsl:template match="/">
         <xsl:apply-imports/>
-    </xsl:template>
+    </xsl:template>-->
     
     <!-- Add reveal.js styles by overriding placeholder template from dita2htmlImpl.xsl -->
     <xsl:template match="/|node()|@*" mode="gen-user-styles">
         
-        <meta name="apple-mobile-web-app-capable" content="yes"><!----></meta>
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!----></meta>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"><!----></meta>
+        <!--<meta name="apple-mobile-web-app-capable" content="yes"><!-\-\-\-></meta>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-\-\-\-></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"><!-\-\-\-></meta>-->
         
         <link rel="stylesheet" href="dist/reset.css"><!----></link>
         <link rel="stylesheet" href="dist/reveal.css"><!----></link>
@@ -148,6 +154,8 @@
                                 <xsl:variable name="allSlidesAsFirstLevel">
                                     <!-- The slide which contains other slides, copied to output but ignoring sub-slides -->
                                     <section>
+                                        <xsl:apply-templates mode="reveal-slide-attributes"/>
+                                        <!--<xsl:attribute name="test" select="'value'"/>-->
                                         <xsl:apply-templates mode="all-but-topicContainer"/>
                                     </section>
                                     <!-- For each subslide, copy to output but ignore sub-slides -->
@@ -172,6 +180,22 @@
                             </xsl:when>
                             <xsl:otherwise>
                                 <section>
+                                    <!--<xsl:if test="@data-transition">
+                                        <xsl:copy-of select="@data-transition"/>
+                                    </xsl:if>-->
+                                    <xsl:copy-of select="
+                                        @data-background-color 
+                                        | @data-background-gradient
+                                        | @data-background-image
+                                        | @data-background-size
+                                        | @data-background-position
+                                        | @data-background-repeat
+                                        | @data-background-opacity
+                                        | @data-transition
+                                        | @data-background-video
+                                        | @data-background-video-loop
+                                        | @data-background-video-muted
+                                        "/>
                                     <xsl:apply-templates mode="all-but-topicContainer"/>
                                 </section>
                             </xsl:otherwise>
@@ -247,6 +271,23 @@
     <xsl:template match="*[contains(@class, ' topic/topic ')]|*[contains(@class, ' slide/slide ')]">
         <!-- Just a placeholder which will be replaced with <section> -->
         <topicContainer>
+            <!--<xsl:if test="@data-transition">
+                <xsl:copy-of select="@data-transition"/>
+            </xsl:if>-->
+            <xsl:copy-of select="
+                @data-background-color 
+                | @data-background-gradient
+                | @data-background-image
+                | @data-background-size
+                | @data-background-position
+                | @data-background-repeat
+                | @data-background-opacity
+                | @data-transition
+                | @data-background-video
+                | @data-background-video-loop
+                | @data-background-video-muted
+                "/>
+            <xsl:apply-templates mode="reveal-slide-attributes"/>
             <xsl:apply-templates/>
         </topicContainer>
     </xsl:template>
@@ -365,6 +406,10 @@
                 </p>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template match="@data-transition" mode="reveal-slide-attributes">
+        XXXXXXXXXXXXx <xsl:value-of select="."/> XXXXXXXXXXXx
     </xsl:template>
     
 </xsl:stylesheet>
