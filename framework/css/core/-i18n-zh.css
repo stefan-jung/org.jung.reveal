@@ -1,0 +1,709 @@
+@charset "UTF-8";
+
+
+/*
+ * ------------------------------------------------
+ * From -domain-taskreq-d.css
+ */
+*[class ~= "taskreq-d/noconds"]:lang(zh):before {
+    content: "<无条件>" !important;
+}
+*[class ~= "taskreq-d/prelreqs"]:lang(zh):before {
+    content: "初步要求: ";
+}
+*[class ~= "taskreq-d/closereqs"]:lang(zh):before {
+    content: "结束要求: ";
+}
+*[class ~= "taskreq-d/reqconds"]:lang(zh):before {
+    content: "条件: ";
+}
+*[class ~= "taskreq-d/reqpers"]:lang(zh):before {
+    content: "人员: ";
+}
+*[class ~= "taskreq-d/personnel"]:lang(zh):before {
+    content: "人员数量: " !important;
+}
+*[class ~= "taskreq-d/perscat"]:lang(zh):before {
+    content: "类别: " !important;
+}
+*[class ~= "taskreq-d/perskill"]:lang(zh):before {
+    content: "技能水平: " !important;
+}
+*[class ~= "taskreq-d/esttime"]:lang(zh):before {
+    content: "时间预估: " !important;
+}
+*[class ~= "taskreq-d/supequip"]:lang(zh):before {
+    content: "设备: " !important;
+}
+*[class ~= "taskreq-d/nosupeq"]:lang(zh):before {
+    content: "<A无支持设备>";
+}
+*[class ~= "taskreq-d/supplies"]:lang(zh):before {
+    content: "补给品: " !important;
+}
+*[class ~= "taskreq-d/nosupply"]:lang(zh):before {
+    content: "<无补给>";
+}
+*[class ~= "taskreq-d/spares"]:lang(zh):before {
+    content: "备件:";
+}
+*[class ~= "taskreq-d/nospares"]:lang(zh):before {
+    content: "<无备件>";
+}
+*[class ~= "taskreq-d/nosafety"]:lang(zh):before {
+    content: "<无安全要求>" !important;
+}
+*[class ~= "taskreq-d/safety"]:lang(zh):before {
+    content: url(../img/caution.svg) " 安全:";
+}
+
+/*
+ * ------------------------------------------------
+ * From -domain-troubleshooting.css
+ */
+@media oxygen and (platform:standalone), oxygen and (platform:eclipse) {
+   *[class ~= 'troubleshooting/condition']:lang(zh):before {
+       content: "情况 ";
+   }
+   *[class ~= 'troubleshooting/cause']:lang(zh):before {
+       content: "原因: ";
+   }
+   *[class ~= 'troubleshooting/remedy']:lang(zh):before {
+       content: "补救措施: ";
+   }
+   *[class ~= 'troubleshooting/responsibleParty']:lang(zh):before {
+       content: "责任方: ";
+   }
+}
+
+/*
+ * ------------------------------------------------
+ * From -learning-common-interraction.css
+ */
+*[class ~= "learning-d/lcFeedbackIncorrect"]:lang(zh):before,
+*[class ~= "learning2-d/lcFeedbackIncorrect2"]:lang(zh):before {
+    content: "当不正确时: ";
+}
+*[class ~= "learning-d/lcFeedbackCorrect"]:lang(zh):before,
+*[class ~= "learning2-d/lcFeedbackCorrect2"]:lang(zh):before {
+    content: "当正确时: ";
+}
+*[class ~= "learning-d/lcOpenAnswer"]:lang(zh):before,
+*[class ~= "learning2-d/lcOpenAnswer2"]:lang(zh):before {
+    content: "回答: ";
+}
+*[class ~= "learning-d/lcQuestion"]:lang(zh):before,
+*[class ~= "learning2-d/lcQuestion2"]:lang(zh):before {
+    content: "问题: ";
+}
+
+/*
+ * -learning-spec-interraction-base.css
+ */
+*[class ~= "learning-d/lcOpenQuestion"]:lang(zh):before,
+*[class ~= "learning2-d/lcOpenQuestion2"]:lang(zh):before {
+    content: "开放式问题: ";
+}
+*[class ~= "learning-d/lcTrueFalse"]:lang(zh):before,
+*[class ~= "learning2-d/lcTrueFalse2"]:lang(zh):before {
+    content: "对或错: ";
+}
+*[class ~= "learning-d/lcSingleSelect"]:lang(zh):before,
+*[class ~= "learning2-d/lcSingleSelect2"]:lang(zh):before {
+    content: "单选: ";
+}
+*[class ~= "learning-d/lcMultipleSelect"]:lang(zh):before,
+*[class ~= "learning2-d/lcMultipleSelect2"]:lang(zh):before {
+    content: "多选: ";
+}
+
+*[class ~= "learning-d/lcSequencing"]:lang(zh):before,
+*[class ~= "learning2-d/lcSequencing2"]:lang(zh):before {
+    content: "订单顺序: ";
+}
+
+*[class ~= "learning-d/lcMatching"]:lang(zh):before,
+*[class ~= "learning2-d/lcMatching2"]:lang(zh):before {
+    content: "匹配选择: ";
+}
+*[class ~= "learning-d/lcHotspot"]:lang(zh):before,
+*[class ~= "learning2-d/lcHotspot2"]:lang(zh):before {
+    content: "单击区域: ";
+}
+
+/*
+ * -reference.css
+ */
+*[class ~= "reference/refsyn"]:lang(zh):before {
+    content: "句法: ";
+}
+@media print {
+    *[class ~= "reference/refsyn"]:lang(zh):before {
+        content: none;
+    }
+}
+
+
+/*
+ * -task.css
+ */
+*[class ~= "task/prereq"]:lang(zh):before {
+    content: "在你开始之前: ";
+}
+@media print {
+    *[class ~= "task/prereq"]:lang(zh):before {
+        content: none;
+    }
+}
+*[class ~= "task/postreq"]:lang(zh):before {
+    content: "接下来做什么: ";
+}
+@media print {
+    *[class ~= "task/postreq"]:lang(zh):before {
+        content: none;
+    }
+}
+*[class ~= "task/context"]:lang(zh):before {
+    content: "关于这个任务: ";
+}
+@media print {
+    *[class ~= "task/context"]:lang(zh):before {
+        content: none;
+    }
+}
+*[class ~= "task/result"]:lang(zh):before {
+    content: "结果: ";
+}
+@media print {
+    *[class ~= "task/result"]:lang(zh):before {
+        content: none;
+    }
+}
+*[class ~= "task/tasktroubleshooting"]:lang(zh):before,
+*[class ~= "task/steptroubleshooting"]:lang(zh):before {
+    content: "故障排除: ";
+}
+@media print {
+    *[class ~= "task/tasktroubleshooting"]:lang(zh):before,
+    *[class ~= "task/steptroubleshooting"]:lang(zh):before {
+        content: none;
+    }
+}
+
+*[class ~= "task/choices"]:lang(zh):before {
+    content: "从中选择: ";
+}
+@media print {
+    *[class ~= "task/choices"]:lang(zh):before {
+        content: none;
+    }
+}
+*[class ~= "task/stepxmp"]:lang(zh):before {
+    content: "例子: ";
+}
+@media print {
+    *[class ~= "task/stepxmp"]:lang(zh):before {
+        display: none;
+    }
+}
+*[class ~= "task/stepresult"]:lang(zh):before {
+    content: "结果: ";
+}
+@media print {
+    *[class ~= "task/stepresult"]:lang(zh):before {
+        content: none;
+    }
+}
+*[class ~= "task/tutorialinfo"]:lang(zh):before {
+    content: "教程信息: ";
+}
+@media print {
+    *[class ~= "task/tutorialinfo"]:lang(zh):before {
+        content: none;
+    }
+}
+
+*[class ~= "topic/searchtitle"]:lang(zh):before {
+    content: "搜索标题: ";
+}
+*[class ~= "topic/navtitle"]:lang(zh):before {
+    content: "导航标题: ";
+}
+
+@media print {
+    *[class ~= "topic/searchtitle"]:lang(zh):before {
+        content: none;
+    }
+    *[class ~= "topic/navtitle"]:lang(zh):before {
+        content: none;
+    }
+}
+
+*[class ~= "topic/shortdesc"]:lang(zh):before {
+    content: "简短描述: ";
+}
+
+@media print {
+    *[class ~= "topic/shortdesc"]:lang(zh):before {
+        display: none;
+    }
+}
+
+*[class ~= "topic/abstract"]:lang(zh):before {
+    content: "摘要： ";
+}
+@media print {
+    *[class ~= "topic/abstract"]:lang(zh):before {
+        display: none;
+    }
+}
+
+*[class ~= "topic/related-links"]:lang(zh):before {
+    content: "相关信息: ";
+}
+@media print {
+    *[class ~= "topic/related-links"]:lang(zh):before {
+        content: none;
+    }
+}
+
+/*
+ * -topic-body.css
+ */
+*[class ~= "topic/draft-comment"][author]:lang(zh):before {
+    content: "评论者 " attr(author) ": ";
+}
+*[class ~= "topic/draft-comment"]:lang(zh):before {
+    content: "评论: ";
+}
+
+*[class ~= "topic/example"] > *[class ~= "topic/title"]:lang(zh):before {
+    content: "例子: ";
+}
+
+*[class ~= "topic/note"]:lang(zh):before(2) {
+    content:
+    oxy_buttonGroup(
+    icon, "../img/Expand16.png",
+    transparent, true,
+    actions, 
+      oxy_action_list(
+          oxy_action(
+                name, '注意', 
+                description, '请特别注意此注释', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'attention'
+          ),
+          oxy_action(
+                name, '警示', 
+                description, '操作时需谨慎小心。', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'caution'
+          ),
+          oxy_action(
+                name, '危险', 
+                description, '重要！在做其他事情之前须注意该点。当与 <hazardstatement> 元素一起使用时，表示迫在眉睫的危险情况，如果不避免，将导致死亡或严重伤害。', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'danger'
+          ),
+          oxy_action(
+                name, '快捷方法', 
+                description, '这条注释将帮助您提高操作速度。', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'fastpath'
+          ),
+          oxy_action(
+                name, '重要', 
+                description, '这条注释的内容很重要。', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'important'
+          ),
+          oxy_action(
+                name, '注释', 
+                description, '这是一条普通注释。', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'note'
+          ),
+          oxy_action(
+                name, '通知', 
+                description, '表示一种潜在情况，如果不避免，可能会导致不良结果或状态。', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'notice'
+          ),
+          oxy_action(
+                name, '其他', 
+                description, '这与普通的笔记不同。', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'other'
+          ),
+          oxy_action(
+                name, '提醒', 
+                description, '不要忘记按照该条内容而去执行操作。', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'remember'
+          ),
+          oxy_action(
+                name, '限制', 
+                description, '您不能做该条限制的内容。', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'restriction'
+          ),
+          oxy_action(
+                name, '提示', 
+                description, '这是有用的小技巧。', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'tip'
+          ),
+          oxy_action(
+                name, '故障排除', 
+                description, '提供有关如何排除故障的信息。', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'trouble'
+          ),
+          oxy_action(
+                name, '警告', 
+                description, '表示潜在的危险情况。当与 <hazardstatement> 元素一起使用时，表示如果不避免，可能会导致死亡或严重伤害的情况。', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'warning'
+          )
+      )
+  ) ;
+  vertical-align:middle;
+}
+
+*[class ~= "topic/note"]:lang(zh):before(3) {
+    content: url('../img/note.svg');
+}
+*[class ~= "topic/note"]:lang(zh):before {
+    content: " 笔记: ";
+}
+*[class ~= "topic/note"][type = "attention"]:lang(zh):before(3) {
+    content: url('../img/attention.svg');
+}
+*[class ~= "topic/note"][type = "attention"]:lang(zh):before {
+    content: " 注意力: ";
+}
+*[class ~= "topic/note"][type = "caution"]:lang(zh):before(3) {
+    content: url('../img/caution.svg');
+}
+*[class ~= "topic/note"][type = "caution"]:lang(zh):before {
+    content: " 警告: ";
+}
+*[class ~= "topic/note"][type = "danger"]:lang(zh):before(3) {
+    content: url('../img/danger.svg');
+}
+*[class ~= "topic/note"][type = "danger"]:lang(zh):before {
+    content: " 危险: ";
+}
+*[class ~= "topic/note"][type = "fastpath"]:lang(zh):before(3) {
+    content: url('../img/fastpath.svg');
+}
+*[class ~= "topic/note"][type = "fastpath"]:lang(zh):before {
+    content: " 快速路径: ";
+}
+*[class ~= "topic/note"][type = "important"]:lang(zh):before(3) {
+    content: url('../img/important.svg');
+}
+*[class ~= "topic/note"][type = "important"]:lang(zh):before {
+    content: " 重要的: ";
+}
+*[class ~= "topic/note"][type = "other"]:lang(zh):before {
+    content: "其他: ";
+}
+*[class ~= "topic/note"][type = "remember"]:lang(zh):before(3) {
+    content: url('../img/remember.svg');
+}
+*[class ~= "topic/note"][type = "remember"]:lang(zh):before {
+    content: " 记住: ";
+}
+*[class ~= "topic/note"][type = "restriction"]:lang(zh):before(3) {
+    content: url('../img/restriction.svg');
+}
+*[class ~= "topic/note"][type = "restriction"]:lang(zh):before {
+    content: " 限制: ";
+}
+*[class ~= "topic/note"][type = "tip"]:lang(zh):before(3) {
+    content:  url('../img/tip.svg');
+}
+*[class ~= "topic/note"][type = "tip"]:lang(zh):before {
+    content:  " 提示: ";
+}
+*[class ~= "topic/note"][type = "notice"]:lang(zh):before(3) {
+    content:  url('../img/notice.svg');
+}
+*[class ~= "topic/note"][type = "notice"]:lang(zh):before {
+    content:  " 注意: ";
+}
+*[class ~= "topic/note"][type = "warning"]:lang(zh):before(3) {
+    content:  url('../img/warning.svg');
+}
+*[class ~= "topic/note"][type = "warning"]:lang(zh):before {
+    content:  " 警告: ";
+}
+*[class ~= "topic/note"][type = "other"][othertype]:lang(zh):before {
+    content: attr(othertype) ": ";
+}
+*[class ~= "topic/note"][type = "trouble"]:lang(zh):before(3) {
+    content: url('../img/troubleshooting.svg');
+}
+*[class ~= "topic/note"][type = "trouble"]:lang(zh):before {
+    content: " 故障排除: ";
+}
+
+/*
+ * ------------------------------------------------
+ * From -glossary.css
+ */
+*[class ~= "glossentry/glossPartOfSpeech"]:lang(zh):before {
+    content: "词类: ";
+}
+*[class ~= "glossentry/glossProperty"]:lang(zh):before {
+    content: "财产: ";
+}
+*[class ~= "glossentry/glossStatus"]:lang(zh):before {
+    content: "地位: ";
+}
+*[class ~= "glossentry/glossSurfaceForm"]:lang(zh):before {
+    content: "表面形态: ";
+}
+*[class ~= "glossentry/glossUsage"]:lang(zh):before {
+    content: "用法: ";
+}
+
+/*
+ * ------------------------------------------------
+ * From -domain-hazard-d.css
+ */
+/* Remove icon inherited from DITA note */
+*[class ~= "hazard-d/hazardstatement"][class ~= "hazard-d/hazardstatement"]:lang(zh):before(2),
+*[class ~= "hazard-d/hazardstatement"][class ~= "hazard-d/hazardstatement"][type]:lang(zh):before(2),
+*[class ~= "hazard-d/hazardstatement"][class ~= "hazard-d/hazardstatement"]:lang(zh):before(3),
+*[class ~= "hazard-d/hazardstatement"][class ~= "hazard-d/hazardstatement"][type]:lang(zh):before(3){
+    content: none;
+}
+*[class ~= "hazard-d/hazardstatement"]:lang(zh):before {
+     content: url("../img/ISO_7010_W001.svg")  " 警示";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "note"]:lang(zh):before {
+     content: " 注释";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "tip"]:lang(zh):before {
+     content: " 提示";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "fastpath"]:lang(zh):before {
+     content: " 快捷方法";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "important"]:lang(zh):before {
+     content: " 重要";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "restriction"]:lang(zh):before {
+     content: " 限制";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "remember"]:lang(zh):before {
+     content: " 提醒";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "attention"]:lang(zh):before {
+     content: " 注意";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "caution"]:lang(zh):before {
+     content: url("../img/ISO_7010_W001.svg")  " 警示";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "notice"]:lang(zh):before {
+     content: " 通知";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "danger"]:lang(zh):before {
+     content: url("../img/ISO_7010_W001.svg")  " 危险";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "warning"]:lang(zh):before {
+     content: url("../img/ISO_7010_W001.svg")  " 警告";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "other"]:lang(zh):before {
+     content: " 其他类型的危险";
+}
+
+/*
+ * -topic-legacy-conversion.css
+ */
+*[class ~= "topic/required-cleanup"]:lang(zh):before {
+    content: "必需的清理: ";
+}
+
+/*
+ * -topic-metadata-indexterms
+ */
+*[class ~= "topic/indexterm"] > *[class ~= "indexing-d/index-see"]:lang(zh):before {
+    content: " - 看: ";
+}
+*[class ~= "topic/indexterm"] > *[class ~= "indexing-d/index-see-also"]:lang(zh):before {
+    content: " - 也可以看看: ";
+}
+*[class ~= "topic/indexterm"] > *[class ~= "indexing-d/index-see-also"]:after,
+*[class ~= "topic/indexterm"] > *[class ~= "indexing-d/index-see"]:after {
+    content: " ";
+}
+*[class ~= "indexing-d/index-sort-as"]:lang(zh):before {
+    content: " - 排序为: ";
+}
+
+/*
+ * -topic-specialization
+ */
+*[class ~= "topic/data-about"]:lang(zh):before {
+    content: "数据有关:";
+}
+
+/*
+ * -topic-metadata-prolog
+ */
+*[class~="topic/audience"]:lang(zh):before(300) {
+  content: "读者: ";
+}
+ 
+ *[class~="topic/author"]:lang(zh):before(300) {
+  content: "作者: ";
+}
+*[class~="topic/brand"]:lang(zh):before(300) {
+  content: "品牌: ";
+}
+*[class~="topic/category"]:lang(zh):before(300) {
+  content: "类别: ";
+}
+*[class~="topic/component"]:lang(zh):before(300) {
+  content: "组成: ";
+}
+*[class~="topic/copyright"]:lang(zh):before(300) {
+  content: "版权 ";
+}
+*[class~="topic/copyryear"]:lang(zh):before(300) {
+  content: "年: ";
+}
+*[class~="topic/copyrholder"]:lang(zh):before(300) {
+  content: "持有者: ";
+}
+*[class~="topic/critdates"]:lang(zh):before(300) {
+  content: "关键日期: ";
+}
+*[class~="topic/created"]:lang(zh):before(300) {
+  content: "创建日期: ";
+}
+*[class~="topic/revised"]:lang(zh):before(300) {
+  content: "修改日期: ";
+}
+*[class~="topic/featnum"]:lang(zh):before(300) {
+  content: "特征编号: ";
+}
+*[class~="topic/keywords"]:lang(zh):before(300) {
+  content: "关键词: ";
+}
+*[class~="topic/metadata"]:lang(zh):before(300) {
+  content: "元数据";
+}
+*[class~="topic/othermeta"]:lang(zh):before(300) {
+  content: "其它元数据:";
+}
+*[class~="topic/permissions"]:lang(zh):before(300) {
+  content: "权限: ";
+}
+*[class~="topic/platform"]:lang(zh):before(300) {
+  content: "平台: ";
+}
+*[class~="topic/prodinfo"]:lang(zh):before(300) {
+  content: "产品信息 ";
+}
+*[class~="topic/prodname"]:lang(zh):before(300) {
+  content: "产品名称: ";
+}
+*[class~="topic/prognum"]:lang(zh):before(300) {
+  content: "项目编号: ";
+}
+*[class~="topic/publisher"]:lang(zh):before(300) {
+  content: "出版者: ";
+}
+*[class~="topic/resourceid"]:lang(zh):before(300) {
+  content: "资源标识符: ";
+}
+*[class~="topic/series"]:lang(zh):before(300) {
+  content: "系列: ";
+}
+*[class~="topic/source"]:lang(zh):before(300) {
+  content: "来源: ";
+}
+*[class~="topic/vrmlist"]:lang(zh):before(300) {
+  content: "版本: ";
+}
+*[class~="relmgmt-d/change-historylist"]:lang(zh):before(300){
+    content: "变更历史列表: ";
+}
+*[class~="relmgmt-d/change-item"]:lang(zh):before(300) {
+    content:"变更: ";
+}
+*[class~="relmgmt-d/change-person"]:lang(zh):before(300) {
+    content:"人: ";
+}
+*[class~="relmgmt-d/change-organization"]:lang(zh):before(300) {
+    content:"组织: ";
+}
+*[class~="relmgmt-d/change-started"]:lang(zh):before(300) {
+    content:"开始于: ";
+}
+*[class~="relmgmt-d/change-completed"]:lang(zh):before(300) {
+    content:"完成于: ";
+}
+*[class~="relmgmt-d/change-summary"]:lang(zh):before(300) {
+    content:"总结: ";
+}
+*[class~="relmgmt-d/change-revisionid"]:lang(zh):before(300) {
+    content:"修订 ID: ";
+}
+*[class~="relmgmt-d/change-request-reference"]:lang(zh):before(300) {
+    content:"请求参考: ";
+}
+*[class~="relmgmt-d/change-request-system"]:lang(zh):before(300) {
+    content:"系统: ";
+}
+*[class~="relmgmt-d/change-request-id"]:lang(zh):before(300) {
+    content:"请求 ID: ";
+}
+
+/*
+ * -domain-qa
+ */
+*[class~='qatopic/question']:lang(zh) {
+  -oxy-placeholder-content: "问题";
+}
+*[class~='qatopic/question'] + *[class~='qatopic/question']:lang(zh) {
+  -oxy-placeholder-content: "替代问题";
+}
+*[class~='qatopic/answer']:lang(zh) {
+  -oxy-placeholder-content: "回答";
+}
+*[class~="topic/data"][name~="oxy:question"]:lang(zh):before(3) {
+  content: "问题: ";
+}
+

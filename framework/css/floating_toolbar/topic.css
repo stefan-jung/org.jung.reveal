@@ -1,0 +1,146 @@
+/* 
+ * Bold, italic, underline, subscript, superscript, code.phrase and links
+ */
+*[class ~= "topic/note"]:-oxy-selection-inside, *[class ~= "topic/dthd"]:-oxy-selection-inside, *[class ~= "topic/ddhd"]:-oxy-selection-inside, *[class ~= "topic/dt"]:-oxy-selection-inside, *[class ~= "topic/dd"]:-oxy-selection-inside,  *[class ~= "topic/p"]:-oxy-selection-inside, *[class ~= "topic/li"]:-oxy-selection-inside, *[class ~= "topic/shortdesc"]:-oxy-selection-inside,
+*[class ~= "topic/entry"]:-oxy-selection-inside, *[class ~= "topic/stentry"]:-oxy-selection-inside, *[class ~= "topic/ph"]:-oxy-selection-inside {
+    -oxy-floating-toolbar: 
+        oxy_button(actionID, 'bold') oxy_button(actionID, 'italic') oxy_button(actionID, 'underline')
+        '|'
+         oxy_button(actionID, 'subscript') oxy_button(actionID, 'superscript') oxy_button(actionID, 'insert.code.phrase')
+          '|'
+        oxy_buttonGroup(
+         icon, "../../img/link.png",
+         label, '${i18n(Link)}',
+         actionIDs, 'insert.cross.reference, insert.file.reference, insert.url.reference'
+        )
+}
+
+
+/* 
+ * Images
+ */
+*[class ~= "topic/image"][keyref]:-oxy-selected{
+    -oxy-floating-toolbar: 
+        oxy_label(text, " keyref: ")
+        oxy_combobox( 
+            edit, '@keyref',
+            editable, false
+        );
+}
+
+*[class ~= "topic/image"]:not([keyref]):-oxy-selected{
+    -oxy-floating-toolbar: 
+        oxy_urlChooser(
+          edit, '@href',
+          columns, 25,
+          fileFilter, "gif, jpg, jpeg, bmp, png, svg, svgz, wmf, mathml, mml, cgm, tif, tiff, eps, ai, pdf, psd"
+        )
+}
+
+/* 
+ * Video, audio
+ */
+*[class ~= "topic/object"][datakeyref]:-oxy-selected{
+    -oxy-floating-toolbar: 
+        oxy_label(text, " datakeyref: ")
+        oxy_combobox( 
+            edit, '@datakeyref',
+            editable, false
+        );
+}
+
+*[class ~= "topic/object"]:not([datakeyref]):-oxy-selected{
+    -oxy-floating-toolbar: 
+        oxy_urlChooser(
+          edit, '@data',
+          columns, 25
+        )
+}
+
+/* 
+ * Links
+ */
+*[class ~= "topic/xref"][keyref]:-oxy-selected{
+    -oxy-floating-toolbar:
+        oxy_label(text, " keyref: ")
+        oxy_combobox( 
+            edit, '@keyref',
+            editable, false
+        )
+}
+
+*[class ~= "topic/xref"]:not([keyref]):-oxy-selected {
+    -oxy-floating-toolbar: 
+        oxy_urlChooser(
+          edit, '@href',
+          columns, 25
+        )
+}
+ 
+ 
+/* 
+ * Conrefs
+ */
+ [conref]:-oxy-selected, [conkeyref]:-oxy-selected {
+    -oxy-floating-toolbar: 
+        oxy_buttonGroup(
+             icon, "../../img/Conref16.png",
+             actionIDs, 'add_edit_content_reference, remove_content_reference, conref.replace'
+            )
+}
+
+/* 
+ * Codeblock
+ */
+*[class ~= "pr-d/codeblock"]:-oxy-selected {
+    -oxy-floating-toolbar: 
+        oxy_label(text, " outputclass: ")
+        oxy_combobox( 
+            edit, '@outputclass',
+            editable, true 
+        )
+}
+
+/* 
+ * Lists
+ */
+*[class ~= "topic/ul"]:-oxy-selected {
+    -oxy-floating-toolbar: 
+        oxy_button(actionID, 'orderedList') 
+        '|'
+        oxy_button(actionID, 'sort')     
+}
+
+*[class ~= "topic/ol"]:-oxy-selected {
+    -oxy-floating-toolbar:
+        oxy_button(actionID, 'unorderedList') 
+        '|'
+        oxy_button(actionID, 'sort')     
+}
+
+*[class ~= "topic/li"]:-oxy-selected {
+    -oxy-floating-toolbar: 
+        oxy_button(actionID, 'up') 
+        oxy_button(actionID, 'down') 
+}
+
+
+/* 
+ * Tables
+ */
+*[class ~= "topic/simpletable"]:-oxy-selected, *[class ~= "topic/table"]:-oxy-selected, *[class ~= "topic/tgroup"]:-oxy-selected {
+    -oxy-floating-toolbar: oxy_button(actionID, 'show.table.properties') oxy_button(actionID, 'sort_table')
+ } 
+ 
+*[class ~= "topic/row"]:-oxy-selected, *[class ~= "topic/strow"]:-oxy-selected{
+    -oxy-floating-toolbar: oxy_button(actionID, 'insert.table.row.above') oxy_button(actionID, 'insert.table.row.below') oxy_button(actionID, 'delete.table.row') '|' oxy_button(actionID, 'show.table.properties') 
+}
+
+*[class ~= "topic/entry"]:-oxy-selected, *[class ~= "topic/stentry"]:-oxy-selected{
+    -oxy-floating-toolbar: 
+        oxy_button(actionID, 'insert.table.row.above') oxy_button(actionID, 'insert.table.row.below') oxy_button(actionID, 'delete.table.row') 
+        "|"
+        oxy_button(actionID, 'insert.table.column.before') oxy_button(actionID, 'insert.table.column.after') oxy_button(actionID, 'delete.table.column')
+        '|' 
+        oxy_button(actionID, 'show.table.properties')
+}

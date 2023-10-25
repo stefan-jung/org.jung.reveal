@@ -1,0 +1,68 @@
+@import "../webauthor/topic-content-mode.css";
+
+@media oxygen and (platform:webapp) {
+  :root {
+    font-family: Georgia, Caladea, Cambria, serif;
+
+    webkit-font-feature-settings: "lnum" 1;
+    -moz-font-feature-settings: "lnum" 1;
+    font-feature-settings: "lnum" 1;
+
+    font-size: 1.1em;
+  }
+
+  /* Increase the distance between the title and the rest of the document for an improved look */
+  *[class~="topic/title"] {
+    margin: 0.6em 0;
+  }
+
+  /* Tables look better with font slightly smaller than the rest of the surrounding paragraphs */
+  *[class ~= "topic/simpletable"]{
+    font-size: 0.95em;
+  }
+
+  *[class~="pr-d/codeph"] {
+    padding: .1em .2em;
+  }
+
+  *[class~="pr-d/codeblock"],
+  *[class~="pr-d/codeph"],
+  *[class~="topic/pre"] {
+    background-color: rgba(54, 64, 74, 0.05);
+  }
+
+  *[class~="pr-d/codeblock"],
+  *[class~="pr-d/codeph"] {
+    border-radius: 4px;
+  }
+
+  *[class~="pr-d/codeblock"] {
+    border: 1px solid rgba(8, 12, 34, 0.1);
+  }
+
+  *[class~="topic/pre"],
+  *[class~="topic/indexterm"],
+  *[class~="pr-d/codeph"],
+  *[class~="sw-d/msgph"],
+  *[class~="pr-d/apiname"],
+  *[class~="sw-d/varname"],
+  *[class~="sw-d/filepath"],
+  *[class~="sw-d/cmdname"],
+  *[class~="sw-d/userinput"],
+  *[class~="sw-d/systemoutput"],
+  *[class~="hi-d/tt"] {
+    font-family: Consolas, Monaco, "Lucida Console", monospace;
+    font-size: 0.92em;
+  }
+
+  *[class~="topic/pre"] {
+    line-height : 1.3;
+  }
+
+}
+
+@media oxygen and (platform:webapp) {
+  *[class~="topic/entry"] {
+    font-size: 0.95em;
+  }
+}

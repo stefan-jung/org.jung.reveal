@@ -20,10 +20,37 @@
 											<Integer>-1</Integer>
 										</field>
 										<field name="value">
-											<String>reveal.js presentation</String>
+											<String>Jung reveal.js</String>
 										</field>
 										<field name="patchHandling">
 											<String>set</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>authorExtensionDescriptor/cssDescriptors</String>
+										</field>
+										<field name="index">
+											<Integer>0</Integer>
+										</field>
+										<field name="value">
+											<cssFile>
+												<field name="href">
+													<String>${framework}/css/edit/style-slide.css</String>
+												</field>
+												<field name="title">
+													<String>Slide</String>
+												</field>
+												<field name="alternate">
+													<Boolean>false</Boolean>
+												</field>
+											</cssFile>
+										</field>
+										<field name="patchHandling">
+											<String>addIndex</String>
 										</field>
 										<field name="anchor">
 											<null/>
@@ -296,6 +323,48 @@
 										</field>
 										<field name="patchHandling">
 											<String>removeIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>doctypeRules</String>
+										</field>
+										<field name="index">
+											<Integer>0</Integer>
+										</field>
+										<field name="value">
+											<documentTypeRule>
+												<field name="namespace">
+													<String>*</String>
+												</field>
+												<field name="rootElem">
+													<String>*slide*</String>
+												</field>
+												<field name="fileName">
+													<String>*</String>
+												</field>
+												<field name="publicID">
+													<String>*</String>
+												</field>
+												<field name="javaRuleClass">
+													<String></String>
+												</field>
+												<field name="attributeLocalName">
+													<String>*</String>
+												</field>
+												<field name="attributeNamespace">
+													<String>*</String>
+												</field>
+												<field name="attributeValue">
+													<String>*</String>
+												</field>
+											</documentTypeRule>
+										</field>
+										<field name="patchHandling">
+											<String>addIndex</String>
 										</field>
 										<field name="anchor">
 											<null/>

@@ -1,0 +1,102 @@
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+@media oxygen and (platform: webapp) {
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~="map/topicref"] {
+    -oxy-foldable: false !important;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode:root:before(2000),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~="map/map"]:root:before(2000),
+  *[class~="map/map"]:-oxy-topic-content-mode:before(5),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~="map/map"]:before(5) {
+    display: none !important;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode[title],
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~="map/map"][title] {
+    content: oxy_label(text, attr(title, string, 'No title attribute specified'), styles, 'font-weight: bold; font-size: 2.5em;');
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/reltable'] *[class~='map/topicref'] {
+    /* Display the topicref rendering in reltable */
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/reltable'] *[class~='map/topicref']:before(1100),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/reltable'] *[class~='map/topicref']:before(1020),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/reltable'] *[class~='map/topicref']:before(1150) {
+    display: inline-block !important;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'] {
+    margin-left: 0.4em !important;
+    margin-top: 2em !important;
+    margin-bottom: 1.5em !important;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'] *[class~='topic/body'] {
+    margin-bottom: 0 !important;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'] *[class~="topic/title"] {
+    margin-top: 0 !important;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'] oxy|reference {
+    border-width: 0 !important;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref']:before(998),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref']:before(999),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref']:before(1100),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref']:before(1050),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref']:before(1040),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref']:before(1030),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref']:before(1020),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref']:before(1010),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref']:before(1007),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref']:before(1150) {
+    display: none !important;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'] > * > [class~="topic/title"]:before(210),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'] > *[title]:before(210) {
+    content: url("../../img/link-light.png");
+    link: oxy_base-uri();
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicmeta'],
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='mapgroup-d/keydef'] {
+    display: none !important;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][type='subjectScheme'] {
+    display: none !important;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode [class~='map/topicref']:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode [class~='map/topicref'] > [class~='map/map']:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode [class~='map/topicref']:before(200),
+  *[class~="map/map"]:-oxy-topic-content-mode [class~='map/topicref'] > [class~='map/map']:before(200) {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][href],
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][keyref],
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][conref],
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][conkeyref],
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][navtitle] {
+    counter-reset: cntc;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][href] ~ *[class~='map/topicref'],
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][keyref] ~ *[class~='map/topicref'],
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][conref] ~ *[class~='map/topicref'],
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][conkeyref] ~ *[class~='map/topicref'],
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][navtitle] ~ *[class~='map/topicref'] {
+    counter-reset: none;
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][href] > * > *[class~='topic/title']:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][keyref] > * > *[class~='topic/title']:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][conref] > * > *[class~='topic/title']:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][conkeyref] > * > *[class~='topic/title']:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][href][class~='mapgroup-d/mapref'] > *[title]:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][keyref][class~='mapgroup-d/mapref'] > *[title]:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][conref][class~='mapgroup-d/mapref'] > *[title]:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][conkeyref][class~='mapgroup-d/mapref'] > *[title]:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][href][class~='bookmap/part'] > *[title]:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][keyref][class~='bookmap/part'] > *[title]:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][conref][class~='bookmap/part'] > *[title]:before(180),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][conkeyref][class~='bookmap/part'] > *[title]:before(180) {
+    counter-increment: cntc;
+    content: counters(cntc, ".") ". ";
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'][navtitle]:not([href]):not([keyref]):not([conref]):not([conkeyref]):before(180) {
+    counter-increment: cntc;
+    content: counters(cntc, ".") ". " oxy_xpath('@navtitle');
+  }
+}

@@ -1,0 +1,362 @@
+/*
+==============================================
+ 		   DITA CALS tables 
+==============================================
+*/
+
+/*
+    The caption of the table.
+*/
+*[class~="topic/table"] > *[class~="topic/title"]{ 
+    display: table-caption;
+    font-weight:bold;
+    text-align: left;
+    margin-top: 0.5em;
+}
+
+
+@media print {
+*[class~="topic/table"] > *[class~="topic/title"] {
+	page-break-after: avoid;
+}
+	
+/* 
+   Put a number before the table title.
+   The counter is reset in p-page-titles-and-numbers.css
+ */
+*[class~="topic/table"]{
+    counter-increment: tablecount;
+}
+*[class~="topic/table"] > *[class~="topic/title"]:before{ 
+    content: "Table " counter(tablecount) ": ";
+  }
+}
+
+
+
+/* 
+    A Table in a document 
+*/
+*[class~="topic/table"] {
+  display: table;
+}
+
+@media oxygen {
+	*[class~="topic/table"] {
+	  /*overriden in cals_table.css*/
+	  /*See -colors.css */
+	  border-color: #EEEEEE;
+	  border-style:solid;
+	  border-width:1px;
+	  margin: 1.5em 0;
+	}
+}
+
+
+/*
+  Frame attribute - Specifies how the table is to be framed.
+*/
+ 
+/*
+     Reset the border.
+*/
+*[class~="topic/table"][frame]{
+    border-width:1px;
+}
+
+
+/* CALS tables, the border is drawn around tgroup */
+@media oxygen {
+*[class~="topic/table"][frame='all'],
+*[class~="topic/table"][frame='bottom'],
+*[class~="topic/table"][frame='top'],
+*[class~="topic/table"][frame='topbot'],
+*[class~="topic/table"][frame='none'],
+*[class~="topic/table"][frame='sides']{
+    border-width:0px;
+}
+}
+
+/*
+    Define each border.
+*/
+*[class~="topic/table"][frame]{
+    border-style:none;
+    border-color:black;
+}
+
+*[class~="topic/table"][frame][frame='top'] {
+  border-top-style:solid;
+}
+
+*[class~="topic/table"][frame][frame='bottom'] {
+  border-bottom-style:solid;
+}
+
+*[class~="topic/table"][frame][frame='sides'],
+informaltable[frame][frame='sides']{
+  border-left-style:solid;
+  border-right-style:solid;
+}
+
+*[class~="topic/table"][frame][frame='topbot'] {
+  border-bottom-style:solid;
+  border-top-style:solid;
+}
+
+*[class~="topic/table"][frame][frame='all'] {
+  border-style:solid;
+}
+
+/* Alignment. */
+
+*[align='left']{
+   text-align:left;
+}
+*[align='right']{
+   text-align:right;
+}
+*[align='center']{
+   text-align:center;
+}
+
+@media oxygen {
+	/*EXM-9928 The @align on a colspec is actually for the entire column determined by it,
+	it's silly to align the colspec element*/
+	*[class~="topic/colspec"][align]{
+	   text-align:left;
+	}
+}
+@media print {
+    /* CH-284 Is important for the @media print, because the property is taken into accound 
+       when aligning the text from cells - the colspec elements are not visible. */
+    *[class~="topic/colspec"][align]{
+       text-align:attr(align);
+    }    
+}
+
+/*
+  A wrapper for the main content of a table, or part of a table
+ */
+*[class~="topic/tgroup"] {
+  display: table;
+}
+
+*[class~="topic/tbody"] {
+/* overriden in cals_table.css */
+    display:table-row-group;
+    vertical-align:middle;
+}
+
+/* 
+    A table header consisting of one or more rows 
+*/
+*[class~="topic/thead"] {
+  display: table-header-group;
+  font-weight: bold;
+  text-align: center;
+  vertical-align:middle;
+}
+
+@media oxygen {
+	*[class~="topic/thead"] {
+	  /*See -colors.css */
+	  background-color: #f4fbff;
+	}
+}
+
+/*
+    Table row.
+*/
+*[class~="topic/row"],
+tr{
+    display:table-row;
+    vertical-align:inherit;
+}
+
+/*
+    Table cell.
+*/
+*[class~="topic/entry"] {
+    display:table-cell;
+    vertical-align:inherit;
+    padding:0.3em;
+}
+
+@media oxygen {
+	*[class~="topic/entry"] {
+	    border-style:solid;
+	    border-width:1px;
+	    border-color: #EEEEEE;
+	}	
+}
+
+/*
+-------
+    Bottom
+-------
+*/
+
+/*Least specific*/
+*[class~="topic/tbody"][valign=bottom] > *[class~="topic/row"] > *[class~="topic/entry"],
+*[class~="topic/thead"][valign=bottom] > *[class~="topic/row"] > *[class~="topic/entry"] {
+    vertical-align:bottom;
+}
+
+
+/*More specific*/
+*[class~="topic/tbody"][valign] > *[class~="topic/row"][valign=bottom] > *[class~="topic/entry"],
+*[class~="topic/thead"][valign] > *[class~="topic/row"][valign=bottom] > *[class~="topic/entry"],
+*[class~="topic/tbody"]         > *[class~="topic/row"][valign=bottom] > *[class~="topic/entry"],
+*[class~="topic/thead"]         > *[class~="topic/row"][valign=bottom] > *[class~="topic/entry"]{
+    vertical-align:bottom;
+}
+
+/*Even more specific*/
+*[class~="topic/tbody"][valign] > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=bottom],
+*[class~="topic/thead"][valign] > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=bottom],
+*[class~="topic/tbody"]         > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=bottom],
+*[class~="topic/thead"]         > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=bottom],
+*[class~="topic/tbody"][valign] > *[class~="topic/row"]         > *[class~="topic/entry"][valign=bottom],
+*[class~="topic/thead"][valign] > *[class~="topic/row"]         > *[class~="topic/entry"][valign=bottom],
+*[class~="topic/tbody"]         > *[class~="topic/row"]         > *[class~="topic/entry"][valign=bottom],
+*[class~="topic/thead"]         > *[class~="topic/row"]         > *[class~="topic/entry"][valign=bottom]{
+    vertical-align:bottom;
+}
+
+
+/*
+-------
+    Top
+-------
+*/
+
+/*Least specific*/
+*[class~="topic/tbody"][valign=top] > *[class~="topic/row"] > *[class~="topic/entry"],
+*[class~="topic/thead"][valign=top] > *[class~="topic/row"] > *[class~="topic/entry"],
+*[class~="topic/tfoot"][valign=top] > *[class~="topic/row"] > *[class~="topic/entry"]{
+    vertical-align:top;
+}
+
+
+/*More specific*/
+*[class~="topic/tbody"][valign] > *[class~="topic/row"][valign=top] > *[class~="topic/entry"],
+*[class~="topic/thead"][valign] > *[class~="topic/row"][valign=top] > *[class~="topic/entry"],
+*[class~="topic/tbody"]         > *[class~="topic/row"][valign=top] > *[class~="topic/entry"],
+*[class~="topic/thead"]         > *[class~="topic/row"][valign=top] > *[class~="topic/entry"]{
+    vertical-align:top;
+}
+
+/*Even more specific*/
+*[class~="topic/tbody"][valign] > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=top],
+*[class~="topic/thead"][valign] > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=top],
+*[class~="topic/tbody"]         > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=top],
+*[class~="topic/thead"]         > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=top],
+*[class~="topic/tbody"][valign] > *[class~="topic/row"]         > *[class~="topic/entry"][valign=top],
+*[class~="topic/thead"][valign] > *[class~="topic/row"]         > *[class~="topic/entry"][valign=top],
+*[class~="topic/tbody"]         > *[class~="topic/row"]         > *[class~="topic/entry"][valign=top],
+*[class~="topic/thead"]         > *[class~="topic/row"]         > *[class~="topic/entry"][valign=top]{
+    vertical-align:top;
+}
+
+
+/*
+-------
+    Middle
+-------
+*/
+
+/*Least specific*/
+*[class~="topic/tbody"][valign=middle] > *[class~="topic/row"] > *[class~="topic/entry"],
+*[class~="topic/thead"][valign=middle] > *[class~="topic/row"] > *[class~="topic/entry"] {
+    vertical-align:middle;
+}
+
+
+/*More specific*/
+*[class~="topic/tbody"][valign] > *[class~="topic/row"][valign=middle] > *[class~="topic/entry"],
+*[class~="topic/thead"][valign] > *[class~="topic/row"][valign=middle] > *[class~="topic/entry"],
+*[class~="topic/tbody"]         > *[class~="topic/row"][valign=middle] > *[class~="topic/entry"],
+*[class~="topic/thead"]         > *[class~="topic/row"][valign=middle] > *[class~="topic/entry"] {
+    vertical-align:middle;
+}
+
+/*Even more specific*/
+*[class~="topic/tbody"][valign] > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=middle],
+*[class~="topic/thead"][valign] > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=middle],
+*[class~="topic/tbody"]         > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=middle],
+*[class~="topic/thead"]         > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=middle],
+*[class~="topic/tbody"][valign] > *[class~="topic/row"]         > *[class~="topic/entry"][valign=middle],
+*[class~="topic/thead"][valign] > *[class~="topic/row"]         > *[class~="topic/entry"][valign=middle],
+*[class~="topic/tbody"]         > *[class~="topic/row"]         > *[class~="topic/entry"][valign=middle],
+*[class~="topic/thead"]         > *[class~="topic/row"]         > *[class~="topic/entry"][valign=middle]{
+    vertical-align:middle;
+}
+
+/*
+-------
+    Baseline
+-------
+*/
+
+/*Least specific*/
+*[class~="topic/tbody"][valign=baseline] > *[class~="topic/row"] > *[class~="topic/entry"],
+*[class~="topic/thead"][valign=baseline] > *[class~="topic/row"] > *[class~="topic/entry"] {
+    vertical-align:baseline;
+}
+
+
+/*More specific*/
+*[class~="topic/tbody"][valign] > *[class~="topic/row"][valign=baseline] > *[class~="topic/entry"],
+*[class~="topic/thead"][valign] > *[class~="topic/row"][valign=baseline] > *[class~="topic/entry"],
+*[class~="topic/tbody"]         > *[class~="topic/row"][valign=baseline] > *[class~="topic/entry"],
+*[class~="topic/thead"]         > *[class~="topic/row"][valign=baseline] > *[class~="topic/entry"] {
+    vertical-align:baseline;
+}
+
+/*Even more specific*/
+*[class~="topic/tbody"][valign] > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=baseline],
+*[class~="topic/thead"][valign] > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=baseline],
+*[class~="topic/tbody"]         > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=baseline],
+*[class~="topic/thead"]         > *[class~="topic/row"][valign] > *[class~="topic/entry"][valign=baseline],
+*[class~="topic/tbody"][valign] > *[class~="topic/row"]         > *[class~="topic/entry"][valign=baseline],
+*[class~="topic/thead"][valign] > *[class~="topic/row"]         > *[class~="topic/entry"][valign=baseline],
+*[class~="topic/tbody"]         > *[class~="topic/row"]         > *[class~="topic/entry"][valign=baseline],
+*[class~="topic/thead"]         > *[class~="topic/row"]         > *[class~="topic/entry"][valign=baseline]{
+    vertical-align:baseline;
+}
+
+
+
+
+*[class~="topic/colspec"] {
+    text-align:attr(align);    
+}
+
+
+@media oxygen {
+
+/* These have meaning only for editing. In publishing, 
+   these properties would be passed to the table cells.*/	
+*[class~="topic/colspec"] {
+    background-color:inherit;
+    font-family:sans-serif, verdana, helvetica, "Arial Unicode MS";
+	font-size:0.75em;
+}
+	
+*[class~="topic/colspec"]:after{
+    content:
+    		" name " oxy_textfield(edit, "@colname", columns, 6) 
+    		" number " oxy_textfield(edit, "@colnum", columns, 4)
+    		" width " oxy_textfield(edit, "@colwidth", columns, 6)
+    		" align " oxy_combobox(edit, "@align", editable, false, canRemoveValue, true, columns, 12)
+    		" colsep " oxy_combobox(edit, "@colsep", editable, false, canRemoveValue, true, values, "0, 1", columns, 12)
+    		" rowsep " oxy_combobox(edit, "@rowsep", editable, false, canRemoveValue, true, values, "0, 1", columns, 12);
+	white-space: pre;
+	padding-bottom: 5px;
+  
+  unicode-bidi:embed;
+  direction:ltr;
+}
+} 
+

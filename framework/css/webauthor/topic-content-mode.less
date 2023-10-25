@@ -1,0 +1,128 @@
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+
+@media oxygen and (platform : webapp) {
+  *[class~="map/map"]:-oxy-topic-content-mode {
+    // No folding available in this mode.
+    *[class~="map/topicref"] {
+      -oxy-foldable: false !important;
+    }
+  
+    &, & *[class~="map/map"] {
+      // Hide "Show Topic " map/map "Titles" button.
+      &:root:before(2000),
+      &:before(5) {
+        display: none !important;
+      }
+      // Hide the edit map title button.
+      &[title] {
+        content:
+          oxy_label(
+                  text, attr(title, string, 'No title attribute specified'),
+          styles, 'font-weight: bold; font-size: 2.5em;');
+      }
+    }
+    
+    & *[class~='map/reltable'] *[class~='map/topicref'] {
+          /* Display the topicref rendering in reltable */
+          &:before(1100),
+          &:before(1020),
+          &:before(1150) {
+            display: inline-block !important;
+      }
+    }
+  
+    & *[class~='map/topicref'] {
+      // Impose a small left margin for each topic.
+      margin-left: 0.4em !important;
+      margin-top: 2em !important;
+      margin-bottom: 1.5em !important;
+      & *[class~='topic/body'] {
+        margin-bottom: 0 !important;
+      }
+      & *[class~="topic/title"] {
+        margin-top: 0 !important;
+      }
+  
+      // Hide border.
+      & oxy|reference {
+        border-width: 0 !important;
+      }
+  
+      // Hide some form controls.
+      &:before(998),
+      &:before(999),
+      &:before(1100),
+      &:before(1050),
+      &:before(1040),
+      &:before(1030),
+      &:before(1020),
+      &:before(1010),
+      &:before(1007),
+      &:before(1150) {
+        display: none !important;
+      }
+      
+      // Place the reference link inline with the title.
+      & > * > [class~="topic/title"]:before(210),
+      & > *[title]:before(210) {
+        content: url("../../img/link-light.png");
+        link: oxy_base-uri();
+      }
+    }
+  
+    // Hide metadata and keydefs.
+    & *[class~='map/topicmeta'],
+    & *[class~='mapgroup-d/keydef'] {
+      display: none !important;
+    }
+  
+    // Hide subjectScheme.
+    & *[class~='map/topicref'] {
+      &[type='subjectScheme'] {
+        display: none !important;
+      }
+    }
+  
+    // Weight of chapter number and chapter title extracted from navtitle attribute.
+    & [class~='map/topicref'], //navtitle
+    & [class~='map/topicref'] > [class~='map/map'] { //@title
+      &:before(180), &:before(200) {
+        font-size: 2em;
+        font-weight: bold;
+      }
+    }
+  
+    // Chapters counters.
+    & *[class~='map/topicref'] {
+      // Count and skip wrapper elements like frontmatter that doesn't have any attribute.
+      &[href], &[keyref], &[conref], &[conkeyref], &[navtitle] {
+        // Push counter on stack.
+        counter-reset: cntc;
+        & ~ *[class~='map/topicref'] {
+          // Only first reference must reset the counter.
+          counter-reset: none;
+        }
+      }
+  
+      // *[href]
+      &[href], &[keyref], &[conref], &[conkeyref] {
+        // topicref[href]/topic/title
+        & > * > *[class~='topic/title'],
+          // mapref[href]/map[@title]
+        &[class~='mapgroup-d/mapref'] > *[title], &[class~='bookmap/part'] > *[title] {
+          &:before(180) {
+            counter-increment: cntc;
+            content: counters(cntc, ".") ". ";
+          }
+        }
+      }
+  
+      // *[navtitle]
+      // Only when navtitle alone to avoid duplicate numbering.
+      &[navtitle]:not([href]):not([keyref]):not([conref]):not([conkeyref]):before(180) {
+        counter-increment: cntc;
+        content: counters(cntc, ".") ". " oxy_xpath('@navtitle');
+      }
+    }
+  }
+}

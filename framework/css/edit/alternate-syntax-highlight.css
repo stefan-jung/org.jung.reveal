@@ -1,0 +1,131 @@
+/**
+ * Puts syntax highlight on the codeblock. Uses a TextArea form control for this.
+ */
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+
+*[class~="pr-d/codeblock"][outputclass^="language-" ]{
+  visibility: -oxy-collapse-text;
+	background-color: #ffffff;
+	border: 0px solid; 
+}
+
+*[class~="pr-d/codeblock"][outputclass^="language-" ] > oxy|entity {
+    display:none;
+}
+
+*[class~="pr-d/codeblock"][outputclass^="language-" ]:before{
+position:relative;
+content:
+    oxy_textArea(
+      edit, '#text',
+      contentType, oxy_concat('text/', oxy_replace(attr(outputclass), 'language-', '')),
+      fontInherit, true);
+}
+
+/* 
+ * CODEREF cases 
+ */
+ 
+*[class~="pr-d/codeblock"][outputclass^="language-" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/plain', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-xml" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/xml', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-xquery" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/xquery', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-java" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/java', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-css" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/css', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-javascript" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/javascript', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-json" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/json', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-sql" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/sql', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-c" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/c', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-cpp" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/cc', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-python" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/python', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-perl" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/perl', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-bourne" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/shell', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-php" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/php', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-yaml" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/yaml', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-dtd" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/dtd', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-cmd" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/cmd', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass="language-powershell" ] coderef oxy|reference:before{
+content:
+    oxy_textArea(edit, '#text', contentType, 'text/powershell', fontInherit, true) !important;
+}
+
+*[class~="pr-d/codeblock"][outputclass^="language-" ] coderef oxy|reference > oxy|entity {
+    display:none;
+}
+
+*[class~="pr-d/codeblock"][outputclass^="language-" ] coderef oxy|reference{
+  visibility: -oxy-collapse-text;
+	background-color: #ffffff;
+	border: 0px solid; 
+}
+
+*[class~="pr-d/codeblock"][outputclass^="language-" ]:has(coderef):before {
+    content: "";
+}

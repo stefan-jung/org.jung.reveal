@@ -1,0 +1,7 @@
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+
+@media oxygen and (platform : webapp) {
+  *[class~="map/map"] *[class~="map/topicref"]:not(:empty) {
+    -oxy-folded: true;
+  }
+}

@@ -1,0 +1,76 @@
+/*
+ * ==================================================
+ * ==================================================
+ * 
+ * Specialization elements for the question and answers 
+ * (microcontent) support in DITA.
+ * 
+ * ==================================================
+ * ==================================================
+ */
+ 
+/* ==================================================
+ * 
+ * <qagroup>
+ * 
+ * Represents a collection of multiple questions and an answer.
+ * It is the intent plus the answer. 
+ */ 
+*[class~='qatopic/qagroup'] {
+	-oxy-not-foldable-child:question;
+}
+
+/* ==================================================
+ * 
+ * <question>
+ * 
+ * Represents a question the user may have. 
+ */ 
+*[class~='qatopic/qagroup'] *[class~='qatopic/question'] {
+  font-size:1.2em;
+}
+
+/* ==================================================
+ * 
+ * <answer>
+ * 
+ * Represents the answer to a question.
+ */ 
+*[class~='qatopic/answer'] {
+}
+
+/* ==================================================
+ * 
+ * <data name="oxy:question">
+ * 
+ * Represents a question that is set in a topic. A set of 
+ * such questions are defining the topic intent. A chatbot 
+ * may guide customers to articles that best answer 
+ * their question. 
+ */
+
+*[class~="topic/data"][name~="oxy:question"] {
+  /*See -colors.css */
+}
+
+/* The questions associated to an element in the body. */
+*[class~="topic/body"] *[class~="topic/data"][name~="oxy:question"]{
+  padding-left:0.25em;
+  border-top:1pt solid;
+  border-left:1pt solid;
+  border-right:1pt solid;
+  border-bottom:1pt dashed;
+}
+
+
+*[class~="topic/p"] *[class~="topic/data"][name~="oxy:question"] {
+  display:block;
+}
+
+*[class~="topic/data"][name~="oxy:question"]:before(3) {
+  font-weight: bold;
+}
+
+*[class~="topic/data"][name~="oxy:question"]:before(2) {
+  content: none;
+}

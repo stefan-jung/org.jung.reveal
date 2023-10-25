@@ -1,0 +1,164 @@
+*[class~='map/topicref']:before(1001) {
+    content: oxy_buttonGroup(
+        icon, url('img/add16.png'),
+        transparent, true,
+        actionStyle, both,
+        tooltip, '${i18n(Insert_element_with_dialog)}',    
+        actions, oxy_action_list(
+            oxy_action(id, 'insert.new.dita.resource'),
+            oxy_action(id, 'insert.topicref'),
+            oxy_action(id, 'insert.topichead')
+      ));
+}
+
+@media oxygen and (platform: webapp) {
+    /**
+     * Location specified to let user choose, but by default insert elements as first child.
+     */
+    *[class~='map/topicref'] {
+        --topic-insertion-position: 
+            "${ask(\
+                '${i18n(Location)}',\
+                combobox, \
+                (\
+                    'Inside as first child': '${i18n(As_the_first_child)}';\
+                    'After':'${i18n(After_the_current_element)}'\
+                ),\
+                'Inside as first child')}";
+    }
+    
+    /**
+     * For empty elements, insert the new topic after the current element.
+     */
+    *[class~='map/topicref']:empty {
+        --topic-insertion-position: 
+            "${ask(\
+                '${i18n(Location)}',\
+                combobox, \
+                (\
+                    'Inside as first child': '${i18n(As_the_first_child)}';\
+                    'After':'${i18n(After_the_current_element)}'\
+                ),\
+                'After')}";
+    }
+    
+    /** Topicrefs and headings can be added only inside a chapter */
+    *[class~='map/topicref'][class~='bookmap/chapter'] {
+        --topic-insertion-position: 'Inside as first child';
+    }
+
+    *[class~='map/topicref']:before(1001) {
+        content: oxy_buttonGroup(
+            icon, url('img/add16.png'),
+            transparent, true,
+            actionStyle, both,
+            tooltip, '${i18n(Insert_element_with_dialog)}',    
+            actions, oxy_action_list(
+                oxy_action(
+                        name, '${i18n(Insert_new_topic)}', 
+                        description, '${i18n(Insert_new_topic_description)}', 
+                        operation, 'ro.sync.ecss.extensions.dita.map.topicref.CreateAndInsertTopicRef', 
+                        icon, url('/images/NewTopic16.png'), 
+                        arg-title, "${ask('${i18n(Title)}')}",
+                        arg-insertPosition, var(--topic-insertion-position),
+                        arg-templateContent, '<?xml version="1.0" encoding="UTF-8"?>\
+                                <!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">\
+                                <topic id="${id}">\
+                                  <title>${title}</title>\
+                                </topic>'
+                ),
+                oxy_action(
+                        name, '${i18n(Link_to_existing_topic)}', 
+                        description, '${i18n(Link_to_existing_topic_description)}', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation', 
+                        icon, url('/images/Topicref16.png'), 
+                        arg-fragment, "<topicref href=\"${ask('${i18n(cc_topic)}', relative_url)}\"></topicref>",
+                        arg-insertLocation, '.',
+                        arg-insertPosition, var(--topic-insertion-position)
+                ),
+                oxy_action(
+                       name, '${i18n(Insert_heading)}', 
+                       description, '${i18n(Insert_heading_description)}', 
+                       operation, 'ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation',
+                       icon, url('/images/Topichead16.png'), 
+                       arg-fragment, "<topichead navtitle=\"${ask('${i18n(Title)}')}\"></topichead>",
+                       arg-insertLocation, '.',
+                       arg-insertPosition, var(--topic-insertion-position)
+                ),
+                oxy_action(id, 'Author/InsertElement')
+          ));
+    }
+    /** Add action to insert a new chapter after the current one. */
+    *[class~='bookmap/chapter']:after(1001) {
+        margin-top: 12px;
+        display:block;
+    }    
+    *[class~='bookmap/chapter']:last-of-type:after(1001) {
+        content: oxy_button(action, oxy_action(
+                        name, '${i18n(Insert_new_chapter)}', 
+                        description, '${i18n(Insert_new_chapter_description)}', 
+                        operation, 'ro.sync.ecss.extensions.dita.map.topicref.CreateAndInsertTopicRef', 
+                        icon, url('../../img/Chapter16.png'), 
+                        arg-title, "${ask('${i18n(Title)}')}",
+                        arg-insertPosition, 'After',
+                        arg-templateContent, '<?xml version="1.0" encoding="UTF-8"?>\
+                                <!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">\
+                                <topic id="${id}">\
+                                  <title>${title}</title>\
+                                </topic>'
+                ), showIcon, true, showText, true);
+    }
+
+}
+
+    
+
+*[class~='map/topicref']:empty:before(1001) {
+  visibility: hidden;
+}
+*[class~='map/topicref']:empty:hover:before(1001) {
+  visibility: visible;
+}
+
+/**
+ * The (+) buttons are not currently designed to work in "View Topic Content" mode.
+ */
+*[class~="map/map"]:-oxy-topic-content-mode  *[class~='map/topicref']:before(1001),
+*[class~="mapgroup-d/keydef"]:before(1001) {
+  content: none !important;
+}
+
+
+/** Topicrefs in a reltable should not have hierachical structure */
+*[class~="map/reltable"] *[class~='map/topicref']:before(1001),
+/** Topicrefs in a subject scheme maps should not have hierachical structure */
+*[class~="subjectScheme/subjectScheme"] *[class~='map/topicref']:before(1001),
+
+/** The topicapply structure is not hierarchical */
+*[class~="classify-d/topicapply"] *[class~='map/topicref']:before(1001),
+*[class~="classify-d/topicapply"][class~='map/topicref']:before(1001),
+
+/** The topicsubject structure is not hierarchical */
+*[class~="classify-d/topicsubject"] *[class~='map/topicref']:before(1001),
+*[class~="classify-d/topicsubject"][class~='map/topicref']:before(1001),
+
+/** Some bookmap parts have a complex structure - we do not add the (+) buttons on them. */
+*[class~="bookmap/frontmatter"] *[class~='map/topicref']:before(1001),
+*[class~="bookmap/frontmatter"][class~='map/topicref']:before(1001),
+*[class~="bookmap/backmatter"] *[class~='map/topicref']:before(1001),
+*[class~="bookmap/backmatter"][class~='map/topicref']:before(1001),
+*[class~="bookmap/draftintro"] *[class~='map/topicref']:before(1001),
+*[class~="bookmap/draftintro"][class~='map/topicref']:before(1001),
+*[class~="bookmap/preface"] *[class~='map/topicref']:before(1001),
+*[class~="bookmap/preface"][class~='map/topicref']:before(1001),
+*[class~="bookmap/appendix"] *[class~='map/topicref']:before(1001),
+*[class~="bookmap/appendix"][class~='map/topicref']:before(1001),
+*[class~="bookmap/notices"] *[class~='map/topicref']:before(1001),
+*[class~="bookmap/notices"][class~='map/topicref']:before(1001),
+*[class~="bookmap/glossarylist"] *[class~='map/topicref']:before(1001),
+*[class~="bookmap/glossarylist"][class~='map/topicref']:before(1001),
+
+/** The topicsetref structure is not hierarchical */
+*[class~="mapgroup-d/topicsetref"]:before(1001) {
+  content: none !important;
+}

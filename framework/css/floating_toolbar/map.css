@@ -1,0 +1,4 @@
+*[class ~= "map/topicref"]:-oxy-selected {
+    -oxy-floating-toolbar: 
+         oxy_button(actionID, 'up') oxy_button(actionID, 'down') oxy_button(actionID, 'promote') oxy_button(actionID, 'demote')
+}

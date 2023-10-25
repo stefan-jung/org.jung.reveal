@@ -1,0 +1,6 @@
+/** 
+ * CSS used to hide prolog.
+ */
+*[class~="topic/prolog"]{
+	-oxy-folded:true;
+}

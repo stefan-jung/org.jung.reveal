@@ -1,0 +1,28 @@
+@import "style-basic.css";
+@import "alternate-table-hide-colspec.css";
+@import "preview-base.css";
+
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+
+oxy|processing-instruction {
+  display:none !important;
+}
+
+/* This special processing instruction is generated in the preview DITA content when two spaces are inserted in the Markdown content. */
+oxy|processing-instruction[linebreak]{
+    display:-oxy-morph !important;
+}
+
+body:empty {
+  display:none !important;
+}
+
+*[class~="topic/image"][keyref][keyref]:before(10),
+*[class~="topic/image"][keyref][keyref][href]:before(10) {
+    content: "";
+}
+
+*[class~="topic/image"][keyref][keyref][keyref][keyref],
+*[class~="topic/image"][keyref][keyref][keyref][keyref][href] {
+    content: attr(keyref, keyref);
+}

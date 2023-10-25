@@ -1,0 +1,22 @@
+/*
+====================================
+    All DITA elements.
+====================================
+*/
+
+@import "../core/-dita.css";
+
+/*
+* Floating toolbar configuration
+*/
+@import "../floating_toolbar/topic.css";
+
+/* 
+ * Floating toolbar configuration for maps.
+ */
+@import "../floating_toolbar/map.css";
+
+/* 
+ * Extra styling for elements resulted from OpenAPI conversion
+ */
+/*@import "../openapi/openapi.css";*/

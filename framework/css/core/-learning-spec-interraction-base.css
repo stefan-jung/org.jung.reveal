@@ -1,0 +1,206 @@
+/*
+ * ==================================================
+ * ==================================================
+ * 
+ * DITA learning interaction base domain elements
+ * 
+ * http://docs.oasis-open.org/dita/v1.2/os/spec/common/lc_spec_interactionBase_domain.html
+ * 
+ * The learning interaction base domain defines an "abstract" 
+ * base type for all learning assessments. This base 
+ * type enables recognition of elements as interactions 
+ * as distinct from other topic/fig elements.
+ *  
+ * The lcInteractionBase element is intended to be used only 
+ * as a base for specialization. It should not be used 
+ * directly as an element type in DITA documents.
+ * 
+ * ==================================================
+ * ==================================================
+ * 
+ */
+
+/* ====================================
+ *
+ * <lcQuestionBase>
+ * 
+ * Use <lcInteractionBase> as the base for more 
+ * specialized assessment types.
+ *  
+ * Inherits styles from parent class:
+ *  
+ *     + topic/p
+ */
+*[class~="learningInteractionBase-d/lcQuestionBase"],
+*[class~="learningInteractionBase2-d/lcQuestionBase2"] {
+  /**/
+}
+*[class~="learningInteractionBase-d/lcQuestionBase"] > *[class~="topic/title"]:before,
+*[class~="learningInteractionBase2-d/lcQuestionBase2"] > *[class~="topic/title"]:before {
+  font-weight: bold;
+  font-style: normal;
+}
+/* ====================================
+ *
+ * <lcInteractionBase>
+ * 
+ * Use <lcInteractionBase> as the base for more 
+ * specialized assessment types.
+ *  
+ * Inherits styles from parent class:
+ *  
+ *     + topic/fig
+ */
+*[class~="learningInteractionBase-d/lcInteractionBase"],
+*[class~="learningInteractionBase2-d/lcInteractionBase2"] {
+  /*TODO -dan- DTD-Spec-Conflict  lcInteractionBase */
+  margin: 1em 0;
+  padding: 1em 0;
+}
+*[class~="learningInteractionBase-d/lcInteractionBase"] + *[class~="learningInteractionBase-d/lcInteractionBase"],
+*[class~="learningInteractionBase2-d/lcInteractionBase2"] + *[class~="learningInteractionBase2-d/lcInteractionBase2"] {
+  border-top: 1px solid;
+}
+*[class~="learningInteractionBase-d/lcInteractionBase"]:before,
+*[class~="learningInteractionBase2-d/lcInteractionBase2"]:before {
+  font-weight: bold;
+  font-style: normal;
+}
+*[class~="learningInteractionBase-d/lcInteractionBase"] > *[class~="topic/title"],
+*[class~="learningInteractionBase2-d/lcInteractionBase2"] > *[class~="topic/title"] {
+  display: inline;
+}
+*[class~="learningInteractionBase-d/lcInteractionBase"] > *[class~="topic/title"]:before,
+*[class~="learningInteractionBase2-d/lcInteractionBase2"] > *[class~="topic/title"]:before {
+  content: none;
+}
+/* ====================================
+ *
+ * <lcOpenQuestion>
+ * 
+ * Use <lcOpenQuestion> to pose an open-ended question 
+ * in an assessment interaction.
+ *  
+ * Inherits styles from parent class:
+ *  
+ *     + topic/fig learningInteractionBase-d/lcInteractionBase
+ */
+*[class~="learning-d/lcOpenQuestion"]:before,
+*[class~="learning2-d/lcOpenQuestion2"]:before {
+  /**/	
+}
+/* ====================================
+ *
+ * <lcTrueFalse>
+ * 
+ * A lcTrueFalse interaction presents the 
+ * learner with two choices, one correct, the 
+ * other incorrect, often presented as 
+ * true/false or yes/no responses.
+ *  
+ * Inherits styles from parent class:
+ *  
+ *     + topic/fig learningInteractionBase-d/lcInteractionBase
+ */
+*[class~="learning-d/lcTrueFalse"]:before,
+*[class~="learning2-d/lcTrueFalse2"]:before {
+  /**/
+}
+/* ====================================
+ *
+ * <lcSingleSelect>
+ * 
+ * An lcSingleSelect interaction presents 
+ * three or more choices, only one of 
+ * which is correct.
+ *  
+ * Inherits styles from parent class:
+ *  
+ *     + topic/fig learningInteractionBase-d/lcInteractionBase 
+ */
+*[class~="learning-d/lcSingleSelect"]:before,
+*[class~="learning2-d/lcSingleSelect2"]:before {
+/**/
+}
+/* ====================================
+ *
+ * <lcMultipleSelect>
+ * 
+ * In an lcMultipleSelect interaction, the 
+ * learner must indicate two or more correct 
+ * answers from a list of choices.
+ *  
+ * Inherits styles from parent class:
+ *  
+ *     + topic/fig learningInteractionBase-d/lcInteractionBase 
+ */
+*[class~="learning-d/lcMultipleSelect"]:before,
+*[class~="learning2-d/lcMultipleSelect2"]:before {
+/**/
+}
+/* ====================================
+ *
+ * <lcSequencing>
+ * 
+ * An lcSequencing interaction asks the learner 
+ * to arrange a list of choices into a 
+ * predefined order, such as small to large.
+ *  
+ * Inherits styles from parent class:
+ *  
+ *     + topic/fig learningInteractionBase-d/lcInteractionBase 
+ */
+*[class~="learning-d/lcSequencing"]:before,
+*[class~="learning2-d/lcSequencing2"]:before {
+/**/
+}
+/* ====================================
+ *
+ * <lcMatching>
+ * 
+ * In an lcMatching interaction, the learner 
+ * identifies the correct choice that matches 
+ * another choice and, optionally, any feedback 
+ * for the pair or for correct or incorrect matches.
+ *  
+ * Inherits styles from parent class:
+ *  
+ *     + topic/fig learningInteractionBase-d/lcInteractionBase 
+ */
+*[class~="learning-d/lcMatching"]:before,
+*[class~="learning2-d/lcMatching2"]:before {
+/**/
+}
+/* ====================================
+ *
+ * <lcHotspot>
+ * 
+ * In a lcHotspot interaction, the learner 
+ * clicks on a region of the screen to 
+ * indicate a choice.
+ *  
+ * Inherits styles from parent class:
+ *  
+ *     + topic/fig learningInteractionBase-d/lcInteractionBase 
+ */
+*[class~="learning-d/lcHotspot"]:before,
+*[class~="learning2-d/lcHotspot2"]:before {
+  /**/
+}
+/* ====================================
+ *
+ * <lcInstructornote>
+ * 
+ * Use the <lcInstructornote> element to provide 
+ * information or notes you want to provide to 
+ * the course instructor. These notes can be condionalized 
+ * out of content you intend to deliver to the learner.
+ *  
+ * Inherits styles from parent class:
+ *  
+ *     + topic/note learningInteractionBase-d/note
+ */
+*[class~="learning-d/lcInstructornote"],
+*[class~="learning2-d/lcInstructornote2"] {
+  /**/
+}

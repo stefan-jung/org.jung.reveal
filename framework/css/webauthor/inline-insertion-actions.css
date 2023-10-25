@@ -1,0 +1,47 @@
+*[class~='topic/p'] {
+    -oxy-show-placeholder: always;
+}
+
+@media oxygen and (platform:standalone), oxygen and (platform:eclipse) {
+   *[class~='topic/p']:empty:after{
+      display: block;
+      content: oxy_buttonGroup(
+          icon, url('img/add16.png'),
+          transparent, true,
+          actionStyle, both,
+          tooltip, 'Insert element...',    
+          actionIDs, 
+            'orderedList, unorderedList, insert.definition.list, insert.table, insert.image, insert.code.block, insert.note, insert.equation');  
+  }
+}
+
+@media oxygen and (platform:webapp) {
+  *[class~='topic/p']:empty {
+      position: relative;
+  }
+
+  *[class~='topic/section'] > *[class~='topic/p'], 
+  *[class~='topic/body'] > *[class~='topic/p'],
+  *[class~='topic/bodydiv'] > *[class~='topic/p'],
+  *[class~='topic/section'] > *[class~='topic/p'],
+  *[class~='topic/sectiondiv'] > *[class~='topic/p']  {
+      -oxy-show-placeholder: no;
+  }
+      
+  /* Display the inline action only in some context - otherwise, the button may overlap with some parent's border. */
+  *[class~='topic/section'] > *[class~='topic/p']:empty:before, 
+  *[class~='topic/body'] > *[class~='topic/p']:empty:before,
+  *[class~='topic/bodydiv'] > *[class~='topic/p']:empty:before,
+  *[class~='topic/section'] > *[class~='topic/p']:empty:before,
+  *[class~='topic/sectiondiv'] > *[class~='topic/p']:empty:before  {
+      position: absolute;
+      left: -30px;
+      content: oxy_buttonGroup(
+          icon, url('img/add16.png'),
+          transparent, true,
+          actionStyle, both,
+          tooltip, 'Insert element...',    
+          actionIDs, 
+            'orderedList, unorderedList, insert.definition.list, insert.table, insert.image, insert.code.block, insert.note, insert.equation, Author/InsertElement');
+  }
+}

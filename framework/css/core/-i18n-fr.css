@@ -1,0 +1,709 @@
+@charset "UTF-8";
+
+
+/*
+ * ------------------------------------------------
+ * From -domain-taskreq-d.css
+ */
+*[class ~= "taskreq-d/noconds"]:lang(fr):before {
+    content: "<Aucune condition>" !important;
+}
+*[class ~= "taskreq-d/prelreqs"]:lang(fr):before {
+    content: "Exigences préliminaires: ";
+}
+*[class ~= "taskreq-d/closereqs"]:lang(fr):before {
+    content: "Exigences de clôture: ";
+}
+*[class ~= "taskreq-d/reqconds"]:lang(fr):before {
+    content: "Conditions: ";
+}
+*[class ~= "taskreq-d/reqpers"]:lang(fr):before {
+    content: "Personnel: ";
+}
+*[class ~= "taskreq-d/personnel"]:lang(fr):before {
+    content: "Nombre de travailleurs: " !important;
+}
+*[class ~= "taskreq-d/perscat"]:lang(fr):before {
+    content: "Catégorie: " !important;
+}
+*[class ~= "taskreq-d/perskill"]:lang(fr):before {
+    content: "Niveau de compétence: " !important;
+}
+*[class ~= "taskreq-d/esttime"]:lang(fr):before {
+    content: "Estimation du temps: " !important;
+}
+*[class ~= "taskreq-d/supequip"]:lang(fr):before {
+    content: "Équipement: " !important;
+}
+*[class ~= "taskreq-d/nosupeq"]:lang(fr):before {
+    content: "<Aucun équipement de soutien>";
+}
+*[class ~= "taskreq-d/supplies"]:lang(fr):before {
+    content: "Provisions: " !important;
+}
+*[class ~= "taskreq-d/nosupply"]:lang(fr):before {
+    content: "<Pas de provision>";
+}
+*[class ~= "taskreq-d/spares"]:lang(fr):before {
+    content: "Pièces:";
+}
+*[class ~= "taskreq-d/nospares"]:lang(fr):before {
+    content: "<Pas de pièces>";
+}
+*[class ~= "taskreq-d/nosafety"]:lang(fr):before {
+    content: "<Pas de sécurité>" !important;
+}
+*[class ~= "taskreq-d/safety"]:lang(fr):before {
+    content: url(../img/caution.svg) " Sécurité:";
+}
+
+/*
+ * ------------------------------------------------
+ * From -domain-troubleshooting.css
+ */
+@media oxygen and (platform:standalone), oxygen and (platform:eclipse) {
+   *[class ~= 'troubleshooting/condition']:lang(fr):before {
+       content: "Condition ";
+   }
+   *[class ~= 'troubleshooting/cause']:lang(fr):before {
+       content: "Cause: ";
+   }
+   *[class ~= 'troubleshooting/remedy']:lang(fr):before {
+       content: "Remède: ";
+   }
+   *[class ~= 'troubleshooting/responsibleParty']:lang(fr):before {
+       content: "Partie responsable: ";
+   }
+}
+
+/*
+ * ------------------------------------------------
+ * From -learning-common-interraction.css
+ */
+*[class ~= "learning-d/lcFeedbackIncorrect"]:lang(fr):before,
+*[class ~= "learning2-d/lcFeedbackIncorrect2"]:lang(fr):before {
+    content: "Quand incorrect: ";
+}
+*[class ~= "learning-d/lcFeedbackCorrect"]:lang(fr):before,
+*[class ~= "learning2-d/lcFeedbackCorrect2"]:lang(fr):before {
+    content: "Quand c'est correct: ";
+}
+*[class ~= "learning-d/lcOpenAnswer"]:lang(fr):before,
+*[class ~= "learning2-d/lcOpenAnswer2"]:lang(fr):before {
+    content: "Réponse: ";
+}
+*[class ~= "learning-d/lcQuestion"]:lang(fr):before,
+*[class ~= "learning2-d/lcQuestion2"]:lang(fr):before {
+    content: "Question: ";
+}
+
+/*
+ * -learning-spec-interraction-base.css
+ */
+*[class ~= "learning-d/lcOpenQuestion"]:lang(fr):before,
+*[class ~= "learning2-d/lcOpenQuestion2"]:lang(fr):before {
+    content: "Question ouverte: ";
+}
+*[class ~= "learning-d/lcTrueFalse"]:lang(fr):before,
+*[class ~= "learning2-d/lcTrueFalse2"]:lang(fr):before {
+    content: "Vrai ou faux: ";
+}
+*[class ~= "learning-d/lcSingleSelect"]:lang(fr):before,
+*[class ~= "learning2-d/lcSingleSelect2"]:lang(fr):before {
+    content: "Sélection unique: ";
+}
+*[class ~= "learning-d/lcMultipleSelect"]:lang(fr):before,
+*[class ~= "learning2-d/lcMultipleSelect2"]:lang(fr):before {
+    content: "Sélection multiple: ";
+}
+
+*[class ~= "learning-d/lcSequencing"]:lang(fr):before,
+*[class ~= "learning2-d/lcSequencing2"]:lang(fr):before {
+    content: "Ordonner la séquence: ";
+}
+
+*[class ~= "learning-d/lcMatching"]:lang(fr):before,
+*[class ~= "learning2-d/lcMatching2"]:lang(fr):before {
+    content: "Faites correspondre les choix: ";
+}
+*[class ~= "learning-d/lcHotspot"]:lang(fr):before,
+*[class ~= "learning2-d/lcHotspot2"]:lang(fr):before {
+    content: "Cliquez sur une région: ";
+}
+
+/*
+ * -reference.css
+ */
+*[class ~= "reference/refsyn"]:lang(fr):before {
+    content: "Syntaxe: ";
+}
+@media print {
+    *[class ~= "reference/refsyn"]:lang(fr):before {
+        content: none;
+    }
+}
+
+
+/*
+ * -task.css
+ */
+*[class ~= "task/prereq"]:lang(fr):before {
+    content: "Avant que tu commences: ";
+}
+@media print {
+    *[class ~= "task/prereq"]:lang(fr):before {
+        content: none;
+    }
+}
+*[class ~= "task/postreq"]:lang(fr):before {
+    content: "Que faire ensuite: ";
+}
+@media print {
+    *[class ~= "task/postreq"]:lang(fr):before {
+        content: none;
+    }
+}
+*[class ~= "task/context"]:lang(fr):before {
+    content: "À propos de cette tâche: ";
+}
+@media print {
+    *[class ~= "task/context"]:lang(fr):before {
+        content: none;
+    }
+}
+*[class ~= "task/result"]:lang(fr):before {
+    content: "Résultats: ";
+}
+@media print {
+    *[class ~= "task/result"]:lang(fr):before {
+        content: none;
+    }
+}
+*[class ~= "task/tasktroubleshooting"]:lang(fr):before,
+*[class ~= "task/steptroubleshooting"]:lang(fr):before {
+    content: "Dépannage: ";
+}
+@media print {
+    *[class ~= "task/tasktroubleshooting"]:lang(fr):before,
+    *[class ~= "task/steptroubleshooting"]:lang(fr):before {
+        content: none;
+    }
+}
+
+*[class ~= "task/choices"]:lang(fr):before {
+    content: "Choisissez parmi: ";
+}
+@media print {
+    *[class ~= "task/choices"]:lang(fr):before {
+        content: none;
+    }
+}
+*[class ~= "task/stepxmp"]:lang(fr):before {
+    content: "Exemple: ";
+}
+@media print {
+    *[class ~= "task/stepxmp"]:lang(fr):before {
+        display: none;
+    }
+}
+*[class ~= "task/stepresult"]:lang(fr):before {
+    content: "Résultat: ";
+}
+@media print {
+    *[class ~= "task/stepresult"]:lang(fr):before {
+        content: none;
+    }
+}
+*[class ~= "task/tutorialinfo"]:lang(fr):before {
+    content: "Informations sur le didacticiel: ";
+}
+@media print {
+    *[class ~= "task/tutorialinfo"]:lang(fr):before {
+        content: none;
+    }
+}
+
+*[class ~= "topic/searchtitle"]:lang(fr):before {
+    content: "Titre pour la recherche: ";
+}
+*[class ~= "topic/navtitle"]:lang(fr):before {
+    content: "Titre pour la navigation: ";
+}
+
+@media print {
+    *[class ~= "topic/searchtitle"]:lang(fr):before {
+        content: none;
+    }
+    *[class ~= "topic/navtitle"]:lang(fr):before {
+        content: none;
+    }
+}
+
+*[class ~= "topic/shortdesc"]:lang(fr):before {
+    content: "Brève description: ";
+}
+
+@media print {
+    *[class ~= "topic/shortdesc"]:lang(fr):before {
+        display: none;
+    }
+}
+
+*[class ~= "topic/abstract"]:lang(fr):before {
+    content: "Abstrait: ";
+}
+@media print {
+    *[class ~= "topic/abstract"]:lang(fr):before {
+        display: none;
+    }
+}
+
+*[class ~= "topic/related-links"]:lang(fr):before {
+    content: "Informations connexes: ";
+}
+@media print {
+    *[class ~= "topic/related-links"]:lang(fr):before {
+        content: none;
+    }
+}
+
+/*
+ * -topic-body.css
+ */
+*[class ~= "topic/draft-comment"][author]:lang(fr):before {
+    content: "Commentaire par " attr(author) ": ";
+}
+*[class ~= "topic/draft-comment"]:lang(fr):before {
+    content: "Commentaire: ";
+}
+
+*[class ~= "topic/example"] > *[class ~= "topic/title"]:lang(fr):before {
+    content: "Exemple: ";
+}
+
+*[class ~= "topic/note"]:lang(fr):before(2) {
+    content:
+    oxy_buttonGroup(
+    icon, "../img/Expand16.png",
+    transparent, true,
+    actions, 
+      oxy_action_list(
+          oxy_action(
+                name, 'Attention', 
+                description, 'Veuillez prêter une attention particulière à cette note.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'attention'
+          ),
+          oxy_action(
+                name, 'Mise en garde', 
+                description, 'La prudence est est de mise.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'caution'
+          ),
+          oxy_action(
+                name, 'Danger', 
+                description, 'Important ! Soyez conscient de ceci avant de faire quoi que ce soit d\'autre. Utilisé avec l\'élément <hazardstatement>, cet élément indique une situation dangereuse imminente qui, si elle n\'est pas évitée, entraînera la mort ou des blessures graves.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'danger'
+          ),
+          oxy_action(
+                name, 'Fastpath', 
+                description, 'Cette note vous permettra d\'aller plus vite.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'fastpath'
+          ),
+          oxy_action(
+                name, 'Important', 
+                description, 'Cette note est importante.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'important'
+          ),
+          oxy_action(
+                name, 'Note', 
+                description, 'Ceci est juste une note.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'note'
+          ),
+          oxy_action(
+                name, 'Remarque', 
+                description, 'Indique une situation potentielle qui, si elle n\'est pas évitée, peut entraîner un résultat ou un état indésirable.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'notice'
+          ),
+          oxy_action(
+                name, 'Autre', 
+                description, 'Ceci est quelque chose autre qu\'une note normale.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'other'
+          ),
+          oxy_action(
+                name, 'Rappelles toi', 
+                description, 'N\'oubliez pas de faire ce que dit cette note.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'remember'
+          ),
+          oxy_action(
+                name, 'Restriction', 
+                description, 'Vous ne pouvez pas faire ce que dit cette note.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'restriction'
+          ),
+          oxy_action(
+                name, 'Conseil', 
+                description, 'Ceci est un bon petit conseil.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'tip'
+          ),
+          oxy_action(
+                name, 'Dépannage', 
+                description, 'Fournit des informations sur la manière de remédier à une situation problématique.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'trouble'
+          ),
+          oxy_action(
+                name, 'Attention', 
+                description, 'Indique une situation potentiellement dangereuse. Utilisé avec l\'élément <hazardstatement>, il indique une situation qui, si elle n\'est pas évitée, peut entraîner la mort ou des blessures graves.', 
+                operation, 'ChangeAttributeOperation', 
+                arg-name, 'type',
+                arg-elementLocation, '.',
+                arg-value, 'warning'
+          )
+      )
+  ) ;
+  vertical-align:middle;
+}
+
+*[class ~= "topic/note"]:lang(fr):before(3) {
+    content: url('../img/note.svg');
+}
+*[class ~= "topic/note"]:lang(fr):before {
+    content: " Note: ";
+}
+*[class ~= "topic/note"][type = "attention"]:lang(fr):before(3) {
+    content: url('../img/attention.svg');
+}
+*[class ~= "topic/note"][type = "attention"]:lang(fr):before {
+    content: " Attention: ";
+}
+*[class ~= "topic/note"][type = "caution"]:lang(fr):before(3) {
+    content: url('../img/caution.svg');
+}
+*[class ~= "topic/note"][type = "caution"]:lang(fr):before {
+    content: " Mise en garde: ";
+}
+*[class ~= "topic/note"][type = "danger"]:lang(fr):before(3) {
+    content: url('../img/danger.svg');
+}
+*[class ~= "topic/note"][type = "danger"]:lang(fr):before {
+    content: " Danger: ";
+}
+*[class ~= "topic/note"][type = "fastpath"]:lang(fr):before(3) {
+    content: url('../img/fastpath.svg');
+}
+*[class ~= "topic/note"][type = "fastpath"]:lang(fr):before {
+    content: " Fastpath: ";
+}
+*[class ~= "topic/note"][type = "important"]:lang(fr):before(3) {
+    content: url('../img/important.svg');
+}
+*[class ~= "topic/note"][type = "important"]:lang(fr):before {
+    content: " Important: ";
+}
+*[class ~= "topic/note"][type = "other"]:lang(fr):before {
+    content: "Autre: ";
+}
+*[class ~= "topic/note"][type = "remember"]:lang(fr):before(3) {
+    content: url('../img/remember.svg');
+}
+*[class ~= "topic/note"][type = "remember"]:lang(fr):before {
+    content: " Rappelles toi: ";
+}
+*[class ~= "topic/note"][type = "restriction"]:lang(fr):before(3) {
+    content: url('../img/restriction.svg');
+}
+*[class ~= "topic/note"][type = "restriction"]:lang(fr):before {
+    content: " Restriction: ";
+}
+*[class ~= "topic/note"][type = "tip"]:lang(fr):before(3) {
+    content:  url('../img/tip.svg');
+}
+*[class ~= "topic/note"][type = "tip"]:lang(fr):before {
+    content:  " Conseil: ";
+}
+*[class ~= "topic/note"][type = "notice"]:lang(fr):before(3) {
+    content:  url('../img/notice.svg');
+}
+*[class ~= "topic/note"][type = "notice"]:lang(fr):before {
+    content:  " Remarque: ";
+}
+*[class ~= "topic/note"][type = "warning"]:lang(fr):before(3) {
+    content:  url('../img/warning.svg');
+}
+*[class ~= "topic/note"][type = "warning"]:lang(fr):before {
+    content:  " Attention: ";
+}
+*[class ~= "topic/note"][type = "other"][othertype]:lang(fr):before {
+    content: attr(othertype) ": ";
+}
+*[class ~= "topic/note"][type = "trouble"]:lang(fr):before(3) {
+    content: url('../img/troubleshooting.svg');
+}
+*[class ~= "topic/note"][type = "trouble"]:lang(fr):before {
+    content: " Dépannage: ";
+}
+
+/*
+ * ------------------------------------------------
+ * From -glossary.css
+ */
+*[class ~= "glossentry/glossPartOfSpeech"]:lang(fr):before {
+    content: "Partie du discours: ";
+}
+*[class ~= "glossentry/glossProperty"]:lang(fr):before {
+    content: "Propriété: ";
+}
+*[class ~= "glossentry/glossStatus"]:lang(fr):before {
+    content: "Situation: ";
+}
+*[class ~= "glossentry/glossSurfaceForm"]:lang(fr):before {
+    content: "Forme de surface: ";
+}
+*[class ~= "glossentry/glossUsage"]:lang(fr):before {
+    content: "Usage: ";
+}
+
+/*
+ * ------------------------------------------------
+ * From -domain-hazard-d.css
+ */
+/* Remove icon inherited from DITA note */
+*[class ~= "hazard-d/hazardstatement"][class ~= "hazard-d/hazardstatement"]:lang(fr):before(2),
+*[class ~= "hazard-d/hazardstatement"][class ~= "hazard-d/hazardstatement"][type]:lang(fr):before(2),
+*[class ~= "hazard-d/hazardstatement"][class ~= "hazard-d/hazardstatement"]:lang(fr):before(3),
+*[class ~= "hazard-d/hazardstatement"][class ~= "hazard-d/hazardstatement"][type]:lang(fr):before(3){
+    content: none;
+}
+*[class ~= "hazard-d/hazardstatement"]:lang(fr):before {
+     content: url("../img/ISO_7010_W001.svg")  " PRÉCAUTION";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "note"]:lang(fr):before {
+     content: " NOTE";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "tip"]:lang(fr):before {
+     content: " CONSEIL";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "fastpath"]:lang(fr):before {
+     content: " FASTPATH";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "important"]:lang(fr):before {
+     content: " IMPORTANT";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "restriction"]:lang(fr):before {
+     content: " RESTRICTION";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "remember"]:lang(fr):before {
+     content: " RAPPELLES TOI";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "attention"]:lang(fr):before {
+     content:  " ATTENTION";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "caution"]:lang(fr):before {
+     content: url("../img/ISO_7010_W001.svg")  " PRÉCAUTION";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "notice"]:lang(fr):before {
+     content: " REMARQUER";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "danger"]:lang(fr):before {
+     content: url("../img/ISO_7010_W001.svg")  " DANGER";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "warning"]:lang(fr):before {
+     content: url("../img/ISO_7010_W001.svg")  " AVERTISSEMENT";
+}
+*[class ~= "hazard-d/hazardstatement"][type = "other"]:lang(fr):before {
+     content: " AUTRE TYPE DE DANGER";
+}
+
+/*
+ * -topic-legacy-conversion.css
+ */
+*[class ~= "topic/required-cleanup"]:lang(fr):before {
+    content: "Nettoyage Requis: ";
+}
+
+/*
+ * -topic-metadata-indexterms
+ */
+*[class ~= "topic/indexterm"] > *[class ~= "indexing-d/index-see"]:lang(fr):before {
+    content: " - voir: ";
+}
+*[class ~= "topic/indexterm"] > *[class ~= "indexing-d/index-see-also"]:lang(fr):before {
+    content: " - voir également: ";
+}
+*[class ~= "topic/indexterm"] > *[class ~= "indexing-d/index-see-also"]:after,
+*[class ~= "topic/indexterm"] > *[class ~= "indexing-d/index-see"]:after {
+    content: " ";
+}
+*[class ~= "indexing-d/index-sort-as"]:lang(fr):before {
+    content: " - trier comme: ";
+}
+
+/*
+ * -topic-specialization
+ */
+*[class ~= "topic/data-about"]:lang(fr):before {
+    content: "Données sur:";
+}
+
+/*
+ * -topic-metadata-prolog
+ */
+*[class~="topic/audience"]:lang(fr):before(300) {
+  content: "Public: ";
+}
+ 
+ *[class~="topic/author"]:lang(fr):before(300) {
+  content: "Auteur: ";
+}
+*[class~="topic/brand"]:lang(fr):before(300) {
+  content: "Marque: ";
+}
+*[class~="topic/category"]:lang(fr):before(300) {
+  content: "Catégorie: ";
+}
+*[class~="topic/component"]:lang(fr):before(300) {
+  content: "Composant: ";
+}
+*[class~="topic/copyright"]:lang(fr):before(300) {
+  content: "Droits d'auteur ";
+}
+*[class~="topic/copyryear"]:lang(fr):before(300) {
+  content: "An: ";
+}
+*[class~="topic/copyrholder"]:lang(fr):before(300) {
+  content: "Titulaire: ";
+}
+*[class~="topic/critdates"]:lang(fr):before(300) {
+  content: "Dates critiques";
+}
+*[class~="topic/created"]:lang(fr):before(300) {
+  content: "Créé: ";
+}
+*[class~="topic/revised"]:lang(fr):before(300) {
+  content: "Modifié: ";
+}
+*[class~="topic/featnum"]:lang(fr):before(300) {
+  content: "Numéro de fonctionnalité: ";
+}
+*[class~="topic/keywords"]:lang(fr):before(300) {
+  content: "Mots clés: ";
+}
+*[class~="topic/metadata"]:lang(fr):before(300) {
+  content: "Métadonnées";
+}
+*[class~="topic/othermeta"]:lang(fr):before(300) {
+  content: "Autres métadonnées:";
+}
+*[class~="topic/permissions"]:lang(fr):before(300) {
+  content: "Autorisations: ";
+}
+*[class~="topic/platform"]:lang(fr):before(300) {
+  content: "Plate-forme: ";
+}
+*[class~="topic/prodinfo"]:lang(fr):before(300) {
+  content: "Information sur le produit ";
+}
+*[class~="topic/prodname"]:lang(fr):before(300) {
+  content: "Nom du produit: ";
+}
+*[class~="topic/prognum"]:lang(fr):before(300) {
+  content: "Numéro de programme: ";
+}
+*[class~="topic/publisher"]:lang(fr):before(300) {
+  content: "Éditeur: ";
+}
+*[class~="topic/resourceid"]:lang(fr):before(300) {
+  content: "Identifiant de ressource: ";
+}
+*[class~="topic/series"]:lang(fr):before(300) {
+  content: "Séries: ";
+}
+*[class~="topic/source"]:lang(fr):before(300) {
+  content: "Source: ";
+}
+*[class~="topic/vrmlist"]:lang(fr):before(300) {
+  content: "Versions: ";
+}
+*[class~="relmgmt-d/change-historylist"]:lang(fr):before(300){
+    content: "Liste de Modifications: ";
+}
+*[class~="relmgmt-d/change-item"]:lang(fr):before(300) {
+    content:"Changement: ";
+}
+*[class~="relmgmt-d/change-person"]:lang(fr):before(300) {
+    content:"Personne: ";
+}
+*[class~="relmgmt-d/change-organization"]:lang(fr):before(300) {
+    content:"Organisation: ";
+}
+*[class~="relmgmt-d/change-started"]:lang(fr):before(300) {
+    content:"Commencé: ";
+}
+*[class~="relmgmt-d/change-completed"]:lang(fr):before(300) {
+    content:"Terminé: ";
+}
+*[class~="relmgmt-d/change-summary"]:lang(fr):before(300) {
+    content:"Résumé: ";
+}
+*[class~="relmgmt-d/change-revisionid"]:lang(fr):before(300) {
+    content:"ID de révision: ";
+}
+*[class~="relmgmt-d/change-request-reference"]:lang(fr):before(300) {
+    content:"Référence pour la demande de changement: ";
+}
+*[class~="relmgmt-d/change-request-system"]:lang(fr):before(300) {
+    content:"System: ";
+}
+*[class~="relmgmt-d/change-request-id"]:lang(fr):before(300) {
+    content:"ID de la demande: ";
+}
+
+/*
+ * -domain-qa
+ */
+*[class~='qatopic/question']:lang(fr) {
+  -oxy-placeholder-content: "Question";
+}
+*[class~='qatopic/question'] + *[class~='qatopic/question']:lang(fr) {
+  -oxy-placeholder-content: "Autre question";
+}
+*[class~='qatopic/answer']:lang(fr) {
+  -oxy-placeholder-content: "Réponse";
+}
+*[class~="topic/data"][name~="oxy:question"]:lang(fr):before(3) {
+  content: "Question: ";
+}
+

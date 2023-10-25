@@ -1,0 +1,14 @@
+/* Dvr Resource elements */
+/* Allow editing the text content in a texst field. */
+*[class~="ditavalref-d/dvrResourcePrefix"][name]:before(2),
+*[class~="ditavalref-d/dvrResourceSuffix"][name]:before(2),
+*[class~="ditavalref-d/dvrKeyscopePrefix"][name]:before(2),
+*[class~="ditavalref-d/dvrKeyscopeSuffix"][name]:before(2){
+    content: oxy_textfield(edit, '#text', columns, 10);
+}
+*[class~="ditavalref-d/dvrResourcePrefix"][name],
+*[class~="ditavalref-d/dvrResourceSuffix"][name],
+*[class~="ditavalref-d/dvrKeyscopeSuffix"][name],
+*[class~="ditavalref-d/dvrKeyscopePrefix"][name]{
+    visibility:-oxy-collapse-text;
+}

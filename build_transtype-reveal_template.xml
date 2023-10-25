@@ -261,6 +261,7 @@
                 <isset property="args.reveal.theme"/>
             </and>
         </condition>
+        <!-- Fall back to defaults, unless set -->
         <property name="args.reveal.css" value="${dita.plugin.org.jung.reveal.dir}/css/jung.css"/>
         <property name="args.reveal.theme" value="jung"/>
         <echo level="info">* args.reveal.css = ${args.reveal.css}</echo>

@@ -1,0 +1,57 @@
+@import '../print/p-dita.css';
+
+@namespace oxy-pseudo "https://oxygenxml.com/ns/pseudo-elements/";
+@namespace xml "http://www.w3.org/XML/1998/namespace";
+
+/* When not in 'Topic Content' mode, display topic references. */
+:not([oxy-pseudo|p-oxy-expand-refs]) *[class~="map/topicref"]:before(1020){
+   font-weight: bold;     
+}
+:not([oxy-pseudo|p-oxy-expand-refs]) *[class~="map/topicref"][href]:before(1020) {
+   content: attr(href) " ";
+}
+:not([oxy-pseudo|p-oxy-expand-refs]) *[class~="map/topicref"][navtitle]:before(1020) {
+   content: attr(navtitle) " ";
+}
+:not([oxy-pseudo|p-oxy-expand-refs]) *[class~="map/topicref"][keyref]:before(1020) {
+   content: attr(keyref) " ";
+}
+
+@media print {
+  /* WA-4277: This fallback is required for files with Arabic chars on Ubuntu. */
+  *[xml|lang="ar"] {
+    font-family: serif, sans-serif;
+  }
+
+  /* WA-4129: Hide "on page( )" since target-counter(href) doesn't work on Web Author.  */
+  *[class ~= "map/map"] *[class ~= "topic/xref"][href]:after,
+  *[class ~= "map/map"] *[class ~= "topic/link"][href]:after {
+    content: none;
+  }
+
+  /**
+   * When publishing from SA, computing row and col spans is done by a DITA-OT transformation.
+   * In WA we have to compute spans by ourself because DITA-OT isn't used.
+   */
+  td[rowspan], th[rowspan] {
+    table-row-span: attr(rowspan, integer);
+  }
+  td[colspan], th[colspan] {
+    table-column-span: attr(colspan, integer);
+  }
+  entry[morerows] {
+    table-row-span: oxy_xpath("xs:integer(1 + number(./@morerows))");
+  }
+  entry[namest][nameend] {
+    table-column-span:
+    oxy_xpath(
+       oxy_replace(
+          oxy_replace(
+             "xs:integer(1 + number(ancestor::table/tgroup/colspec[@colname='$NAMEEND']/@colnum) - number(ancestor::table/tgroup/colspec[@colname='$NAMEST']/@colnum))",
+             "$NAMEST",
+             attr(namest)),
+          "$NAMEEND",
+          attr(nameend))
+    );
+  }
+}

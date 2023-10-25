@@ -1,0 +1,252 @@
+@media oxygen AND (platform: "webapp") {
+  *[product] {
+    border: 1px solid green;
+  }
+  *[product]:after(1000014) {
+    font-size: 0.75em;
+    content: oxy_button(transparent, true, fontInherit, 'true', actionID, "Author/EditProfilingAttributes", description, "${i18n(Edit_Profiling_Attributes)}", icon, url('../img/edit12.png'));
+    background-color: #CCFFAA;
+  }
+  *[product]:after(1000001) {
+    font-size: 0.75em;
+    content: ' (if product is ' oxy_label(text, oxy_concat("'", oxy_replace(attr(product), ' ', "' or '"), "'"), color, #0000ff) ') ';
+    background-color: #CCFFAA;
+  }
+  *[class~='topic/strow'][product],
+  *[class~='topic/row'][product],
+  *[class~='topic/sthead'][product],
+  *[class~='map/relrow'][product],
+  *[class~='topic/figgroup'][product] {
+    outline: 1px solid green;
+    outline-offset: -2px;
+  }
+  *[class~='topic/strow'][product]:after(1000001),
+  *[class~='topic/row'][product]:after(1000001),
+  *[class~='topic/sthead'][product]:after(1000001),
+  *[class~='map/relrow'][product]:after(1000001),
+  *[class~='topic/figgroup'][product]:after(1000001) {
+    display: none;
+  }
+  *[class~='topic/strow'][product]:after(1000014),
+  *[class~='topic/row'][product]:after(1000014),
+  *[class~='topic/sthead'][product]:after(1000014),
+  *[class~='map/relrow'][product]:after(1000014),
+  *[class~='topic/figgroup'][product]:after(1000014) {
+    display: none;
+  }
+  *[audience] {
+    border: 1px solid green;
+  }
+  *[audience]:after(1000014) {
+    font-size: 0.75em;
+    content: oxy_button(transparent, true, fontInherit, 'true', actionID, "Author/EditProfilingAttributes", description, "${i18n(Edit_Profiling_Attributes)}", icon, url('../img/edit12.png'));
+    background-color: #CCFFAA;
+  }
+  *[audience]:after(1000003) {
+    font-size: 0.75em;
+    content: ' (if audience is ' oxy_label(text, oxy_concat("'", oxy_replace(attr(audience), ' ', "' or '"), "'"), color, #0000ff) ') ';
+    background-color: #CCFFAA;
+  }
+  *[class~='topic/strow'][audience],
+  *[class~='topic/row'][audience],
+  *[class~='topic/sthead'][audience],
+  *[class~='map/relrow'][audience],
+  *[class~='topic/figgroup'][audience] {
+    outline: 1px solid green;
+    outline-offset: -2px;
+  }
+  *[class~='topic/strow'][audience]:after(1000003),
+  *[class~='topic/row'][audience]:after(1000003),
+  *[class~='topic/sthead'][audience]:after(1000003),
+  *[class~='map/relrow'][audience]:after(1000003),
+  *[class~='topic/figgroup'][audience]:after(1000003) {
+    display: none;
+  }
+  *[class~='topic/strow'][audience]:after(1000014),
+  *[class~='topic/row'][audience]:after(1000014),
+  *[class~='topic/sthead'][audience]:after(1000014),
+  *[class~='map/relrow'][audience]:after(1000014),
+  *[class~='topic/figgroup'][audience]:after(1000014) {
+    display: none;
+  }
+  *[platform] {
+    border: 1px solid green;
+  }
+  *[platform]:after(1000014) {
+    font-size: 0.75em;
+    content: oxy_button(transparent, true, fontInherit, 'true', actionID, "Author/EditProfilingAttributes", description, "${i18n(Edit_Profiling_Attributes)}", icon, url('../img/edit12.png'));
+    background-color: #CCFFAA;
+  }
+  *[platform]:after(1000005) {
+    font-size: 0.75em;
+    content: ' (if platform is ' oxy_label(text, oxy_concat("'", oxy_replace(attr(platform), ' ', "' or '"), "'"), color, #0000ff) ') ';
+    background-color: #CCFFAA;
+  }
+  *[class~='topic/strow'][platform],
+  *[class~='topic/row'][platform],
+  *[class~='topic/sthead'][platform],
+  *[class~='map/relrow'][platform],
+  *[class~='topic/figgroup'][platform] {
+    outline: 1px solid green;
+    outline-offset: -2px;
+  }
+  *[class~='topic/strow'][platform]:after(1000005),
+  *[class~='topic/row'][platform]:after(1000005),
+  *[class~='topic/sthead'][platform]:after(1000005),
+  *[class~='map/relrow'][platform]:after(1000005),
+  *[class~='topic/figgroup'][platform]:after(1000005) {
+    display: none;
+  }
+  *[class~='topic/strow'][platform]:after(1000014),
+  *[class~='topic/row'][platform]:after(1000014),
+  *[class~='topic/sthead'][platform]:after(1000014),
+  *[class~='map/relrow'][platform]:after(1000014),
+  *[class~='topic/figgroup'][platform]:after(1000014) {
+    display: none;
+  }
+  *[deliveryTarget] {
+    border: 1px solid green;
+  }
+  *[deliveryTarget]:after(1000014) {
+    font-size: 0.75em;
+    content: oxy_button(transparent, true, fontInherit, 'true', actionID, "Author/EditProfilingAttributes", description, "${i18n(Edit_Profiling_Attributes)}", icon, url('../img/edit12.png'));
+    background-color: #CCFFAA;
+  }
+  *[deliveryTarget]:after(1000007) {
+    font-size: 0.75em;
+    content: ' (if deliveryTarget is ' oxy_label(text, oxy_concat("'", oxy_replace(attr(deliveryTarget), ' ', "' or '"), "'"), color, #0000ff) ') ';
+    background-color: #CCFFAA;
+  }
+  *[class~='topic/strow'][deliveryTarget],
+  *[class~='topic/row'][deliveryTarget],
+  *[class~='topic/sthead'][deliveryTarget],
+  *[class~='map/relrow'][deliveryTarget],
+  *[class~='topic/figgroup'][deliveryTarget] {
+    outline: 1px solid green;
+    outline-offset: -2px;
+  }
+  *[class~='topic/strow'][deliveryTarget]:after(1000007),
+  *[class~='topic/row'][deliveryTarget]:after(1000007),
+  *[class~='topic/sthead'][deliveryTarget]:after(1000007),
+  *[class~='map/relrow'][deliveryTarget]:after(1000007),
+  *[class~='topic/figgroup'][deliveryTarget]:after(1000007) {
+    display: none;
+  }
+  *[class~='topic/strow'][deliveryTarget]:after(1000014),
+  *[class~='topic/row'][deliveryTarget]:after(1000014),
+  *[class~='topic/sthead'][deliveryTarget]:after(1000014),
+  *[class~='map/relrow'][deliveryTarget]:after(1000014),
+  *[class~='topic/figgroup'][deliveryTarget]:after(1000014) {
+    display: none;
+  }
+  *[props] {
+    border: 1px solid green;
+  }
+  *[props]:after(1000014) {
+    font-size: 0.75em;
+    content: oxy_button(transparent, true, fontInherit, 'true', actionID, "Author/EditProfilingAttributes", description, "${i18n(Edit_Profiling_Attributes)}", icon, url('../img/edit12.png'));
+    background-color: #CCFFAA;
+  }
+  *[props]:after(1000009) {
+    font-size: 0.75em;
+    content: ' (if props is ' oxy_label(text, oxy_concat("'", oxy_replace(attr(props), ' ', "' or '"), "'"), color, #0000ff) ') ';
+    background-color: #CCFFAA;
+  }
+  *[class~='topic/strow'][props],
+  *[class~='topic/row'][props],
+  *[class~='topic/sthead'][props],
+  *[class~='map/relrow'][props],
+  *[class~='topic/figgroup'][props] {
+    outline: 1px solid green;
+    outline-offset: -2px;
+  }
+  *[class~='topic/strow'][props]:after(1000009),
+  *[class~='topic/row'][props]:after(1000009),
+  *[class~='topic/sthead'][props]:after(1000009),
+  *[class~='map/relrow'][props]:after(1000009),
+  *[class~='topic/figgroup'][props]:after(1000009) {
+    display: none;
+  }
+  *[class~='topic/strow'][props]:after(1000014),
+  *[class~='topic/row'][props]:after(1000014),
+  *[class~='topic/sthead'][props]:after(1000014),
+  *[class~='map/relrow'][props]:after(1000014),
+  *[class~='topic/figgroup'][props]:after(1000014) {
+    display: none;
+  }
+  *[otherprops] {
+    border: 1px solid green;
+  }
+  *[otherprops]:after(1000014) {
+    font-size: 0.75em;
+    content: oxy_button(transparent, true, fontInherit, 'true', actionID, "Author/EditProfilingAttributes", description, "${i18n(Edit_Profiling_Attributes)}", icon, url('../img/edit12.png'));
+    background-color: #CCFFAA;
+  }
+  *[otherprops]:after(1000011) {
+    font-size: 0.75em;
+    content: ' (if otherprops is ' oxy_label(text, oxy_concat("'", oxy_replace(attr(otherprops), ' ', "' or '"), "'"), color, #0000ff) ') ';
+    background-color: #CCFFAA;
+  }
+  *[class~='topic/strow'][otherprops],
+  *[class~='topic/row'][otherprops],
+  *[class~='topic/sthead'][otherprops],
+  *[class~='map/relrow'][otherprops],
+  *[class~='topic/figgroup'][otherprops] {
+    outline: 1px solid green;
+    outline-offset: -2px;
+  }
+  *[class~='topic/strow'][otherprops]:after(1000011),
+  *[class~='topic/row'][otherprops]:after(1000011),
+  *[class~='topic/sthead'][otherprops]:after(1000011),
+  *[class~='map/relrow'][otherprops]:after(1000011),
+  *[class~='topic/figgroup'][otherprops]:after(1000011) {
+    display: none;
+  }
+  *[class~='topic/strow'][otherprops]:after(1000014),
+  *[class~='topic/row'][otherprops]:after(1000014),
+  *[class~='topic/sthead'][otherprops]:after(1000014),
+  *[class~='map/relrow'][otherprops]:after(1000014),
+  *[class~='topic/figgroup'][otherprops]:after(1000014) {
+    display: none;
+  }
+  *[rev] {
+    border: 1px solid green;
+  }
+  *[rev]:after(1000014) {
+    font-size: 0.75em;
+    content: oxy_button(transparent, true, fontInherit, 'true', actionID, "Author/EditProfilingAttributes", description, "${i18n(Edit_Profiling_Attributes)}", icon, url('../img/edit12.png'));
+    background-color: #CCFFAA;
+  }
+  *[rev]:after(1000013) {
+    font-size: 0.75em;
+    content: ' (if rev is ' oxy_label(text, oxy_concat("'", oxy_replace(attr(rev), ' ', "' or '"), "'"), color, #0000ff) ') ';
+    background-color: #CCFFAA;
+  }
+  *[class~='topic/strow'][rev],
+  *[class~='topic/row'][rev],
+  *[class~='topic/sthead'][rev],
+  *[class~='map/relrow'][rev],
+  *[class~='topic/figgroup'][rev] {
+    outline: 1px solid green;
+    outline-offset: -2px;
+  }
+  *[class~='topic/strow'][rev]:after(1000013),
+  *[class~='topic/row'][rev]:after(1000013),
+  *[class~='topic/sthead'][rev]:after(1000013),
+  *[class~='map/relrow'][rev]:after(1000013),
+  *[class~='topic/figgroup'][rev]:after(1000013) {
+    display: none;
+  }
+  *[class~='topic/strow'][rev]:after(1000014),
+  *[class~='topic/row'][rev]:after(1000014),
+  *[class~='topic/sthead'][rev]:after(1000014),
+  *[class~='map/relrow'][rev]:after(1000014),
+  *[class~='topic/figgroup'][rev]:after(1000014) {
+    display: none;
+  }
+}
+/** WA-2613: styling the profling attributes generated by the styles filter. */
+*:after(2147483647) {
+  font-size: 0.75em;
+  background-color: #CCFFAA;
+}
