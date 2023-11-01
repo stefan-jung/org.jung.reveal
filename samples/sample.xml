@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="https://www.dita-ot.org/project">
+
+  <deliverable name="Reveal Presentation" id="reveal">
+    <context name="Reveal Presentation" id="reveal_context">
+      <input href="sample.ditamap"/>
+    </context>
+    <output href="./reveal"/>
+    <publication transtype="reveal"/>
+  </deliverable>
+
+</project>
