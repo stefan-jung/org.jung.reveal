@@ -185,6 +185,11 @@
         </condition>
         <echo level="info">* args.reveal.previewlinks = ${args.reveal.previewlinks}</echo>
         
+        <condition property="args.reveal.scrollprogress" value="auto">
+            <not>
+                <isset property="args.reveal.scrollprogress"/>
+            </not>
+        </condition>
         <echo if:set="args.reveal.scrollprogress">* args.reveal.scrollprogress = ${args.reveal.scrollprogress}</echo>
         
         <condition property="args.reveal.transition" value="default">
@@ -208,6 +213,13 @@
         </condition>
         <echo level="info">* args.reveal.backgroundtransition = ${args.reveal.backgroundtransition}</echo>
         
+        <!-- See allowed values at https://github.com/hakimel/reveal.js/blob/master/js/config.js -->
+        <condition property="args.reveal.view" value="null">
+            <not>
+                <isset property="args.reveal.view"/>
+            </not>
+        </condition>
+        <echo level="info">* args.reveal.view = ${args.reveal.view}</echo>
         <echo if:set="args.reveal.view" level="info">* args.reveal.view = ${args.reveal.view}</echo>
         
         <condition property="args.reveal.viewdistance" value="3">

@@ -326,7 +326,7 @@
                         "/>
                     <xsl:value-of select="
                         if ($args.reveal.scrollprogress)
-                        then 'scrollProgress: ''' || $args.reveal.scrollprogress || ''', ' || $newline
+                        then 'scrollProgress: ' || $args.reveal.scrollprogress || ', ' || $newline
                         else ''
                         "/>
                     <xsl:value-of select="
