@@ -24,8 +24,8 @@
     
     <target name="reveal.init">
         <echo level="info">*****************************************************************</echo>
-        <!-- Fallback to version 4.5.0 if not defined. -->
-        <property unless:set="args.reveal.version" name="args.reveal.version" value="4.5.0"/>
+        <!-- Fallback to version 5.0.4 if not defined. -->
+        <property unless:set="args.reveal.version" name="args.reveal.version" value="5.0.4"/>
         <echo level="info">* args.reveal.version = ${args.reveal.version}</echo>
         
         <!-- Download URL of the reveal.js archive. -->
@@ -185,6 +185,8 @@
         </condition>
         <echo level="info">* args.reveal.previewlinks = ${args.reveal.previewlinks}</echo>
         
+        <echo if:set="args.reveal.scrollprogress">* args.reveal.scrollprogress = ${args.reveal.scrollprogress}</echo>
+        
         <condition property="args.reveal.transition" value="default">
             <not>
                 <isset property="args.reveal.transition"/>
@@ -205,6 +207,8 @@
             </not>
         </condition>
         <echo level="info">* args.reveal.backgroundtransition = ${args.reveal.backgroundtransition}</echo>
+        
+        <echo if:set="args.reveal.view" level="info">* args.reveal.view = ${args.reveal.view}</echo>
         
         <condition property="args.reveal.viewdistance" value="3">
             <not>
@@ -386,11 +390,13 @@
                 <param name="args.reveal.previewlinks" expression="${args.reveal.previewlinks}" if:set="args.reveal.previewlinks"/>
                 <param name="args.reveal.progress" expression="${args.reveal.progress}" if:set="args.reveal.progress"/>
                 <param name="args.reveal.rtl" expression="${args.reveal.rtl}" if:set="args.reveal.rtl"/>
+                <param name="args.reveal.scrollprogress" expression="${args.reveal.scrollprogress}" if:set="args.reveal.scrollprogress"/>
                 <param name="args.reveal.slidenumber" expression="${args.reveal.slidenumber}" if:set="args.reveal.slidenumber"/>
                 <param name="args.reveal.theme" expression="${args.reveal.theme}" if:set="args.reveal.theme"/>
                 <param name="args.reveal.touch" expression="${args.reveal.touch}" if:set="args.reveal.touch"/>
                 <param name="args.reveal.transition" expression="${args.reveal.transition}" if:set="args.reveal.transition"/>
                 <param name="args.reveal.transitionspeed" expression="${args.reveal.transitionspeed}" if:set="args.reveal.transitionspeed"/>
+                <param name="args.reveal.view" expression="${args.reveal.view}" if:set="args.reveal.view"/>
                 <param name="args.reveal.viewdistance" expression="${args.reveal.viewdistance}" if:set="args.reveal.viewdistance"/>
                 <param name="args.reveal.width" expression="${args.reveal.width}" if:set="args.reveal.width"/>
                 <!--<params/>-->

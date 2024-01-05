@@ -119,6 +119,11 @@
             <val>true</val>
             <val default="true">false</val>
         </param>
+        <param name="args.reveal.scrollprogress" desc="Force the scrollbar to remain visible when using the scroll view." type="enum">
+            <val default="true">auto</val>
+            <val>true</val>
+            <val>false</val>
+        </param>
         <param name="args.reveal.slidenumber" desc="Display the page number of the current slide." type="enum">
             <val>true</val>
             <val default="true">false</val>
@@ -156,7 +161,11 @@
             <val>slow</val>
         </param>
         <param name="args.reveal.version" desc="Set the reveal.js version." type="string">
-            <val default="true">4.5.0</val>
+            <val default="true">5.0.4</val>
+        </param>
+        <param name="args.reveal.view" desc="Activate scroll view" type="enum">
+            <val default="true">normal</val>
+            <val>scroll</val>
         </param>
         <param name="args.reveal.viewdistance" desc="Set the number of slides away from the current that are visible." type="string">
             <val default="true">3</val>

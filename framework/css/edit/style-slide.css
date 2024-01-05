@@ -16,3 +16,31 @@
    font-family: "Calibri", "UnDotum", serif;
 }
 
+
+*[class~='topic/table'] {
+    border: none !important;
+    padding-top: 2px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 2px;
+}
+
+*[class~='topic/tgroup'] {
+    display: table ;
+    border: none;
+}
+
+*[class~='topic/thead'] {
+}
+
+*[class~='topic/thead'] > *[class~='topic/row'] > *[class~='topic/entry']:first-child {
+    border-top-left-radius: 6px;
+    border-left: transparent 1px solid;
+    border-top: transparent 1px solid;
+    background-color: pink;
+}
+
+*[class~='topic/thead'] > *[class~='topic/row'] > *[class~='topic/entry']:last-child {
+    border-top-right-radius: 4px;
+    border: #023A4F 1px solid;
+}
