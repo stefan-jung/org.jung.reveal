@@ -4,6 +4,9 @@
     <param name="reveal.autoslidestoppable" expression="${reveal.autoslidestoppable}" if:set="reveal.autoslidestoppable"/>
     <param name="reveal.autoAnimate" expression="${reveal.autoAnimate}" if:set="reveal.autoAnimate"/>
     <param name="reveal.autoAnimateMatcher" expression="${reveal.autoAnimateMatcher}" if:set="reveal.autoAnimateMatcher"/>
+    <param name="reveal.autoAnimateEasing" expression="${reveal.autoAnimateEasing}" if:set="reveal.autoAnimateEasing"/>
+    <param name="reveal.autoAnimateDuration" expression="${reveal.autoAnimateDuration}" if:set="reveal.autoAnimateDuration"/>
+    <param name="reveal.autoAnimateUnmatched" expression="${reveal.autoAnimateUnmatched}" if:set="reveal.autoAnimateUnmatched"/>
     <param name="reveal.autoPlayMedia" expression="${reveal.autoPlayMedia}" if:set="reveal.autoPlayMedia"/>
     <param name="reveal.backgroundtransition" expression="${reveal.backgroundtransition}" if:set="reveal.backgroundtransition"/>
     <param name="reveal.center" expression="${reveal.center}" if:set="reveal.center"/>
@@ -33,7 +36,7 @@
     <param name="reveal.mousewheel" expression="${reveal.mousewheel}" if:set="reveal.mousewheel"/>
     <param name="reveal.navigationMode" expression="${reveal.navigationMode}" if:set="reveal.navigationMode"/>
     <param name="reveal.overview" expression="${reveal.overview}" if:set="reveal.overview"/>
-    <param name="reveal.parallaxbackgroundimage" expression="${reveal.parallaxbackgroundimage}" if:set="reveal.parallaxbackgroundimage"/>
+    <param name="reveal.parallaxBackgroundImage" expression="${reveal.parallaxBackgroundImage}" if:set="reveal.parallaxBackgroundImage"/>
     <param name="reveal.parallaxbackgroundsize" expression="${reveal.parallaxbackgroundsize}" if:set="reveal.parallaxbackgroundsize"/>
     <param name="reveal.pause" expression="${reveal.pause}" if:set="reveal.pause"/>
     <param name="reveal.preloadIframes" expression="${reveal.preloadIframes}" if:set="reveal.preloadIframes"/>

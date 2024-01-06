@@ -19,5 +19,14 @@
       <param name="reveal.scrollprogress" value="true"/>
     </publication>
   </deliverable>
+  
+  <deliverable name="Reveal Presentation - With progress bar" id="progress-bar">
+    <context idref="reveal_context"/>
+    <output href="./progress-bar"/>
+    <publication transtype="reveal">
+      <param name="reveal.view" value="scroll"/>
+      <param name="reveal.scrollprogress" value="true"/>
+    </publication>
+  </deliverable>
 
 </project>

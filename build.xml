@@ -397,7 +397,7 @@
                 <param name="reveal.minScale" expression="${reveal.minScale}" if:set="reveal.minScale"/>
                 <param name="reveal.mousewheel" expression="${reveal.mousewheel}" if:set="reveal.mousewheel"/>
                 <param name="reveal.overview" expression="${reveal.overview}" if:set="reveal.overview"/>
-                <param name="reveal.parallaxbackgroundimage" expression="${reveal.parallaxbackgroundimage}" if:set="reveal.parallaxbackgroundimage"/>
+                <param name="reveal.parallaxBackgroundImage" expression="${reveal.parallaxBackgroundImage}" if:set="reveal.parallaxBackgroundImage"/>
                 <param name="reveal.parallaxbackgroundsize" expression="${reveal.parallaxbackgroundsize}" if:set="reveal.parallaxbackgroundsize"/>
                 <param name="reveal.previewlinks" expression="${reveal.previewlinks}" if:set="reveal.previewlinks"/>
                 <param name="reveal.progress" expression="${reveal.progress}" if:set="reveal.progress"/>

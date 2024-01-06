@@ -34,6 +34,12 @@
             <val>false</val>
         </param>
         <param name="reveal.autoAnimateMatcher" desc="Optionally provide a custom element matcher that will be used to dictate which elements we can animate between." type="string"/>
+        <param name="reveal.autoAnimateEasing" desc="Default settings for our auto-animate transitions, can be overridden per-slide or per-element via data arguments." type="string"/>
+        <param name="reveal.autoAnimateDuration" desc="Default settings for our auto-animate transitions, can be overridden per-slide or per-element via data arguments." type="string"/>
+        <param name="reveal.autoAnimateUnmatched" desc="Default settings for our auto-animate transitions, can be overridden per-slide or per-element via data arguments." type="enum">
+            <val default="true">true</val>
+            <val>false</val>
+        </param>
         <param name="reveal.autoPlayMedia" desc="Global override for autoplaying embedded media (video/audio/iframe). 'null': Media will only autoplay if data-autoplay is present. 'true': All media will autoplay, regardless of individual setting. 'false': No media will autoplay, regardless of individual setting." type="enum">
             <val default="true">null</val>
             <val>true</val>
@@ -156,7 +162,7 @@
             <val default="true">true</val>
             <val>false</val>
         </param>
-        <param name="reveal.parallaxbackgroundimage" desc="Set the parallax background image." type="file"/>
+        <param name="reveal.parallaxBackgroundImage" desc="Set the parallax background image." type="file"/>
         <param name="reveal.parallaxbackgroundsize" desc="Parallax background size. CSS syntax, e.g. '2100px 900px'" type="string"/>
         <param name="reveal.pause" desc="Flags if it should be possible to pause the presentation (blackout)." type="enum">
             <val default="true">true</val>
