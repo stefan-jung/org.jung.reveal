@@ -388,12 +388,9 @@
             <xsl:call-template name="gen-toc-id"/>
             <xsl:call-template name="setidaname"/>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
-            
-            <!--<xsl:apply-templates select="." mode="dita2html:section-heading"/>-->
-            
             <xsl:apply-templates select="*[not(contains(@class, ' topic/title '))] | text() | comment() | processing-instruction()"/>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
-        </div><xsl:value-of select="$newline"/>
+        </div>
     </xsl:template>
     
     <!-- Deep copy template -->
