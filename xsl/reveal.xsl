@@ -315,7 +315,8 @@
                 <xsl:copy-of select="@data-transition"/>
             </xsl:if>-->
             <xsl:copy-of select="
-                @data-background-color 
+                @data-background
+                | @data-background-color
                 | @data-background-gradient
                 | @data-background-image
                 | @data-background-size
@@ -430,12 +431,7 @@
             <xsl:otherwise>
                 <p>
                     <xsl:if test="@type">
-                        <xsl:attribute name="class">
-                            <xsl:value-of select="@class"/>
-                            <xsl:value-of select="@outputclass"/>
-                            <xsl:value-of select="'fragment '"/>
-                            <xsl:value-of select="@type"/>
-                        </xsl:attribute>
+                        <xsl:attribute name="class" select="@class || @outputclass || 'fragment ' || @type"/>
                     </xsl:if>
                     <xsl:if test="@data-fragment-index">
                         <xsl:attribute name="data-fragment-index" select="@data-fragment-index"/>

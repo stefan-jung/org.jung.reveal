@@ -128,6 +128,16 @@
           <data type="ID"/>
         </attribute>
         <optional>
+          <attribute name="data-auto-animate">
+            <data type="boolean"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-auto-animate-easing">
+            <data type="string"/>
+          </attribute>
+        </optional>
+        <optional>
           <attribute name="data-autoslide">
             <data type="integer"/>
           </attribute>
@@ -142,6 +152,11 @@
               <value>concave</value><a:documentation>Slide at a concave angle</a:documentation>
               <value>zoom</value><a:documentation>Scale the incoming slide up so it grows in from the center of the screen</a:documentation>
             </choice>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-background">
+            <data type="string"/>
           </attribute>
         </optional>
         <optional>

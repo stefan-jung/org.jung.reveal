@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<slide id="ui_uq5_gxc_11c">
+  <title>Scroll View</title>
+  <slideBody>
+    <ul id="ul_cqh_rxc_11c">
+      <li outputclass="fragment fade-left">Step one</li>
+      <li outputclass="fragment fade-left">Step two</li>
+      <li outputclass="fragment fade-left">Step three</li>
+    </ul>
+  </slideBody>
+</slide>

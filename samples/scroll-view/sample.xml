@@ -12,9 +12,7 @@
   </deliverable>
   
   <deliverable name="Reveal Presentation - With scroll view" id="scroll-view">
-    <context name="Reveal Scroll View" id="reveal_scroll-view_context">
-      <input href="scroll-view/scroll-view.ditamap"/>
-    </context>
+    <context idref="reveal_context"/>
     <output href="./scroll-view"/>
     <publication transtype="reveal">
       <param name="reveal.view" value="scroll"/>
