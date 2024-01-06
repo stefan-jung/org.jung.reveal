@@ -15,8 +15,8 @@
     <context idref="reveal_context"/>
     <output href="./scroll-view"/>
     <publication transtype="reveal">
-      <param name="args.reveal.view" value="scroll"/>
-      <param name="args.reveal.scrollprogress" value="true"/>
+      <param name="reveal.view" value="scroll"/>
+      <param name="reveal.scrollprogress" value="true"/>
     </publication>
   </deliverable>
 

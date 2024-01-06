@@ -29,12 +29,22 @@
     -->
     <feature extension="dita.conductor.transtype.check" value="reveal"/>
     <transtype name="reveal" extends="html5" desc="Web Slides">
-        <param name="args.reveal.autoslide" desc="Number of milliseconds between automatically proceeding to the next slide, disabled when set to 0, this value can be overwritten by using a data-autoslide attribute on your slides" type="string"/>
-        <param name="args.reveal.autoslidestoppable" desc="Stop auto-sliding after user input." type="enum">
+        <param name="reveal.autoAnimate" desc="Can be used to globally disable auto-animation." type="enum">
             <val default="true">true</val>
             <val>false</val>
         </param>
-        <param name="args.reveal.backgroundtransition" desc="Transition style for full page slide backgrounds." type="enum">
+        <param name="reveal.autoAnimateMatcher" desc="Optionally provide a custom element matcher that will be used to dictate which elements we can animate between." type="string"/>
+        <param name="reveal.autoPlayMedia" desc="Global override for autoplaying embedded media (video/audio/iframe). 'null': Media will only autoplay if data-autoplay is present. 'true': All media will autoplay, regardless of individual setting. 'false': No media will autoplay, regardless of individual setting." type="enum">
+            <val default="true">null</val>
+            <val>true</val>
+            <val>false</val>
+        </param>
+        <param name="reveal.autoslide" desc="Number of milliseconds between automatically proceeding to the next slide, disabled when set to 0, this value can be overwritten by using a data-autoslide attribute on your slides" type="string"/>
+        <param name="reveal.autoslidestoppable" desc="Stop auto-sliding after user input." type="enum">
+            <val default="true">true</val>
+            <val>false</val>
+        </param>
+        <param name="reveal.backgroundtransition" desc="Transition style for full page slide backgrounds." type="enum">
             <val default="true">default</val>
             <val>none</val>
             <val>fade</val>
@@ -43,93 +53,164 @@
             <val>concave</val>
             <val>zoom</val>
         </param>
-        <param name="args.reveal.center" desc="Vertical centering of slides." type="enum">
+        <param name="reveal.center" desc="Vertical centering of slides." type="enum">
             <val default="true">true</val>
             <val>false</val>
         </param>
-        <param name="args.reveal.controls" desc="Display controls in the bottom right corner." type="enum">
+        <param name="reveal.controls" desc="Display controls in the bottom right corner." type="enum">
             <val default="true">true</val>
             <val>false</val>
         </param>
-        <param name="args.reveal.controlsLayout" desc="Determines where controls appear." type="enum">
+        <param name="reveal.controlsBackArrows" desc="Visibility rule for backwards navigation arrows" type="enum">
+            <val default="true">faded</val>
+            <val>hidden</val>
+            <val>visible</val>
+        </param>
+        <param name="reveal.controlsLayout" desc="Determines where controls appear." type="enum">
             <val default="true">edges</val>
             <val>bottom-right</val>
         </param>
-        <param name="args.reveal.css" desc="Path to custom reveal.js CSS" type="file"/>
-        <param name="args.reveal.embedded" desc="Flags if the presentation is running in an embedded mode, i.e. contained within a limited portion of the screen." type="enum">
+        <param name="reveal.controlsTutorial" desc="Help the user learn the controls by providing hints, for example by bouncing the down arrow when they first encounter a vertical slideDetermines where controls appear." type="enum">
+            <val default="true">true</val>
+            <val>false</val>
+        </param>
+        <param name="reveal.css" desc="Path to custom reveal.js CSS" type="file"/>
+        <param name="reveal.disableLayout" desc="Disables the default reveal.js slide layout (scaling and centering) so that you can use custom CSS layout." type="enum">
             <val>true</val>
             <val default="true">false</val>
         </param>
-        <param name="args.reveal.fragments" desc="Turns fragments on and off globally." type="enum">
+        <param name="reveal.embedded" desc="Flags if the presentation is running in an embedded mode, i.e. contained within a limited portion of the screen." type="enum">
+            <val>true</val>
+            <val default="true">false</val>
+        </param>
+        <param name="reveal.fragments" desc="Turns fragments on and off globally." type="enum">
             <val default="true">true</val>
             <val>false</val>
         </param>
-        <!-- Custom parameter -->
-        <param name="args.reveal.generate.vertical.slides" desc="Generate vertical slides for level 2 and below references." type="enum">
+        <param name="reveal.fragmentInURL" desc="Flags whether to include the current fragment in the URL, so that reloading brings you to the same fragment position." type="enum">
             <val default="true">true</val>
             <val>false</val>
         </param>
-        <param name="args.reveal.height" desc="The 'normal' height of the presentation, aspect ratio will be preserved when the presentation is scaled to fit different resolutions. Can be specified using percentage units." type="string">
+        <param name="reveal.generate.vertical.slides" desc="Generate vertical slides for level 2 and below references." type="enum">
+            <val default="true">true</val>
+            <val>false</val>
+        </param>
+        <param name="reveal.hash" desc="Add the current slide number to the URL hash so that reloading the page/copying the URL will return you to the same slide." type="enum">
+            <val default="true">false</val>
+            <val>true</val>
+        </param>
+        <param name="reveal.hashOneBasedIndex" desc="Use 1 based indexing for # links to match slide number." type="enum">
+            <val default="true">false</val>
+            <val>true</val>
+        </param>
+        <param name="reveal.height" desc="The 'normal' height of the presentation, aspect ratio will be preserved when the presentation is scaled to fit different resolutions. Can be specified using percentage units." type="string">
             <val default="true">700</val>
         </param>
-        <param name="args.reveal.hideaddressbar" desc="Hides the address bar on mobile devices." type="enum">
+        <param name="reveal.help" desc="Flags if we should show a help overlay when the question-mark key is pressed." type="string">
             <val default="true">true</val>
             <val>false</val>
         </param>
-        <param name="args.reveal.history" desc="Push each slide change to the browser history." type="enum">
-            <val>true</val>
-            <val default="true">false</val>
-        </param>
-        <param name="args.reveal.keyboard" desc="Enable keyboard shortcuts for navigation." type="enum">
+        <param name="reveal.hideaddressbar" desc="Hides the address bar on mobile devices." type="enum">
             <val default="true">true</val>
             <val>false</val>
         </param>
-        <param name="args.reveal.loop" desc="Loop the presentation." type="enum">
+        <param name="reveal.history" desc="Push each slide change to the browser history." type="enum">
             <val>true</val>
             <val default="true">false</val>
         </param>
-        <param name="args.reveal.margin" desc="Factor of the display size that should remain empty around the content." type="string">
+        <param name="reveal.jumpToSlide" desc="Enable support for jump-to-slide navigation shortcuts." type="enum">
+            <val default="true">true</val>
+            <val>false</val>
+        </param>
+        <param name="reveal.keyboard" desc="Enable keyboard shortcuts for navigation." type="enum">
+            <val default="true">true</val>
+            <val>false</val>
+        </param>
+        <param name="reveal.keyboardCondition" desc="Optional function that blocks keyboard events when returning false. If you set this to 'focused', we will only capture keyboard events for embedded decks when they are in focusEnable keyboard shortcuts for navigation." type="enum">
+            <val default="true">null</val>
+            <val>focused</val>
+        </param>
+        <param name="reveal.loop" desc="Loop the presentation." type="enum">
+            <val>true</val>
+            <val default="true">false</val>
+        </param>
+        <param name="reveal.margin" desc="Factor of the display size that should remain empty around the content." type="string">
             <val default="true">0.1</val>
         </param>
-        <param name="args.reveal.maxScale" desc="Bounds for largest possible scale to apply to content." type="string">
+        <param name="reveal.maxScale" desc="Bounds for largest possible scale to apply to content." type="string">
             <val default="true">1.5</val>
         </param>
-        <param name="args.reveal.minScale" desc="Bounds for smallest possible scale to apply to content." type="string">
+        <param name="reveal.minScale" desc="Bounds for smallest possible scale to apply to content." type="string">
             <val default="true">0.2</val>
         </param>
-        <param name="args.reveal.mousewheel" desc="Enable slide navigation via mouse wheel." type="enum">
+        <param name="reveal.mousewheel" desc="Enable slide navigation via mouse wheel." type="enum">
             <val>true</val>
             <val default="true">false</val>
         </param>
-        <param name="args.reveal.overview" desc="Enable the slide overview mode." type="enum">
+        <param name="reveal.navigationMode" desc="Changes the behavior of our navigation directions. 'default': Left/right arrow keys step between horizontal slides, up/down arrow keys step between vertical slides. Space key steps through all slides (both horizontal and vertical). 'linear': Removes the up/down arrows. Left/right arrows step through all slides (both horizontal and vertical). 'grid': When this is enabled, stepping left/right from a vertical stack to an adjacent vertical stack will land you at the same vertical index." type="enum">
+            <val default="true">default</val>
+            <val>linear</val>
+            <val>grid</val>
+        </param>
+        <param name="reveal.overview" desc="Enable the slide overview mode." type="enum">
             <val default="true">true</val>
             <val>false</val>
         </param>
-        <param name="args.reveal.parallaxbackgroundimage" desc="Set the parallax background image." type="file"/>
-        <param name="args.reveal.parallaxbackgroundsize" desc="Parallax background size. CSS syntax, e.g. '2100px 900px'" type="string"/>
-        <param name="args.reveal.previewlinks" desc="Opens links in an iframe preview overlay." type="enum">
-            <val>true</val>
-            <val default="true">false</val>
-        </param>
-        <param name="args.reveal.progress" desc="Display a presentation progress bar." type="enum">
+        <param name="reveal.parallaxbackgroundimage" desc="Set the parallax background image." type="file"/>
+        <param name="reveal.parallaxbackgroundsize" desc="Parallax background size. CSS syntax, e.g. '2100px 900px'" type="string"/>
+        <param name="reveal.pause" desc="Flags if it should be possible to pause the presentation (blackout)." type="enum">
             <val default="true">true</val>
             <val>false</val>
         </param>
-        <param name="args.reveal.rtl" desc="Change the presentation direction to be right-to-left." type="enum">
+        <param name="reveal.preloadIframes" desc="Global override for preloading lazy-loaded iframes. 'null': Iframes with data-src AND data-preload will be loaded when within the viewDistance, iframes with only data-src will be loaded when visible. 'true': All iframes with data-src will be loaded when within the viewDistance. 'false': All iframes with data-src will be loaded only when visible" type="enum">
+            <val default="true">null</val>
+            <val>true</val>
+            <val>false</val>
+        </param>
+        <param name="reveal.previewlinks" desc="Opens links in an iframe preview overlay." type="enum">
             <val>true</val>
             <val default="true">false</val>
         </param>
-        <param name="args.reveal.scrollprogress" desc="Force the scrollbar to remain visible when using the scroll view." type="enum">
+        <param name="reveal.progress" desc="Display a presentation progress bar." type="enum">
+            <val default="true">true</val>
+            <val>false</val>
+        </param>
+        <param name="reveal.respondToHashChanges" desc="Flags if we should monitor the hash and change slides accordingly." type="enum">
+            <val default="true">true</val>
+            <val>false</val>
+        </param>
+        <param name="reveal.rtl" desc="Change the presentation direction to be right-to-left." type="enum">
+            <val>true</val>
+            <val default="true">false</val>
+        </param>
+        <param name="reveal.scrollprogress" desc="Force the scrollbar to remain visible when using the scroll view." type="enum">
             <val default="true">auto</val>
             <val>true</val>
             <val>false</val>
         </param>
-        <param name="args.reveal.slidenumber" desc="Display the page number of the current slide." type="enum">
+        <param name="reveal.showHiddenSlides" desc="Flags if slides with data-visibility='hidden' should be kep visible." type="enum">
+            <val>true</val>
+            <val default="true">false</val>
+        </param>
+        <param name="reveal.showNotes" desc="Flags if speaker notes should be visible to all viewers." type="enum">
+            <val>true</val>
+            <val default="true">false</val>
+        </param>
+        <param name="reveal.showSlideNumber" desc="Can be used to limit the contexts in which the slide number appears." type="enum">
+            <val default="true">all</val>
+            <val>print</val>
+            <val>speaker</val>
+        </param>
+        <param name="reveal.shuffle" desc="Randomizes the order of slides each time the presentation loads." type="enum">
+            <val default="true">false</val>
+            <val>true</val>
+        </param>
+        <param name="reveal.slidenumber" desc="Display the page number of the current slide." type="enum">
             <val>true</val>
             <val default="true">false</val>
         </param>
         <!-- To be able to set a value that is not defined in the list, this must be 'string'. -->
-        <param name="args.reveal.theme" desc="Theme used for the Reveal slides" type="string">
+        <param name="reveal.theme" desc="Theme used for the Reveal slides" type="string">
             <val>beige</val>
             <val>black</val>
             <val>blood</val>
@@ -142,11 +223,11 @@
             <val>solarized</val>
             <val>white</val>
         </param>
-        <param name="args.reveal.touch" desc="Enables touch navigation on devices with touch input." type="enum">
+        <param name="reveal.touch" desc="Enables touch navigation on devices with touch input." type="enum">
             <val default="true">true</val>
             <val>false</val>
         </param>
-        <param name="args.reveal.transition" desc="Set the transition style." type="enum">
+        <param name="reveal.transition" desc="Set the transition style." type="enum">
             <val default="true">default</val>
             <val>none</val>
             <val>fade</val>
@@ -155,22 +236,22 @@
             <val>concave</val>
             <val>zoom</val>
         </param>
-        <param name="args.reveal.transitionspeed" desc="Set the transition speed." type="enum">
+        <param name="reveal.transitionspeed" desc="Set the transition speed." type="enum">
             <val default="true">default</val>
             <val>fast</val>
             <val>slow</val>
         </param>
-        <param name="args.reveal.version" desc="Set the reveal.js version." type="string">
+        <param name="reveal.version" desc="Set the reveal.js version." type="string">
             <val default="true">5.0.4</val>
         </param>
-        <param name="args.reveal.view" desc="Activate scroll view" type="enum">
+        <param name="reveal.view" desc="Activate scroll view" type="enum">
             <val default="true">normal</val>
             <val>scroll</val>
         </param>
-        <param name="args.reveal.viewdistance" desc="Set the number of slides away from the current that are visible." type="string">
+        <param name="reveal.viewdistance" desc="Set the number of slides away from the current that are visible." type="string">
             <val default="true">3</val>
         </param>
-        <param name="args.reveal.width" desc="The 'normal' width of the presentation, aspect ratio will be preserved when the presentation is scaled to fit different resolutions. Can be specified using percentage units." type="string">
+        <param name="reveal.width" desc="The 'normal' width of the presentation, aspect ratio will be preserved when the presentation is scaled to fit different resolutions. Can be specified using percentage units." type="string">
             <val default="true">960</val>
         </param>
     </transtype>
@@ -181,12 +262,12 @@
         Because the value of @type is 'file', the value of @value is used
         as a filename. It is also possible to use @file instead of @value.
     -->
-    <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+    <feature extension="dita.conductor.target.relative" file="integrator.xml"/>
     
     <!--
         Pass parameters to the XSL stylesheets.
     -->
-    <feature extension="dita.conductor.html5.param" value="insertParameters.xml" type="file"/>
+    <feature extension="dita.conductor.html5.param" file="insertParameters.xml"/>
     
     <!--<feature extension="dita.xsl.html5" file="xsl/reveal.xsl"/>-->
 </plugin>

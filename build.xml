@@ -1,4 +1,459 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
-    <import file="build_transtype-reveal_template.xml"/>
+<project xmlns:dita="http://dita-ot.sourceforge.net" name="dita2reveal" xmlns:if="ant:if" xmlns:unless="ant:unless">
+    
+    
+    <!-- ==================================================
+         Extension Points
+    -->
+    <extension-point id="org.jung.reveal.param" name="Custom parameters"/>
+    
+    
+    <!-- ================================================== 
+        Targets
+    -->
+    
+    <target name="dita2reveal" 
+            depends="reveal.init,
+                     html5.init,
+                     build-init,
+                     preprocess,
+                     html5.topic,
+                     html5.map,
+                     html5.css,
+                     reveal"/>
+    
+    <target name="reveal.init">
+        <echo level="info">*****************************************************************</echo>
+        <!-- Fallback to version 5.0.4 if not defined. -->
+        <property unless:set="reveal.version" name="reveal.version" value="5.0.4"/>
+        <echo level="info">* reveal.version = ${reveal.version}</echo>
+        
+        <!-- Download URL of the reveal.js archive. -->
+        <property name="revealDownloadUrl" value="https://github.com/hakimel/reveal.js/archive/${reveal.version}.zip"/>
+        
+        <!-- Filename of the reveal.js archive. -->
+        <property name="revealArchiveName" value="${reveal.version}.zip"/>
+        
+        <!-- Directory name of reveal.js that is stored in the downloaded archive. -->
+        <property name="revealDirectoryName" value="reveal.js-${reveal.version}"/>
+        
+        <!-- HTML version. Property is required by DITA-OT2.x -->
+        <property name="html-version" value="html5"/>
+        
+        <!-- File extension of the output files -->
+        <property name="args.outext" value="html"/>
+        
+        <!-- Cache directory for reveal.js files. -->
+        <condition property="revealCacheDir" value="${user.home}/AppData/Local/DITA/org.jung.reveal">
+            <os family="windows"/>
+        </condition>
+        <condition property="revealCacheDir" value="/tmp/DITA/org.jung.reveal">
+            <os family="unix"/>
+        </condition>
+        
+        <!-- Do not generate releated links -->
+        <property name="args.rellinks" value="none"/>
+        
+        <!-- Do not generate a nav-toc (HTML5) -->
+        <property name="nav-toc" value="none"/>
+        <property name="args.xsl" value="${dita.plugin.org.jung.reveal.dir}/xsl/reveal.xsl"/>
+        <property name="root-chunk-override" value="to-content"/>
+        
+        <condition property="reveal.controlsLayout" value="edges">
+            <not>
+                <isset property="reveal.controlsLayout"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.controlsLayout = ${reveal.controlsLayout}</echo>
+        
+        <condition property="reveal.controls" value="true">
+            <not>
+                <isset property="reveal.controls"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.controls = ${reveal.controls}</echo>
+        
+        <condition property="reveal.progress" value="true">
+            <not>
+                <isset property="reveal.progress"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.progress = ${reveal.progress}</echo>
+        
+        <condition property="reveal.slidenumber" value="false">
+            <not>
+                <isset property="reveal.slidenumber"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.slidenumber = ${reveal.slidenumber}</echo>
+        
+        <condition property="reveal.history" value="false">
+            <not>
+                <isset property="reveal.history"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.history = ${reveal.history}</echo>
+        
+        <condition property="reveal.keyboard" value="true">
+            <not>
+                <isset property="reveal.keyboard"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.keyboard = ${reveal.keyboard}</echo>
+        
+        <condition property="reveal.overview" value="true">
+            <not>
+                <isset property="reveal.overview"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.overview = ${reveal.overview}</echo>
+        
+        <condition property="reveal.center" value="true">
+            <not>
+                <isset property="reveal.center"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.center = ${reveal.center}</echo>
+        
+        <condition property="reveal.touch" value="true">
+            <not>
+                <isset property="reveal.touch"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.touch = ${reveal.touch}</echo>
+        
+        <condition property="reveal.loop" value="false">
+            <not>
+                <isset property="reveal.loop"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.loop = ${reveal.loop}</echo>
+        
+        <condition property="reveal.rtl" value="false">
+            <not>
+                <isset property="reveal.rtl"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.rtl = ${reveal.rtl}</echo>
+        
+        <condition property="reveal.fragments" value="true">
+            <not>
+                <isset property="reveal.fragments"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.fragments = ${reveal.fragments}</echo>
+        
+        <condition property="reveal.embedded" value="false">
+            <not>
+                <isset property="reveal.embedded"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.embedded = ${reveal.embedded}</echo>
+        
+        <condition property="reveal.autoslide" value="0">
+            <not>
+                <isset property="reveal.autoslide"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.autoslide = ${reveal.autoslide}</echo>
+        
+        <condition property="reveal.autoslidestoppable" value="true">
+            <not>
+                <isset property="reveal.autoslidestoppable"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.autoslidestoppable = ${reveal.autoslidestoppable}</echo>
+        
+        <condition property="reveal.mousewheel" value="false">
+            <not>
+                <isset property="reveal.mousewheel"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.mousewheel = ${reveal.mousewheel}</echo>
+        
+        <condition property="reveal.hideaddressbar" value="true">
+            <not>
+                <isset property="reveal.hideaddressbar"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.hideaddressbar = ${reveal.hideaddressbar}</echo>
+        
+        <condition property="reveal.previewlinks" value="false">
+            <not>
+                <isset property="reveal.previewlinks"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.previewlinks = ${reveal.previewlinks}</echo>
+        
+        <condition property="reveal.scrollprogress" value="auto">
+            <not>
+                <isset property="reveal.scrollprogress"/>
+            </not>
+        </condition>
+        <echo if:set="reveal.scrollprogress">* reveal.scrollprogress = ${reveal.scrollprogress}</echo>
+        
+        <condition property="reveal.transition" value="default">
+            <not>
+                <isset property="reveal.transition"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.transition = ${reveal.transition}</echo>
+        
+        <condition property="reveal.transitionspeed" value="default">
+            <not>
+                <isset property="reveal.transitionspeed"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.transitionspeed = ${reveal.transitionspeed}</echo>
+        
+        <condition property="reveal.backgroundtransition" value="default">
+            <not>
+                <isset property="reveal.backgroundtransition"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.backgroundtransition = ${reveal.backgroundtransition}</echo>
+        
+        <!-- See allowed values at https://github.com/hakimel/reveal.js/blob/master/js/config.js -->
+        <condition property="reveal.view" value="null">
+            <not>
+                <isset property="reveal.view"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.view = ${reveal.view}</echo>
+        <echo if:set="reveal.view" level="info">* reveal.view = ${reveal.view}</echo>
+        
+        <condition property="reveal.viewdistance" value="3">
+            <not>
+                <isset property="reveal.viewdistance"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.viewdistance = ${reveal.viewdistance}</echo>
+        
+        <condition property="reveal.width" value="960">
+            <not>
+                <isset property="reveal.width"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.width = ${reveal.width}</echo>
+        
+        <condition property="reveal.height" value="700">
+            <not>
+                <isset property="reveal.height"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.height = ${reveal.height}</echo>
+        
+        <condition property="reveal.margin" value="0.1">
+            <not>
+                <isset property="reveal.heimarginght"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.margin = ${reveal.margin}</echo>
+        
+        <condition property="reveal.minScale" value="0.2">
+            <not>
+                <isset property="reveal.minScale"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.minScale = ${reveal.minScale}</echo>
+        
+        <condition property="reveal.maxScale" value="1.5">
+            <not>
+                <isset property="reveal.maxScale"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.maxScale = ${reveal.maxScale}</echo>
+        
+        <condition property="reveal.generate.vertical.slides" value="true">
+            <not>
+                <isset property="reveal.generate.vertical.slides"/>
+            </not>
+        </condition>
+        <echo level="info">* reveal.generate.vertical.slides = ${reveal.generate.vertical.slides}</echo>
+        
+        <condition property="reveal.css-and-theme-used">
+            <and>
+                <isset property="reveal.css"/>
+                <isset property="reveal.theme"/>
+            </and>
+        </condition>
+        <!-- Fall back to defaults, unless set -->
+        <property name="reveal.css" value="${dita.plugin.org.jung.reveal.dir}/css/jung.css"/>
+        <property name="reveal.theme" value="jung"/>
+        <echo level="info">* reveal.css = ${reveal.css}</echo>
+        <echo level="info">* reveal.theme = ${reveal.theme}</echo>
+        
+        <basename if:set="reveal.css" property="reveal.css.filename" file="${reveal.css}" suffix=".css" />
+        <fail if:set="reveal.css-and-theme-used" message="Property &quot;reveal.theme&quot; does not match &quot;reveal.css&quot;">
+            <condition>
+                <and>
+                    <not>
+                        <equals arg1="${reveal.css}" arg2="null"/>
+                    </not>
+                    <not>
+                        <equals arg1="${reveal.theme}" arg2="${reveal.css.filename}"/>
+                    </not>
+                </and>
+            </condition>
+        </fail>
+        
+        <!-- Get reveal.js -->
+        <mkdir dir="${revealCacheDir}"/>
+        <condition property="reveal.archive.available">
+            <available file="${revealCacheDir}${file.separator}${revealArchiveName}"/>
+        </condition>
+        <condition property="reveal-host-available">
+            <http url="${revealDownloadUrl}"/>
+        </condition>
+        <condition property="cannot-get-revealjs">
+            <and>
+                <not>
+                    <isset property="reveal.archive.available"/>
+                </not>
+                <not>
+                    <isset property="reveal-host-available"/>
+                </not>
+            </and>
+        </condition>
+        <fail if:set="cannot-get-revealjs">Cannot reach host '${revealDownloadUrl}' to download reveal-js</fail>
+        <get
+            unless:set="reveal.archive.available"
+            verbose="on"
+            src="${revealDownloadUrl}"
+            dest="${revealCacheDir}"
+            skipexisting="true"/>
+        <unzip
+            src="${revealCacheDir}${file.separator}${revealArchiveName}"
+            dest="${revealCacheDir}"/>
+    </target>
+
+    <!-- XSLT transformation -->
+    <target name="reveal">
+        <description>Build XHTML output from dita inner and outer topics, which will adjust the directory.</description>
+
+        
+        <pipeline message="Convert DITA topics to reveal.js slides" taskname="xslt">
+            <xslt destdir="${dita.output.dir}" reloadstylesheet="${dita.html5.reloadstylesheet}" extension=".html" style="${dita.plugin.org.jung.reveal.dir}/xsl/reveal.xsl" filenameparameter="FILENAME" filedirparameter="FILEDIR" parallel="${parallel}">
+                <ditafileset format="dita" processingRole="normal"/>
+                <!--<param name="FILTERFILE" expression="${dita.input.valfile.url}" if:set="dita.input.valfile"/>
+                <param name="CSS" expression="${args.css.file}" if:set="args.css.file"/>
+                <param name="CSSPATH" expression="${user.csspath}" if:set="user.csspath"/>
+                <param name="HDF" expression="${args.hdf}" if:set="args.hdf"/>
+                <param name="HDR" expression="${args.hdr}" if:set="args.hdr"/>
+                <param name="FTR" expression="${args.ftr}" if:set="args.ftr"/>
+                <param name="DRAFT" expression="${args.draft}" if:set="args.draft"/>
+                <param name="ARTLBL" expression="${args.artlbl}" if:set="args.artlbl"/>
+                <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if:set="args.gen.task.lbl"/>
+                <param name="PRESERVE-DITA-CLASS" expression="${args.html5.classattr}" if:set="args.html5.classattr"/>
+                <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if:set="args.hide.parent.link"/>
+                <param name="include.rellinks" expression="${include.rellinks}"/>
+                <param name="INDEXSHOW" expression="${args.indexshow}" if:set="args.indexshow"/>
+                <param name="genDefMeta" expression="${args.gen.default.meta}" if:set="args.gen.default.meta"/>
+                <param name="OUTEXT" expression="${out.ext}" if:set="out.ext"/>
+                <param name="BASEDIR" expression="${dita.dir}"/>
+                <param name="OUTPUTDIR" expression="${dita.output.dir}"/>
+                <param name="defaultLanguage" expression="${default.language}"/>-->
+                <param name="TRANSTYPE" expression="${transtype}"/>
+                <param name="DITAEXT" expression="${dita.ext}" if:set="dita.ext"/>
+                <param name="FILTERFILE" expression="${dita.input.valfile.url}" if:set="dita.input.valfile"/>
+                <param name="CSS" expression="${args.css.file}" if:set="args.css.file"/>
+                <param name="CSSPATH" expression="${user.csspath}" if:set="user.csspath"/>
+                <param name="HDF" expression="${args.hdf}" if:set="args.hdf"/>
+                <param name="HDR" expression="${args.hdr}" if:set="args.hdr"/>
+                <param name="FTR" expression="${args.ftr}" if:set="args.ftr"/>
+                <param name="DRAFT" expression="${args.draft}" if:set="args.draft"/>
+                <param name="ARTLBL" expression="${args.artlbl}" if:set="args.artlbl"/>
+                <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if:set="args.gen.task.lbl"/>
+                <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if:set="args.xhtml.classattr"/>
+                <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if:set="args.hide.parent.link"/>
+                <param name="include.rellinks" expression="${include.rellinks}"/>
+                <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if:set="args.breadcrumbs"/>
+                <param name="INDEXSHOW" expression="${args.indexshow}" if:set="args.indexshow"/>
+                <param name="genDefMeta" expression="${args.gen.default.meta}" if:set="args.gen.default.meta"/>
+                <param name="OUTEXT" expression=".${args.outext}" if:set="out.ext"/>
+                <param name="BASEDIR" expression="${basedir}"/>
+                <param name="OUTPUTDIR" expression="${output.dir}"/>
+                <param name="DBG" expression="${args.debug}" if:set="args.debug"/>
+                <param name="DEFAULTLANG" expression="${args.default.language}" if:set="args.default.language"/>
+                
+                <!-- reveal.js parameters -->
+                <param name="reveal.autoslide" expression="${reveal.autoslide}" if:set="reveal.autoslide"/>
+                <param name="reveal.autoslidestoppable" expression="${reveal.autoslidestoppable}" if:set="reveal.autoslidestoppable"/>
+                <param name="reveal.backgroundtransition" expression="${reveal.backgroundtransition}" if:set="reveal.backgroundtransition"/>
+                <param name="reveal.center" expression="${reveal.center}" if:set="reveal.center"/>
+                <param name="reveal.controls" expression="${reveal.controls}" if:set="reveal.controls"/>
+                <param name="reveal.controlsLayout" expression="${reveal.controlsLayout}" if:set="reveal.controlsLayout"/>
+                <param name="reveal.css" expression="${reveal.css}" if:set="reveal.css"/>
+                <param name="reveal.embedded" expression="${reveal.embedded}" if:set="reveal.embedded"/>
+                <param name="reveal.fragments" expression="${reveal.fragments}" if:set="reveal.fragments"/>
+                <param name="reveal.generate.vertical.slides" expression="${reveal.generate.vertical.slides}" if:set="reveal.generate.vertical.slides"/>
+                <param name="reveal.height" expression="${reveal.height}" if:set="reveal.height"/>
+                <param name="reveal.hideaddressbar" expression="${reveal.hideaddressbar}" if:set="reveal.hideaddressbar"/>
+                <param name="reveal.history" expression="${reveal.history}" if:set="reveal.history"/>
+                <param name="reveal.keyboard" expression="${reveal.keyboard}" if:set="reveal.keyboard"/>
+                <param name="reveal.loop" expression="${reveal.loop}" if:set="reveal.loop"/>
+                <param name="reveal.margin" expression="${reveal.margin}" if:set="reveal.margin"/>
+                <param name="reveal.maxScale" expression="${reveal.maxScale}" if:set="reveal.maxScale"/>
+                <param name="reveal.minScale" expression="${reveal.minScale}" if:set="reveal.minScale"/>
+                <param name="reveal.mousewheel" expression="${reveal.mousewheel}" if:set="reveal.mousewheel"/>
+                <param name="reveal.overview" expression="${reveal.overview}" if:set="reveal.overview"/>
+                <param name="reveal.parallaxbackgroundimage" expression="${reveal.parallaxbackgroundimage}" if:set="reveal.parallaxbackgroundimage"/>
+                <param name="reveal.parallaxbackgroundsize" expression="${reveal.parallaxbackgroundsize}" if:set="reveal.parallaxbackgroundsize"/>
+                <param name="reveal.previewlinks" expression="${reveal.previewlinks}" if:set="reveal.previewlinks"/>
+                <param name="reveal.progress" expression="${reveal.progress}" if:set="reveal.progress"/>
+                <param name="reveal.rtl" expression="${reveal.rtl}" if:set="reveal.rtl"/>
+                <param name="reveal.scrollprogress" expression="${reveal.scrollprogress}" if:set="reveal.scrollprogress"/>
+                <param name="reveal.slidenumber" expression="${reveal.slidenumber}" if:set="reveal.slidenumber"/>
+                <param name="reveal.theme" expression="${reveal.theme}" if:set="reveal.theme"/>
+                <param name="reveal.touch" expression="${reveal.touch}" if:set="reveal.touch"/>
+                <param name="reveal.transition" expression="${reveal.transition}" if:set="reveal.transition"/>
+                <param name="reveal.transitionspeed" expression="${reveal.transitionspeed}" if:set="reveal.transitionspeed"/>
+                <param name="reveal.view" expression="${reveal.view}" if:set="reveal.view"/>
+                <param name="reveal.viewdistance" expression="${reveal.viewdistance}" if:set="reveal.viewdistance"/>
+                <param name="reveal.width" expression="${reveal.width}" if:set="reveal.width"/>
+                <!--<params/>-->
+            </xslt>
+        </pipeline>
+        
+        <echo if:set="reveal.css" level="info">Copy ${reveal.css} to ${output.dir}${file.separator}dist${file.separator}theme</echo>
+        <copy if:set="reveal.css" file="${reveal.css}" todir="${output.dir}${file.separator}dist${file.separator}theme" failonerror="false"/>
+        
+        <!-- Copy reveal.js -->
+        <copy todir="${output.dir}" failonerror="true">
+            <fileset dir="${revealCacheDir}${file.separator}${revealDirectoryName}"/>
+        </copy>
+        
+        <!-- Obsolete -->
+        <!-- Copy JQuery -->
+        <!--<copy todir="${output.dir}${file.separator}js" failonerror="true">
+            <fileset dir="${dita.plugin.org.jung.reveal.dir}/js">
+                <include name="jquery-*.min.js"/>
+            </fileset>
+        </copy>-->
+        
+        <!-- Replace index.html -->
+        <delete file="${output.dir}${file.separator}index.html"/>
+        <echo level="info">args.input = ${args.input}</echo>
+        <!-- For whatever reason I cannot remove the suffix with the basename task anymore -->
+        <basename property="dita.input.filename" file="${args.input}"/>
+        <echo level="info">dita.input.filename = ${dita.input.filename}</echo>
+        <loadresource property="dita.input.filename.nosuffix">
+            <propertyresource name="dita.input.filename"/>
+            <filterchain>
+                <tokenfilter>
+                    <filetokenizer/>
+                    <replaceregex pattern=".ditamap" replace=""/>
+                </tokenfilter>
+            </filterchain>
+        </loadresource> 
+        <echo level="info">dita.input.filename.nosuffix = ${dita.input.filename.nosuffix}</echo>
+        <condition property="presentation-html-available" value="true">
+            <available file="${output.dir}${file.separator}${dita.input.filename.nosuffix}.html"/>
+        </condition>
+        <echo unless:set="presentation-html-available" level="warning">${output.dir}${file.separator}${dita.input.filename.nosuffix}.html not found</echo>
+        <echo if:set="presentation-html-available" level="info">Move "${output.dir}${file.separator}${dita.input.filename.nosuffix}.html" to "${output.dir}${file.separator}index.html"</echo>
+        <move if:set="presentation-html-available" file="${output.dir}${file.separator}${dita.input.filename.nosuffix}.html" tofile="${output.dir}${file.separator}index.html"/>
+        <delete if:set="presentation-html-available" dir="${output.dir}${file.separator}test"/>
+    </target>
+    
 </project>

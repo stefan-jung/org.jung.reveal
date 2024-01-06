@@ -23,40 +23,60 @@
         **************************************************
     -->
     
-    <xsl:param name="args.reveal.autoslide"/>
-    <xsl:param name="args.reveal.autoslidestoppable"/>
-    <xsl:param name="args.reveal.backgroundtransition"/>
-    <xsl:param name="args.reveal.center"/>
-    <xsl:param name="args.reveal.controls"/>
-    <xsl:param name="args.reveal.controlsLayout" as="xs:string"/>
-    <xsl:param name="args.reveal.css"/>
-    <xsl:param name="args.reveal.embedded"/>
-    <xsl:param name="args.reveal.fragments"/>
-    <xsl:param name="args.reveal.generate.vertical.slides"/>
-    <xsl:param name="args.reveal.height"/>
-    <xsl:param name="args.reveal.hideaddressbar"/>
-    <xsl:param name="args.reveal.history"/>
-    <xsl:param name="args.reveal.keyboard"/>
-    <xsl:param name="args.reveal.loop"/>
-    <xsl:param name="args.reveal.margin"/>
-    <xsl:param name="args.reveal.maxScale"/>
-    <xsl:param name="args.reveal.minScale"/>
-    <xsl:param name="args.reveal.mousewheel"/>
-    <xsl:param name="args.reveal.overview"/>
-    <xsl:param name="args.reveal.parallaxbackgroundimage"/>
-    <xsl:param name="args.reveal.parallaxbackgroundsize"/>
-    <xsl:param name="args.reveal.previewlinks"/>
-    <xsl:param name="args.reveal.progress"/>
-    <xsl:param name="args.reveal.rtl"/>
-    <xsl:param name="args.reveal.scrollprogress" as="xs:string"/>
-    <xsl:param name="args.reveal.slidenumber"/>
-    <xsl:param name="args.reveal.theme"/>
-    <xsl:param name="args.reveal.touch"/>
-    <xsl:param name="args.reveal.transition"/>
-    <xsl:param name="args.reveal.transitionspeed"/>
-    <xsl:param name="args.reveal.view" as="xs:string"/>
-    <xsl:param name="args.reveal.viewdistance"/>
-    <xsl:param name="args.reveal.width"/>
+    <xsl:param name="reveal.autoslide"/>
+    <xsl:param name="reveal.autoAnimate"/>
+    <xsl:param name="reveal.autoAnimateMatcher" select="'null'"/>
+    <xsl:param name="reveal.autoPlayMedia"/>
+    <xsl:param name="reveal.autoslidestoppable"/>
+    <xsl:param name="reveal.backgroundtransition"/>
+    <xsl:param name="reveal.center"/>
+    <xsl:param name="reveal.controls"/>
+    <xsl:param name="reveal.controlsBackArrows"/>
+    <xsl:param name="reveal.controlsLayout"/>
+    <xsl:param name="reveal.controlsTutorial"/>
+    <xsl:param name="reveal.css"/>
+    <xsl:param name="reveal.disableLayout"/>
+    <xsl:param name="reveal.embedded"/>
+    <xsl:param name="reveal.fragments"/>
+    <xsl:param name="reveal.fragmentInURL"/>
+    <xsl:param name="reveal.generate.vertical.slides"/>
+    <xsl:param name="reveal.hash"/>
+    <xsl:param name="reveal.height"/>
+    <xsl:param name="reveal.help"/>
+    <xsl:param name="reveal.hideaddressbar"/>
+    <xsl:param name="reveal.hashOneBasedIndex"/>
+    <xsl:param name="reveal.history"/>
+    <xsl:param name="reveal.jumpToSlide"/>
+    <xsl:param name="reveal.keyboard"/>
+    <xsl:param name="reveal.keyboardCondition"/>
+    <xsl:param name="reveal.loop"/>
+    <xsl:param name="reveal.margin"/>
+    <xsl:param name="reveal.maxScale"/>
+    <xsl:param name="reveal.minScale"/>
+    <xsl:param name="reveal.mousewheel"/>
+    <xsl:param name="reveal.navigationMode"/>
+    <xsl:param name="reveal.overview"/>
+    <xsl:param name="reveal.parallaxbackgroundimage"/>
+    <xsl:param name="reveal.parallaxbackgroundsize"/>
+    <xsl:param name="reveal.pause"/>
+    <xsl:param name="reveal.preloadIframes"/>
+    <xsl:param name="reveal.previewlinks"/>
+    <xsl:param name="reveal.progress"/>
+    <xsl:param name="reveal.respondToHashChanges"/>
+    <xsl:param name="reveal.rtl"/>
+    <xsl:param name="reveal.scrollprogress"/>
+    <xsl:param name="reveal.slidenumber"/>
+    <xsl:param name="reveal.showHiddenSlides"/>
+    <xsl:param name="reveal.showNotes"/>
+    <xsl:param name="reveal.showSlideNumber"/>
+    <xsl:param name="reveal.shuffle"/>
+    <xsl:param name="reveal.theme"/>
+    <xsl:param name="reveal.touch"/>
+    <xsl:param name="reveal.transition"/>
+    <xsl:param name="reveal.transitionspeed"/>
+    <xsl:param name="reveal.view"/>
+    <xsl:param name="reveal.viewdistance"/>
+    <xsl:param name="reveal.width"/>
     
     
     <!--
@@ -84,11 +104,14 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-\-\-\-></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"><!-\-\-\-></meta>-->
         
+        <meta charset="utf-8"><!-- --></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><!-- --></meta>
+        
         <link rel="stylesheet" href="dist/reset.css"><!----></link>
         <link rel="stylesheet" href="dist/reveal.css"><!----></link>
         <xsl:choose>
-            <xsl:when test="not(contains($args.reveal.theme, 'null'))">
-                <link rel="stylesheet" href="dist/theme/{$args.reveal.theme}.css" id="theme"><!----></link>    
+            <xsl:when test="not(contains($reveal.theme, 'null'))">
+                <link rel="stylesheet" href="dist/theme/{$reveal.theme}.css" id="theme"><!----></link>    
             </xsl:when>
             <xsl:otherwise>
                 <link rel="stylesheet" href="dist/reveal.css" id="theme"><!----></link>
@@ -144,7 +167,6 @@
                         </xsl:if>
                     </xsl:if>
                     <xsl:apply-templates select="." mode="addAttributesToBody"/>
-                    <xsl:value-of select="$newline"/>
                     <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
                     <xsl:variable name="bodyContent">
                         <xsl:apply-templates/>
@@ -169,7 +191,7 @@
                                     </xsl:for-each>
                                 </xsl:variable>
                                 <xsl:choose>
-                                    <xsl:when test="$args.reveal.generate.vertical.slides = 'true'">
+                                    <xsl:when test="$reveal.generate.vertical.slides = 'true'">
                                         <!-- Generate vertical slides, so wrap in a <section> element -->
                                         <section>
                                             <xsl:copy-of select="$allSlidesAsFirstLevel"/>
@@ -208,162 +230,71 @@
                 </div>
             </div>
             
-            <script src="dist/reveal.js"><!----></script>
-            <script src="plugin/notes/notes.js"><!----></script>
-            <script src="plugin/markdown/markdown.js"><!----></script>
-            <script src="plugin/highlight/highlight.js"><!----></script>
+            <script src="dist/reveal.js"></script>
+            <script src="plugin/notes/notes.js"></script>
+            <script src="plugin/markdown/markdown.js"></script>
+            <script src="plugin/highlight/highlight.js"></script>
             
-            <script type="text/javascript">
+            <script>
                 <!-- 
                     Full list of configuration options available here:
-                    https://github.com/hakimel/reveal.js#configuration
+                    https://github.com/hakimel/reveal.js/blob/master/js/config.js
                 -->
                
                 // More info about initialization and config:
                 // - https://revealjs.com/initialization/
                 // - https://revealjs.com/config/
                 Reveal.initialize({
-                    <xsl:value-of select="
-                        if ($args.reveal.autoslide) 
-                        then 'autoSlide: ' || $args.reveal.autoslide || ', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.autoslidestoppable) 
-                        then 'autoSlideStoppable: ''' || $args.reveal.autoslidestoppable || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.backgroundtransition)
-                        then 'backgroundTransition: ''' || $args.reveal.backgroundtransition || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.center)
-                        then 'center: ''' || $args.reveal.center || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.controls)
-                        then 'controls: ' || $args.reveal.controls || ', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.controlsLayout)
-                        then 'controlsLayout: ''' || $args.reveal.controlsLayout || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.embedded)
-                        then 'embedded: ''' || $args.reveal.embedded || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.fragments)
-                        then 'fragments: ''' || $args.reveal.fragments || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.height)
-                        then 'height: ' || $args.reveal.height || ', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.hideaddressbar)
-                        then 'hideAddressBar: ''' || $args.reveal.hideaddressbar || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.keyboard)
-                        then 'keyboard: ''' || $args.reveal.keyboard || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.loop)
-                        then 'loop: ''' || $args.reveal.loop || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.margin)
-                        then 'margin: ' || $args.reveal.margin || ', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.maxScale)
-                        then 'maxScale: ' || $args.reveal.maxScale || ', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.minScale)
-                        then 'minScale: ' || $args.reveal.minScale || ', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.mousewheel)
-                        then 'mouseWheel: ''' || $args.reveal.mousewheel || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.overview)
-                        then 'overview: ''' || $args.reveal.overview || ''', ' || $newline
-                        else ''
-                        "/>
+                    <xsl:value-of select="if ($reveal.autoslide) then 'autoSlide: ' || $reveal.autoslide || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.autoslidestoppable) then 'autoSlideStoppable: ''' || $reveal.autoslidestoppable || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.backgroundtransition) then 'backgroundTransition: ''' || $reveal.backgroundtransition || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.controls) then 'controls: ' || $reveal.controls || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.controlsTutorial) then 'controlsTutorial: ' || $reveal.controlsTutorial || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.controlsLayout) then 'controlsLayout: ''' || $reveal.controlsLayout || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.controlsBackArrows) then 'controlsLayout: ''' || $reveal.controlsBackArrows || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.hash) then 'hash: ' || $reveal.hash || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.respondToHashChanges) then 'respondToHashChanges: ' || $reveal.respondToHashChanges || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.height) then 'height: ' || $reveal.height || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.hideaddressbar) then 'hideAddressBar: ''' || $reveal.hideaddressbar || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.jumpToSlide) then 'jumpToSlide: ' || $reveal.jumpToSlide || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.history) then 'history: ' || $reveal.history || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.keyboard) then 'keyboard: ' || $reveal.keyboard || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.keyboardCondition) then 'keyboardCondition: ''' || $reveal.keyboardCondition || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.disableLayout) then 'disableLayout: ' || $reveal.disableLayout || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.overview) then 'overview: ' || $reveal.overview ||', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.center) then 'center: ' || $reveal.center || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.touch) then 'touch: ' || $reveal.touch || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.loop) then 'loop: ' || $reveal.loop || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.rtl) then 'rtl: ' || $reveal.rtl || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.navigationMode) then 'navigationMode: ''' || $reveal.navigationMode || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.shuffle) then 'shuffle: ' || $reveal.shuffle || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.fragments) then 'fragments: ' || $reveal.fragments || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.fragmentInURL) then 'fragmentInURL: ' || $reveal.fragmentInURL || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.embedded) then 'embedded: ' || $reveal.embedded || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.help) then 'help: ' || $reveal.help || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.pause) then 'pause: ' || $reveal.pause || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.showNotes) then 'showNotes: ' || $reveal.showNotes || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.margin) then 'margin: ' || $reveal.margin || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.maxScale) then 'maxScale: ' || $reveal.maxScale || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.minScale) then 'minScale: ' || $reveal.minScale || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.mousewheel) then 'mouseWheel: ''' || $reveal.mousewheel || ''', ' || $newline else ''"/>
                     plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
-                    <xsl:value-of select="
-                        if ($args.reveal.previewlinks)
-                        then 'previewLinks: ''' || $args.reveal.previewlinks || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.progress)
-                        then 'progress: ' || $args.reveal.progress || ', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.rtl)
-                        then 'rtl: ''' || $args.reveal.rtl || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.scrollprogress)
-                        then 'scrollProgress: ' || $args.reveal.scrollprogress || ', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.slidenumber)
-                        then 'slideNumber: ''' || $args.reveal.slidenumber || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.touch)
-                        then 'touch: ''' || $args.reveal.touch || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.transition)
-                        then 'transition: ''' || $args.reveal.transition || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.transitionspeed)
-                        then 'transitionSpeed: ''' || $args.reveal.transitionspeed || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.view)
-                        then 'view: ''' || $args.reveal.view || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.viewdistance)
-                        then 'viewDistance: ''' || $args.reveal.viewdistance || ''', ' || $newline
-                        else ''
-                        "/>
-                    <xsl:value-of select="
-                        if ($args.reveal.width)
-                        then 'width: ' || $args.reveal.width || ', ' || $newline
-                        else ''
-                        "/>
+                    <xsl:value-of select="if ($reveal.previewlinks) then 'previewLinks: ''' || $reveal.previewlinks || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.progress) then 'progress: ' || $reveal.progress || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.scrollprogress) then 'scrollProgress: ' || $reveal.scrollprogress || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.slidenumber) then 'slideNumber: ' || $reveal.slidenumber || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.showHiddenSlides) then 'showHiddenSlides: ' || $reveal.showHiddenSlides || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.autoPlayMedia) then 'autoPlayMedia: ' || $reveal.autoPlayMedia || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.preloadIframes) then 'preloadIframes: ' || $reveal.preloadIframes || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.autoAnimate) then 'autoAnimate: ' || $reveal.autoAnimate || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.autoAnimateMatcher) then 'autoAnimateMatcher: ' || $reveal.autoAnimateMatcher || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.showSlideNumber) then 'showSlideNumber: ''' || $reveal.showSlideNumber || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.hashOneBasedIndex) then 'hashOneBasedIndex: ' || $reveal.hashOneBasedIndex || ', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.transition) then 'transition: ''' || $reveal.transition || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.transitionspeed) then 'transitionSpeed: ''' || $reveal.transitionspeed || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.view) then 'view: ''' || $reveal.view || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.viewdistance) then 'viewDistance: ''' || $reveal.viewdistance || ''', ' || $newline else ''"/>
+                    <xsl:value-of select="if ($reveal.width) then 'width: ' || $reveal.width || ', ' || $newline else ''"/>
                 });
                 
                 Reveal.addEventListener( 'slidechanged', function( event ) {

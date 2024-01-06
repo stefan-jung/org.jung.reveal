@@ -688,7 +688,7 @@
 													<list>
 														<ditaParameter>
 															<field name="name">
-																<String>args.reveal.css</String>
+																<String>reveal.css</String>
 															</field>
 															<field name="description">
 																<null/>
@@ -711,7 +711,7 @@
 														</ditaParameter>
 														<ditaParameter>
 															<field name="name">
-																<String>args.reveal.theme</String>
+																<String>reveal.theme</String>
 															</field>
 															<field name="description">
 																<null/>
