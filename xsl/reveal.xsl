@@ -449,6 +449,7 @@
     
     <xsl:template match="*[contains(@class, ' slide/slide-div ')]">
         <div>
+            <xsl:call-template name="commonattributes"/>
             <xsl:copy-of select="@data-id"/>
             <xsl:copy-of select="@style"/>
             <xsl:apply-templates/>
