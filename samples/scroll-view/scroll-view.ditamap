@@ -2,14 +2,14 @@
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
  <title>Sample</title>
- <topicref href="01_slide.dita"/>
- <topicref href="02_slide.dita"/>
- <topicref href="03_slide.dita"/>
- <topicref href="04_slide.dita"/>
- <topicref href="05_slide.dita"/>
- <topicref href="06_slide.dita"/>
- <topicref href="07_slide.dita"/>
- <topicref href="08_slide.dita"/>
- <topicref href="09_slide.dita"/>
- <topicref href="10_slide.dita"/>
+ <topicref href="slide01.dita"/>
+ <topicref href="slide02.dita"/>
+ <topicref href="slide03.dita"/>
+ <topicref href="slide04.dita"/>
+ <topicref href="slide05.dita"/>
+ <topicref href="slide06.dita"/>
+ <topicref href="slide07.dita"/>
+ <topicref href="slide08.dita"/>
+ <topicref href="slide09.dita"/>
+ <topicref href="slide10.dita"/>
 </map>

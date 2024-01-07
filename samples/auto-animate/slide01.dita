@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<slide id="ui_xtb_wmj_11c" data-auto-animate=" " data-background-size=" " data-autoslide=" 0"
+  data-transition="slide" data-background-repeat=" ">
+  <title>Title of slide</title>
+  <slideBody/>
+</slide>

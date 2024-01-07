@@ -11,14 +11,24 @@
     <publication transtype="reveal"/>
   </deliverable>
   
-  <deliverable name="Reveal Presentation - With scroll view" id="scroll-view">
-    <context name="Reveal Scroll View" id="reveal_scroll-view_context">
+  <deliverable name="Reveal Scroll View" id="scroll-view">
+    <context name="Reveal Scroll View" id="scroll-view_context">
       <input href="scroll-view/scroll-view.ditamap"/>
     </context>
     <output href="./scroll-view"/>
     <publication transtype="reveal">
       <param name="reveal.view" value="scroll"/>
       <param name="reveal.scrollprogress" value="true"/>
+      <param name="reveal.theme" value="black"/>
+    </publication>
+  </deliverable>
+  
+  <deliverable name="Reveal Auto Animate" id="auto-animate">
+    <context name="Reveal Auto Animate" id="auto-animate_context">
+      <input href="auto-animate/auto-animate.ditamap"/>
+    </context>
+    <output href="./auto-animate"/>
+    <publication transtype="reveal">
       <param name="reveal.theme" value="black"/>
     </publication>
   </deliverable>

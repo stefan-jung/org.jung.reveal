@@ -16,6 +16,270 @@
    font-family: "Calibri", "UnDotum", serif;
 }
 
+*[class~='slide/slide']:before(300) {
+    content:
+        oxy_buttonGroup(
+            label, 'Set slide attributes',
+            tooltip, 'Slide attributes change the appearance, behavior and transition of the slide.',
+            actions,
+                oxy_action_list(
+                    oxy_action(
+                        name, 'auto-animate', 
+                        description, 'Activate auto-animate', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-auto-animate',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'auto-animate-easing', 
+                        description, 'auto-animate-easing', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-auto-animate-easing',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'auto-slide', 
+                        description, 'auto-slide', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-auto-slide',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'autoslide', 
+                        description, 'autoslide', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-autoslide',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'transition', 
+                        description, 'transition', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-transition',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'background', 
+                        description, 'background', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-background',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'background-color', 
+                        description, 'background-color', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-background-color',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'background-gradient', 
+                        description, 'background-gradient', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-background-gradient',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'background-image', 
+                        description, 'background-image', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-background-image',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'background-size', 
+                        description, 'background-size', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-background-size',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'background-position', 
+                        description, 'background-position', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-background-position',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'background-repeat', 
+                        description, 'background-repeat', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-background-repeat',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'background-opacity', 
+                        description, 'background-opacity', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-background-opacity',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'background-video', 
+                        description, 'background-video', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-background-video',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'background-video-loop', 
+                        description, 'background-video-loop', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-background-video-loop',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'background-video-muted', 
+                        description, 'background-video-muted', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-background-video-muted',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'Delete', 
+                        description, 'Deletes the current element', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.DeleteElementOperation'
+                    )
+                )
+        );
+    display: block;
+    margin-bottom: 0.3em;
+}
+
+*[class~='slide/slide'][id]:before(299),
+*[class~='slide/slide'][data-auto-animate]:before(298),
+*[class~='slide/slide'][data-auto-animate-easing]:before(296),
+*[class~='slide/slide'][data-autoslide]:before(294),
+*[class~='slide/slide'][data-transition]:before(292),
+*[class~='slide/slide'][data-background]:before(290),
+*[class~='slide/slide'][data-background-color]:before(288),
+*[class~='slide/slide'][data-background-gradient]:before(286),
+*[class~='slide/slide'][data-background-image]:before(284),
+*[class~='slide/slide'][data-background-size]:before(282),
+*[class~='slide/slide'][data-background-position]:before(280),
+*[class~='slide/slide'][data-background-repeat]:before(278),
+*[class~='slide/slide'][data-background-opacity]:before(276),
+*[class~='slide/slide'][data-background-video]:before(274),
+*[class~='slide/slide'][data-background-video-loop]:before(272),
+*[class~='slide/slide'][data-background-video-muted]:before(270) {
+    display: block
+}
+
+/* @id */
+*[class~='slide/slide'][id]:before(299) {
+    content:
+        oxy_label(text, "id", width, 10em, color, inherit)
+        oxy_textfield(edit, '@id', columns, 40);
+}
+
+/* @data-auto-animate */
+*[class~='slide/slide'][data-auto-animate]:before(298) {
+    content:
+        oxy_label(text, "data-auto-animate", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-auto-animate', columns, 40);
+}
+
+/* @data-auto-animate-easing */
+*[class~='slide/slide'][data-auto-animate-easing]:before(296) {
+    content:
+        oxy_label(text, "data-auto-animate-easing", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-auto-animate-easing', columns, 40);
+}
+
+/* @data-autoslide */
+*[class~='slide/slide'][data-autoslide]:before(294) {
+    content:
+        oxy_label(text, "data-autoslide", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-autoslide', columns, 40);
+}
+
+/* @data-transition */
+*[class~='slide/slide'][data-transition]:before(292) {
+    content:
+        oxy_label(text, "data-transition", width, 10em, color, inherit)
+        oxy_combobox( 
+            edit, '@data-transition',
+            editable, true,
+            columns, 40
+        );
+}
+
+/* @data-background */
+*[class~='slide/slide'][data-background]:before(290) {
+    content:
+        oxy_label(text, "data-background", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-background', columns, 40);
+}
+
+/* @data-background-color */
+*[class~='slide/slide'][data-background-color]:before(288) {
+    content:
+        oxy_label(text, "data-background-color", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-background-color', columns, 40);
+}
+
+/* @data-background-gradient */
+*[class~='slide/slide'][data-background-gradient]:before(286) {
+    content:
+        oxy_label(text, "data-background-gradient", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-background-gradient', columns, 40);
+}
+
+/* @data-background-image */
+*[class~='slide/slide'][data-background-image]:before(284) {
+    content:
+        oxy_label(text, "data-background-image", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-background-image', columns, 40);
+}
+
+/* @data-background-size */
+*[class~='slide/slide'][data-background-size]:before(282) {
+    content:
+        oxy_label(text, "data-background-size", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-background-size', columns, 40);
+}
+
+/* @data-background-position */
+*[class~='slide/slide'][data-background-position]:before(280) {
+    content:
+        oxy_label(text, "data-background-position", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-background-position', columns, 40);
+}
+
+/* @data-background-repeat */
+*[class~='slide/slide'][data-background-repeat]:before(278) {
+    content:
+        oxy_label(text, "data-background-repeat", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-background-repeat', columns, 40);
+}
+
+/* @data-background-opacity */
+*[class~='slide/slide'][data-background-opacity]:before(276) {
+    content:
+        oxy_label(text, "data-background-opacity", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-background-opacity', columns, 40);
+}
+
+/* @data-background-video */
+*[class~='slide/slide'][data-background-video]:before(274) {
+    content:
+        oxy_label(text, "data-background-video", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-background-video', columns, 40);
+}
+
+/* @data-background-video-loop */
+*[class~='slide/slide'][data-background-video-loop]:before(272) {
+    content:
+        oxy_label(text, "data-background-video-loop", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-background-video-loop', columns, 40);
+}
+
+/* @data-background-video-muted */
+*[class~='slide/slide'][data-background-video-muted]:before(270) {
+    content:
+        oxy_label(text, "data-background-video-muted", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-background-video-muted', columns, 40);
+}
 
 *[class~='topic/table'] {
     border: none !important;
