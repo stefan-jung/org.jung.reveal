@@ -57,6 +57,9 @@
     <define name="slide-info-types">
       <ref name="info-types"/>
     </define>
+    <define name="pr-d-pre" combine="choice">
+      <ref name="slide-codeblock.element"/>
+    </define>
   </div>
   
   <div>
@@ -69,6 +72,15 @@
     </define>
     <define name="speakernotes">
       <ref name="speakernotes.element"/>
+    </define>
+    <define name="slide-div">
+      <ref name="slide-div.element"/>
+    </define>
+    <define name="slide-codeblock">
+      <ref name="slide-codeblock.element"/>
+    </define>
+    <define name="slide-pre">
+      <ref name="slide-pre.element"/>
     </define>
   </div>
   
@@ -97,6 +109,8 @@
         <ref name="ol"/>
         <ref name="p"/>
         <ref name="pre"/>
+        <ref name="slide-div"/>
+        <ref name="slide-pre"/>
         <ref name="simpletable"/>
         <ref name="sl"/>
         <ref name="table"/>
@@ -129,7 +143,7 @@
         </attribute>
         <optional>
           <attribute name="data-auto-animate">
-            <data type="boolean"/>
+            <empty/>
           </attribute>
         </optional>
         <optional>
@@ -291,6 +305,122 @@
         <ref name="speakernotes.attributes"/>
       </define>
     </div>
+    <div>
+      <a:documentation>LONG NAME: Custom Slide Div</a:documentation>
+      <define name="slide-div.content">
+        <choice>
+          <ref name="div.cnt"/>
+          <oneOrMore>
+            <ref name="slide-div"/>
+          </oneOrMore>
+          <text/>
+        </choice>
+      </define>
+      <define name="slide-div.attributes">
+        <ref name="univ-atts"/>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <optional>
+          <attribute name="data-id"/>
+        </optional>
+        <optional>
+          <attribute name="style"/><a:documentation>Custom CSS styles</a:documentation>
+        </optional>
+        <optional>
+          <attribute name="data-auto-animate-delay"/>
+        </optional>
+      </define>
+      <define name="slide-div.element">
+        <element name="slide-div" dita:longName="Custom Slide Div">
+          <a:documentation> Category: Slide elements</a:documentation>
+          <ref name="slide-div.attlist"/>
+          <ref name="slide-div.content"/>
+        </element>
+      </define>
+      <define name="slide-div.attlist" combine="interleave">
+        <ref name="slide-div.attributes"/>
+      </define>
+    </div>
+    <div>
+      <a:documentation>LONG NAME: Custom Slide Pre</a:documentation>
+      <define name="slide-pre.content">
+        <choice>
+          <ref name="slide-codeblock"/>
+        </choice>
+      </define>
+      <define name="slide-pre.attributes">
+        <ref name="univ-atts"/>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <optional>
+          <attribute name="data-id">
+            <data type="string"/>
+          </attribute>
+        </optional>
+      </define>
+      <define name="slide-pre.element">
+        <element name="slide-pre" dita:longName="Custom Slide Pre">
+          <a:documentation> Category: Slide elements</a:documentation>
+          <ref name="slide-pre.attlist"/>
+          <ref name="slide-pre.content"/>
+        </element>
+      </define>
+      <define name="slide-pre.attlist" combine="interleave">
+        <ref name="slide-pre.attributes"/>
+      </define>
+    </div>
+    <div>
+      <a:documentation> LONG NAME: Slide Code Block </a:documentation>
+      <define name="slide-codeblock.content">
+        <zeroOrMore>
+          <choice>
+            <text/>
+            <ref name="basic.ph.notm"/>
+            <ref name="coderef"/>
+            <ref name="data.elements.incl"/>
+            <ref name="foreign.unknown.incl"/>
+            <ref name="txt.incl"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="slide-codeblock.attributes">
+        <ref name="display-atts"/>
+        <optional>
+          <attribute name="xml:space" a:defaultValue="preserve">
+            <value>preserve</value>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <optional>
+          <attribute name="data-trim">
+            <empty/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-line-numbers">
+            <data type="string"/>
+          </attribute>
+        </optional>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="slide-codeblock.element">
+        <element name="slide-codeblock" dita:longName="Slide Code Block">
+          <a:documentation>
+            <![CDATA[The <slide-codeblock> element represents lines of program code. Like the <pre> element, content of this element has preserved line endings and is output in a monospaced font. This element is part of the DITA programming domain, a special set of DITA elements designed to document programming tasks, concepts and reference information.
+    Category: Programming elements
+  ]]></a:documentation>
+          <ref name="slide-codeblock.attlist"/>
+          <ref name="slide-codeblock.content"/>
+        </element>
+      </define>
+      <define name="slide-codeblock.attlist" combine="interleave">
+        <ref name="slide-codeblock.attributes"/>
+      </define>
+    </div>
   </div>
 
   <div>
@@ -311,6 +441,23 @@
       <ref name="global-atts"/>
       <optional>
         <attribute name="class" a:defaultValue="- topic/div slide/speakernotes "/>
+      </optional>
+    </define>
+    <define name="slide-div.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- topic/div slide/slide-div "/>
+      </optional>
+    </define>
+    <define name="slide-pre.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- topic/div slide/slide-pre "/>
+      </optional>
+    </define>
+    <define name="slide-codeblock.attlist" combine="interleave">
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/pre pr-d/codeblock slide/slide-codeblock "/>
       </optional>
     </define>
   </div>

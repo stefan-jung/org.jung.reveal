@@ -94,16 +94,8 @@
         **************************************************
     -->
     
-    <!--<xsl:template match="/">
-        <xsl:apply-imports/>
-    </xsl:template>-->
-    
     <!-- Add reveal.js styles by overriding placeholder template from dita2htmlImpl.xsl -->
     <xsl:template match="/|node()|@*" mode="gen-user-styles">
-        
-        <!--<meta name="apple-mobile-web-app-capable" content="yes"><!-\-\-\-></meta>
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-\-\-\-></meta>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"><!-\-\-\-></meta>-->
         
         <meta charset="utf-8"><!-- --></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><!-- --></meta>
@@ -210,7 +202,10 @@
                                         <xsl:copy-of select="@data-transition"/>
                                     </xsl:if>-->
                                     <xsl:copy-of select="
-                                        @data-background-color 
+                                        @data-auto-animate
+                                        | @data-auto-animate-easing
+                                        | @data-background
+                                        | @data-background-color
                                         | @data-background-gradient
                                         | @data-background-image
                                         | @data-background-size
@@ -315,7 +310,9 @@
                 <xsl:copy-of select="@data-transition"/>
             </xsl:if>-->
             <xsl:copy-of select="
-                @data-background
+                @data-auto-animate
+                | @data-auto-animate-easing
+                | @data-background
                 | @data-background-color
                 | @data-background-gradient
                 | @data-background-image
@@ -360,14 +357,14 @@
             }
         </codeblock>
     -->
-    <xsl:template match="*[contains(@class,' pr-d/codeblock ')][contains(@outputclass, 'language-')]">
+    <!--<xsl:template match="*[contains(@class,' pr-d/codeblock ')][contains(@outputclass, 'language-')]">
         <pre>
             <code>
                 <xsl:attribute name="class">hljs <xsl:value-of select="substring-after(@outputclass,'language-')"/></xsl:attribute>
                 <xsl:apply-templates/>
             </code>
         </pre>
-    </xsl:template>
+    </xsl:template>-->
     
     <!-- Process slides - Override template from dita2xhtml-util.xsl -->
     <xsl:template match="nav | section | figure | article" mode="add-xhtml-ns" priority="20">
@@ -407,6 +404,15 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    <!--<xsl:template match="*|text()|@*" mode="all-but-topicContainer">
+        <xsl:if test="'topicContainer' != local-name()">
+            <xsl:copy>
+                <xsl:apply-templates mode="all-but-topicContainer" select="node() | @*"/>
+                <!-\-<xsl:apply-templates mode="all-but-topicContainer" select="@*"/>-\->
+                <!-\-<xsl:apply-templates mode="all-but-topicContainer"/>-\->
+            </xsl:copy>
+        </xsl:if>
+    </xsl:template>-->
     
     <!-- Speaker notes -->
     <xsl:template match="*[contains(@class, ' topic/div ')][contains(@outputclass, 'notes')]|*[contains(@class, ' slide/speakernotes ')]">
@@ -439,6 +445,41 @@
                 </p>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template match="*[contains(@class, ' slide/slide-div ')]">
+        <div>
+            <xsl:copy-of select="@data-id"/>
+            <xsl:copy-of select="@style"/>
+            <xsl:apply-templates/>
+        </div>
+    </xsl:template>
+
+    <xsl:template match="*[contains(@class, ' slide/slide-pre ')]">
+        <pre>
+            <xsl:copy-of select="@data-id"/>
+            <xsl:apply-templates/>
+        </pre>
+    </xsl:template>
+    
+    <!--<xsl:template match="*[contains(@class,' pr-d/codeblock ')][contains(@outputclass, 'language-')]">
+        <pre>
+            <code>
+                <xsl:attribute name="class">hljs <xsl:value-of select="substring-after(@outputclass,'language-')"/></xsl:attribute>
+                <xsl:apply-templates/>
+            </code>
+        </pre>
+    </xsl:template>-->
+    <xsl:template match="*[contains(@class, ' slide/slide-codeblock ')]">
+        <code>
+            <xsl:copy-of select="
+                @data-trim
+                | @data-line-numbers
+                "/>
+            
+            <xsl:call-template name="commonattributes"/>
+            <xsl:apply-templates/>
+        </code>
     </xsl:template>
     
     <xsl:template match="@data-transition" mode="reveal-slide-attributes">
