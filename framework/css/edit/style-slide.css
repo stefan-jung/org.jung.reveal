@@ -175,8 +175,7 @@
 /* @data-auto-animate */
 *[class~='slide/slide'][data-auto-animate]:before(298) {
     content:
-        oxy_label(text, "data-auto-animate", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-auto-animate', columns, 40);
+        oxy_label(text, "data-auto-animate activated", width, 10em, color, inherit);
 }
 
 /* @data-auto-animate-easing */

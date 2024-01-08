@@ -203,7 +203,9 @@
                                     </xsl:if>-->
                                     <xsl:copy-of select="
                                         @data-auto-animate
+                                        | @data-auto-animate-duration
                                         | @data-auto-animate-easing
+                                        | @data-auto-animate-unmatched
                                         | @data-background
                                         | @data-background-color
                                         | @data-background-gradient
@@ -311,7 +313,9 @@
             </xsl:if>-->
             <xsl:copy-of select="
                 @data-auto-animate
+                | @data-auto-animate-duration
                 | @data-auto-animate-easing
+                | @data-auto-animate-unmatched
                 | @data-background
                 | @data-background-color
                 | @data-background-gradient
@@ -461,6 +465,20 @@
             <xsl:copy-of select="@data-id"/>
             <xsl:apply-templates/>
         </pre>
+    </xsl:template>
+    
+    <xsl:template match="*[contains(@class, ' slide/slide-image ')]">
+        <img>
+            <xsl:copy-of select="@style"/>
+            <xsl:apply-templates/>
+        </img>
+    </xsl:template>
+    
+    <xsl:template match="*[contains(@class, ' slide/slide-p ')]">
+        <p>
+            <xsl:copy-of select="@style"/>
+            <xsl:apply-templates/>
+        </p>
     </xsl:template>
     
     <!--<xsl:template match="*[contains(@class,' pr-d/codeblock ')][contains(@outputclass, 'language-')]">

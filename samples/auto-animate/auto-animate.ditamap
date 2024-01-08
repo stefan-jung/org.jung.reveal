@@ -2,4 +2,5 @@
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
     <topicref href="slide01.dita"/>
+    <topicref href="slide02.dita"/>
 </map>

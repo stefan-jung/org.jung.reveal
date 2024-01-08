@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<slide id="ui_igx_54q_11c" data-auto-animate="" data-auto-animate-unmatched="fade">
+  <title>Title of slide</title>
+  <slideBody>
+    <p></p>
+  </slideBody>
+</slide>

@@ -30,6 +30,8 @@
     <output href="./auto-animate"/>
     <publication transtype="reveal">
       <param name="reveal.theme" value="black"/>
+      <param name="reveal.hash" value="true"/>
+      <param name="reveal.center" value="true"/>
     </publication>
   </deliverable>
   
