@@ -3,7 +3,7 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide data-background-gradient="linear-gradient(to bottom, #283b95, #17b2c3)" id="gradient-bg">
   <title/>
-  <slideBody>
+  <slide-body>
     <slide-div outputclass="h2" data-id="code-title">Code highlights, meet scroll triggers</slide-div>
     <slide-pre data-id="code-animation">
       <slide-codeblock outputclass="hljs javascript" data-trim="" data-line-numbers="|4,8-11|17|22-24" id="slide-codeblock_js1_zgj_11c">&lt;script type="text/template">
@@ -35,5 +35,5 @@
   }
 &lt;/script></slide-codeblock>
     </slide-pre>
-  </slideBody>
+  </slide-body>
 </slide>
