@@ -172,6 +172,25 @@
                                 <xsl:variable name="allSlidesAsFirstLevel">
                                     <!-- The slide which contains other slides, copied to output but ignoring sub-slides -->
                                     <section>
+                                        <!--<xsl:attribute name="HELLO3">WORLD3</xsl:attribute>-->
+                                        <xsl:copy-of select="
+                                            @data-auto-animate
+                                            | @data-auto-animate-duration
+                                            | @data-auto-animate-easing
+                                            | @data-auto-animate-unmatched
+                                            | @data-background
+                                            | @data-background-color
+                                            | @data-background-gradient
+                                            | @data-background-image
+                                            | @data-background-size
+                                            | @data-background-position
+                                            | @data-background-repeat
+                                            | @data-background-opacity
+                                            | @data-transition
+                                            | @data-background-video
+                                            | @data-background-video-loop
+                                            | @data-background-video-muted
+                                            "/>
                                         <xsl:apply-templates mode="reveal-slide-attributes"/>
                                         <!--<xsl:attribute name="test" select="'value'"/>-->
                                         <xsl:apply-templates mode="all-but-topicContainer"/>
@@ -179,6 +198,26 @@
                                     <!-- For each subslide, copy to output but ignore sub-slides -->
                                     <xsl:for-each select=".//topicContainer">
                                         <section>
+                                            <xsl:attribute name="HELLO4">WORLD4</xsl:attribute>
+                                            <!-- This works -->
+                                            <xsl:copy-of select="
+                                                @data-auto-animate
+                                                | @data-auto-animate-duration
+                                                | @data-auto-animate-easing
+                                                | @data-auto-animate-unmatched
+                                                | @data-background
+                                                | @data-background-color
+                                                | @data-background-gradient
+                                                | @data-background-image
+                                                | @data-background-size
+                                                | @data-background-position
+                                                | @data-background-repeat
+                                                | @data-background-opacity
+                                                | @data-transition
+                                                | @data-background-video
+                                                | @data-background-video-loop
+                                                | @data-background-video-muted
+                                                "/>
                                             <xsl:apply-templates mode="all-but-topicContainer"/>
                                         </section>
                                     </xsl:for-each>
@@ -187,6 +226,25 @@
                                     <xsl:when test="$reveal.generate.vertical.slides = 'true'">
                                         <!-- Generate vertical slides, so wrap in a <section> element -->
                                         <section>
+                                            <!--<xsl:attribute name="HELLO5">WORLD5</xsl:attribute>-->
+                                            <xsl:copy-of select="
+                                                @data-auto-animate
+                                                | @data-auto-animate-duration
+                                                | @data-auto-animate-easing
+                                                | @data-auto-animate-unmatched
+                                                | @data-background
+                                                | @data-background-color
+                                                | @data-background-gradient
+                                                | @data-background-image
+                                                | @data-background-size
+                                                | @data-background-position
+                                                | @data-background-repeat
+                                                | @data-background-opacity
+                                                | @data-transition
+                                                | @data-background-video
+                                                | @data-background-video-loop
+                                                | @data-background-video-muted
+                                                "/>
                                             <xsl:copy-of select="$allSlidesAsFirstLevel"/>
                                         </section>
                                     </xsl:when>
@@ -373,6 +431,7 @@
     <!-- Process slides - Override template from dita2xhtml-util.xsl -->
     <xsl:template match="nav | section | figure | article" mode="add-xhtml-ns" priority="20">
         <xsl:element name="section" namespace="http://www.w3.org/1999/xhtml">
+            <xsl:attribute name="HELLO">WORLD</xsl:attribute>
             <xsl:apply-templates select="@* except @role | node()" mode="add-xhtml-ns"/>
         </xsl:element>
     </xsl:template>
@@ -388,6 +447,7 @@
             <xsl:call-template name="commonattributes"/>
             <xsl:call-template name="gen-toc-id"/>
             <xsl:call-template name="setidaname"/>
+            <xsl:attribute name="HELLO2">WORLD2</xsl:attribute>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
             <xsl:apply-templates select="*[not(contains(@class, ' topic/title '))] | text() | comment() | processing-instruction()"/>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
@@ -426,7 +486,7 @@
     </xsl:template>
     
     <!-- reveal.js fragment elements -->
-    <xsl:template match="*[contains(@class, ' topic/p ')]" name="topic.p">
+    <!--<xsl:template match="*[contains(@class, ' topic/p ')]" name="topic.p">
         <xsl:choose>
             <xsl:when test="descendant::*[dita-ot:is-block(.)]">
                 <div class="p">
@@ -449,7 +509,7 @@
                 </p>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:template>
+    </xsl:template>-->
     
     <xsl:template match="*[contains(@class, ' slide/slide-div ')]">
         <div>
@@ -468,7 +528,7 @@
     </xsl:template>
     
     <xsl:template match="*[contains(@class, ' slide/slide-image ')]">
-        <img>
+        <img src="{@href}">
             <xsl:copy-of select="@style"/>
             <xsl:apply-templates/>
         </img>
@@ -495,14 +555,13 @@
                 @data-trim
                 | @data-line-numbers
                 "/>
-            
             <xsl:call-template name="commonattributes"/>
             <xsl:apply-templates/>
         </code>
     </xsl:template>
     
-    <xsl:template match="@data-transition" mode="reveal-slide-attributes">
+    <!--<xsl:template match="@data-transition" mode="reveal-slide-attributes">
         <xsl:value-of select="."/>
-    </xsl:template>
+    </xsl:template>-->
     
 </xsl:stylesheet>

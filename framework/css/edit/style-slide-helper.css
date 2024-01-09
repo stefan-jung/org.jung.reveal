@@ -15,7 +15,9 @@
 *[class~='slide/slide'][data-background-repeat]:before(277),
 *[class~='slide/slide'][data-background-opacity]:before(275),
 *[class~='slide/slide'][data-background-video]:before(273),
-*[class~='slide/slide'][data-background-video-loop]:before(271) {
+*[class~='slide/slide'][data-background-video-loop]:before(271),
+*[class~='slide/slide'][data-background-video-muted]:before(269),
+*[class~='slide/slide'][data-auto-animate-unmatched]:before(267){
     margin-bottom: 0.5em;
     font-size: 0.8em;
     color: gray;
@@ -97,4 +99,7 @@
     content: "Background video mute."
 }
 
-
+/* @data-auto-animate-unmatched */
+*[class~='slide/slide'][data-auto-animate-unmatched]:before(267) {
+    content: "Auto animate unmatched."
+}

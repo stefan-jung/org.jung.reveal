@@ -27,10 +27,10 @@
 
           SYSTEM:   Darwin Information Typing Architecture (DITA)
 
-          PURPOSE:  Define elements and specialization atttributes for Termentries
+          PURPOSE:  Define elements and attributes for Slides
 
           ORIGINAL CREATION DATE:
-                    March 2017
+                    March 2023
 
                     (C) Copyright Stefan Jung 2023
                     All Rights Reserved.
@@ -57,9 +57,6 @@
     <define name="slide-info-types">
       <ref name="info-types"/>
     </define>
-    <define name="pr-d-pre" combine="choice">
-      <ref name="slide-codeblock.element"/>
-    </define>
   </div>
   
   <div>
@@ -67,11 +64,11 @@
     <define name="slide">
       <ref name="slide.element"/>
     </define>
-    <define name="slideBody">
-      <ref name="slideBody.element"/>
+    <define name="slide-body">
+      <ref name="slide-body.element"/>
     </define>
-    <define name="speakernotes">
-      <ref name="speakernotes.element"/>
+    <define name="slide-speakernotes">
+      <ref name="slide-speakernotes.element"/>
     </define>
     <define name="slide-div">
       <ref name="slide-div.element"/>
@@ -92,7 +89,7 @@
   
   <div>
     <a:documentation>COMMON ELEMENT SETS</a:documentation>
-    <define name="slidebody.cnt">
+    <define name="slide-body.cnt">
       <choice>
         <ref name="slide.block"/>
         <ref name="data.elements.incl"/>
@@ -105,16 +102,16 @@
       <a:documentation>Elements common to slide body-like contexts</a:documentation>
       <choice>
         <ref name="dl"/>
-        <ref name="div"/>
+        <!--<ref name="div"/>-->
         <ref name="fig"/>
-        <ref name="image"/>
+        <!--<ref name="image"/>-->
         <ref name="lines"/>
         <ref name="lq"/>
         <ref name="note"/>
         <ref name="object"/>
         <ref name="ol"/>
-        <ref name="p"/>
-        <ref name="pre"/>
+        <!--<ref name="p"/>-->
+        <!--<ref name="pre"/>-->
         <ref name="slide-div"/>
         <ref name="slide-p"/>
         <ref name="slide-image"/>
@@ -139,7 +136,7 @@
       <define name="slide.content">
         <ref name="title"/>
         <optional>
-          <ref name="slideBody"/>
+          <ref name="slide-body"/>
         </optional>
         <zeroOrMore>
           <ref name="slide-info-types"/>
@@ -272,15 +269,15 @@
     </div>
     <div>
       <a:documentation> LONG NAME: Slide Body </a:documentation>
-      <define name="slideBody.content">
+      <define name="slide-body.content">
         <zeroOrMore>
-          <ref name="slidebody.cnt"/>
+          <ref name="slide-body.cnt"/>
         </zeroOrMore>
         <zeroOrMore>
-          <ref name="speakernotes"/>
+          <ref name="slide-speakernotes"/>
         </zeroOrMore>
       </define>
-      <define name="slideBody.attributes">
+      <define name="slide-body.attributes">
         <ref name="id-atts"/>
         <ref name="localization-atts"/>
         <optional>
@@ -291,40 +288,40 @@
           <attribute name="outputclass"/>
         </optional>
       </define>
-      <define name="slideBody.element">
-        <element name="slideBody" dita:longName="Slide Body">
-          <a:documentation>The &lt;slideBody> element contains the body of a term.
+      <define name="slide-body.element">
+        <element name="slide-body" dita:longName="Slide Body">
+          <a:documentation>The &lt;slide-body> element contains the body of a term.
             Category: Slide elements</a:documentation>
-          <ref name="slideBody.attlist"/>
-          <ref name="slideBody.content"/>
+          <ref name="slide-body.attlist"/>
+          <ref name="slide-body.content"/>
         </element>
       </define>
-      <define name="slideBody.attlist" combine="interleave">
-        <ref name="slideBody.attributes"/>
+      <define name="slide-body.attlist" combine="interleave">
+        <ref name="slide-body.attributes"/>
       </define>
     </div>
     <div>
       <a:documentation>LONG NAME: Speaker Notes</a:documentation>
-      <define name="speakernotes.content">
+      <define name="slide-speakernotes.content">
         <zeroOrMore>
           <ref name="div.cnt"/>
         </zeroOrMore>
       </define>
-      <define name="speakernotes.attributes">
+      <define name="slide-speakernotes.attributes">
         <ref name="univ-atts"/>
         <optional>
           <attribute name="outputclass"/>
         </optional>
       </define>
-      <define name="speakernotes.element">
-        <element name="speakernotes" dita:longName="Speaker Notes">
+      <define name="slide-speakernotes.element">
+        <element name="slide-speakernotes" dita:longName="Speaker Notes">
           <a:documentation> Category: Slide elements</a:documentation>
-          <ref name="speakernotes.attlist"/>
-          <ref name="speakernotes.content"/>
+          <ref name="slide-speakernotes.attlist"/>
+          <ref name="slide-speakernotes.content"/>
         </element>
       </define>
-      <define name="speakernotes.attlist" combine="interleave">
-        <ref name="speakernotes.attributes"/>
+      <define name="slide-speakernotes.attlist" combine="interleave">
+        <ref name="slide-speakernotes.attributes"/>
       </define>
     </div>
     <div>
@@ -410,6 +407,9 @@
       <define name="slide-codeblock.attributes">
         <ref name="display-atts"/>
         <optional>
+          <attribute name="spectitle"/>
+        </optional>
+        <optional>
           <attribute name="xml:space" a:defaultValue="preserve">
             <value>preserve</value>
           </attribute>
@@ -417,6 +417,7 @@
         <optional>
           <attribute name="outputclass"/>
         </optional>
+        <ref name="univ-atts"/>
         <optional>
           <attribute name="data-trim">
             <empty/>
@@ -427,7 +428,6 @@
             <data type="string"/>
           </attribute>
         </optional>
-        <ref name="univ-atts"/>
       </define>
       <define name="slide-codeblock.element">
         <element name="slide-codeblock" dita:longName="Slide Code Block">
@@ -556,6 +556,9 @@
         <optional>
           <attribute name="outputclass"/>
         </optional>
+        <optional>
+          <attribute name="data-id"/>
+        </optional>
       </define>
       <define name="slide-p.element">
         <element name="slide-p" dita:longName="Slide Paragraph">
@@ -573,10 +576,10 @@
 
   <div>
     <a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
-    <define name="slideBody.attlist" combine="interleave">
+    <define name="slide-body.attlist" combine="interleave">
       <ref name="global-atts"/>
       <optional>
-        <attribute name="class" a:defaultValue="- topic/body concept/conbody slide/slideBody "/>
+        <attribute name="class" a:defaultValue="- topic/body concept/conbody slide/slide-body "/>
       </optional>
     </define>
     <define name="slide.attlist" combine="interleave">
@@ -585,10 +588,10 @@
         <attribute name="class" a:defaultValue="- topic/topic concept/concept slide/slide "/>
       </optional>
     </define>
-    <define name="speakernotes.attlist" combine="interleave">
+    <define name="slide-speakernotes.attlist" combine="interleave">
       <ref name="global-atts"/>
       <optional>
-        <attribute name="class" a:defaultValue="- topic/div slide/speakernotes "/>
+        <attribute name="class" a:defaultValue="- topic/div slide/slide-speakernotes "/>
       </optional>
     </define>
     <define name="slide-div.attlist" combine="interleave">
@@ -600,7 +603,7 @@
     <define name="slide-pre.attlist" combine="interleave">
       <ref name="global-atts"/>
       <optional>
-        <attribute name="class" a:defaultValue="- topic/div slide/slide-pre "/>
+        <attribute name="class" a:defaultValue="- topic/pre slide/slide-pre "/>
       </optional>
     </define>
     <define name="slide-codeblock.attlist" combine="interleave">

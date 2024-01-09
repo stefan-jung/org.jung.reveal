@@ -161,7 +161,8 @@
 *[class~='slide/slide'][data-background-opacity]:before(276),
 *[class~='slide/slide'][data-background-video]:before(274),
 *[class~='slide/slide'][data-background-video-loop]:before(272),
-*[class~='slide/slide'][data-background-video-muted]:before(270) {
+*[class~='slide/slide'][data-background-video-muted]:before(270),
+*[class~='slide/slide'][data-auto-animate-unmatched]:before(268) {
     display: block
 }
 
@@ -278,6 +279,13 @@
     content:
         oxy_label(text, "data-background-video-muted", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-background-video-muted', columns, 40);
+}
+
+/* @data-auto-animate-unmatched */
+*[class~='slide/slide'][data-auto-animate-unmatched]:before(268) {
+    content:
+        oxy_label(text, "data-auto-animate-unmatched", width, 10em, color, inherit)
+        oxy_textfield(edit, '@data-auto-animate-unmatched', columns, 40);
 }
 
 *[class~='topic/table'] {

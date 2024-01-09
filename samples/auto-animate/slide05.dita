@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<slide id="slide05" data-auto-animate="">
+  <title/>
+  <slide-body>
+    <slide-pre data-id="code"><slide-codeblock data-line-numbers="" outputclass="hljs" data-trim="">import React, { useState } from 'react';
+
+function Example() {
+    const [count, setCount] = useState(0);
+
+    return (
+        ...
+    );
+}        </slide-codeblock></slide-pre>
+  </slide-body>
+  <slide id="slide05-02" data-auto-animate="">
+    <title/>
+    <slide-body>
+      <slide-pre data-id="code"><slide-codeblock data-line-numbers="" outputclass="hljs" data-trim="">function Example() {
+    const [count, setCount] = useState(0);
+
+    return (
+        &lt;div&gt;
+            &lt;p&gt;You clicked {count} times&lt;/p&gt;
+            &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+                Click me
+            &lt;/button&gt;
+        &lt;/div&gt;
+    );
+}      </slide-codeblock></slide-pre>
+    </slide-body>
+  </slide>
+</slide>

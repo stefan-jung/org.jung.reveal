@@ -81,9 +81,7 @@
                     (topic sw-d)
                     (topic ui-d)
                     (topic ut-d)
-                    a(props deliveryTarget)
-                    a(base data-fragment-index)
-                    a(base fragment)"/>
+                    a(props deliveryTarget)"/>
                 <!--(topic mathml-d)-->
                 <!--(topic svg-d)-->
             </optional>
@@ -114,8 +112,6 @@
         <include href="urn:oasis:names:tc:dita:rng:uiDomain.rng"/>
         <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
         <include href="urn:oasis:names:tc:dita:rng:xmlDomain.rng"/>
-        <include href="urn:jung:dita:rng:dataFragmentIndexAttDomain.rng"/>
-        <include href="urn:jung:dita:rng:fragmentAttDomain.rng"/>
     </div>
     
     <div>

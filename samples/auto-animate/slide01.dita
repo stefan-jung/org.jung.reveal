@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<slide id="ui_xtb_wmj_11c" data-auto-animate="" data-auto-animate-unmatched="fade">
+<slide id="slide01" data-auto-animate="" data-auto-animate-unmatched="fade">
   <title>Auto-Animate Example</title>
-  <slideBody>
-    <p>This will fade out</p>
-    <image href="assets/image1.png"/>
-      <slide-pre data-id="code"><slide-codeblock data-line-numbers="" outputclass="hljs" data-trim="">
+  <slide-body>
+    <slide-p>This will fade out</slide-p>
+    <slide-image href="assets/image1.png" style="height: 100px;"/>
+    <slide-pre data-id="code"><slide-codeblock data-line-numbers="" outputclass="hljs" data-trim="">
 						function Example() {
 						  const [count, setCount] = useState(0);
 						}
 					</slide-codeblock></slide-pre>
-  </slideBody>
+  </slide-body>
 </slide>

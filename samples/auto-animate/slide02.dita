@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<slide id="ui_igx_54q_11c" data-auto-animate="" data-auto-animate-unmatched="fade">
+<slide id="slide02" data-auto-animate="" data-auto-animate-unmatched="fade">
   <title>Title of slide</title>
-  <slideBody>
-    <p></p>
-  </slideBody>
+  <slide-body>
+    <slide-div>Auto-Animate Example</slide-div>
+    <slide-p style="opacity: 0.2; margin-top: 100px;">This will fade out</slide-p>
+    <slide-p>This element is unmatched</slide-p>
+    <slide-image href="assets/image1.png" style="height: 150px;"/>
+    <slide-pre data-id="code"><slide-codeblock data-line-numbers="" outputclass="hljs" data-trim="">
+					function Example() {
+					  New line!
+					  const [count, setCount] = useState(0);
+					}
+				</slide-codeblock></slide-pre>
+  </slide-body>
 </slide>
