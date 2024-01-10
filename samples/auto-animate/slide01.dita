@@ -2,7 +2,7 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide id="slide01" data-auto-animate="" data-auto-animate-unmatched="fade">
-  <title>Auto-Animate Example</title>
+  <slide-title>Auto-Animate Example</slide-title>
   <slide-body>
     <slide-p>This will fade out</slide-p>
     <slide-image href="assets/image1.png" style="height: 100px;"/>
