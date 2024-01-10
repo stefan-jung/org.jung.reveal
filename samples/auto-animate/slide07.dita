@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<slide id="slide07" data-auto-animate=" " style="height: 600px;">
+  <slide-title style="opacity: 0.3; font-size: 18px;">SLIDE 1</slide-title>
+  <slide-body>
+    <slide-h2 data-id="title" style="margin-top: 260px;">Animate Anything</slide-h2>
+    <slide-div data-id="1"
+      style="background: white; position: absolute; top: 150px; left: 16%; width: 60px; height: 60px;"/>
+    <slide-div data-id="2"
+      style="background: white; position: absolute; top: 150px; left: 36%; width: 60px; height: 60px;"/>
+    <slide-div data-id="3"
+      style="background: white; position: absolute; top: 150px; left: 56%; width: 60px; height: 60px;"/>
+    <slide-div data-id="4"
+      style="background: white; position: absolute; top: 150px; left: 76%; width: 60px; height: 60px;"
+    />
+  </slide-body>
+</slide>

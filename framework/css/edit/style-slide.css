@@ -136,6 +136,13 @@
                         arg-value, ' '
                     ),
                     oxy_action(
+                        name, 'style', 
+                        description, 'style', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'style',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
                         name, 'Delete', 
                         description, 'Deletes the current element', 
                         operation, 'ro.sync.ecss.extensions.commons.operations.DeleteElementOperation'
@@ -162,7 +169,8 @@
 *[class~='slide/slide'][data-background-video]:before(274),
 *[class~='slide/slide'][data-background-video-loop]:before(272),
 *[class~='slide/slide'][data-background-video-muted]:before(270),
-*[class~='slide/slide'][data-auto-animate-unmatched]:before(268) {
+*[class~='slide/slide'][data-auto-animate-unmatched]:before(268),
+*[class~='slide/slide'][style]:before(266) {
     display: block
 }
 
@@ -176,7 +184,7 @@
 /* @data-auto-animate */
 *[class~='slide/slide'][data-auto-animate]:before(298) {
     content:
-        oxy_label(text, "data-auto-animate activated", width, 10em, color, inherit);
+        oxy_label(text, "data-auto-animate activated ✓", width, 10em, color, inherit);
 }
 
 /* @data-auto-animate-easing */
@@ -286,6 +294,13 @@
     content:
         oxy_label(text, "data-auto-animate-unmatched", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-auto-animate-unmatched', columns, 40);
+}
+
+/* @style */
+*[class~='slide/slide'][style]:before(266) {
+    content:
+        oxy_label(text, "style", width, 10em, color, inherit)
+        oxy_textfield(edit, '@style', columns, 40);
 }
 
 *[class~='topic/table'] {

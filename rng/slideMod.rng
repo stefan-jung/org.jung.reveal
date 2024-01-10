@@ -85,6 +85,18 @@
     <define name="slide-p">
       <ref name="slide-p.element"/>
     </define>
+    <define name="slide-h1">
+      <ref name="slide-h1.element"/>
+    </define>
+    <define name="slide-h2">
+      <ref name="slide-h2.element"/>
+    </define>
+    <define name="slide-h3">
+      <ref name="slide-h3.element"/>
+    </define>
+    <define name="slide-title">
+      <ref name="slide-title.element"/>
+    </define>
   </div>
   
   <div>
@@ -113,6 +125,9 @@
         <!--<ref name="p"/>-->
         <!--<ref name="pre"/>-->
         <ref name="slide-div"/>
+        <ref name="slide-h1"/>
+        <ref name="slide-h2"/>
+        <ref name="slide-h3"/>
         <ref name="slide-p"/>
         <ref name="slide-image"/>
         <ref name="slide-pre"/>
@@ -134,7 +149,8 @@
     <div>
       <a:documentation> LONG NAME: Slide </a:documentation>
       <define name="slide.content">
-        <ref name="title"/>
+        <!-- The title is mandatory, otherwise this is not valid DITA -->
+        <ref name="slide-title"/>
         <optional>
           <ref name="slide-body"/>
         </optional>
@@ -237,6 +253,11 @@
         </optional>
         <optional>
           <attribute name="data-background-video-muted"/>
+        </optional>
+        <optional>
+          <attribute name="style">
+            <data type="string"/>
+          </attribute>
         </optional>
         <ref name="conref-atts"/>
         <ref name="select-atts"/>
@@ -570,6 +591,135 @@
       <define name="slide-p.attlist" combine="interleave">
         <ref name="slide-p.attributes"/>
       </define>
+    </div>
+    <div>
+      <a:documentation>LONG NAME: Slide H1</a:documentation>
+      <define name="slide-h1.content">
+        <zeroOrMore>
+          <ref name="para.cnt"/>
+        </zeroOrMore>
+      </define>
+      <define name="slide-h1.attributes">
+        <ref name="univ-atts"/>
+        <optional>
+          <attribute name="style"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <optional>
+          <attribute name="data-id"/>
+        </optional>
+      </define>
+      <define name="slide-h1.element">
+        <element name="slide-h1" dita:longName="Slide Heading 1">
+          <a:documentation>A heading element (&lt;slide-h1>). Category: Slide elements</a:documentation>
+          <ref name="slide-h1.attlist"/>
+          <ref name="slide-h1.content"/>
+        </element>
+      </define>
+      <define name="slide-h1.attlist" combine="interleave">
+        <ref name="slide-h1.attributes"/>
+      </define>
+    </div>
+    <div>
+      <a:documentation>LONG NAME: Slide H2</a:documentation>
+      <define name="slide-h2.content">
+        <zeroOrMore>
+          <ref name="para.cnt"/>
+        </zeroOrMore>
+      </define>
+      <define name="slide-h2.attributes">
+        <ref name="univ-atts"/>
+        <optional>
+          <attribute name="style"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <optional>
+          <attribute name="data-id"/>
+        </optional>
+      </define>
+      <define name="slide-h2.element">
+        <element name="slide-h2" dita:longName="Slide Heading 2">
+          <a:documentation>A heading element (&lt;slide-h2>). Category: Slide elements</a:documentation>
+          <ref name="slide-h2.attlist"/>
+          <ref name="slide-h2.content"/>
+        </element>
+      </define>
+      <define name="slide-h2.attlist" combine="interleave">
+        <ref name="slide-h2.attributes"/>
+      </define>
+    </div>
+    <div>
+      <a:documentation>LONG NAME: Slide H3</a:documentation>
+      <define name="slide-h3.content">
+        <zeroOrMore>
+          <ref name="para.cnt"/>
+        </zeroOrMore>
+      </define>
+      <define name="slide-h3.attributes">
+        <ref name="univ-atts"/>
+        <optional>
+          <attribute name="style"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <optional>
+          <attribute name="data-id"/>
+        </optional>
+      </define>
+      <define name="slide-h3.element">
+        <element name="slide-h3" dita:longName="Slide Heading 3">
+          <a:documentation>A heading element (&lt;slide-h3>). Category: Slide elements</a:documentation>
+          <ref name="slide-h3.attlist"/>
+          <ref name="slide-h3.content"/>
+        </element>
+      </define>
+      <define name="slide-h3.attlist" combine="interleave">
+        <ref name="slide-h3.attributes"/>
+      </define>
+    </div>
+    <div>
+      <a:documentation>LONG NAME: Slide Title</a:documentation>
+      <define name="slide-title.content">
+        <a:documentation>Title of a slide</a:documentation>
+        <zeroOrMore>
+          <ref name="title.cnt"/>
+        </zeroOrMore>
+      </define>
+      <define name="slide-title.attributes">
+        <ref name="id-atts"/>
+        <ref name="localization-atts"/>
+        <optional>
+          <attribute name="base"/>
+        </optional>
+        <ref name="base-attribute-extensions"/>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <optional>
+          <attribute name="style">
+            <data type="string"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="rev" dita:since="1.3"/>
+        </optional>
+      </define>
+      <define name="slide-title.element">
+        <element name="slide-title" dita:longName="Title">
+          <a:documentation>The &lt;slide-title> element contains a heading or label for the main parts of a topic, including the topic as a whole, its sections and examples, and its labelled content, such
+            as figures and tables. Beginning with DITA 1.1, the element may also be used to provide a title for a map. Category: Topic elements</a:documentation>
+          <ref name="slide-title.attlist"/>
+          <ref name="slide-title.content"/>
+        </element>
+      </define>
+      <define name="slide-title.attlist" combine="interleave">
+        <ref name="slide-title.attributes"/>
+      </define>
       
     </div>
   </div>
@@ -620,6 +770,27 @@
     <define name="slide-p.attlist" combine="interleave">
       <optional>
         <attribute name="class" a:defaultValue="- topic/p slide/slide-p "/>
+      </optional>
+    </define>
+    <define name="slide-h1.attlist" combine="interleave">
+      <optional>
+        <attribute name="class" a:defaultValue="- topic/p slide/slide-h1 "/>
+      </optional>
+    </define>
+    <define name="slide-h2.attlist" combine="interleave">
+      <optional>
+        <attribute name="class" a:defaultValue="- topic/p slide/slide-h2 "/>
+      </optional>
+    </define>
+    <define name="slide-h3.attlist" combine="interleave">
+      <optional>
+        <attribute name="class" a:defaultValue="- topic/p slide/slide-h3 "/>
+      </optional>
+    </define>
+    <define name="slide-title.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- topic/title slide/slide-title "/>
       </optional>
     </define>
   </div>

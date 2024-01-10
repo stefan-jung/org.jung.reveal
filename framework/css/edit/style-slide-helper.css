@@ -17,7 +17,8 @@
 *[class~='slide/slide'][data-background-video]:before(273),
 *[class~='slide/slide'][data-background-video-loop]:before(271),
 *[class~='slide/slide'][data-background-video-muted]:before(269),
-*[class~='slide/slide'][data-auto-animate-unmatched]:before(267){
+*[class~='slide/slide'][data-auto-animate-unmatched]:before(267),
+*[class~='slide/slide'][style]:before(266) {
     margin-bottom: 0.5em;
     font-size: 0.8em;
     color: gray;
@@ -102,4 +103,9 @@
 /* @data-auto-animate-unmatched */
 *[class~='slide/slide'][data-auto-animate-unmatched]:before(267) {
     content: "Auto animate unmatched."
+}
+
+/* @style */
+*[class~='slide/slide'][style]:before(267) {
+    content: "Add custom CSS properties."
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<slide id="slide06" data-auto-animate=" ">
+  <title>Swapping list items</title>
+  <slide-body>
+    <ul id="ul_u2l_yt2_b1c">
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+    </ul>
+  </slide-body>
+  <slide data-auto-animate=" " id="slide06-02">
+    <title>Swapping list items</title>
+    <slide-body>
+      <ul id="ul_wh5_b52_b1c">
+        <li>Two</li>
+        <li>One</li>
+        <li>Three</li>
+      </ul>
+    </slide-body>
+  </slide>
+  <slide data-auto-animate=" " id="slide06-03">
+    <title>Swapping list items</title>
+    <slide-body>
+      <ul id="ul_m1v_b52_b1c">
+        <li>Two</li>
+        <li>Three</li>
+        <li>One</li>
+      </ul>
+    </slide-body>
+  </slide>
+</slide>

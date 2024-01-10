@@ -8,12 +8,19 @@
 <xsl:stylesheet version="3.0" 
     xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    exclude-result-prefixes="#all">
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="#all">
     
     <xsl:import href="plugin:org.dita.html5:xsl/dita2html5Impl.xsl"/>
     <xsl:output method="html" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
 
+
+    <!-- 
+        **************************************************
+        DEBUGGING
+        **************************************************
+    -->
+    <!-- When activating this, the output is invalid HTML5, but the elements have some useful identifiers. -->
+    <xsl:variable name="debugging" as="xs:boolean" select="false()"/>
 
     <!-- 
         **************************************************
@@ -172,8 +179,11 @@
                                 <xsl:variable name="allSlidesAsFirstLevel">
                                     <!-- The slide which contains other slides, copied to output but ignoring sub-slides -->
                                     <section>
-                                        <!--<xsl:attribute name="HELLO3">WORLD3</xsl:attribute>-->
-                                        <xsl:copy-of select="
+                                        <xsl:if test="$debugging">
+                                            <xsl:attribute name="SECTION">3</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
+                                        <!--<xsl:copy-of select="
                                             @data-auto-animate
                                             | @data-auto-animate-duration
                                             | @data-auto-animate-easing
@@ -190,17 +200,20 @@
                                             | @data-background-video
                                             | @data-background-video-loop
                                             | @data-background-video-muted
-                                            "/>
-                                        <xsl:apply-templates mode="reveal-slide-attributes"/>
+                                            | @style
+                                            "/>-->
                                         <!--<xsl:attribute name="test" select="'value'"/>-->
                                         <xsl:apply-templates mode="all-but-topicContainer"/>
                                     </section>
                                     <!-- For each subslide, copy to output but ignore sub-slides -->
                                     <xsl:for-each select=".//topicContainer">
                                         <section>
-                                            <xsl:attribute name="HELLO4">WORLD4</xsl:attribute>
+                                            <xsl:if test="$debugging">
+                                                <xsl:attribute name="SECTION">4</xsl:attribute>
+                                            </xsl:if>
+                                            <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
                                             <!-- This works -->
-                                            <xsl:copy-of select="
+                                            <!--<xsl:copy-of select="
                                                 @data-auto-animate
                                                 | @data-auto-animate-duration
                                                 | @data-auto-animate-easing
@@ -217,7 +230,8 @@
                                                 | @data-background-video
                                                 | @data-background-video-loop
                                                 | @data-background-video-muted
-                                                "/>
+                                                | @style
+                                                "/>-->
                                             <xsl:apply-templates mode="all-but-topicContainer"/>
                                         </section>
                                     </xsl:for-each>
@@ -226,8 +240,14 @@
                                     <xsl:when test="$reveal.generate.vertical.slides = 'true'">
                                         <!-- Generate vertical slides, so wrap in a <section> element -->
                                         <section>
-                                            <!--<xsl:attribute name="HELLO5">WORLD5</xsl:attribute>-->
-                                            <xsl:copy-of select="
+                                            <xsl:if test="$debugging">
+                                                <xsl:attribute name="SECTION">5</xsl:attribute>
+                                                <xsl:attribute name="ELEMENT-NAME"><xsl:value-of select="name()"/></xsl:attribute>
+                                            </xsl:if>
+                                            <xsl:if test="'topicContainer' != local-name()">
+                                                <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
+                                            </xsl:if>
+                                            <!--<xsl:copy-of select="
                                                 @data-auto-animate
                                                 | @data-auto-animate-duration
                                                 | @data-auto-animate-easing
@@ -244,7 +264,8 @@
                                                 | @data-background-video
                                                 | @data-background-video-loop
                                                 | @data-background-video-muted
-                                                "/>
+                                                | @style
+                                                "/>-->
                                             <xsl:copy-of select="$allSlidesAsFirstLevel"/>
                                         </section>
                                     </xsl:when>
@@ -256,10 +277,21 @@
                             </xsl:when>
                             <xsl:otherwise>
                                 <section>
+                                    <xsl:if test="$debugging">
+                                        <xsl:attribute name="SECTION">6</xsl:attribute>
+                                        <xsl:attribute name="ELEMENT-NAME"><xsl:value-of select="local-name()"/></xsl:attribute>
+                                        <xsl:attribute name="PARENT-ELEMENT-NAME"><xsl:value-of select="parent::*[1]/local-name()"/></xsl:attribute>
+                                        <xsl:attribute name="FIRST-CHILD-ELEMENT-NAME"><xsl:value-of select="child::*[1]/local-name()"/></xsl:attribute>
+                                    </xsl:if>
+                                    <!-- This is not correct here. -->
+                                    <!--<xsl:if test="local-name() != 'topicContainer'">
+                                        <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
+                                    </xsl:if>-->
+                                    <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
                                     <!--<xsl:if test="@data-transition">
                                         <xsl:copy-of select="@data-transition"/>
                                     </xsl:if>-->
-                                    <xsl:copy-of select="
+                                    <!--<xsl:copy-of select="
                                         @data-auto-animate
                                         | @data-auto-animate-duration
                                         | @data-auto-animate-easing
@@ -276,7 +308,8 @@
                                         | @data-background-video
                                         | @data-background-video-loop
                                         | @data-background-video-muted
-                                        "/>
+                                        | @style
+                                        "/>-->
                                     <xsl:apply-templates mode="all-but-topicContainer"/>
                                 </section>
                             </xsl:otherwise>
@@ -369,7 +402,7 @@
             <!--<xsl:if test="@data-transition">
                 <xsl:copy-of select="@data-transition"/>
             </xsl:if>-->
-            <xsl:copy-of select="
+            <!--<xsl:copy-of select="
                 @data-auto-animate
                 | @data-auto-animate-duration
                 | @data-auto-animate-easing
@@ -386,10 +419,37 @@
                 | @data-background-video
                 | @data-background-video-loop
                 | @data-background-video-muted
-                "/>
-            <xsl:apply-templates mode="reveal-slide-attributes"/>
+                | @style
+                "/>-->
+            <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
             <xsl:apply-templates/>
         </topicContainer>
+    </xsl:template>
+    
+    <xsl:template match="*" mode="reveal-slide-attributes">
+        <xsl:copy-of select="
+            @data-auto-animate
+            | @data-auto-animate-duration
+            | @data-auto-animate-easing
+            | @data-auto-animate-unmatched
+            | @data-background
+            | @data-background-color
+            | @data-background-gradient
+            | @data-background-image
+            | @data-background-size
+            | @data-background-position
+            | @data-background-repeat
+            | @data-background-opacity
+            | @data-background-video
+            | @data-background-video-loop
+            | @data-background-video-muted
+            | @data-id
+            | @data-line-numbers
+            | @data-transition
+            | @data-trim
+            | @id
+            | @style
+            "/>
     </xsl:template>
     
 <!--    <!-\- Override template to remove related-links block -\->
@@ -430,10 +490,13 @@
     
     <!-- Process slides - Override template from dita2xhtml-util.xsl -->
     <xsl:template match="nav | section | figure | article" mode="add-xhtml-ns" priority="20">
-        <xsl:element name="section" namespace="http://www.w3.org/1999/xhtml">
-            <xsl:attribute name="HELLO">WORLD</xsl:attribute>
+        <section>
+            <xsl:if test="$debugging">
+                <xsl:attribute name="SECTION">1</xsl:attribute>
+            </xsl:if>
+            <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
             <xsl:apply-templates select="@* except @role | node()" mode="add-xhtml-ns"/>
-        </xsl:element>
+        </section>
     </xsl:template>
     
     <!-- 
@@ -447,7 +510,9 @@
             <xsl:call-template name="commonattributes"/>
             <xsl:call-template name="gen-toc-id"/>
             <xsl:call-template name="setidaname"/>
-            <xsl:attribute name="HELLO2">WORLD2</xsl:attribute>
+            <xsl:if test="$debugging">
+                <xsl:attribute name="SECTION">2</xsl:attribute>
+            </xsl:if>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
             <xsl:apply-templates select="*[not(contains(@class, ' topic/title '))] | text() | comment() | processing-instruction()"/>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
@@ -455,7 +520,7 @@
     </xsl:template>
     
     <!-- Deep copy template -->
-    <xsl:template match="*|text()|@*" mode="all-but-topicContainer">
+    <xsl:template match="* | text() | @*" mode="all-but-topicContainer">
         <xsl:choose>
             <xsl:when test="'topicContainer' = local-name()">
                 <!-- Ignore -->
@@ -514,15 +579,14 @@
     <xsl:template match="*[contains(@class, ' slide/slide-div ')]">
         <div>
             <xsl:call-template name="commonattributes"/>
-            <xsl:copy-of select="@data-id"/>
-            <xsl:copy-of select="@style"/>
+            <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
             <xsl:apply-templates/>
         </div>
     </xsl:template>
 
     <xsl:template match="*[contains(@class, ' slide/slide-pre ')]">
         <pre>
-            <xsl:copy-of select="@data-id"/>
+            <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
             <xsl:apply-templates/>
         </pre>
     </xsl:template>
@@ -537,8 +601,7 @@
     <xsl:template name="topic-image">
         <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
         <img>
-            <!-- Copy style attribute -->
-            <xsl:copy-of select="@style"/>
+            <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
             <xsl:call-template name="commonattributes">
                 <xsl:with-param name="default-output-class">
                     <xsl:if test="@placement = 'break'"><!--Align only works for break-->
@@ -576,7 +639,7 @@
     
     <xsl:template match="*[contains(@class, ' slide/slide-p ')]">
         <p>
-            <xsl:copy-of select="@style"/>
+            <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
             <xsl:apply-templates/>
         </p>
     </xsl:template>
@@ -598,6 +661,50 @@
             <xsl:call-template name="commonattributes"/>
             <xsl:apply-templates/>
         </code>
+    </xsl:template>
+    
+    <xsl:template match="*[contains(@class, ' slide/slide ')]/*[contains(@class, ' slide/slide-title ')]">
+        <xsl:param name="headinglevel" as="xs:integer">
+            <xsl:choose>
+                <xsl:when test="count(ancestor::*[contains(@class, ' topic/topic ')]) > 6">6</xsl:when>
+                <xsl:otherwise><xsl:sequence select="count(ancestor::*[contains(@class, ' topic/topic ')])"/></xsl:otherwise>
+            </xsl:choose>
+        </xsl:param>
+        <xsl:element name="h{$headinglevel}">
+            <xsl:attribute name="class" select="concat('topictitle', $headinglevel)"/>
+            <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
+            <xsl:call-template name="commonattributes">
+                <xsl:with-param name="default-output-class">topictitle<xsl:value-of select="$headinglevel"/></xsl:with-param>
+            </xsl:call-template>
+            <xsl:attribute name="id"><xsl:apply-templates select="." mode="return-aria-label-id"/></xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
+    </xsl:template>
+    
+    <!--<xsl:template match="*[contains(@class, ' slide/slide-p ')]" name="topic.p">-->
+    <xsl:template match="*[contains(@class, ' slide/slide-h1 ')]">
+        <h1>
+            <xsl:call-template name="commonattributes"/>
+            <xsl:call-template name="setid"/>
+            <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
+            <xsl:apply-templates/>
+        </h1>
+    </xsl:template>
+    <xsl:template match="*[contains(@class, ' slide/slide-h2 ')]">
+        <h2>
+            <xsl:call-template name="commonattributes"/>
+            <xsl:call-template name="setid"/>
+            <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
+            <xsl:apply-templates/>
+        </h2>
+    </xsl:template>
+    <xsl:template match="*[contains(@class, ' slide/slide-h3 ')]">
+        <h3>
+            <xsl:call-template name="commonattributes"/>
+            <xsl:call-template name="setid"/>
+            <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
+            <xsl:apply-templates/>
+        </h3>
     </xsl:template>
     
     <!--<xsl:template match="@data-transition" mode="reveal-slide-attributes">
