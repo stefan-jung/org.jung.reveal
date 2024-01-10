@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<slide id="slide03" data-background="lightblue">
+  <slide-title/>
+  <slide-body>
+    <slide-h2>data-background: lightblue</slide-h2>
+  </slide-body>
+</slide>

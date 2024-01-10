@@ -237,6 +237,7 @@
             <val default="true">default</val>
             <val>none</val>
             <val>fade</val>
+            <val>linear</val>
             <val>slide</val>
             <val>convex</val>
             <val>concave</val>

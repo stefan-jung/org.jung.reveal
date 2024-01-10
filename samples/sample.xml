@@ -34,6 +34,18 @@
       <param name="reveal.center" value="true"/>
     </publication>
   </deliverable>
+
+  <deliverable name="Reveal Auto Backgrounds" id="backgrounds">
+    <context name="Reveal Auto Backgrounds" id="backgrounds_context">
+      <input href="backgrounds/backgrounds.ditamap"/>
+    </context>
+    <output href="./backgrounds"/>
+    <publication transtype="reveal">
+      <param name="reveal.theme" value="black"/>
+      <param name="reveal.transition" value="linear"/>
+      <param name="reveal.center" value="true"/>
+    </publication>
+  </deliverable>
   
   <deliverable name="Reveal Presentation - With progress bar" id="progress-bar">
     <context idref="reveal_context"/>
