@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<slide id="ui_w1t_3xc_11c" data-background="indigo">
-  <title>Scroll triggered fragments</title>
+<slide id="slide02" data-background="indigo">
+  <slide-title>Scroll triggered fragments</slide-title>
   <slide-body>
     <ul>
       <li outputclass="fragment fade-left">Step one</li>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<slide id="ui_zw4_3x3_11c" data-auto-animate="" data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-  <title/>
+<slide id="slide06" data-auto-animate="" data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+  <slide-title/>
   <slide-body>
     <slide-div outputclass="r-stack">
       <slide-div data-id="box1" style="background: cyan; width: 300px; height: 300px; border-radius: 200px;"></slide-div>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<slide id="ui_uq5_gxc_11c">
-  <title>Scroll View</title>
+<slide id="slide01">
+  <slide-title>Scroll View</slide-title>
 </slide>

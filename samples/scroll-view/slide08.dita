@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<slide id="sdsdsd" data-background="https://static.slid.es/reveal/image-placeholder.png">
-  <title>Image backgrounds</title>
+<slide id="slide08" data-background="https://static.slid.es/reveal/image-placeholder.png">
+  <slide-title>Image backgrounds</slide-title>
 </slide>
