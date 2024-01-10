@@ -707,6 +707,18 @@
         </h3>
     </xsl:template>
     
+    <!-- functions.xsl -->
+    <!--<xsl:function name="dita-ot:generate-id" as="xs:string">
+        <xsl:param name="topic" as="xs:string?"/>
+        <xsl:param name="element" as="xs:string?"/>
+        <xsl:value-of select="string-join(($topic, $element), $HTML_ID_SEPARATOR)"/>
+    </xsl:function>-->
+    <xsl:function name="dita-ot:generate-id" as="xs:string">
+        <xsl:param name="topic" as="xs:string?"/>
+        <xsl:param name="element" as="xs:string?"/>
+        <xsl:value-of select="$element"/>
+    </xsl:function>
+    
     <!--<xsl:template match="@data-transition" mode="reveal-slide-attributes">
         <xsl:value-of select="."/>
     </xsl:template>-->

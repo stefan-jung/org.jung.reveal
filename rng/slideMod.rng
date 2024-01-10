@@ -168,6 +168,11 @@
           </attribute>
         </optional>
         <optional>
+          <attribute name="data-auto-animate-id">
+            <data type="ID"/>
+          </attribute>
+        </optional>
+        <optional>
           <attribute name="data-auto-animate-easing">
             <data type="string"/>
           </attribute>

@@ -2,23 +2,24 @@
  * Slide Helper
  */
 
-*[class~='slide/slide'][data-auto-animate]:before(297),
-*[class~='slide/slide'][data-auto-animate-easing]:before(295),
-*[class~='slide/slide'][data-autoslide]:before(293), 
-*[class~='slide/slide'][data-transition]:before(291),
-*[class~='slide/slide'][data-background]:before(289),
-*[class~='slide/slide'][data-background-color]:before(287),
-*[class~='slide/slide'][data-background-gradient]:before(285),
-*[class~='slide/slide'][data-background-image]:before(283),
-*[class~='slide/slide'][data-background-size]:before(281),
-*[class~='slide/slide'][data-background-position]:before(279),
-*[class~='slide/slide'][data-background-repeat]:before(277),
-*[class~='slide/slide'][data-background-opacity]:before(275),
-*[class~='slide/slide'][data-background-video]:before(273),
-*[class~='slide/slide'][data-background-video-loop]:before(271),
-*[class~='slide/slide'][data-background-video-muted]:before(269),
-*[class~='slide/slide'][data-auto-animate-unmatched]:before(267),
-*[class~='slide/slide'][style]:before(266) {
+*[data-auto-animate]:before(297),
+*[data-auto-animate-easing]:before(295),
+*[data-autoslide]:before(293), 
+*[data-transition]:before(291),
+*[data-background]:before(289),
+*[data-background-color]:before(287),
+*[data-background-gradient]:before(285),
+*[data-background-image]:before(283),
+*[data-background-size]:before(281),
+*[data-background-position]:before(279),
+*[data-background-repeat]:before(277),
+*[data-background-opacity]:before(275),
+*[data-background-video]:before(273),
+*[data-background-video-loop]:before(271),
+*[data-background-video-muted]:before(269),
+*[data-auto-animate-unmatched]:before(267),
+*[style]:before(265),
+*[data-auto-animate-id]:before(263) {
     margin-bottom: 0.5em;
     font-size: 0.8em;
     color: gray;
@@ -26,86 +27,92 @@
 }
 
 /* @data-auto-animate */
-*[class~='slide/slide'][data-auto-animate]:before(297) {
+*[data-auto-animate]:before(297) {
     content: "Activate the auto-animate mode.";
 }
 
 /* @data-auto-animate-easing */
-*[class~='slide/slide'][data-auto-animate-easing]:before(295) {
+*[data-auto-animate-easing]:before(295) {
     content: "The CSS easing";
 }
 
 /* @data-autoslide */
-*[class~='slide/slide'][data-autoslide]:before(293) {
+*[data-autoslide]:before(293) {
     content: "Autoslide function";
 }
 
 /* @data-transition */
-*[class~='slide/slide'][data-transition]:before(291) {
+*[data-transition]:before(291) {
     content: "Transition mode."
 }
 
 /* @data-transition */
-*[class~='slide/slide'][data-background]:before(289) {
+*[data-background]:before(289) {
     content: "Transition mode."
 }
 
 /* @data-background-color */
-*[class~='slide/slide'][data-background-color]:before(287) {
+*[data-background-color]:before(287) {
     content: "Background color."
 }
 
 /* @data-background-gradient */
-*[class~='slide/slide'][data-background-gradient]:before(285) {
+*[data-background-gradient]:before(285) {
     content: "Background gradient."
 }
 
 /* @data-background-image */
-*[class~='slide/slide'][data-background-image]:before(283) {
+*[data-background-image]:before(283) {
     content: "This is the path to a background image, relative to the DITA Map. Make sure to copy this image to the output folder by using the apropriate DITA-OT paramater."
 }
 
 /* @data-background-size */
-*[class~='slide/slide'][data-background-size]:before(281) {
+*[data-background-size]:before(281) {
     content: "Background size."
 }
 
 /* @data-background-position */
-*[class~='slide/slide'][data-background-position]:before(279) {
+*[data-background-position]:before(279) {
     content: "Background position."
 }
 
 /* @data-background-repeat */
-*[class~='slide/slide'][data-background-repeat]:before(277) {
+*[data-background-repeat]:before(277) {
     content: "Background repeat."
 }
 
 /* @data-background-opacity */
-*[class~='slide/slide'][data-background-opacity]:before(275) {
+*[data-background-opacity]:before(275) {
     content: "Background repeat."
 }
 
 /* @data-background-video */
-*[class~='slide/slide'][data-background-video]:before(273) {
+*[data-background-video]:before(273) {
     content: "Background video."
 }
 
 /* @data-background-video-loop */
-*[class~='slide/slide'][data-background-video-loop]:before(271) {
+*[data-background-video-loop]:before(271) {
     content: "Background video loop."
 }
 
 /* @data-background-video-muted */
-*[class~='slide/slide'][data-background-video-muted]:before(269) {
+*[data-background-video-muted]:before(269) {
     content: "Background video mute."
 }
 
 /* @data-auto-animate-unmatched */
-*[class~='slide/slide'][data-auto-animate-unmatched]:before(267) {
+*[data-auto-animate-unmatched]:before(267) {
     content: "Auto animate unmatched."
 }
 
 /* @style */
-*[class~='slide/slide'][style]:before(267) {
-    content: "Add custom CSS properties."
+*[style]:before(265) {
+    content: oxy_label(text, "Add custom CSS properties.", styles, "margin: 0; font-weight: normal; font-size: 10pt; color: gray;", width, 10em);
+}
+
+/* @data-auto-animate-id */
+*[data-auto-animate-id]:before(263) {
+    content: oxy_label(text, "Add animation ID.", styles, "margin: 0; font-weight: normal; font-size: 10pt; color: gray;", width, 10em);
+
 }

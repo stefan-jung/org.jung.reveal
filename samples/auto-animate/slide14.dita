@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<slide id="ui_${id}">
-  <slide-title>Title of slide</slide-title>
+<slide id="slide14" data-auto-animate=" " data-auto-animate-id="b">
+  <slide-title>data-auto-animate-id="b"</slide-title>
   <slide-body>
+    <slide-h3>B1</slide-h3>
+    <slide-h3>B2</slide-h3>
   </slide-body>
 </slide>

@@ -31,6 +31,13 @@
                         arg-value, ' '
                     ),
                     oxy_action(
+                        name, 'auto-animate-id', 
+                        description, 'Add auto-animate ID', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-auto-animate-id',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
                         name, 'auto-animate-easing', 
                         description, 'auto-animate-easing', 
                         operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
@@ -153,56 +160,58 @@
     margin-bottom: 0.3em;
 }
 
-*[class~='slide/slide'][id]:before(299),
-*[class~='slide/slide'][data-auto-animate]:before(298),
-*[class~='slide/slide'][data-auto-animate-easing]:before(296),
-*[class~='slide/slide'][data-autoslide]:before(294),
-*[class~='slide/slide'][data-transition]:before(292),
-*[class~='slide/slide'][data-background]:before(290),
-*[class~='slide/slide'][data-background-color]:before(288),
-*[class~='slide/slide'][data-background-gradient]:before(286),
-*[class~='slide/slide'][data-background-image]:before(284),
-*[class~='slide/slide'][data-background-size]:before(282),
-*[class~='slide/slide'][data-background-position]:before(280),
-*[class~='slide/slide'][data-background-repeat]:before(278),
-*[class~='slide/slide'][data-background-opacity]:before(276),
-*[class~='slide/slide'][data-background-video]:before(274),
-*[class~='slide/slide'][data-background-video-loop]:before(272),
-*[class~='slide/slide'][data-background-video-muted]:before(270),
-*[class~='slide/slide'][data-auto-animate-unmatched]:before(268),
-*[class~='slide/slide'][style]:before(266) {
-    display: block
+*[id]:before(299),
+*[data-auto-animate]:before(298),
+*[data-auto-animate-easing]:before(296),
+*[data-autoslide]:before(294),
+*[data-transition]:before(292),
+*[data-background]:before(290),
+*[data-background-color]:before(288),
+*[data-background-gradient]:before(286),
+*[data-background-image]:before(284),
+*[data-background-size]:before(282),
+*[data-background-position]:before(280),
+*[data-background-repeat]:before(278),
+*[data-background-opacity]:before(276),
+*[data-background-video]:before(274),
+*[data-background-video-loop]:before(272),
+*[data-background-video-muted]:before(270),
+*[data-auto-animate-unmatched]:before(268),
+*[style]:before(266),
+*[data-auto-animate-id]:before(264) {
+    display: block;
+    font-size: 10pt;
 }
 
 /* @id */
-*[class~='slide/slide'][id]:before(299) {
+*[id]:before(299) {
     content:
         oxy_label(text, "id", width, 10em, color, inherit)
         oxy_textfield(edit, '@id', columns, 40);
 }
 
 /* @data-auto-animate */
-*[class~='slide/slide'][data-auto-animate]:before(298) {
+*[data-auto-animate]:before(298) {
     content:
         oxy_label(text, "data-auto-animate activated ✓", width, 10em, color, inherit);
 }
 
 /* @data-auto-animate-easing */
-*[class~='slide/slide'][data-auto-animate-easing]:before(296) {
+*[data-auto-animate-easing]:before(296) {
     content:
         oxy_label(text, "data-auto-animate-easing", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-auto-animate-easing', columns, 40);
 }
 
 /* @data-autoslide */
-*[class~='slide/slide'][data-autoslide]:before(294) {
+*[data-autoslide]:before(294) {
     content:
         oxy_label(text, "data-autoslide", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-autoslide', columns, 40);
 }
 
 /* @data-transition */
-*[class~='slide/slide'][data-transition]:before(292) {
+*[data-transition]:before(292) {
     content:
         oxy_label(text, "data-transition", width, 10em, color, inherit)
         oxy_combobox( 
@@ -213,94 +222,100 @@
 }
 
 /* @data-background */
-*[class~='slide/slide'][data-background]:before(290) {
+*[data-background]:before(290) {
     content:
         oxy_label(text, "data-background", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-background', columns, 40);
 }
 
 /* @data-background-color */
-*[class~='slide/slide'][data-background-color]:before(288) {
+*[data-background-color]:before(288) {
     content:
         oxy_label(text, "data-background-color", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-background-color', columns, 40);
 }
 
 /* @data-background-gradient */
-*[class~='slide/slide'][data-background-gradient]:before(286) {
+*[data-background-gradient]:before(286) {
     content:
         oxy_label(text, "data-background-gradient", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-background-gradient', columns, 40);
 }
 
 /* @data-background-image */
-*[class~='slide/slide'][data-background-image]:before(284) {
+*[data-background-image]:before(284) {
     content:
         oxy_label(text, "data-background-image", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-background-image', columns, 40);
 }
 
 /* @data-background-size */
-*[class~='slide/slide'][data-background-size]:before(282) {
+*[data-background-size]:before(282) {
     content:
         oxy_label(text, "data-background-size", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-background-size', columns, 40);
 }
 
 /* @data-background-position */
-*[class~='slide/slide'][data-background-position]:before(280) {
+*[data-background-position]:before(280) {
     content:
         oxy_label(text, "data-background-position", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-background-position', columns, 40);
 }
 
 /* @data-background-repeat */
-*[class~='slide/slide'][data-background-repeat]:before(278) {
+*[data-background-repeat]:before(278) {
     content:
         oxy_label(text, "data-background-repeat", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-background-repeat', columns, 40);
 }
 
 /* @data-background-opacity */
-*[class~='slide/slide'][data-background-opacity]:before(276) {
+*[data-background-opacity]:before(276) {
     content:
         oxy_label(text, "data-background-opacity", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-background-opacity', columns, 40);
 }
 
 /* @data-background-video */
-*[class~='slide/slide'][data-background-video]:before(274) {
+*[data-background-video]:before(274) {
     content:
         oxy_label(text, "data-background-video", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-background-video', columns, 40);
 }
 
 /* @data-background-video-loop */
-*[class~='slide/slide'][data-background-video-loop]:before(272) {
+*[data-background-video-loop]:before(272) {
     content:
         oxy_label(text, "data-background-video-loop", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-background-video-loop', columns, 40);
 }
 
 /* @data-background-video-muted */
-*[class~='slide/slide'][data-background-video-muted]:before(270) {
+*[data-background-video-muted]:before(270) {
     content:
         oxy_label(text, "data-background-video-muted", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-background-video-muted', columns, 40);
 }
 
 /* @data-auto-animate-unmatched */
-*[class~='slide/slide'][data-auto-animate-unmatched]:before(268) {
+*[data-auto-animate-unmatched]:before(268) {
     content:
         oxy_label(text, "data-auto-animate-unmatched", width, 10em, color, inherit)
         oxy_textfield(edit, '@data-auto-animate-unmatched', columns, 40);
 }
 
 /* @style */
-*[class~='slide/slide'][style]:before(266) {
+*[style]:before(266) {
     content:
-        oxy_label(text, "style", width, 10em, color, inherit)
+        oxy_label(text, "style", styles, "font-weight: normal; font-size: 10pt; color: black;", width, 10em)
         oxy_textfield(edit, '@style', columns, 40);
+}
+
+*[data-auto-animate-id]:before(264) {
+    content:
+        oxy_label(text, "data-auto-animate-id", styles, "font-weight: normal; font-size: 10pt; color: black;", width, 10em)
+        oxy_textfield(edit, '@data-auto-animate-id', columns, 40);
 }
 
 *[class~='topic/table'] {

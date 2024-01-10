@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<slide id="slide10" data-auto-animate=" " style=" height: 600px;">
+  <slide-title style="opacity: 0.3; font-size: 18px;">SLIDE 4</slide-title>
+  <slide-body>
+    <slide-h2 data-id="title" style="margin-top: 500px; opacity: 0;">With Auto Animate</slide-h2>
+    <slide-div data-id="1" style="background: red; position: absolute; top: 250px; left: 16%; width: 60px; height: 60px;"></slide-div>
+    <slide-div data-id="2" style="background: yellow; position: absolute; top: 250px; left: 36%; width: 60px; height: 60px;"></slide-div>
+    <slide-div data-id="3" style="background: magenta; position: absolute; top: 250px; left: 56%; width: 60px; height: 60px;"></slide-div>
+    <slide-div data-id="4" style="background: cyan; position: absolute; top: 250px; left: 76%; width: 60px; height: 60px;"></slide-div>
+  </slide-body>
+</slide>
