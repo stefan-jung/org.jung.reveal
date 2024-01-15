@@ -2,17 +2,17 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide id="slide02" data-auto-animate="" data-auto-animate-unmatched="fade">
-  <slide-title>Title of slide</slide-title>
-  <slide-body>
-    <slide-div>Auto-Animate Example</slide-div>
-    <slide-p style="opacity: 0.2; margin-top: 100px;">This will fade out</slide-p>
-    <slide-p>This element is unmatched</slide-p>
-    <slide-image href="assets/image1.png" style="height: 150px;"/>
-    <slide-pre data-id="code"><slide-codeblock data-line-numbers="" outputclass="hljs" data-trim="">
+  <title>Title of slide</title>
+  <body>
+    <div>Auto-Animate Example</div>
+    <p style="opacity: 0.2; margin-top: 100px;">This will fade out</p>
+    <p>This element is unmatched</p>
+    <image href="assets/image1.png" style="height: 150px;"/>
+    <pre data-id="code"><codeblock data-line-numbers="" outputclass="hljs" data-trim="">
 					function Example() {
 					  New line!
 					  const [count, setCount] = useState(0);
 					}
-				</slide-codeblock></slide-pre>
-  </slide-body>
+				</codeblock></pre>
+  </body>
 </slide>

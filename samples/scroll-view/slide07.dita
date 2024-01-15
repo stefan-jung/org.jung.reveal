@@ -2,11 +2,11 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide data-background-gradient="linear-gradient(to bottom, #283b95, #17b2c3)" id="gradient-bg">
-  <slide-title/>
-  <slide-body>
-    <slide-div outputclass="h2" data-id="code-title">Code highlights, meet scroll triggers</slide-div>
-    <slide-pre data-id="code-animation">
-      <slide-codeblock outputclass="hljs javascript" data-trim="" data-line-numbers="|4,8-11|17|22-24" id="slide-codeblock_js1_zgj_11c">&lt;script type="text/template">
+  <title/>
+  <body>
+    <div outputclass="h2" data-id="code-title">Code highlights, meet scroll triggers</div>
+    <pre data-id="code-animation">
+      <codeblock outputclass="hljs javascript" data-trim="" data-line-numbers="|4,8-11|17|22-24" id="codeblock_js1_zgj_11c">&lt;script type="text/template">
   import React, { useState } from 'react';
   function Example() {
     const [count, setCount] = useState(0);
@@ -33,7 +33,7 @@
       &lt;/div>
     );
   }
-&lt;/script></slide-codeblock>
-    </slide-pre>
-  </slide-body>
+&lt;/script></codeblock>
+    </pre>
+  </body>
 </slide>

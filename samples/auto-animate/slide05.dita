@@ -2,9 +2,9 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide id="slide05" data-auto-animate="">
-  <slide-title/>
-  <slide-body>
-    <slide-pre data-id="code"><slide-codeblock data-line-numbers="" outputclass="hljs" data-trim="">import React, { useState } from 'react';
+  <title/>
+  <body>
+    <pre data-id="code"><codeblock data-line-numbers="" outputclass="hljs" data-trim="">import React, { useState } from 'react';
 
 function Example() {
     const [count, setCount] = useState(0);
@@ -12,12 +12,12 @@ function Example() {
     return (
         ...
     );
-}        </slide-codeblock></slide-pre>
-  </slide-body>
+}        </codeblock></pre>
+  </body>
     <slide id="slide05-02" data-auto-animate="">
-        <slide-title/>
-        <slide-body>
-            <slide-pre data-id="code"><slide-codeblock data-line-numbers="" outputclass="hljs" data-trim="">function Example() {
+        <title/>
+        <body>
+            <pre data-id="code"><codeblock data-line-numbers="" outputclass="hljs" data-trim="">function Example() {
     const [count, setCount] = useState(0);
 
     return (
@@ -28,13 +28,13 @@ function Example() {
             &lt;/button&gt;
         &lt;/div&gt;
     );
-}      </slide-codeblock></slide-pre>
-        </slide-body>
+}      </codeblock></pre>
+        </body>
     </slide>
     <slide id="slide05-03" data-auto-animate="">
-        <slide-title/>
-        <slide-body>
-            <slide-pre data-id="code"><slide-codeblock data-line-numbers="" outputclass="hljs" data-trim="">function Example() {
+        <title/>
+        <body>
+            <pre data-id="code"><codeblock data-line-numbers="" outputclass="hljs" data-trim="">function Example() {
     // A comment!
     const [count, setCount] = useState(0);
 
@@ -46,7 +46,7 @@ function Example() {
             &lt;/button&gt;
         &lt;/div&gt;
     );
-}      </slide-codeblock></slide-pre>
-        </slide-body>
+}      </codeblock></pre>
+        </body>
     </slide>
 </slide>

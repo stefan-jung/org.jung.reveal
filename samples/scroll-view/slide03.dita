@@ -2,5 +2,5 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide id="slide03" data-background-color="#fff">
-  <slide-title>Scrollbar inverts based on slide bg</slide-title>
+  <title>Scrollbar inverts based on slide bg</title>
 </slide>

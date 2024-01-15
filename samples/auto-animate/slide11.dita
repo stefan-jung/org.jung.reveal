@@ -2,8 +2,8 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide id="slide11" data-auto-animate=" " data-auto-animate-id="a">
-  <slide-title>data-auto-animate-id="a"</slide-title>
-  <slide-body>
-    <slide-h3>A1</slide-h3>
-  </slide-body>
+  <title>data-auto-animate-id="a"</title>
+  <body>
+    <h3>A1</h3>
+  </body>
 </slide>

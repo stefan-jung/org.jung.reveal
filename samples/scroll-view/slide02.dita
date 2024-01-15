@@ -2,12 +2,12 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide id="slide02" data-background="indigo">
-  <slide-title>Scroll triggered fragments</slide-title>
-  <slide-body>
+  <title>Scroll triggered fragments</title>
+  <body>
     <ul>
       <li outputclass="fragment fade-left">Step one</li>
       <li outputclass="fragment fade-left">Step two</li>
       <li outputclass="fragment fade-left">Step three</li>
     </ul>
-  </slide-body>
+  </body>
 </slide>

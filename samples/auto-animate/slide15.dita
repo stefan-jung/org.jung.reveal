@@ -2,42 +2,42 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide id="stacked-slide-1" data-auto-animate="">
-  <slide-title/>
-  <slide-body>
-    <slide-p><xref href="#/stacked-slide-1">Slide 1</xref></slide-p>
-    <slide-p><xref href="#/stacked-slide-2">Slide 2</xref></slide-p>
-    <slide-p><xref href="#/stacked-slide-3">Slide 3</xref></slide-p>
-    <slide-p><xref href="#/stacked-slide-4">Slide 4</xref></slide-p>
-    <slide-div data-id="anim" style="background: indigo; padding: 8px; width: 50px; height: 50px; position: absolute; left: 0px;">A</slide-div>
-  </slide-body>
+  <title/>
+  <body>
+    <p><xref href="#/stacked-slide-1">Slide 1</xref></p>
+    <p><xref href="#/stacked-slide-2">Slide 2</xref></p>
+    <p><xref href="#/stacked-slide-3">Slide 3</xref></p>
+    <p><xref href="#/stacked-slide-4">Slide 4</xref></p>
+    <div data-id="anim" style="background: indigo; padding: 8px; width: 50px; height: 50px; position: absolute; left: 0px;">A</div>
+  </body>
   <slide id="stacked-slide-2" data-auto-animate="">
-    <slide-title/>
-    <slide-body>
-      <slide-p><xref href="#/stacked-slide-1">Slide 1</xref></slide-p>
-      <slide-p><xref href="#/stacked-slide-2">Slide 2</xref></slide-p>
-      <slide-p><xref href="#/stacked-slide-3">Slide 3</xref></slide-p>
-      <slide-p><xref href="#/stacked-slide-4">Slide 4</xref></slide-p>
-      <slide-div data-id="anim" style="background: indigo; padding: 8px; width: 50px; height: 50px; position: absolute; left: 25%;">A</slide-div>
-    </slide-body>
+    <title/>
+    <body>
+      <p><xref href="#/stacked-slide-1">Slide 1</xref></p>
+      <p><xref href="#/stacked-slide-2">Slide 2</xref></p>
+      <p><xref href="#/stacked-slide-3">Slide 3</xref></p>
+      <p><xref href="#/stacked-slide-4">Slide 4</xref></p>
+      <div data-id="anim" style="background: indigo; padding: 8px; width: 50px; height: 50px; position: absolute; left: 25%;">A</div>
+    </body>
   </slide>
   <slide id="stacked-slide-3" data-auto-animate="">
-    <slide-title/>
-    <slide-body>
-      <slide-p><xref href="#/stacked-slide-1">Slide 1</xref></slide-p>
-      <slide-p><xref href="#/stacked-slide-2">Slide 2</xref></slide-p>
-      <slide-p><xref href="#/stacked-slide-3">Slide 3</xref></slide-p>
-      <slide-p><xref href="#/stacked-slide-4">Slide 4</xref></slide-p>
-      <slide-div data-id="anim" style="background: indigo; padding: 8px; width: 50px; height: 50px; position: absolute; left: 50%;">A</slide-div>
-    </slide-body>
+    <title/>
+    <body>
+      <p><xref href="#/stacked-slide-1">Slide 1</xref></p>
+      <p><xref href="#/stacked-slide-2">Slide 2</xref></p>
+      <p><xref href="#/stacked-slide-3">Slide 3</xref></p>
+      <p><xref href="#/stacked-slide-4">Slide 4</xref></p>
+      <div data-id="anim" style="background: indigo; padding: 8px; width: 50px; height: 50px; position: absolute; left: 50%;">A</div>
+    </body>
   </slide>
   <slide id="stacked-slide-4" data-auto-animate="">
-    <slide-title/>
-    <slide-body>
-      <slide-p><xref href="#/stacked-slide-1">Slide 1</xref></slide-p>
-      <slide-p><xref href="#/stacked-slide-2">Slide 2</xref></slide-p>
-      <slide-p><xref href="#/stacked-slide-3">Slide 3</xref></slide-p>
-      <slide-p><xref href="#/stacked-slide-4">Slide 4</xref></slide-p>
-      <slide-div data-id="anim" style="background: indigo; padding: 8px; width: 50px; height: 50px; position: absolute; left: 75%;">A</slide-div>
-    </slide-body>
+    <title/>
+    <body>
+      <p><xref href="#/stacked-slide-1">Slide 1</xref></p>
+      <p><xref href="#/stacked-slide-2">Slide 2</xref></p>
+      <p><xref href="#/stacked-slide-3">Slide 3</xref></p>
+      <p><xref href="#/stacked-slide-4">Slide 4</xref></p>
+      <div data-id="anim" style="background: indigo; padding: 8px; width: 50px; height: 50px; position: absolute; left: 75%;">A</div>
+    </body>
   </slide>
 </slide>

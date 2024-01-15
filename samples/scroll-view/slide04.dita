@@ -2,13 +2,13 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide id="slide04" data-auto-animate="" data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-  <slide-title>Auto-Animate</slide-title>
-  <slide-body>
-    <slide-p>Scroll triggered auto-animations 😍</slide-p>
-    <slide-div outputclass="r-hstack justify-center">
-      <slide-div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></slide-div>
-      <slide-div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></slide-div>
-      <slide-div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></slide-div>
-    </slide-div>
-  </slide-body>
+  <title>Auto-Animate</title>
+  <body>
+    <p>Scroll triggered auto-animations 😍</p>
+    <div outputclass="r-hstack justify-center">
+      <div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+    </div>
+  </body>
 </slide>

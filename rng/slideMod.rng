@@ -271,6 +271,8 @@
           <attribute name="outputclass"/>
         </optional>
       </define>
+      
+      
       <define name="slide.element">
         <element name="slide" dita:longName="Slide">
           <a:documentation>The &lt;slide> element is the root element of a slide topic. A term entry represents a terminology concept and includes one or multiple term words and defines their usage.
@@ -293,6 +295,8 @@
         <ref name="slide.element"/>
       </define>
     </div>
+    
+    
     <div>
       <a:documentation> LONG NAME: Slide Body </a:documentation>
       <define name="slide-body.content">
@@ -315,7 +319,7 @@
         </optional>
       </define>
       <define name="slide-body.element">
-        <element name="slide-body" dita:longName="Slide Body">
+        <element name="body" dita:longName="Slide Body">
           <a:documentation>The &lt;slide-body> element contains the body of a term.
             Category: Slide elements</a:documentation>
           <ref name="slide-body.attlist"/>
@@ -326,6 +330,8 @@
         <ref name="slide-body.attributes"/>
       </define>
     </div>
+    
+    
     <div>
       <a:documentation>LONG NAME: Speaker Notes</a:documentation>
       <define name="slide-speakernotes.content">
@@ -340,7 +346,7 @@
         </optional>
       </define>
       <define name="slide-speakernotes.element">
-        <element name="slide-speakernotes" dita:longName="Speaker Notes">
+        <element name="speakernotes" dita:longName="Speaker Notes">
           <a:documentation> Category: Slide elements</a:documentation>
           <ref name="slide-speakernotes.attlist"/>
           <ref name="slide-speakernotes.content"/>
@@ -377,7 +383,7 @@
         </optional>
       </define>
       <define name="slide-div.element">
-        <element name="slide-div" dita:longName="Custom Slide Div">
+        <element name="div" dita:longName="Custom Slide Div">
           <a:documentation> Category: Slide elements</a:documentation>
           <ref name="slide-div.attlist"/>
           <ref name="slide-div.content"/>
@@ -387,6 +393,8 @@
         <ref name="slide-div.attributes"/>
       </define>
     </div>
+    
+    
     <div>
       <a:documentation>LONG NAME: Custom Slide Pre</a:documentation>
       <define name="slide-pre.content">
@@ -395,6 +403,15 @@
         </choice>
       </define>
       <define name="slide-pre.attributes">
+        <ref name="display-atts"/>
+        <optional>
+          <attribute name="spectitle"/>
+        </optional>
+        <optional>
+          <attribute name="xml:space" a:defaultValue="preserve">
+            <value>preserve</value>
+          </attribute>
+        </optional>
         <ref name="univ-atts"/>
         <optional>
           <attribute name="outputclass"/>
@@ -406,7 +423,7 @@
         </optional>
       </define>
       <define name="slide-pre.element">
-        <element name="slide-pre" dita:longName="Custom Slide Pre">
+        <element name="pre" dita:longName="Custom Slide Pre">
           <a:documentation> Category: Slide elements</a:documentation>
           <ref name="slide-pre.attlist"/>
           <ref name="slide-pre.content"/>
@@ -416,6 +433,8 @@
         <ref name="slide-pre.attributes"/>
       </define>
     </div>
+    
+    
     <div>
       <a:documentation> LONG NAME: Slide Code Block </a:documentation>
       <define name="slide-codeblock.content">
@@ -440,10 +459,10 @@
             <value>preserve</value>
           </attribute>
         </optional>
+        <ref name="univ-atts"/>
         <optional>
           <attribute name="outputclass"/>
         </optional>
-        <ref name="univ-atts"/>
         <optional>
           <attribute name="data-trim">
             <empty/>
@@ -456,7 +475,7 @@
         </optional>
       </define>
       <define name="slide-codeblock.element">
-        <element name="slide-codeblock" dita:longName="Slide Code Block">
+        <element name="codeblock" dita:longName="Slide Code Block">
           <a:documentation>
             <![CDATA[The <slide-codeblock> element represents lines of program code. Like the <pre> element, content of this element has preserved line endings and is output in a monospaced font. This element is part of the DITA programming domain, a special set of DITA elements designed to document programming tasks, concepts and reference information.
     Category: Programming elements
@@ -469,6 +488,8 @@
         <ref name="slide-codeblock.attributes"/>
       </define>
     </div>
+    
+    
     <div>
       <a:documentation>LONG NAME: Slide Image Data</a:documentation>
       <define name="slide-image.content">
@@ -552,7 +573,7 @@
         </optional>
       </define>
       <define name="slide-image.element">
-        <element name="slide-image" dita:longName="Slide Image Data">
+        <element name="image" dita:longName="Slide Image Data">
           <a:documentation>Include artwork or images in a DITA topic by using the &lt;slide-image> element. The &lt;image> element has optional attributes that indicate whether the placement of the
             included graphic or artwork should be inline (like a button or icon) or on a separate line for a larger image. There are also optional attributes that indicate the size to which the
             included graphic or artwork should be scaled. An href attribute is required on the image element, as this attribute creates a pointer to the image, and allows the output formatting
@@ -565,8 +586,9 @@
       <define name="slide-image.attlist" combine="interleave">
         <ref name="slide-image.attributes"/>
       </define>
-      
     </div>
+    
+    
     <div>
       <a:documentation>LONG NAME: Slide Paragraph</a:documentation>
       <define name="slide-p.content">
@@ -587,7 +609,7 @@
         </optional>
       </define>
       <define name="slide-p.element">
-        <element name="slide-p" dita:longName="Slide Paragraph">
+        <element name="p" dita:longName="Slide Paragraph">
           <a:documentation>A paragraph element (&lt;slide-p>) is a block of text containing a single main idea. Category: Body elements</a:documentation>
           <ref name="slide-p.attlist"/>
           <ref name="slide-p.content"/>
@@ -597,6 +619,8 @@
         <ref name="slide-p.attributes"/>
       </define>
     </div>
+    
+    
     <div>
       <a:documentation>LONG NAME: Slide H1</a:documentation>
       <define name="slide-h1.content">
@@ -617,7 +641,7 @@
         </optional>
       </define>
       <define name="slide-h1.element">
-        <element name="slide-h1" dita:longName="Slide Heading 1">
+        <element name="h1" dita:longName="Slide Heading 1">
           <a:documentation>A heading element (&lt;slide-h1>). Category: Slide elements</a:documentation>
           <ref name="slide-h1.attlist"/>
           <ref name="slide-h1.content"/>
@@ -627,6 +651,8 @@
         <ref name="slide-h1.attributes"/>
       </define>
     </div>
+    
+    
     <div>
       <a:documentation>LONG NAME: Slide H2</a:documentation>
       <define name="slide-h2.content">
@@ -647,7 +673,7 @@
         </optional>
       </define>
       <define name="slide-h2.element">
-        <element name="slide-h2" dita:longName="Slide Heading 2">
+        <element name="h2" dita:longName="Slide Heading 2">
           <a:documentation>A heading element (&lt;slide-h2>). Category: Slide elements</a:documentation>
           <ref name="slide-h2.attlist"/>
           <ref name="slide-h2.content"/>
@@ -657,6 +683,8 @@
         <ref name="slide-h2.attributes"/>
       </define>
     </div>
+    
+    
     <div>
       <a:documentation>LONG NAME: Slide H3</a:documentation>
       <define name="slide-h3.content">
@@ -677,7 +705,7 @@
         </optional>
       </define>
       <define name="slide-h3.element">
-        <element name="slide-h3" dita:longName="Slide Heading 3">
+        <element name="h3" dita:longName="Slide Heading 3">
           <a:documentation>A heading element (&lt;slide-h3>). Category: Slide elements</a:documentation>
           <ref name="slide-h3.attlist"/>
           <ref name="slide-h3.content"/>
@@ -687,6 +715,8 @@
         <ref name="slide-h3.attributes"/>
       </define>
     </div>
+    
+    
     <div>
       <a:documentation>LONG NAME: Slide Title</a:documentation>
       <define name="slide-title.content">
@@ -715,7 +745,7 @@
         </optional>
       </define>
       <define name="slide-title.element">
-        <element name="slide-title" dita:longName="Title">
+        <element name="title" dita:longName="Title">
           <a:documentation>The &lt;slide-title> element contains a heading or label for the main parts of a topic, including the topic as a whole, its sections and examples, and its labelled content, such
             as figures and tables. Beginning with DITA 1.1, the element may also be used to provide a title for a map. Category: Topic elements</a:documentation>
           <ref name="slide-title.attlist"/>
@@ -725,7 +755,6 @@
       <define name="slide-title.attlist" combine="interleave">
         <ref name="slide-title.attributes"/>
       </define>
-      
     </div>
   </div>
 
@@ -762,8 +791,9 @@
       </optional>
     </define>
     <define name="slide-codeblock.attlist" combine="interleave">
+      <ref name="global-atts"/>
       <optional>
-        <attribute name="class" a:defaultValue="+ topic/pre pr-d/codeblock slide/slide-codeblock "/>
+        <attribute name="class" a:defaultValue="- topic/pre slide/slide-codeblock "/>
       </optional>
     </define>
     <define name="slide-image.attlist" combine="interleave">

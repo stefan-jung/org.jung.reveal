@@ -2,8 +2,8 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide id="slide03" data-auto-animate="">
-  <slide-title/>
-  <slide-body>
-    <slide-p style="background: #555; line-height: 1em; letter-spacing: 0em;" data-id="text-props">Line Height &amp; Letter Spacing</slide-p>
-  </slide-body>
+  <title/>
+  <body>
+    <p style="background: #555; line-height: 1em; letter-spacing: 0em;" data-id="text-props">Line Height &amp; Letter Spacing</p>
+  </body>
 </slide>

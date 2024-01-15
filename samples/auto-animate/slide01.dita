@@ -2,14 +2,14 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide id="slide01" data-auto-animate="" data-auto-animate-unmatched="fade">
-  <slide-title>Auto-Animate Example</slide-title>
-  <slide-body>
-    <slide-p>This will fade out</slide-p>
-    <slide-image href="assets/image1.png" style="height: 100px;"/>
-    <slide-pre data-id="code"><slide-codeblock data-line-numbers="" outputclass="hljs" data-trim="">
+  <title>Auto-Animate Example</title>
+  <body>
+    <p>This will fade out</p>
+    <image href="assets/image1.png" style="height: 100px;"/>
+    <pre data-id="code"><codeblock data-line-numbers="" outputclass="hljs" data-trim="" xml:space="preserve">
 						function Example() {
 						  const [count, setCount] = useState(0);
 						}
-					</slide-codeblock></slide-pre>
-  </slide-body>
+					</codeblock></pre>
+  </body>
 </slide>

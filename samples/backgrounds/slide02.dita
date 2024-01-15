@@ -2,8 +2,8 @@
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <slide id="slide02" data-background="#bb00bb">
-  <slide-title/>
-  <slide-body>
-    <slide-h2>data-background: #bb00bb</slide-h2>
-  </slide-body>
+  <title/>
+  <body>
+    <h2>data-background: #bb00bb</h2>
+  </body>
 </slide>
