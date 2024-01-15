@@ -20,10 +20,14 @@
 *[data-auto-animate-unmatched]:before(267),
 *[style]:before(265),
 *[data-auto-animate-id]:before(263) {
-    margin-bottom: 0.5em;
+    padding-bottom: 3px;
     font-size: 0.8em;
     color: gray;
     display: block;
+    padding-left: 10px;
+    width: 740px;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
 }
 
 /* @data-auto-animate */

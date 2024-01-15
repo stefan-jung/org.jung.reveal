@@ -16,10 +16,197 @@
    font-family: "Calibri", "UnDotum", serif;
 }
 
+
+
+/* ============================================================
+ * Attributes
+ */
+*[id]:before(299),
+*[data-auto-animate]:before(298),
+*[data-auto-animate-easing]:before(296),
+*[data-autoslide]:before(294),
+*[data-transition]:before(292),
+*[data-background]:before(290),
+*[data-background-color]:before(288),
+*[data-background-gradient]:before(286),
+*[data-background-image]:before(284),
+*[data-background-size]:before(282),
+*[data-background-position]:before(280),
+*[data-background-repeat]:before(278),
+*[data-background-opacity]:before(276),
+*[data-background-video]:before(274),
+*[data-background-video-loop]:before(272),
+*[data-background-video-muted]:before(270),
+*[data-auto-animate-unmatched]:before(268),
+*[style]:before(266),
+*[data-auto-animate-id]:before(264) {
+    display: block;
+    font-size: 10pt;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    width: 740px;
+    padding-left: 10px;
+}
+
+/* @id */
+*[id]:before(299) {
+    content:
+        oxy_label(text, "id", width, 20em, color, inherit)
+        oxy_textfield(edit, '@id', columns, 40);
+}
+
+/* @data-auto-animate */
+*[data-auto-animate]:before(298) {
+    content:
+        oxy_label(text, "data-auto-animate activated ✓", width, 20em, color, inherit);
+}
+
+/* @data-auto-animate-easing */
+*[data-auto-animate-easing]:before(296) {
+    content:
+        oxy_label(text, "data-auto-animate-easing", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-auto-animate-easing', columns, 40);
+}
+
+/* @data-autoslide */
+*[data-autoslide]:before(294) {
+    content:
+        oxy_label(text, "data-autoslide", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-autoslide', columns, 40);
+}
+
+/* @data-transition */
+*[data-transition]:before(292) {
+    content:
+        oxy_label(text, "data-transition", width, 20em, color, inherit)
+        oxy_combobox( 
+            edit, '@data-transition',
+            editable, true,
+            columns, 40
+        )
+        oxy_button(action, oxy_action(
+            name, 'Delete attribute', 
+            icon, url('../../icons/delete.png'), 
+            operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributesOperation', 
+            arg-attributeNames, 'data-transition'
+            ), showIcon, true, transparent, true);
+}
+
+/* @data-background */
+*[data-background]:before(290) {
+    content:
+        oxy_label(text, "data-background", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-background', columns, 40);
+}
+
+/* @data-background-color */
+*[data-background-color]:before(288) {
+    content:
+        oxy_label(text, "data-background-color", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-background-color', columns, 40);
+}
+
+/* @data-background-gradient */
+*[data-background-gradient]:before(286) {
+    content:
+        oxy_label(text, "data-background-gradient", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-background-gradient', columns, 40);
+}
+
+/* @data-background-image */
+*[data-background-image]:before(284) {
+    content:
+        oxy_label(text, "data-background-image", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-background-image', columns, 40);
+}
+
+/* @data-background-size */
+*[data-background-size]:before(282) {
+    content:
+        oxy_label(text, "data-background-size", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-background-size', columns, 40);
+}
+
+/* @data-background-position */
+*[data-background-position]:before(280) {
+    content:
+        oxy_label(text, "data-background-position", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-background-position', columns, 40);
+}
+
+/* @data-background-repeat */
+*[data-background-repeat]:before(278) {
+    content:
+        oxy_label(text, "data-background-repeat", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-background-repeat', columns, 40);
+}
+
+/* @data-background-opacity */
+*[data-background-opacity]:before(276) {
+    content:
+        oxy_label(text, "data-background-opacity", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-background-opacity', columns, 40);
+}
+
+/* @data-background-video */
+*[data-background-video]:before(274) {
+    content:
+        oxy_label(text, "data-background-video", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-background-video', columns, 40);
+}
+
+/* @data-background-video-loop */
+*[data-background-video-loop]:before(272) {
+    content:
+        oxy_label(text, "data-background-video-loop", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-background-video-loop', columns, 40);
+}
+
+/* @data-background-video-muted */
+*[data-background-video-muted]:before(270) {
+    content:
+        oxy_label(text, "data-background-video-muted", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-background-video-muted', columns, 40);
+}
+
+/* @data-auto-animate-unmatched */
+*[data-auto-animate-unmatched]:before(268) {
+    content:
+        oxy_label(text, "data-auto-animate-unmatched", width, 20em, color, inherit)
+        oxy_textfield(edit, '@data-auto-animate-unmatched', columns, 40);
+}
+
+/* @style */
+*[style]:before(266) {
+    content:
+        oxy_label(text, "style", styles, "font-weight: normal; font-size: 10pt; color: black;", width, 20em)
+        oxy_textfield(edit, '@style', columns, 40);
+}
+
+*[data-auto-animate-id]:before(264) {
+    content:
+        oxy_label(text, "data-auto-animate-id", styles, "font-weight: normal; font-size: 10pt; color: black;", width, 20em)
+        oxy_textfield(edit, '@data-auto-animate-id', columns, 40);
+}
+
+
+
+/* ============================================================
+ * <slide>
+ */
+*[class~='slide/slide']:before {
+    content: ' ';
+    width: 750px;
+    display: block;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
 *[class~='slide/slide']:before(300) {
     content:
         oxy_buttonGroup(
-            label, 'Set slide attributes',
+            label, '<slide>',
             tooltip, 'Slide attributes change the appearance, behavior and transition of the slide.',
             actions,
                 oxy_action_list(
@@ -63,7 +250,7 @@
                         description, 'transition', 
                         operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
                         arg-name, 'data-transition',
-                        arg-value, ' '
+                        arg-value, 'none'
                     ),
                     oxy_action(
                         name, 'background', 
@@ -157,166 +344,15 @@
                 )
         );
     display: block;
-    margin-bottom: 0.3em;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    width: 740px;
+    padding-left: 10px;
 }
 
-*[id]:before(299),
-*[data-auto-animate]:before(298),
-*[data-auto-animate-easing]:before(296),
-*[data-autoslide]:before(294),
-*[data-transition]:before(292),
-*[data-background]:before(290),
-*[data-background-color]:before(288),
-*[data-background-gradient]:before(286),
-*[data-background-image]:before(284),
-*[data-background-size]:before(282),
-*[data-background-position]:before(280),
-*[data-background-repeat]:before(278),
-*[data-background-opacity]:before(276),
-*[data-background-video]:before(274),
-*[data-background-video-loop]:before(272),
-*[data-background-video-muted]:before(270),
-*[data-auto-animate-unmatched]:before(268),
-*[style]:before(266),
-*[data-auto-animate-id]:before(264) {
-    display: block;
-    font-size: 10pt;
-}
-
-/* @id */
-*[id]:before(299) {
-    content:
-        oxy_label(text, "id", width, 10em, color, inherit)
-        oxy_textfield(edit, '@id', columns, 40);
-}
-
-/* @data-auto-animate */
-*[data-auto-animate]:before(298) {
-    content:
-        oxy_label(text, "data-auto-animate activated ✓", width, 10em, color, inherit);
-}
-
-/* @data-auto-animate-easing */
-*[data-auto-animate-easing]:before(296) {
-    content:
-        oxy_label(text, "data-auto-animate-easing", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-auto-animate-easing', columns, 40);
-}
-
-/* @data-autoslide */
-*[data-autoslide]:before(294) {
-    content:
-        oxy_label(text, "data-autoslide", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-autoslide', columns, 40);
-}
-
-/* @data-transition */
-*[data-transition]:before(292) {
-    content:
-        oxy_label(text, "data-transition", width, 10em, color, inherit)
-        oxy_combobox( 
-            edit, '@data-transition',
-            editable, true,
-            columns, 40
-        );
-}
-
-/* @data-background */
-*[data-background]:before(290) {
-    content:
-        oxy_label(text, "data-background", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-background', columns, 40);
-}
-
-/* @data-background-color */
-*[data-background-color]:before(288) {
-    content:
-        oxy_label(text, "data-background-color", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-background-color', columns, 40);
-}
-
-/* @data-background-gradient */
-*[data-background-gradient]:before(286) {
-    content:
-        oxy_label(text, "data-background-gradient", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-background-gradient', columns, 40);
-}
-
-/* @data-background-image */
-*[data-background-image]:before(284) {
-    content:
-        oxy_label(text, "data-background-image", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-background-image', columns, 40);
-}
-
-/* @data-background-size */
-*[data-background-size]:before(282) {
-    content:
-        oxy_label(text, "data-background-size", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-background-size', columns, 40);
-}
-
-/* @data-background-position */
-*[data-background-position]:before(280) {
-    content:
-        oxy_label(text, "data-background-position", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-background-position', columns, 40);
-}
-
-/* @data-background-repeat */
-*[data-background-repeat]:before(278) {
-    content:
-        oxy_label(text, "data-background-repeat", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-background-repeat', columns, 40);
-}
-
-/* @data-background-opacity */
-*[data-background-opacity]:before(276) {
-    content:
-        oxy_label(text, "data-background-opacity", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-background-opacity', columns, 40);
-}
-
-/* @data-background-video */
-*[data-background-video]:before(274) {
-    content:
-        oxy_label(text, "data-background-video", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-background-video', columns, 40);
-}
-
-/* @data-background-video-loop */
-*[data-background-video-loop]:before(272) {
-    content:
-        oxy_label(text, "data-background-video-loop", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-background-video-loop', columns, 40);
-}
-
-/* @data-background-video-muted */
-*[data-background-video-muted]:before(270) {
-    content:
-        oxy_label(text, "data-background-video-muted", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-background-video-muted', columns, 40);
-}
-
-/* @data-auto-animate-unmatched */
-*[data-auto-animate-unmatched]:before(268) {
-    content:
-        oxy_label(text, "data-auto-animate-unmatched", width, 10em, color, inherit)
-        oxy_textfield(edit, '@data-auto-animate-unmatched', columns, 40);
-}
-
-/* @style */
-*[style]:before(266) {
-    content:
-        oxy_label(text, "style", styles, "font-weight: normal; font-size: 10pt; color: black;", width, 10em)
-        oxy_textfield(edit, '@style', columns, 40);
-}
-
-*[data-auto-animate-id]:before(264) {
-    content:
-        oxy_label(text, "data-auto-animate-id", styles, "font-weight: normal; font-size: 10pt; color: black;", width, 10em)
-        oxy_textfield(edit, '@data-auto-animate-id', columns, 40);
-}
 
 *[class~='topic/table'] {
     border: none !important;
