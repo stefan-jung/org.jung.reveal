@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:map.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map>
+  <topicref href="slide01.dita"/>
+  <topicref href="slide02.dita" keys="fit-text"/>
+  <topicref href="slide03.dita"/>
+  <topicref href="slide04.dita"/>
+  <topicref href="slide05.dita" keys="stretch"/>
+  <topicref href="slide06.dita"/>
+  <topicref href="slide02.dita" keys="stack"/>
+  <topicref href="slide02.dita" keys="hstack"/>
+  <topicref href="slide02.dita" keys="vstack"/>
+</map>

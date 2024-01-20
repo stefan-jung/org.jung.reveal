@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<slide id="slide01">
+  <title>Layout Helper Examples</title>
+  <body>
+    <ul>
+      <li><xref keyref="fit-text"/></li>
+      <li><xref keyref="stretch"/></li>
+      <li><xref keyref="stack"/></li>
+      <li><xref keyref="hstack"/></li>
+      <li><xref keyref="vstack"/></li>
+    </ul>
+  </body>
+</slide>

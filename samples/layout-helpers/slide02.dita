@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<slide id="ui_${id}">
-  <title>Title of slide</title>
+<slide id="slide02">
+  <title>Fit Text</title>
   <body>
+    <p>Resizes text to be as large as possible within its container.</p>
+    <pre><codeblock outputclass=" language-xml" data-trim=" " data-line-numbers=" ">&lt;h2 class="r-fit-text">FIT&lt;/h2></codeblock></pre>
   </body>
 </slide>

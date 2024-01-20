@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<slide id="slide05">
+  <title>Stretch</title>
+  <body>
+    <p>Makes an element as tall as possible while remaining the slide bounds.</p>
+    <pre><codeblock outputclass=" language-html" data-trim=" " data-line-numbers=" ">&lt;h2>Stretch Example&lt;/h2>
+&lt;img src="assets/image2.png" class="r-stretch"/>
+&lt;p>Image byline&lt;/p></codeblock></pre>
+  </body>
+</slide>

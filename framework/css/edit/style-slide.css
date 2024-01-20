@@ -5,15 +5,18 @@
  */
 *[class ~= "map/map"][title]:before,
 *[class ~= "map/map"] > *[class ~= "topic/title"],
-*[class ~= "topic/topic"] > *[class ~= "topic/title"]{
-   font-family: "Trebuchet MS", serif;
+*[class ~= "topic/topic"] > *[class ~= "topic/title"] {
+    font-family: "Trebuchet MS", serif;
+}
+*[class ~= "topic/topic"] > *[class ~= "topic/title"]:empty {
+    display: none;
 }
 
 /*
  * Plain content and topcirefs in the map.
  */
 :root{
-   font-family: "Calibri", "UnDotum", serif;
+    font-family: "Calibri", "UnDotum", serif;
 }
 
 
@@ -39,7 +42,10 @@
 *[data-background-video-muted]:before(270),
 *[data-auto-animate-unmatched]:before(268),
 *[style]:before(266),
-*[data-auto-animate-id]:before(264) {
+*[data-auto-animate-id]:before(264),
+*[outputclass]:before(262),
+*[data-trim]:before(260),
+*[data-line-numbers]:before(258) {
     display: block;
     font-size: 10pt;
     border-left: 1px solid lightgray;
@@ -52,7 +58,13 @@
 *[id]:before(299) {
     content:
         oxy_label(text, "id", width, 20em, color, inherit)
-        oxy_textfield(edit, '@id', columns, 40);
+        oxy_textfield(edit, '@id', columns, 40)
+        oxy_button(action, oxy_action(
+            name, 'Delete attribute', 
+            icon, url('../../icons/delete.png'), 
+            operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributesOperation', 
+            arg-attributeNames, 'id'
+            ), showIcon, true, transparent, true);
 }
 
 /* @data-auto-animate */
@@ -183,13 +195,49 @@
         oxy_textfield(edit, '@style', columns, 40);
 }
 
+/* @data-auto-animate-id */
 *[data-auto-animate-id]:before(264) {
     content:
         oxy_label(text, "data-auto-animate-id", styles, "font-weight: normal; font-size: 10pt; color: black;", width, 20em)
         oxy_textfield(edit, '@data-auto-animate-id', columns, 40);
 }
 
+/* @outputclass */
+*[outputclass]:before(262) {
+    content:
+        oxy_label(text, "outputclass", styles, "font-weight: normal; font-size: 10pt; color: black;", width, 20em)
+        oxy_textfield(edit, '@outputclass', columns, 40)
+        oxy_button(action, oxy_action(
+            name, 'Delete attribute', 
+            icon, url('../../icons/delete.png'), 
+            operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributesOperation', 
+            arg-attributeNames, 'outputclass'
+            ), showIcon, true, transparent, true);
+}
 
+/* @data-trim */
+*[data-trim]:before(260) {
+    content:
+        oxy_label(text, "data-trim activated ✓", width, 20em, color, inherit)
+        oxy_button(action, oxy_action(
+            name, 'Delete attribute', 
+            icon, url('../../icons/delete.png'), 
+            operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributesOperation', 
+            arg-attributeNames, 'data-trim'
+            ), showIcon, true, transparent, true);
+}
+
+/* @data-line-numbers */
+*[data-line-numbers]:before(258) {
+    content:
+        oxy_label(text, "data-line-numbers activated ✓", width, 20em, color, inherit)
+        oxy_button(action, oxy_action(
+            name, 'Delete attribute', 
+            icon, url('../../icons/delete.png'), 
+            operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributesOperation', 
+            arg-attributeNames, 'data-line-numbers'
+            ), showIcon, true, transparent, true);
+}
 
 /* ============================================================
  * <slide>
@@ -380,4 +428,90 @@
 *[class~='topic/thead'] > *[class~='topic/row'] > *[class~='topic/entry']:last-child {
     border-top-right-radius: 4px;
     border: #023A4F 1px solid;
+}
+
+
+/* ============================================================
+ * <pre>
+ */
+*[class~='topic/pre']:before(300) {
+    content:
+        oxy_buttonGroup(
+            label, '<pre>',
+            tooltip, 'Preformatted text',
+            actions,
+                oxy_action_list(
+                    oxy_action(
+                        name, 'Delete', 
+                        description, 'Deletes the current element', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.DeleteElementOperation'
+                    )
+                )
+        );
+    display: block;
+}
+
+
+/* ============================================================
+ * <codeblock>
+ */
+*[class~='topic/pre'][class~='slide/slide-codeblock']:before(300) {
+    content:
+        oxy_buttonGroup(
+            label, '<codeblock>',
+            tooltip, 'Codeblock',
+            actions,
+                oxy_action_list(
+                    oxy_action(
+                        name, 'outputclass', 
+                        description, 'outputclass', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'outputclass',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'data-trim', 
+                        description, 'data-trim', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-trim',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'data-line-numbers', 
+                        description, 'data-line-numbers', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'data-line-numbers',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'Delete', 
+                        description, 'Deletes the current element', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.DeleteElementOperation'
+                    )
+                )
+        );
+    display: block;
+}
+
+
+/* ============================================================
+ * <h2>
+ */
+*[class~='topic/p'][class~='slide/slide-h2']:before(300) {
+    content:
+        oxy_buttonGroup(
+            label, '<h2>',
+            tooltip, 'Heading Level 2',
+            actions,
+                oxy_action_list(
+                    oxy_action(
+                        name, 'Delete', 
+                        description, 'Deletes the current element', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.DeleteElementOperation'
+                    )
+                )
+        );
+}
+*[class~='topic/p'][class~='slide/slide-h2'] {
+    font-size: 1.75em;
 }

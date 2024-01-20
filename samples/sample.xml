@@ -11,7 +11,7 @@
     <publication transtype="reveal"/>
   </deliverable>
   
-  <deliverable name="Reveal Scroll View" id="scroll-view">
+  <deliverable name="Scroll View" id="scroll-view">
     <context name="Reveal Scroll View" id="scroll-view_context">
       <input href="scroll-view/scroll-view.ditamap"/>
     </context>
@@ -23,7 +23,7 @@
     </publication>
   </deliverable>
   
-  <deliverable name="Reveal Auto Animate" id="auto-animate">
+  <deliverable name="Auto Animate" id="auto-animate">
     <context name="Reveal Auto Animate" id="auto-animate_context">
       <input href="auto-animate/auto-animate.ditamap"/>
     </context>
@@ -35,7 +35,7 @@
     </publication>
   </deliverable>
 
-  <deliverable name="Reveal Auto Backgrounds" id="backgrounds">
+  <deliverable name="Auto Backgrounds" id="backgrounds">
     <context name="Reveal Auto Backgrounds" id="backgrounds_context">
       <input href="backgrounds/backgrounds.ditamap"/>
     </context>
@@ -47,12 +47,23 @@
     </publication>
   </deliverable>
   
-  <deliverable name="Reveal Presentation - With progress bar" id="progress-bar">
+  <deliverable name="Progress bar" id="progress-bar">
     <context idref="reveal_context"/>
     <output href="./progress-bar"/>
     <publication transtype="reveal">
       <param name="reveal.view" value="scroll"/>
       <param name="reveal.scrollprogress" value="true"/>
+    </publication>
+  </deliverable>
+
+  <deliverable name="Layout helpers" id="layout-helpers">
+    <context name="Layout helpers" id="layout-helpers_context">
+      <input href="layout-helpers/layout-helpers.ditamap"/>
+    </context>
+    <output href="./layout-helpers"/>
+    <publication transtype="reveal">
+      <param name="reveal.center" value="true"/>
+      <param name="reveal.hash" value="true"/>
     </publication>
   </deliverable>
 
