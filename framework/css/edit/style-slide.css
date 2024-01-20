@@ -20,6 +20,48 @@
 }
 
 
+/* ============================================================
+ * Block element border
+ */
+*[class~='slide/slide']:before(300),
+*[class~='slide/slide-div']:before(300),
+*[class~='slide/slide-p']:before(300) {
+    display: block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    width: 740px;
+    padding-left: 10px;
+}
+*[class~='slide/slide'],
+*[class~='slide/slide-div'],
+*[class~='slide/slide-p'] {
+    display: block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: 1px solid lightgray;
+    width: 740px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+*[class~='slide/slide']:before,
+*[class~='slide/slide-div']:before,
+*[class~='slide/slide-p']:before {
+    content: ' ';
+    width: 750px;
+    display: block;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+*[class~='slide/slide']:not(:last-child)
+*[class~='slide/slide-div']:not(:last-child),
+*[class~='slide/slide-p']:not(:last-child) {
+    margin-bottom: 1.5em;
+}
+
 
 /* ============================================================
  * Attributes
@@ -242,14 +284,6 @@
 /* ============================================================
  * <slide>
  */
-*[class~='slide/slide']:before {
-    content: ' ';
-    width: 750px;
-    display: block;
-    border-left: 1px solid lightgray;
-    border-right: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-}
 
 *[class~='slide/slide']:before(300) {
     content:
@@ -391,14 +425,6 @@
                     )
                 )
         );
-    display: block;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    border-left: 1px solid lightgray;
-    border-right: 1px solid lightgray;
-    border-top: 1px solid lightgray;
-    width: 740px;
-    padding-left: 10px;
 }
 
 
@@ -491,6 +517,60 @@
                 )
         );
     display: block;
+}
+
+
+/* ============================================================
+ * <div>
+ */
+*[class~='topic/div'][class~='slide/slide-div']:before(300) {
+    content:
+        oxy_buttonGroup(
+            label, '<div>',
+            tooltip, 'Division',
+            actions,
+                oxy_action_list(
+                    oxy_action(
+                        name, 'outputclass', 
+                        description, 'outputclass', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'outputclass',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'Delete', 
+                        description, 'Deletes the current element', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.DeleteElementOperation'
+                    )
+                )
+        );
+}
+
+
+/* ============================================================
+ * <p>
+ */
+*[class~='topic/p'][class~='slide/slide-p']:before(300) {
+    content:
+        oxy_buttonGroup(
+            label, '<p>',
+            tooltip, 'Paragraph',
+            actions,
+                oxy_action_list(
+                    oxy_action(
+                        name, 'outputclass', 
+                        description, 'outputclass', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation', 
+                        arg-name, 'outputclass',
+                        arg-value, ' '
+                    ),
+                    oxy_action(
+                        name, 'Delete', 
+                        description, 'Deletes the current element', 
+                        operation, 'ro.sync.ecss.extensions.commons.operations.DeleteElementOperation'
+                    )
+                )
+        );
 }
 
 

@@ -7,7 +7,8 @@
   <topicref href="slide04.dita"/>
   <topicref href="slide05.dita" keys="stretch"/>
   <topicref href="slide06.dita"/>
-  <topicref href="slide02.dita" keys="stack"/>
+  <topicref href="slide07.dita" keys="stack"/>
+  <topicref href="slide08.dita"/>
   <topicref href="slide02.dita" keys="hstack"/>
   <topicref href="slide02.dita" keys="vstack"/>
 </map>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<slide id="slide08">
+  <title>Stack Example</title>
+  <body>
+    <div outputclass=" r-stack">
+      <p outputclass="fragment fade-in-then-out">One</p>
+      <p outputclass="fragment fade-in-then-out">Two</p>
+      <p outputclass="fragment fade-in-then-out">Three</p>
+      <p outputclass="fragment fade-in-then-out">Four</p>
+    </div>
+  </body>
+</slide>

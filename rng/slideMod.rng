@@ -359,13 +359,13 @@
     <div>
       <a:documentation>LONG NAME: Custom Slide Div</a:documentation>
       <define name="slide-div.content">
-        <choice>
-          <ref name="div.cnt"/>
-          <oneOrMore>
+        <oneOrMore>
+          <choice>
+            <ref name="div.cnt"/>
             <ref name="slide-div"/>
-          </oneOrMore>
-          <text/>
-        </choice>
+            <text/>
+          </choice>
+        </oneOrMore>
       </define>
       <define name="slide-div.attributes">
         <ref name="univ-atts"/>
@@ -442,7 +442,7 @@
           <choice>
             <text/>
             <ref name="basic.ph.notm"/>
-            <ref name="coderef"/>
+            <!--<ref name="coderef"/>-->
             <ref name="data.elements.incl"/>
             <ref name="foreign.unknown.incl"/>
             <ref name="txt.incl"/>

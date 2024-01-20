@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:jung:dita:rng:slide.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<slide id="slide07">
+  <title>Stack</title>
+  <body>
+    <p>Stacks multiple elements on top of each other, for use with fragments.</p>
+    <pre><codeblock outputclass="language-html" data-trim=" " data-line-numbers=" ">&lt;div class="r-stack">
+&lt;img class="fragment" width="450" height="350" src="..."/>
+&lt;img class="fragment" width="350" height="450" src="..."/>
+&lt;img class="fragment" width="400" height="400" src="..."/></codeblock></pre>
+  </body>
+</slide>
