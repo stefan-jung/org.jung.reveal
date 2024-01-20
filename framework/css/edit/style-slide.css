@@ -21,6 +21,14 @@
 
 
 /* ============================================================
+ * @style
+ */
+*[style] {
+   -oxy-style:attr(style);
+}
+
+
+/* ============================================================
  * Block element border
  */
 *[class~='slide/slide']:before(300),
@@ -544,6 +552,9 @@
                     )
                 )
         );
+}
+*[class~='topic/div'][class~='slide/slide-div'] {
+    display:-oxy-morph;
 }
 
 
