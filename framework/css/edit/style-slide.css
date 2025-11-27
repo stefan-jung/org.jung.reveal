@@ -431,8 +431,21 @@
                         description, 'Deletes the current element', 
                         operation, 'ro.sync.ecss.extensions.commons.operations.DeleteElementOperation'
                     )
+                    oxy_action(
+                        id, 'edit.properties.provider'
+                    )
                 )
-        );
+        )
+        oxy_label(
+            text, oxy_attributes(),
+            styles, "font-size: 12pt; color: orange; font-weight: normal;"
+        )
+        oxy_button(
+         actionID, 'edit.properties.provider',
+         showIcon, true
+)
+
+        ;
 }
 
 
