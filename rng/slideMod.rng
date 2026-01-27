@@ -502,6 +502,21 @@
       </define>
       <define name="slide-image.attributes">
         <optional>
+          <attribute name="data-preview-image">
+            <choice>
+              <value>yes</value>
+              <value>no</value>
+              <value>-dita-use-conref-target</value>
+            </choice>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="data-preview-image-href"/>
+        </optional>
+        <optional>
+          <attribute name="data-preview-video-href"/>
+        </optional>
+        <optional>
           <attribute name="href"/>
         </optional>
         <optional>

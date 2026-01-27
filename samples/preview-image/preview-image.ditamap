@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:map.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map>
+    <topicref href="image.dita"/>
+    <topicref href="preview-image.dita"/>
+    <topicref href="preview-image-separate-preview.dita"/>
+</map>

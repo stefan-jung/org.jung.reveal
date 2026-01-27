@@ -66,5 +66,13 @@
       <param name="reveal.hash" value="true"/>
     </publication>
   </deliverable>
-
+  
+  <deliverable name="Preview image" id="preview-image">
+    <context name="Preview image" id="preview-image_context">
+      <input href="preview-image/preview-image.ditamap"/>
+    </context>
+    <output href="./preview-image"/>
+    <publication transtype="reveal"/>
+  </deliverable>
+  
 </project>

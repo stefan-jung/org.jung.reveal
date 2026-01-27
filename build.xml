@@ -24,8 +24,8 @@
     
     <target name="reveal.init">
         <echo level="info">*****************************************************************</echo>
-        <!-- Fallback to version 5.0.4 if not defined. -->
-        <property unless:set="reveal.version" name="reveal.version" value="5.0.4"/>
+        <!-- Fallback to version 5.2.1 if not defined. -->
+        <property unless:set="reveal.version" name="reveal.version" value="5.2.1"/>
         <echo level="info">* reveal.version = ${reveal.version}</echo>
         
         <!-- Download URL of the reveal.js archive. -->

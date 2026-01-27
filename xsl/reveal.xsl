@@ -421,7 +421,12 @@
         <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
         <img>
             <!-- Add support for Reveal lightbox feature -->
-            <xsl:attribute name="data-preview-image"/>
+            <xsl:if test="@data-preview-image = 'yes' and not(@data-preview-image-href)">
+                <xsl:attribute name="data-preview-image"/>
+            </xsl:if>
+            <xsl:if test="@data-preview-image-href">
+                <xsl:attribute name="data-preview-image" select="@data-preview-image-href"/>
+            </xsl:if>
             <xsl:apply-templates select="." mode="reveal-slide-attributes"/>
             <xsl:call-template name="commonattributes">
                 <xsl:with-param name="default-output-class">
